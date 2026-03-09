@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
 
   <title>Sebastian Rojas-Ordoñez | Robotics & Control Engineer</title>
-  <meta name="description" content="Robotics & Control Engineer focused on Digital Twins (FMI/Modelica), ROS 2, Edge AI (ONNX/Jetson), robust autonomy, localization, and embedded systems." />
+  <meta name="description" content="Sebastian Rojas-Ordoñez — Robotics & Control Engineer focused on Digital Twins (FMI/Modelica), ROS 2, Edge AI (ONNX/Jetson), robust autonomy, localization, and embedded systems." />
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
   <link rel="canonical" href="https://sebastianrojas-ordoñez.com/" />
 
   <meta property="og:title" content="Sebastian Rojas-Ordoñez | Robotics & Control Engineer" />
-  <meta property="og:description" content="Digital Twins • ROS 2 • Edge AI • Robust Autonomy — research, projects, publications, resources." />
+  <meta property="og:description" content="Digital Twins • ROS 2 • Edge AI • Robust Autonomy — projects, publications, resources." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://sebastianrojas-ordoñez.com/" />
   <meta name="twitter:card" content="summary" />
@@ -44,36 +44,36 @@
 
   <style>
     :root{
-      --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.70);
-      --muted2: rgba(255,255,255,.55);
+      --text: rgba(255,255,255,.93);
+      --muted: rgba(255,255,255,.72);
+      --muted2: rgba(255,255,255,.56);
 
-      --panel: rgba(12,14,22,.64);
       --border: rgba(255,255,255,.14);
       --border2: rgba(255,255,255,.10);
 
       --accent: rgba(140,255,223,.95);
-      --accent2: rgba(82,124,255,.88);
-      --shadow: 0 34px 120px rgba(0,0,0,.75);
+      --accent2: rgba(82,124,255,.90);
 
-      --r: 24px;
+      --panelA: rgba(10,12,18,.58);
+      --panelB: rgba(10,12,18,.38);
+
+      --shadow: 0 40px 140px rgba(0,0,0,.78);
+      --r: 22px;
     }
 
     *{ box-sizing:border-box; }
-    html, body { height: 100%; }
+    html,body{ height:100%; }
     body{
       margin:0;
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       color: var(--text);
-      background: #000;
+      background:#000;
       overflow-x:hidden;
     }
     a{ color:inherit; text-decoration:none; }
 
-    /* ===== Background video + overlays ===== */
-    .bg{
-      position:fixed; inset:0; z-index:-10; overflow:hidden; background:#000;
-    }
+    /* Background video + cyber overlays */
+    .bg{ position:fixed; inset:0; z-index:-10; overflow:hidden; background:#000; }
     .bg video{
       width:100%; height:100%;
       object-fit:cover;
@@ -84,8 +84,8 @@
     .overlay{
       position:fixed; inset:0; z-index:-9; pointer-events:none;
       background:
-        radial-gradient(1200px 720px at 16% 10%, rgba(140,255,223,.16), transparent 62%),
-        radial-gradient(1000px 680px at 84% 26%, rgba(82,124,255,.16), transparent 62%),
+        radial-gradient(1200px 720px at 16% 10%, rgba(140,255,223,.18), transparent 62%),
+        radial-gradient(1000px 680px at 84% 26%, rgba(82,124,255,.18), transparent 62%),
         linear-gradient(180deg, rgba(0,0,0,.92) 0%, rgba(0,0,0,.55) 55%, rgba(0,0,0,.94) 100%);
     }
     .grid{
@@ -94,7 +94,7 @@
         linear-gradient(to right, rgba(255,255,255,.06) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(255,255,255,.06) 1px, transparent 1px);
       background-size: 56px 56px;
-      opacity: .09;
+      opacity:.09;
       mask-image: radial-gradient(900px 520px at 50% 28%, rgba(0,0,0,1), transparent 70%);
     }
     .scanlines{
@@ -106,17 +106,17 @@
         transparent 1px,
         transparent 6px
       );
-      opacity: .04;
+      opacity:.04;
       mix-blend-mode: overlay;
     }
 
     .wrap{
       max-width: 1200px;
       margin: 0 auto;
-      padding: 20px 18px 100px;
+      padding: 22px 18px 92px;
     }
 
-    /* ===== Real header nav ===== */
+    /* Real navbar */
     .nav{
       position: sticky;
       top: 16px;
@@ -134,14 +134,14 @@
     }
     .brand{
       display:flex; align-items:center; gap:12px;
-      min-width: 260px;
+      min-width: 280px;
     }
     .dot{
       width: 12px; height:12px; border-radius:999px;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 0 0 7px rgba(140,255,223,.10), 0 0 40px rgba(140,255,223,.22);
+      box-shadow: 0 0 0 7px rgba(140,255,223,.10), 0 0 46px rgba(140,255,223,.22);
     }
-    .brand b{ font-weight: 900; letter-spacing:.2px; line-height: 1.1; }
+    .brand b{ font-weight: 900; letter-spacing:.2px; line-height:1.1; }
     .brand small{
       display:block;
       font-size: 12px;
@@ -149,7 +149,6 @@
       margin-top: 2px;
       letter-spacing:.2px;
     }
-
     .nav-links{
       display:flex;
       gap: 10px;
@@ -162,7 +161,7 @@
       border: 1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.03);
       border-radius: 12px;
-      color: rgba(255,255,255,.84);
+      color: rgba(255,255,255,.86);
       font-size: 13px;
       transition: transform .15s ease, background .15s ease, border-color .15s ease;
     }
@@ -172,26 +171,26 @@
       border-color: rgba(140,255,223,.22);
     }
 
-    .cta-btn{
+    .cta{
       padding: 10px 12px;
       border-radius: 12px;
-      border: 1px solid rgba(140,255,223,.42);
+      border: 1px solid rgba(140,255,223,.44);
       background: linear-gradient(135deg, rgba(140,255,223,.22), rgba(82,124,255,.14));
       font-weight: 900;
       font-size: 13px;
       box-shadow: 0 18px 60px rgba(140,255,223,.10);
       white-space: nowrap;
     }
-    .cta-btn:hover{
-      border-color: rgba(140,255,223,.60);
+    .cta:hover{
+      border-color: rgba(140,255,223,.62);
       background: linear-gradient(135deg, rgba(140,255,223,.30), rgba(82,124,255,.18));
     }
 
-    /* ===== Hero ===== */
+    /* Hero layout */
     .hero{
       margin-top: 26px;
       display:grid;
-      grid-template-columns: 1.1fr 0.9fr;
+      grid-template-columns: 1.15fr 0.85fr;
       gap: 16px;
       align-items: stretch;
     }
@@ -215,8 +214,7 @@
     }
     .panel > *{ position:relative; z-index:1; }
 
-    .hero-left{ padding: 30px; }
-
+    .left{ padding: 30px; }
     .kicker{
       display:inline-flex;
       align-items:center;
@@ -242,37 +240,36 @@
 
     h1{
       margin: 18px 0 10px;
-      font-size: 68px;
+      font-size: 66px;
       line-height: 0.98;
       letter-spacing: -1.6px;
       font-weight: 900;
     }
-
     .sub{
       margin: 0;
       font-size: 16px;
       line-height: 1.65;
       color: var(--muted);
-      max-width: 720px;
+      max-width: 760px;
     }
 
-    /* Typing */
+    /* Typing line */
     .typing{
       margin-top: 14px;
       font-size: 13.5px;
-      color: rgba(255,255,255,.78);
+      color: rgba(255,255,255,.80);
       display:flex;
       gap: 8px;
       align-items:center;
       flex-wrap:wrap;
     }
     .typing code{
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
       background: rgba(255,255,255,.06);
       border: 1px solid rgba(255,255,255,.10);
       padding: 6px 8px;
       border-radius: 12px;
-      color: rgba(255,255,255,.86);
+      color: rgba(255,255,255,.90);
     }
     .cursor{
       width: 10px;
@@ -283,20 +280,18 @@
     }
     @keyframes blink{ 50%{ opacity: 0; } }
 
-    /* ===== Tech stack logos (YOUR commercial logos) ===== */
+    /* Tech wall with your logos */
     .tech-wall{
       margin-top: 18px;
       border: 1px solid rgba(255,255,255,.10);
       border-radius: 18px;
       background: rgba(255,255,255,.02);
       padding: 14px;
-      display: flex;
-      flex-wrap: wrap;
+      display:flex;
+      flex-wrap:wrap;
       gap: 12px;
-      align-items: center;
+      align-items:center;
     }
-
-    /* Slightly muted by default, full color on hover */
     .logo{
       display:flex;
       align-items:center;
@@ -313,27 +308,22 @@
       background: rgba(255,255,255,.07);
       border-color: rgba(140,255,223,.22);
     }
-
     .logo img{
-      width: 18px;
-      height: 18px;
+      width: 18px; height: 18px;
       object-fit: contain;
       display:block;
-      filter: saturate(.80) brightness(.95) drop-shadow(0 10px 18px rgba(0,0,0,.35));
+      filter: saturate(.82) brightness(.96) drop-shadow(0 10px 18px rgba(0,0,0,.35));
     }
-    .logo:hover img{
-      filter: saturate(1) brightness(1) drop-shadow(0 14px 24px rgba(0,0,0,.42));
-    }
-
+    .logo:hover img{ filter: saturate(1) brightness(1) drop-shadow(0 14px 24px rgba(0,0,0,.42)); }
     .logo span{
       font-size: 12.5px;
-      color: rgba(255,255,255,.84);
-      font-weight: 700;
-      letter-spacing: .2px;
+      color: rgba(255,255,255,.86);
+      font-weight: 750;
+      letter-spacing:.2px;
     }
 
-    /* External links row (moved down) */
-    .external-row{
+    /* External links row (below, clean) */
+    .external{
       margin-top: 14px;
       display:flex;
       flex-wrap:wrap;
@@ -359,10 +349,10 @@
       border-color: rgba(140,255,223,.22);
     }
     .ext svg{ width:18px; height:18px; fill: rgba(255,255,255,.90); }
-    .ext span{ color: rgba(255,255,255,.86); font-weight: 700; }
+    .ext span{ color: rgba(255,255,255,.88); font-weight: 750; }
 
     /* Right panel */
-    .hero-right{ padding: 18px; display:flex; flex-direction:column; gap: 12px; }
+    .right{ padding: 18px; display:flex; flex-direction:column; gap: 12px; }
     .portrait{
       border-radius: 22px;
       border: 1px solid rgba(255,255,255,.16);
@@ -371,12 +361,7 @@
       aspect-ratio: 4 / 4;
       box-shadow: 0 18px 70px rgba(0,0,0,.45);
     }
-    .portrait img{
-      width:100%; height:100%;
-      object-fit:cover;
-      display:block;
-      transform: scale(1.02);
-    }
+    .portrait img{ width:100%; height:100%; object-fit:cover; display:block; transform: scale(1.02); }
 
     .stats{
       display:grid;
@@ -411,7 +396,7 @@
     }
     @media (max-width: 760px){
       .nav-links{ display:none; }
-      .cta-btn{ display:none; }
+      .cta{ display:none; }
     }
     @media (prefers-reduced-motion: reduce){
       .bg video{ display:none; }
@@ -424,9 +409,9 @@
 
 <body>
   <div class="bg" aria-hidden="true">
-    <video autoplay muted loop playsinline preload="metadata" poster="/assets/poster.jpg">
-      <source src="/assets/hero.webm" type="video/webm">
-      <source src="/assets/hero.mp4" type="video/mp4">
+    <video autoplay muted loop playsinline preload="metadata" poster="assets/poster.jpg">
+      <source src="assets/hero.webm" type="video/webm">
+      <source src="assets/hero.mp4" type="video/mp4">
     </video>
   </div>
   <div class="overlay" aria-hidden="true"></div>
@@ -444,18 +429,17 @@
       </div>
 
       <div class="nav-links" aria-label="Site sections">
-        <a href="/research/">Research</a>
-        <a href="/projects/">Projects</a>
-        <a href="/publications/">Publications</a>
-        <a href="/resources/">Resources</a>
-        <a href="/contact/">Contact</a>
+        <a href="#about">About</a>
+        <a href="#stack">Tech</a>
+        <a href="#links">Links</a>
+        <a href="https://maiegypt.my.canva.site/sebastian-rojas-ordonez" target="_blank" rel="noopener">Portfolio</a>
       </div>
 
-      <a class="cta-btn" href="/projects/">Explore</a>
+      <a class="cta" href="https://maiegypt.my.canva.site/sebastian-rojas-ordonez" target="_blank" rel="noopener">Enter Portfolio</a>
     </div>
 
-    <section class="hero">
-      <div class="panel hero-left">
+    <section class="hero" id="about">
+      <div class="panel left">
         <div class="kicker"><span class="pulse" aria-hidden="true"></span> Available for research & engineering roles</div>
 
         <h1>Sebastian<br>Rojas-Ordoñez</h1>
@@ -465,60 +449,49 @@
           with a strong focus on robust localization and safety-aware autonomy.
         </p>
 
-        <div class="typing">
+        <div class="typing" aria-label="Typing line">
           <span>Currently building:</span>
           <code id="typed"></code>
           <span class="cursor" aria-hidden="true"></span>
         </div>
 
-        <!-- YOUR commercial logos -->
-        <div class="tech-wall" aria-label="Technology stack">
-          <a class="logo" href="/projects/" title="ROS 2">
-            <img src="/assets/logos/ros2.svg" alt="ROS 2 logo" loading="lazy">
-            <span>ROS 2</span>
+        <div class="tech-wall" id="stack" aria-label="Technology stack">
+          <a class="logo" href="https://maiegypt.my.canva.site/sebastian-rojas-ordonez" target="_blank" rel="noopener" title="ROS 2">
+            <img src="assets/logos/ros2.svg" alt="ROS 2 logo" loading="lazy"><span>ROS 2</span>
           </a>
-          <a class="logo" href="/projects/" title="NVIDIA / Jetson">
-            <img src="/assets/logos/nvidia.svg" alt="NVIDIA logo" loading="lazy">
-            <span>Jetson</span>
+          <a class="logo" href="https://maiegypt.my.canva.site/sebastian-rojas-ordonez" target="_blank" rel="noopener" title="NVIDIA / Jetson">
+            <img src="assets/logos/nvidia.svg" alt="NVIDIA logo" loading="lazy"><span>Jetson</span>
           </a>
-          <a class="logo" href="/projects/" title="ONNX">
-            <img src="/assets/logos/onnx.svg" alt="ONNX logo" loading="lazy">
-            <span>ONNX</span>
+          <a class="logo" href="https://maiegypt.my.canva.site/sebastian-rojas-ordonez" target="_blank" rel="noopener" title="ONNX">
+            <img src="assets/logos/onnx.svg" alt="ONNX logo" loading="lazy"><span>ONNX</span>
           </a>
-          <a class="logo" href="/projects/" title="Python">
-            <img src="/assets/logos/python.svg" alt="Python logo" loading="lazy">
-            <span>Python</span>
+          <a class="logo" href="https://maiegypt.my.canva.site/sebastian-rojas-ordonez" target="_blank" rel="noopener" title="Python">
+            <img src="assets/logos/python.svg" alt="Python logo" loading="lazy"><span>Python</span>
           </a>
-          <a class="logo" href="/projects/" title="C++">
-            <img src="/assets/logos/cpp.svg" alt="C++ logo" loading="lazy">
-            <span>C++</span>
+          <a class="logo" href="https://maiegypt.my.canva.site/sebastian-rojas-ordonez" target="_blank" rel="noopener" title="C++">
+            <img src="assets/logos/cpp.svg" alt="C++ logo" loading="lazy"><span>C++</span>
           </a>
-          <a class="logo" href="/projects/" title="Linux">
-            <img src="/assets/logos/linux.svg" alt="Linux logo" loading="lazy">
-            <span>Linux</span>
+          <a class="logo" href="https://maiegypt.my.canva.site/sebastian-rojas-ordonez" target="_blank" rel="noopener" title="Linux">
+            <img src="assets/logos/linux.svg" alt="Linux logo" loading="lazy"><span>Linux</span>
           </a>
-          <a class="logo" href="/projects/" title="Docker">
-            <img src="/assets/logos/docker.svg" alt="Docker logo" loading="lazy">
-            <span>Docker</span>
+          <a class="logo" href="https://maiegypt.my.canva.site/sebastian-rojas-ordonez" target="_blank" rel="noopener" title="Docker">
+            <img src="assets/logos/docker.svg" alt="Docker logo" loading="lazy"><span>Docker</span>
           </a>
-          <a class="logo" href="/projects/" title="Gazebo">
-            <img src="/assets/logos/gazebo.svg" alt="Gazebo logo" loading="lazy">
-            <span>Gazebo</span>
+          <a class="logo" href="https://maiegypt.my.canva.site/sebastian-rojas-ordonez" target="_blank" rel="noopener" title="Gazebo">
+            <img src="assets/logos/gazebo.svg" alt="Gazebo logo" loading="lazy"><span>Gazebo</span>
           </a>
-          <a class="logo" href="/projects/" title="SolidWorks">
-            <img src="/assets/logos/solidworks.svg" alt="SolidWorks logo" loading="lazy">
-            <span>SolidWorks</span>
+          <a class="logo" href="https://maiegypt.my.canva.site/sebastian-rojas-ordonez" target="_blank" rel="noopener" title="SolidWorks">
+            <img src="assets/logos/solidworks.svg" alt="SolidWorks logo" loading="lazy"><span>SolidWorks</span>
           </a>
         </div>
 
-        <!-- External profiles (down, not in header) -->
-        <div class="external-row" aria-label="External profiles">
-          <a class="ext" href="https://scholar.google.com/citations?user=HSflBLwAAAAJ&hl=es&authuser=2" rel="me">
+        <div class="external" id="links" aria-label="External profiles">
+          <a class="ext" href="https://scholar.google.com/citations?user=HSflBLwAAAAJ&hl=es&authuser=2" target="_blank" rel="me noopener">
             <svg viewBox="0 0 24 24"><path d="M12 3 1 8l11 5 9-4.09V16h2V8L12 3zm-6.5 8.27V14c0 2.21 2.91 4 6.5 4s6.5-1.79 6.5-4v-2.73L12 14l-6.5-2.73z"/></svg>
             <span>Scholar</span>
           </a>
 
-          <a class="ext" href="https://orcid.org/0009-0000-5142-1284" rel="me">
+          <a class="ext" href="https://orcid.org/0009-0000-5142-1284" target="_blank" rel="me noopener">
             <svg viewBox="0 0 24 24">
               <circle cx="12" cy="12" r="9" fill="none" stroke="rgba(255,255,255,.90)" stroke-width="2"/>
               <path d="M8.2 16.2V9.2" fill="none" stroke="rgba(255,255,255,.90)" stroke-width="2" stroke-linecap="round"/>
@@ -528,30 +501,30 @@
             <span>ORCID</span>
           </a>
 
-          <a class="ext" href="https://github.com/SeRoMechatronic" rel="me">
+          <a class="ext" href="https://github.com/SeRoMechatronic" target="_blank" rel="me noopener">
             <svg viewBox="0 0 24 24"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.4c.58.1.8-.25.8-.56v-2c-3.26.71-3.95-1.4-3.95-1.4-.54-1.38-1.32-1.75-1.32-1.75-1.08-.74.08-.73.08-.73 1.2.08 1.83 1.23 1.83 1.23 1.06 1.82 2.78 1.3 3.46 1 .1-.77.42-1.3.76-1.6-2.6-.3-5.34-1.3-5.34-5.8 0-1.28.46-2.33 1.22-3.15-.12-.3-.53-1.52.12-3.17 0 0 1-.32 3.27 1.2a11.3 11.3 0 0 1 5.95 0c2.27-1.52 3.27-1.2 3.27-1.2.65 1.65.24 2.87.12 3.17.76.82 1.22 1.87 1.22 3.15 0 4.51-2.74 5.5-5.35 5.79.43.37.82 1.1.82 2.22v3.3c0 .31.21.66.81.55A11.5 11.5 0 0 0 12 .5z"/></svg>
             <span>GitHub</span>
           </a>
 
-          <a class="ext" href="https://www.linkedin.com/in/sebastian-rojasordoñez/" rel="me">
+          <a class="ext" href="https://www.linkedin.com/in/sebastian-rojasordoñez/" target="_blank" rel="me noopener">
             <svg viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V24h-4V8zM8 8h3.8v2.2h.05c.53-1 1.82-2.2 3.75-2.2 4.01 0 4.75 2.64 4.75 6.07V24h-4v-8.4c0-2-.04-4.57-2.78-4.57-2.78 0-3.2 2.17-3.2 4.42V24H8V8z"/></svg>
             <span>LinkedIn</span>
           </a>
 
-          <a class="ext" href="https://independent.academia.edu/Sebastian_RojasOrdoñez" rel="me">
+          <a class="ext" href="https://independent.academia.edu/Sebastian_RojasOrdoñez" target="_blank" rel="me noopener">
             <svg viewBox="0 0 24 24"><path d="M12 2 2 22h3l2.2-4.6h9.6L19 22h3L12 2zm-3.3 12.6L12 7.8l3.3 6.8H8.7z"/></svg>
             <span>Academia</span>
           </a>
         </div>
       </div>
 
-      <aside class="panel hero-right">
+      <aside class="panel right" aria-label="Profile">
         <div class="portrait">
-          <img src="/assets/profile.jpg" alt="Portrait of Sebastian Rojas-Ordoñez">
+          <img src="assets/profile.jpg" alt="Portrait of Sebastian Rojas-Ordoñez">
         </div>
-        <div class="stats" aria-label="Quick stats">
-          <div class="stat"><b>Digital Twins</b><span>FMI/Modelica • validation & interoperability</span></div>
-          <div class="stat"><b>Edge AI</b><span>ONNX pipelines for low-latency inference</span></div>
+        <div class="stats" aria-label="Highlights">
+          <div class="stat"><b>Digital Twins</b><span>FMI/Modelica • co-simulation • interoperability</span></div>
+          <div class="stat"><b>Edge AI</b><span>ONNX pipelines • low latency on embedded</span></div>
           <div class="stat"><b>Autonomy</b><span>Localization + safety-aware control layers</span></div>
         </div>
       </aside>
@@ -566,7 +539,6 @@
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
 
-    // Typing effect
     const phrases = [
       "FMI/Modelica ↔ ROS 2 co-simulation pipelines",
       "real-time edge AI inference with ONNX on Jetson",
