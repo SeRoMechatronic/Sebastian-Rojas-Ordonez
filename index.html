@@ -43,6 +43,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
+    /* =========================
+       THEME TOKENS (Dark default)
+       ========================= */
     :root{
       --text: rgba(255,255,255,.93);
       --muted: rgba(255,255,255,.72);
@@ -54,30 +57,79 @@
       --accent: rgba(140,255,223,.95);
       --accent2: rgba(82,124,255,.90);
 
-      --panelA: rgba(10,12,18,.58);
-      --panelB: rgba(10,12,18,.38);
-
       --shadow: 0 40px 140px rgba(0,0,0,.78);
       --r: 22px;
+
+      --bg-base: #000;
+      --nav-bg: rgba(8,10,16,.55);
+      --panel-bg-top: rgba(255,255,255,.08);
+      --panel-bg-bot: rgba(255,255,255,.03);
+
+      --video-opacity: .16;
+      --grid-opacity: .09;
+      --scan-opacity: .04;
+      --overlay-top: rgba(0,0,0,.92);
+      --overlay-mid: rgba(0,0,0,.52);
+      --overlay-bot: rgba(0,0,0,.94);
+
+      --link-chip: rgba(255,255,255,.03);
+      --link-chip-hover: rgba(255,255,255,.08);
+
+      --card-bg: rgba(255,255,255,.03);
+      --card-hover: rgba(255,255,255,.06);
+    }
+
+    /* Light mode overrides */
+    [data-theme="light"]{
+      --text: rgba(12,16,26,.92);
+      --muted: rgba(12,16,26,.70);
+      --muted2: rgba(12,16,26,.56);
+
+      --border: rgba(12,16,26,.18);
+      --border2: rgba(12,16,26,.12);
+
+      --bg-base: #f6f7fb;
+      --nav-bg: rgba(255,255,255,.72);
+      --panel-bg-top: rgba(255,255,255,.86);
+      --panel-bg-bot: rgba(255,255,255,.64);
+
+      --shadow: 0 34px 120px rgba(0,0,0,.18);
+
+      --video-opacity: .10;
+      --grid-opacity: .06;
+      --scan-opacity: .02;
+      --overlay-top: rgba(246,247,251,.76);
+      --overlay-mid: rgba(246,247,251,.52);
+      --overlay-bot: rgba(246,247,251,.86);
+
+      --link-chip: rgba(0,0,0,.04);
+      --link-chip-hover: rgba(0,0,0,.07);
+
+      --card-bg: rgba(0,0,0,.03);
+      --card-hover: rgba(0,0,0,.05);
     }
 
     *{ box-sizing:border-box; }
     html,body{ height:100%; }
+    html{ scroll-behavior:smooth; }
     body{
       margin:0;
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       color: var(--text);
-      background:#000;
+      background: var(--bg-base);
       overflow-x:hidden;
     }
     a{ color:inherit; text-decoration:none; }
+    .container{ max-width: 1200px; margin: 0 auto; padding: 22px 18px 92px; }
 
-    /* Background video + cyber overlays */
-    .bg{ position:fixed; inset:0; z-index:-10; overflow:hidden; background:#000; }
+    /* =========================
+       BACKGROUND
+       ========================= */
+    .bg{ position:fixed; inset:0; z-index:-10; overflow:hidden; background: var(--bg-base); }
     .bg video{
       width:100%; height:100%;
       object-fit:cover;
-      opacity:.18;
+      opacity: var(--video-opacity);
       filter: saturate(1.12) contrast(1.10);
       transform: scale(1.03);
     }
@@ -86,117 +138,139 @@
       background:
         radial-gradient(1200px 720px at 16% 10%, rgba(140,255,223,.18), transparent 62%),
         radial-gradient(1000px 680px at 84% 26%, rgba(82,124,255,.18), transparent 62%),
-        linear-gradient(180deg, rgba(0,0,0,.92) 0%, rgba(0,0,0,.55) 55%, rgba(0,0,0,.94) 100%);
+        linear-gradient(180deg, var(--overlay-top) 0%, var(--overlay-mid) 55%, var(--overlay-bot) 100%);
     }
     .grid{
       position:fixed; inset:0; z-index:-8; pointer-events:none;
       background:
-        linear-gradient(to right, rgba(255,255,255,.06) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255,255,255,.06) 1px, transparent 1px);
+        linear-gradient(to right, rgba(255,255,255,.18) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,.18) 1px, transparent 1px);
       background-size: 56px 56px;
-      opacity:.09;
-      mask-image: radial-gradient(900px 520px at 50% 28%, rgba(0,0,0,1), transparent 70%);
+      opacity: var(--grid-opacity);
+      mask-image: radial-gradient(900px 520px at 50% 24%, rgba(0,0,0,1), transparent 70%);
+      mix-blend-mode: overlay;
+    }
+    [data-theme="light"] .grid{
+      background:
+        linear-gradient(to right, rgba(0,0,0,.14) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0,0,0,.14) 1px, transparent 1px);
+      mix-blend-mode: normal;
     }
     .scanlines{
       position:fixed; inset:0; z-index:-7; pointer-events:none;
       background: repeating-linear-gradient(
         to bottom,
-        rgba(255,255,255,.06),
-        rgba(255,255,255,.06) 1px,
+        rgba(255,255,255,.18),
+        rgba(255,255,255,.18) 1px,
         transparent 1px,
         transparent 6px
       );
-      opacity:.04;
+      opacity: var(--scan-opacity);
       mix-blend-mode: overlay;
     }
-
-    .wrap{
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 22px 18px 92px;
+    [data-theme="light"] .scanlines{
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(0,0,0,.10),
+        rgba(0,0,0,.10) 1px,
+        transparent 1px,
+        transparent 7px
+      );
+      mix-blend-mode: normal;
     }
 
-    /* Real navbar */
+    /* =========================
+       NAVBAR
+       ========================= */
     .nav{
       position: sticky;
       top: 16px;
       z-index: 50;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(8,10,16,.55);
+      border: 1px solid var(--border);
+      background: var(--nav-bg);
       backdrop-filter: blur(16px);
       border-radius: 18px;
-      box-shadow: 0 22px 70px rgba(0,0,0,.45);
+      box-shadow: 0 22px 70px rgba(0,0,0,.22);
       padding: 12px 14px;
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap: 14px;
     }
-    .brand{
-      display:flex; align-items:center; gap:12px;
-      min-width: 280px;
-    }
+    .brand{ display:flex; align-items:center; gap:12px; min-width: 280px; }
     .dot{
       width: 12px; height:12px; border-radius:999px;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 0 0 7px rgba(140,255,223,.10), 0 0 46px rgba(140,255,223,.22);
+      box-shadow: 0 0 0 7px rgba(140,255,223,.12), 0 0 46px rgba(140,255,223,.22);
     }
     .brand b{ font-weight: 900; letter-spacing:.2px; line-height:1.1; }
-    .brand small{
-      display:block;
-      font-size: 12px;
-      color: var(--muted2);
-      margin-top: 2px;
-      letter-spacing:.2px;
-    }
+    .brand small{ display:block; font-size: 12px; color: var(--muted2); margin-top: 2px; letter-spacing:.2px; }
+
     .nav-links{
-      display:flex;
-      gap: 10px;
-      flex-wrap:wrap;
-      align-items:center;
-      justify-content:center;
+      display:flex; gap: 10px; flex-wrap:wrap;
+      align-items:center; justify-content:center;
     }
     .nav-links a{
       padding: 10px 12px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03);
+      border: 1px solid var(--border2);
+      background: var(--link-chip);
       border-radius: 12px;
-      color: rgba(255,255,255,.86);
+      color: var(--text);
       font-size: 13px;
       transition: transform .15s ease, background .15s ease, border-color .15s ease;
     }
     .nav-links a:hover{
-      background: rgba(255,255,255,.08);
+      background: var(--link-chip-hover);
       transform: translateY(-1px);
       border-color: rgba(140,255,223,.22);
     }
 
-    .cta{
+    .nav-right{ display:flex; align-items:center; gap: 10px; }
+    .btn{
       padding: 10px 12px;
       border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--link-chip);
+      font-weight: 800;
+      font-size: 13px;
+      white-space: nowrap;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      cursor:pointer;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      background: var(--link-chip-hover);
+      border-color: rgba(140,255,223,.22);
+    }
+    .btn.primary{
       border: 1px solid rgba(140,255,223,.44);
       background: linear-gradient(135deg, rgba(140,255,223,.22), rgba(82,124,255,.14));
-      font-weight: 900;
-      font-size: 13px;
       box-shadow: 0 18px 60px rgba(140,255,223,.10);
-      white-space: nowrap;
     }
-    .cta:hover{
+    .btn.primary:hover{
       border-color: rgba(140,255,223,.62);
       background: linear-gradient(135deg, rgba(140,255,223,.30), rgba(82,124,255,.18));
     }
 
-    /* Hero layout */
-    .hero{
-      margin-top: 26px;
-      display:grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 16px;
-      align-items: stretch;
+    /* Theme toggle button */
+    .toggle{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
     }
+    .toggle svg{
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+      opacity: .9;
+    }
+
+    /* =========================
+       PANELS / SECTIONS
+       ========================= */
     .panel{
-      border:1px solid rgba(255,255,255,.16);
-      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, var(--panel-bg-top), var(--panel-bg-bot));
       border-radius: var(--r);
       box-shadow: var(--shadow);
       backdrop-filter: blur(18px);
@@ -207,26 +281,34 @@
       content:"";
       position:absolute; inset:-1px;
       background:
-        radial-gradient(520px 260px at 10% 10%, rgba(140,255,223,.22), transparent 60%),
-        radial-gradient(520px 260px at 88% 30%, rgba(82,124,255,.18), transparent 62%);
-      opacity:.70;
+        radial-gradient(520px 260px at 10% 10%, rgba(140,255,223,.18), transparent 60%),
+        radial-gradient(520px 260px at 88% 30%, rgba(82,124,255,.14), transparent 62%);
+      opacity:.75;
       pointer-events:none;
     }
     .panel > *{ position:relative; z-index:1; }
 
-    .left{ padding: 30px; }
+    .hero{
+      margin-top: 26px;
+      display:grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 16px;
+      align-items: stretch;
+    }
+    .left{ padding: 32px; }
+    .right{ padding: 18px; display:flex; flex-direction:column; gap: 12px; }
+
     .kicker{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
+      display:inline-flex; align-items:center; gap:10px;
       padding: 8px 12px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-      color: rgba(255,255,255,.76);
+      border: 1px solid var(--border2);
+      background: rgba(0,0,0,.08);
+      color: var(--muted);
       font-size: 12.5px;
       letter-spacing:.2px;
     }
+    [data-theme="light"] .kicker{ background: rgba(0,0,0,.03); }
     .kicker .pulse{
       width: 8px; height:8px; border-radius:999px;
       background: var(--accent);
@@ -240,24 +322,24 @@
 
     h1{
       margin: 18px 0 10px;
-      font-size: 66px;
+      font-size: 68px;
       line-height: 0.98;
-      letter-spacing: -1.6px;
+      letter-spacing: -1.7px;
       font-weight: 900;
     }
     .sub{
       margin: 0;
       font-size: 16px;
-      line-height: 1.65;
+      line-height: 1.7;
       color: var(--muted);
-      max-width: 760px;
+      max-width: 780px;
     }
 
-    /* Typing line */
+    /* Typing */
     .typing{
       margin-top: 14px;
       font-size: 13.5px;
-      color: rgba(255,255,255,.80);
+      color: var(--muted);
       display:flex;
       gap: 8px;
       align-items:center;
@@ -265,101 +347,93 @@
     }
     .typing code{
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.10);
+      border: 1px solid var(--border2);
       padding: 6px 8px;
       border-radius: 12px;
-      color: rgba(255,255,255,.90);
+      color: var(--text);
     }
+    [data-theme="light"] .typing code{ background: rgba(0,0,0,.04); }
     .cursor{
-      width: 10px;
-      height: 18px;
-      border-right: 2px solid rgba(255,255,255,.85);
-      opacity: .9;
+      width: 10px; height: 18px;
+      border-right: 2px solid currentColor;
+      opacity: .7;
       animation: blink 1s steps(2, start) infinite;
     }
     @keyframes blink{ 50%{ opacity: 0; } }
 
-    /* Tech wall with your logos */
+    /* Tech wall */
     .tech-wall{
       margin-top: 18px;
-      border: 1px solid rgba(255,255,255,.10);
+      border: 1px solid var(--border2);
       border-radius: 18px;
-      background: rgba(255,255,255,.02);
+      background: rgba(0,0,0,.06);
       padding: 14px;
       display:flex;
       flex-wrap:wrap;
       gap: 12px;
       align-items:center;
     }
+    [data-theme="light"] .tech-wall{ background: rgba(0,0,0,.02); }
+
     .logo{
-      display:flex;
-      align-items:center;
-      gap:10px;
+      display:flex; align-items:center; gap:10px;
       padding: 10px 12px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.28);
+      border: 1px solid var(--border2);
+      background: rgba(0,0,0,.10);
       backdrop-filter: blur(10px);
       transition: transform .15s ease, background .15s ease, border-color .15s ease, filter .15s ease;
     }
+    [data-theme="light"] .logo{ background: rgba(255,255,255,.66); }
     .logo:hover{
       transform: translateY(-1px);
-      background: rgba(255,255,255,.07);
+      background: rgba(0,0,0,.14);
       border-color: rgba(140,255,223,.22);
     }
+    [data-theme="light"] .logo:hover{ background: rgba(255,255,255,.86); }
     .logo img{
       width: 18px; height: 18px;
       object-fit: contain;
       display:block;
-      filter: saturate(.82) brightness(.96) drop-shadow(0 10px 18px rgba(0,0,0,.35));
+      filter: saturate(.90) brightness(.98) drop-shadow(0 10px 18px rgba(0,0,0,.25));
     }
-    .logo:hover img{ filter: saturate(1) brightness(1) drop-shadow(0 14px 24px rgba(0,0,0,.42)); }
-    .logo span{
-      font-size: 12.5px;
-      color: rgba(255,255,255,.86);
-      font-weight: 750;
-      letter-spacing:.2px;
-    }
+    .logo span{ font-size: 12.5px; color: var(--text); font-weight: 750; letter-spacing:.2px; }
 
-    /* External links row (below, clean) */
+    /* External links row */
     .external{
       margin-top: 14px;
-      display:flex;
-      flex-wrap:wrap;
-      gap: 10px;
-      align-items:center;
-      justify-content:flex-start;
+      display:flex; flex-wrap:wrap;
+      gap: 10px; align-items:center; justify-content:flex-start;
     }
     .ext{
-      display:inline-flex;
-      align-items:center;
-      gap: 10px;
+      display:inline-flex; align-items:center; gap: 10px;
       padding: 10px 12px;
       border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.03);
+      border: 1px solid var(--border2);
+      background: rgba(0,0,0,.08);
       backdrop-filter: blur(10px);
       transition: background .15s ease, transform .15s ease, border-color .15s ease;
       font-size: 13px;
     }
+    [data-theme="light"] .ext{ background: rgba(0,0,0,.03); }
     .ext:hover{
-      background: rgba(255,255,255,.08);
+      background: rgba(0,0,0,.12);
       transform: translateY(-1px);
       border-color: rgba(140,255,223,.22);
     }
-    .ext svg{ width:18px; height:18px; fill: rgba(255,255,255,.90); }
-    .ext span{ color: rgba(255,255,255,.88); font-weight: 750; }
+    [data-theme="light"] .ext:hover{ background: rgba(0,0,0,.06); }
+    .ext svg{ width:18px; height:18px; fill: currentColor; opacity:.9; }
+    .ext span{ font-weight: 750; }
 
-    /* Right panel */
-    .right{ padding: 18px; display:flex; flex-direction:column; gap: 12px; }
+    /* Right side portrait + stats */
     .portrait{
       border-radius: 22px;
-      border: 1px solid rgba(255,255,255,.16);
+      border: 1px solid var(--border);
       overflow:hidden;
-      background: rgba(255,255,255,.04);
+      background: rgba(0,0,0,.06);
       aspect-ratio: 4 / 4;
-      box-shadow: 0 18px 70px rgba(0,0,0,.45);
+      box-shadow: 0 18px 70px rgba(0,0,0,.25);
     }
     .portrait img{ width:100%; height:100%; object-fit:cover; display:block; transform: scale(1.02); }
 
@@ -369,42 +443,117 @@
       gap: 10px;
     }
     .stat{
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.03);
+      border: 1px solid var(--border2);
+      background: var(--card-bg);
       border-radius: 18px;
       padding: 12px 12px;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+    .stat:hover{
+      transform: translateY(-1px);
+      background: var(--card-hover);
+      border-color: rgba(140,255,223,.20);
     }
     .stat b{ display:block; font-size: 14px; letter-spacing:.2px; }
     .stat span{ display:block; color: var(--muted2); font-size: 12.5px; margin-top: 4px; line-height:1.3; }
 
-    footer{
-      margin-top: 24px;
+    /* Sections below fold */
+    .section{ margin-top: 18px; }
+    .section-head{
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap: 12px;
+      padding: 18px 20px 0;
+    }
+    .section-head h2{ margin:0; font-size: 18px; letter-spacing: -.2px; }
+    .section-head p{ margin:0; color: var(--muted2); font-size: 12.5px; }
+
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 12px;
+      padding: 16px 20px 20px;
+    }
+    .card{
+      border: 1px solid var(--border2);
+      background: var(--card-bg);
+      border-radius: 18px;
+      padding: 14px 14px;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      min-height: 120px;
+    }
+    .card:hover{
+      transform: translateY(-2px);
+      background: var(--card-hover);
+      border-color: rgba(140,255,223,.20);
+    }
+    .card b{ display:block; font-size: 14px; margin-bottom: 6px; }
+    .card p{ margin:0; color: var(--muted); font-size: 13px; line-height:1.45; }
+    .pillrow{ margin-top: 10px; display:flex; flex-wrap:wrap; gap: 8px; }
+    .pill{
+      font-size: 12px;
+      padding: 6px 8px;
+      border-radius: 999px;
+      border: 1px solid var(--border2);
+      background: rgba(0,0,0,.08);
+      color: var(--muted);
+    }
+    [data-theme="light"] .pill{ background: rgba(0,0,0,.03); }
+
+    .footer{
+      margin-top: 22px;
       display:flex;
       justify-content:space-between;
       flex-wrap:wrap;
       gap: 10px;
-      color: rgba(255,255,255,.52);
+      color: var(--muted2);
       font-size: 12.5px;
       padding: 0 4px;
+    }
+
+    /* =========================
+       SCROLL REVEAL
+       ========================= */
+    .reveal{
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity .6s ease, transform .6s ease;
+      will-change: opacity, transform;
+    }
+    .reveal.is-visible{
+      opacity: 1;
+      transform: translateY(0);
     }
 
     @media (max-width: 1080px){
       h1{ font-size: 54px; }
       .hero{ grid-template-columns: 1fr; }
       .stats{ grid-template-columns: 1fr; }
+      .grid3{ grid-template-columns: 1fr; }
       .nav{ position: relative; top: 0; }
     }
     @media (max-width: 760px){
       .nav-links{ display:none; }
-      .cta{ display:none; }
+      .btn.primary{ display:none; }
     }
     @media (prefers-reduced-motion: reduce){
       .bg video{ display:none; }
       .scanlines{ display:none; }
       .cursor{ animation:none; }
       .kicker .pulse{ animation:none; }
+      html{ scroll-behavior:auto; }
+      .reveal{ opacity:1; transform:none; transition:none; }
     }
   </style>
+
+  <!-- Early theme init: avoids flash -->
+  <script>
+    (function() {
+      const stored = localStorage.getItem("theme");
+      const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const theme = stored ? stored : (prefersDark ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
 </head>
 
 <body>
@@ -418,7 +567,7 @@
   <div class="grid" aria-hidden="true"></div>
   <div class="scanlines" aria-hidden="true"></div>
 
-  <div class="wrap">
+  <div class="container">
     <div class="nav" role="navigation" aria-label="Primary">
       <div class="brand">
         <span class="dot" aria-hidden="true"></span>
@@ -428,17 +577,28 @@
         </div>
       </div>
 
-      <div class="nav-links" aria-label="Site sections">
+      <div class="nav-links" aria-label="Sections">
         <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#publications">Publications</a>
         <a href="#stack">Tech</a>
         <a href="#links">Links</a>
-        <a href="https://maiegypt.my.canva.site/sebastian-rojas-ordonez" target="_blank" rel="noopener">Portfolio</a>
       </div>
 
-      <a class="cta" href="https://maiegypt.my.canva.site/sebastian-rojas-ordonez" target="_blank" rel="noopener">Enter Portfolio</a>
+      <div class="nav-right">
+        <button class="btn toggle" id="themeToggle" type="button" aria-label="Toggle dark/light mode" title="Toggle theme">
+          <svg id="themeIcon" viewBox="0 0 24 24" aria-hidden="true">
+            <!-- icon swapped via JS -->
+          </svg>
+          <span id="themeLabel">Theme</span>
+        </button>
+
+        <a class="btn primary" href="https://maiegypt.my.canva.site/sebastian-rojas-ordonez" target="_blank" rel="noopener">Enter Portfolio</a>
+      </div>
     </div>
 
-    <section class="hero" id="about">
+    <!-- HERO -->
+    <section class="hero reveal" id="about" aria-label="Hero">
       <div class="panel left">
         <div class="kicker"><span class="pulse" aria-hidden="true"></span> Available for research & engineering roles</div>
 
@@ -455,37 +615,21 @@
           <span class="cursor" aria-hidden="true"></span>
         </div>
 
+        <!-- Tech wall -->
         <div class="tech-wall" id="stack" aria-label="Technology stack">
-          <a class="logo" href="https://maiegypt.my.canva.site/sebastian-rojas-ordonez" target="_blank" rel="noopener" title="ROS 2">
-            <img src="assets/logos/ros2.svg" alt="ROS 2 logo" loading="lazy"><span>ROS 2</span>
-          </a>
-          <a class="logo" href="https://maiegypt.my.canva.site/sebastian-rojas-ordonez" target="_blank" rel="noopener" title="NVIDIA / Jetson">
-            <img src="assets/logos/nvidia.svg" alt="NVIDIA logo" loading="lazy"><span>Jetson</span>
-          </a>
-          <a class="logo" href="https://maiegypt.my.canva.site/sebastian-rojas-ordonez" target="_blank" rel="noopener" title="ONNX">
-            <img src="assets/logos/onnx.svg" alt="ONNX logo" loading="lazy"><span>ONNX</span>
-          </a>
-          <a class="logo" href="https://maiegypt.my.canva.site/sebastian-rojas-ordonez" target="_blank" rel="noopener" title="Python">
-            <img src="assets/logos/python.svg" alt="Python logo" loading="lazy"><span>Python</span>
-          </a>
-          <a class="logo" href="https://maiegypt.my.canva.site/sebastian-rojas-ordonez" target="_blank" rel="noopener" title="C++">
-            <img src="assets/logos/cpp.svg" alt="C++ logo" loading="lazy"><span>C++</span>
-          </a>
-          <a class="logo" href="https://maiegypt.my.canva.site/sebastian-rojas-ordonez" target="_blank" rel="noopener" title="Linux">
-            <img src="assets/logos/linux.svg" alt="Linux logo" loading="lazy"><span>Linux</span>
-          </a>
-          <a class="logo" href="https://maiegypt.my.canva.site/sebastian-rojas-ordonez" target="_blank" rel="noopener" title="Docker">
-            <img src="assets/logos/docker.svg" alt="Docker logo" loading="lazy"><span>Docker</span>
-          </a>
-          <a class="logo" href="https://maiegypt.my.canva.site/sebastian-rojas-ordonez" target="_blank" rel="noopener" title="Gazebo">
-            <img src="assets/logos/gazebo.svg" alt="Gazebo logo" loading="lazy"><span>Gazebo</span>
-          </a>
-          <a class="logo" href="https://maiegypt.my.canva.site/sebastian-rojas-ordonez" target="_blank" rel="noopener" title="SolidWorks">
-            <img src="assets/logos/solidworks.svg" alt="SolidWorks logo" loading="lazy"><span>SolidWorks</span>
-          </a>
+          <a class="logo" href="#projects" title="ROS 2"><img src="assets/logos/ros2.svg" alt="ROS 2 logo" loading="lazy"><span>ROS 2</span></a>
+          <a class="logo" href="#projects" title="NVIDIA / Jetson"><img src="assets/logos/nvidia.svg" alt="NVIDIA logo" loading="lazy"><span>Jetson</span></a>
+          <a class="logo" href="#projects" title="ONNX"><img src="assets/logos/onnx.svg" alt="ONNX logo" loading="lazy"><span>ONNX</span></a>
+          <a class="logo" href="#projects" title="Python"><img src="assets/logos/python.svg" alt="Python logo" loading="lazy"><span>Python</span></a>
+          <a class="logo" href="#projects" title="C++"><img src="assets/logos/cpp.svg" alt="C++ logo" loading="lazy"><span>C++</span></a>
+          <a class="logo" href="#projects" title="Linux"><img src="assets/logos/linux.svg" alt="Linux logo" loading="lazy"><span>Linux</span></a>
+          <a class="logo" href="#projects" title="Docker"><img src="assets/logos/docker.svg" alt="Docker logo" loading="lazy"><span>Docker</span></a>
+          <a class="logo" href="#projects" title="Gazebo"><img src="assets/logos/gazebo.svg" alt="Gazebo logo" loading="lazy"><span>Gazebo</span></a>
+          <a class="logo" href="#projects" title="SolidWorks"><img src="assets/logos/solidworks.svg" alt="SolidWorks logo" loading="lazy"><span>SolidWorks</span></a>
         </div>
 
-        <div class="external" id="links" aria-label="External profiles">
+        <!-- External profiles -->
+        <div class="external reveal" id="links" aria-label="External profiles">
           <a class="ext" href="https://scholar.google.com/citations?user=HSflBLwAAAAJ&hl=es&authuser=2" target="_blank" rel="me noopener">
             <svg viewBox="0 0 24 24"><path d="M12 3 1 8l11 5 9-4.09V16h2V8L12 3zm-6.5 8.27V14c0 2.21 2.91 4 6.5 4s6.5-1.79 6.5-4v-2.73L12 14l-6.5-2.73z"/></svg>
             <span>Scholar</span>
@@ -493,10 +637,10 @@
 
           <a class="ext" href="https://orcid.org/0009-0000-5142-1284" target="_blank" rel="me noopener">
             <svg viewBox="0 0 24 24">
-              <circle cx="12" cy="12" r="9" fill="none" stroke="rgba(255,255,255,.90)" stroke-width="2"/>
-              <path d="M8.2 16.2V9.2" fill="none" stroke="rgba(255,255,255,.90)" stroke-width="2" stroke-linecap="round"/>
-              <circle cx="8.2" cy="7.3" r="1" fill="rgba(255,255,255,.90)"/>
-              <path d="M11.1 9.2h3.1a3 3 0 0 1 0 6h-3.1V9.2Z" fill="none" stroke="rgba(255,255,255,.90)" stroke-width="2" stroke-linejoin="round"/>
+              <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
+              <path d="M8.2 16.2V9.2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="8.2" cy="7.3" r="1" fill="currentColor"/>
+              <path d="M11.1 9.2h3.1a3 3 0 0 1 0 6h-3.1V9.2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
             </svg>
             <span>ORCID</span>
           </a>
@@ -518,7 +662,7 @@
         </div>
       </div>
 
-      <aside class="panel right" aria-label="Profile">
+      <aside class="panel right reveal" aria-label="Profile">
         <div class="portrait">
           <img src="assets/profile.jpg" alt="Portrait of Sebastian Rojas-Ordoñez">
         </div>
@@ -530,35 +674,140 @@
       </aside>
     </section>
 
-    <footer>
+    <!-- FEATURED PROJECTS -->
+    <section class="panel section reveal" id="projects" aria-label="Featured projects">
+      <div class="section-head">
+        <div>
+          <h2>Featured Projects</h2>
+          <p>Shortlist for recruiters — details in Canva / GitHub.</p>
+        </div>
+        <a class="btn primary" href="https://maiegypt.my.canva.site/sebastian-rojas-ordonez" target="_blank" rel="noopener">See portfolio</a>
+      </div>
+
+      <div class="grid3">
+        <div class="card">
+          <b>Digital Twin Autonomy Stack</b>
+          <p>Bridging FMI/Modelica simulation with ROS 2 deployment and safety-aware policies.</p>
+          <div class="pillrow">
+            <span class="pill">FMI</span><span class="pill">ROS 2</span><span class="pill">Co-sim</span>
+          </div>
+        </div>
+        <div class="card">
+          <b>Edge AI Perception (ONNX)</b>
+          <p>Low-latency inference pipelines optimized for Jetson-class hardware integrated in ROS 2 nodes.</p>
+          <div class="pillrow">
+            <span class="pill">ONNX</span><span class="pill">Jetson</span><span class="pill">CV</span>
+          </div>
+        </div>
+        <div class="card">
+          <b>Robust Localization Pipeline</b>
+          <p>VIO/LIO/SLAM robustness strategies with system-level arbitration (not estimator hacking).</p>
+          <div class="pillrow">
+            <span class="pill">VIO</span><span class="pill">LIO</span><span class="pill">SLAM</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section class="panel section reveal" id="publications" aria-label="Publications">
+      <div class="section-head">
+        <div>
+          <h2>Publications & Profiles</h2>
+          <p>Verified identity & research footprint.</p>
+        </div>
+      </div>
+      <div class="grid3">
+        <div class="card">
+          <b>Google Scholar</b>
+          <p>Publications, citations, and research footprint.</p>
+        </div>
+        <div class="card">
+          <b>ORCID</b>
+          <p>Persistent researcher identifier and record.</p>
+        </div>
+        <div class="card">
+          <b>GitHub</b>
+          <p>Open-source code, demos, and reproducible assets.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
       <span>© <span id="y"></span> Sebastian Rojas-Ordoñez</span>
       <span></span>
-    </footer>
+    </div>
   </div>
 
   <script>
+    // Year
     document.getElementById("y").textContent = new Date().getFullYear();
 
+    // ===== Theme toggle (1) =====
+    const sunIcon = `
+      <path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12Zm0-16v2m0 16v2m10-10h-2M4 12H2m16.95 6.95-1.41-1.41M6.46 6.46 5.05 5.05m13.9 0-1.41 1.41M6.46 17.54 5.05 18.95" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    `;
+    const moonIcon = `
+      <path d="M21 13a8 8 0 0 1-10-10 8 8 0 1 0 10 10Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+    `;
+
+    const root = document.documentElement;
+    const toggleBtn = document.getElementById("themeToggle");
+    const iconEl = document.getElementById("themeIcon");
+    const labelEl = document.getElementById("themeLabel");
+
+    function applyTheme(theme){
+      root.setAttribute("data-theme", theme);
+      localStorage.setItem("theme", theme);
+      const isLight = theme === "light";
+      iconEl.innerHTML = isLight ? moonIcon : sunIcon; // show opposite action
+      labelEl.textContent = isLight ? "Light" : "Dark";
+      toggleBtn.setAttribute("aria-label", isLight ? "Switch to dark mode" : "Switch to light mode");
+      toggleBtn.title = isLight ? "Switch to dark mode" : "Switch to light mode";
+    }
+
+    // init button UI from current attr
+    applyTheme(root.getAttribute("data-theme") || "dark");
+
+    toggleBtn.addEventListener("click", () => {
+      const current = root.getAttribute("data-theme") || "dark";
+      applyTheme(current === "dark" ? "light" : "dark");
+    });
+
+    // ===== Typing effect =====
     const phrases = [
       "FMI/Modelica ↔ ROS 2 co-simulation pipelines",
       "real-time edge AI inference with ONNX on Jetson",
       "robust localization stacks (VIO/LIO/SLAM)",
       "safety-aware autonomy layers for mobile robots & UAVs"
     ];
-    const el = document.getElementById("typed");
+    const typed = document.getElementById("typed");
     let p = 0, i = 0, dir = 1;
 
     function tick(){
       const text = phrases[p];
       i += dir;
-      el.textContent = text.slice(0, i);
+      typed.textContent = text.slice(0, i);
 
       if (i === text.length) { dir = -1; setTimeout(tick, 1100); return; }
-      if (i === 0) { dir = 1; p = (p + 1) % phrases.length; setTimeout(tick, 250); return; }
-
+      if (i === 0) { dir = 1; p = (p + 1) % phrases.length; setTimeout(tick, 280); return; }
       setTimeout(tick, dir === 1 ? 28 : 18);
     }
     tick();
+
+    // ===== Scroll reveal (2) =====
+    const revealEls = Array.from(document.querySelectorAll(".reveal"));
+    const observer = new IntersectionObserver((entries) => {
+      for (const e of entries){
+        if (e.isIntersecting){
+          e.target.classList.add("is-visible");
+          observer.unobserve(e.target);
+        }
+      }
+    }, { root: null, threshold: 0.12 });
+
+    revealEls.forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
+
