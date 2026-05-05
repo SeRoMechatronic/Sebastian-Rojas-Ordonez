@@ -4,43 +4,20 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-  <title>Sebastian Rojas-Ordoñez | Robotics & Control Engineer</title>
-  <meta name="description" content="Sebastian Rojas-Ordoñez — Robotics & Control Engineer focused on Digital Twins (FMI/Modelica), ROS 2, Edge AI (ONNX/Jetson), robust autonomy, localization, and embedded systems." />
+  <title>Sebastian Rojas-Ordoñez | AI & Robotics Researcher</title>
+  <meta name="description" content="PhD Researcher focused on Digital Twins (FMI/Modelica), ROS 2, Edge AI (ONNX/Jetson), robust autonomy, localization, and embedded systems." />
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
   <link rel="canonical" href="https://sebastianrojas-ordoñez.com/" />
 
-  <meta property="og:title" content="Sebastian Rojas-Ordoñez | Robotics & Control Engineer" />
+  <meta property="og:title" content="Sebastian Rojas-Ordoñez | AI & Robotics Researcher" />
   <meta property="og:description" content="Digital Twins • ROS 2 • Edge AI • Robust Autonomy — projects, publications, resources." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://sebastianrojas-ordoñez.com/" />
   <meta name="twitter:card" content="summary" />
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Sebastian Rojas-Ordoñez",
-    "url": "https://sebastianrojas-ordoñez.com/",
-    "jobTitle": "Robotics & Control Engineer",
-    "image": "https://gravatar.com/radiant50dbf9587e",
-    "sameAs": [
-      "https://www.linkedin.com/in/sebastian-rojasordoñez/",
-      "https://github.com/SeRoMechatronic",
-      "https://orcid.org/0009-0000-5142-1284",
-      "https://scholar.google.com/citations?user=HSflBLwAAAAJ&hl=es&authuser=2",
-      "https://independent.academia.edu/Sebastian_RojasOrdoñez"
-    ],
-    "knowsAbout": [
-      "Robotics","Control Engineering","ROS 2","Digital Twins","FMI","Modelica","Co-simulation",
-      "Edge AI","ONNX","Jetson","Autonomous Systems","Localization","VIO","LIO","SLAM",
-      "Embedded Systems","Real-time Systems","Computer Vision"
-    ]
-  }
-  </script>
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 
   <style>
     /* =========================
@@ -56,6 +33,7 @@
 
       --accent: rgba(140,255,223,.95);
       --accent2: rgba(82,124,255,.90);
+      --accent3: rgba(255,185,0,.95); /* Amber for academic highlights */
 
       --shadow: 0 40px 140px rgba(0,0,0,.78);
       --r: 22px;
@@ -78,11 +56,9 @@
       --card-bg: rgba(255,255,255,.03);
       --card-hover: rgba(255,255,255,.06);
 
-      /* NEW: active nav + glow */
       --glow: 0 18px 70px rgba(140,255,223,.14);
     }
 
-    /* Light mode overrides */
     [data-theme="light"]{
       --text: rgba(12,16,26,.92);
       --muted: rgba(12,16,26,.70);
@@ -108,8 +84,8 @@
       --link-chip: rgba(0,0,0,.04);
       --link-chip-hover: rgba(0,0,0,.07);
 
-      --card-bg: rgba(0,0,0,.03);
-      --card-hover: rgba(0,0,0,.05);
+      --card-bg: rgba(255,255,255,.6);
+      --card-hover: rgba(255,255,255,.9);
 
       --glow: 0 22px 90px rgba(82,124,255,.12);
     }
@@ -123,6 +99,9 @@
       color: var(--text);
       background: var(--bg-base);
       overflow-x:hidden;
+    }
+    h1, h2, h3, .space-font {
+      font-family: 'Space Grotesk', sans-serif;
     }
     a{ color:inherit; text-decoration:none; }
     .container{ max-width: 1200px; margin: 0 auto; padding: 22px 18px 92px; }
@@ -153,6 +132,7 @@
       background-size: 56px 56px;
       opacity: var(--grid-opacity);
       mask-image: radial-gradient(900px 520px at 50% 24%, rgba(0,0,0,1), transparent 70%);
+      -webkit-mask-image: radial-gradient(900px 520px at 50% 24%, rgba(0,0,0,1), transparent 70%);
       mix-blend-mode: overlay;
     }
     [data-theme="light"] .grid{
@@ -194,6 +174,7 @@
       border: 1px solid var(--border);
       background: var(--nav-bg);
       backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       border-radius: 18px;
       box-shadow: 0 22px 70px rgba(0,0,0,.22);
       padding: 12px 14px;
@@ -210,7 +191,7 @@
       background: linear-gradient(135deg, var(--accent), var(--accent2));
       box-shadow: 0 0 0 7px rgba(140,255,223,.12), 0 0 46px rgba(140,255,223,.22);
     }
-    .brand b{ font-weight: 900; letter-spacing:.2px; line-height:1.1; }
+    .brand b{ font-weight: 700; letter-spacing:.2px; line-height:1.1; font-family: 'Space Grotesk', sans-serif;}
     .brand small{ display:block; font-size: 12px; color: var(--muted2); margin-top: 2px; letter-spacing:.2px; }
 
     .nav-links{
@@ -236,7 +217,6 @@
       border-color: rgba(140,255,223,.22);
     }
 
-    /* NEW: active section style */
     .nav-links a.is-active{
       border-color: rgba(140,255,223,.55);
       background: linear-gradient(135deg, rgba(140,255,223,.18), rgba(82,124,255,.10));
@@ -260,11 +240,12 @@
       border-radius: 12px;
       border: 1px solid var(--border);
       background: var(--link-chip);
-      font-weight: 800;
+      font-weight: 600;
       font-size: 13px;
       white-space: nowrap;
       transition: transform .15s ease, background .15s ease, border-color .15s ease, box-shadow .15s ease;
       cursor:pointer;
+      font-family: 'Space Grotesk', sans-serif;
     }
     .btn:hover{
       transform: translateY(-1px);
@@ -295,6 +276,7 @@
       border-radius: var(--r);
       box-shadow: var(--shadow);
       backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
       overflow:hidden;
       position:relative;
     }
@@ -313,7 +295,7 @@
     .hero{
       margin-top: 26px;
       display:grid;
-      grid-template-columns: 1.15fr 0.85fr;
+      grid-template-columns: 1.25fr 0.75fr;
       gap: 16px;
       align-items: stretch;
     }
@@ -346,15 +328,23 @@
 
     h1{
       margin: 18px 0 10px;
-      font-size: 68px;
-      line-height: 0.98;
-      letter-spacing: -1.7px;
-      font-weight: 900;
+      font-size: 60px;
+      line-height: 1.05;
+      letter-spacing: -1.5px;
+      font-weight: 700;
+    }
+    .h1-sub {
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--accent);
+      margin-bottom: 12px;
+      display: block;
+      letter-spacing: -0.5px;
     }
     .sub{
       margin: 0;
-      font-size: 16px;
-      line-height: 1.7;
+      font-size: 15px;
+      line-height: 1.6;
       color: var(--muted);
       max-width: 780px;
     }
@@ -386,7 +376,7 @@
     @keyframes blink{ 50%{ opacity: 0; } }
 
     .tech-wall{
-      margin-top: 18px;
+      margin-top: 24px;
       border: 1px solid var(--border2);
       border-radius: 18px;
       background: rgba(0,0,0,.06);
@@ -407,6 +397,7 @@
       border: 1px solid var(--border2);
       background: rgba(0,0,0,.10);
       backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       transition: transform .15s ease, background .15s ease, border-color .15s ease, box-shadow .15s ease;
     }
     [data-theme="light"] .logo{ background: rgba(255,255,255,.66); }
@@ -423,7 +414,7 @@
       display:block;
       filter: saturate(.90) brightness(.98) drop-shadow(0 10px 18px rgba(0,0,0,.25));
     }
-    .logo span{ font-size: 12.5px; color: var(--text); font-weight: 750; letter-spacing:.2px; }
+    .logo span{ font-size: 12.5px; color: var(--text); font-weight: 600; letter-spacing:.2px; }
 
     .external{
       margin-top: 14px;
@@ -436,12 +427,13 @@
     .ext{
       display:inline-flex;
       align-items:center;
-      gap: 10px;
+      gap: 8px;
       padding: 10px 12px;
       border-radius: 14px;
       border: 1px solid var(--border2);
       background: rgba(0,0,0,.08);
       backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       transition: background .15s ease, transform .15s ease, border-color .15s ease, box-shadow .15s ease;
       font-size: 13px;
     }
@@ -454,40 +446,48 @@
     }
     [data-theme="light"] .ext:hover{ background: rgba(0,0,0,.06); }
     .ext svg{ width:18px; height:18px; fill: currentColor; opacity:.9; }
-    .ext span{ font-weight: 750; }
+    .ext span{ font-weight: 600; }
 
     .portrait{
       border-radius: 22px;
       border: 1px solid var(--border);
       overflow:hidden;
       background: rgba(0,0,0,.06);
-      aspect-ratio: 4 / 4;
+      aspect-ratio: 4 / 3.5;
       box-shadow: 0 18px 70px rgba(0,0,0,.25);
     }
-    .portrait img{ width:100%; height:100%; object-fit:cover; display:block; transform: scale(1.02); }
+    .portrait img{ width:100%; height:100%; object-fit:cover; display:block; transform: scale(1.02); object-position: center top; }
 
     .stats{
       display:grid;
-      grid-template-columns: repeat(3, minmax(0,1fr));
+      grid-template-columns: repeat(2, minmax(0,1fr));
       gap: 10px;
     }
 
-    /* =========================
-       (4) PRO HOVER CARDS (glow + gradient border)
-       ========================= */
     .stat, .card{
       position: relative;
       border: 1px solid var(--border2);
       background: var(--card-bg);
       border-radius: 18px;
-      padding: 12px 12px;
+      padding: 14px 16px;
       transition: transform .18s ease, background .18s ease, border-color .18s ease, box-shadow .18s ease;
       overflow: hidden;
       isolation: isolate;
     }
-    .card{ padding: 14px 14px; min-height: 120px; }
-
-    /* gradient halo */
+    .card{ min-height: 120px; display: flex; flex-direction: column; }
+    
+    .stat-val {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--text);
+      display: block;
+      margin-bottom: 2px;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .stat-val span {
+      color: var(--accent);
+    }
+    
     .stat::before, .card::before{
       content:"";
       position:absolute;
@@ -517,47 +517,107 @@
     }
     .stat:hover::before, .card:hover::before{ opacity: 1; }
 
-    .stat b{ display:block; font-size: 14px; letter-spacing:.2px; }
-    .stat span{ display:block; color: var(--muted2); font-size: 12.5px; margin-top: 4px; line-height:1.3; }
+    .stat b{ display:block; font-size: 14px; letter-spacing:.2px; font-weight: 600;}
+    .stat span.stat-desc{ display:block; color: var(--muted2); font-size: 12.5px; margin-top: 4px; line-height:1.3; }
 
     .section{ margin-top: 18px; }
     .section-head{
       display:flex; align-items:flex-end; justify-content:space-between;
       gap: 12px;
-      padding: 18px 20px 0;
+      padding: 22px 24px 0;
     }
-    .section-head h2{ margin:0; font-size: 18px; letter-spacing: -.2px; }
-    .section-head p{ margin:0; color: var(--muted2); font-size: 12.5px; }
+    .section-head h2{ margin:0; font-size: 22px; letter-spacing: -.2px; }
+    .section-head p{ margin: 4px 0 0 0; color: var(--muted2); font-size: 13.5px; }
 
     .grid3{
       display:grid;
       grid-template-columns: repeat(3, minmax(0,1fr));
       gap: 12px;
-      padding: 16px 20px 20px;
+      padding: 16px 24px 24px;
     }
-    .card b{ display:block; font-size: 14px; margin-bottom: 6px; }
-    .card p{ margin:0; color: var(--muted); font-size: 13px; line-height:1.45; }
+    .grid2{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 12px;
+      padding: 16px 24px 24px;
+    }
+    .grid1{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      padding: 16px 24px 24px;
+    }
+    
+    .card-top {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      margin-bottom: 8px;
+    }
+    .card-title { font-size: 15px; font-weight: 600; line-height: 1.3; }
+    .card-subtitle { font-size: 13px; color: var(--accent); margin-bottom: 6px; font-weight: 500;}
+    .card p{ margin:0; color: var(--muted); font-size: 13.5px; line-height:1.5; flex-grow: 1;}
 
-    .pillrow{ margin-top: 10px; display:flex; flex-wrap:wrap; gap: 8px; }
+    .pillrow{ margin-top: 14px; display:flex; flex-wrap:wrap; gap: 8px; }
     .pill{
-      font-size: 12px;
-      padding: 6px 8px;
-      border-radius: 999px;
+      font-size: 11.5px;
+      padding: 4px 8px;
+      border-radius: 6px;
       border: 1px solid var(--border2);
-      background: rgba(0,0,0,.08);
+      background: rgba(0,0,0,.15);
       color: var(--muted);
+      font-weight: 500;
     }
-    [data-theme="light"] .pill{ background: rgba(0,0,0,.03); }
+    [data-theme="light"] .pill{ background: rgba(0,0,0,.04); }
+
+    .badge-amber {
+      border-color: rgba(255,185,0,.3);
+      color: rgba(255,185,0,.9);
+      background: rgba(255,185,0,.1);
+    }
+
+    /* Experience Timeline */
+    .timeline {
+      padding: 16px 24px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .timeline-item {
+      position: relative;
+      padding-left: 24px;
+      border-left: 1px solid var(--border2);
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -5px;
+      top: 6px;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 10px rgba(140,255,223,.4);
+    }
+    .timeline-item.edu::before {
+      background: var(--accent2);
+      box-shadow: 0 0 10px rgba(82,124,255,.4);
+    }
+    .time-role { font-size: 16px; font-weight: 600; font-family: 'Space Grotesk', sans-serif;}
+    .time-org { font-size: 14px; color: var(--muted); font-weight: 500; margin-top: 2px;}
+    .time-date { font-size: 12.5px; color: var(--muted2); margin-top: 2px;}
+    .time-desc { font-size: 13.5px; color: var(--muted); margin-top: 8px; line-height: 1.5; }
 
     .footer{
-      margin-top: 22px;
+      margin-top: 32px;
       display:flex;
       justify-content:space-between;
+      align-items: center;
       flex-wrap:wrap;
       gap: 10px;
       color: var(--muted2);
-      font-size: 12.5px;
+      font-size: 13px;
       padding: 0 4px;
+      border-top: 1px solid var(--border2);
+      padding-top: 24px;
     }
 
     /* =========================
@@ -577,13 +637,16 @@
     @media (max-width: 1080px){
       h1{ font-size: 54px; }
       .hero{ grid-template-columns: 1fr; }
-      .stats{ grid-template-columns: 1fr; }
+      .portrait { display: none; } /* Hide large portrait on mobile to save space, or show smaller */
+      .stats{ grid-template-columns: repeat(2, 1fr); }
       .grid3{ grid-template-columns: 1fr; }
+      .grid2{ grid-template-columns: 1fr; }
       .nav{ position: relative; top: 0; }
     }
     @media (max-width: 760px){
       .nav-links{ display:none; }
       .btn.primary{ display:none; }
+      .stats{ grid-template-columns: 1fr; }
     }
     @media (prefers-reduced-motion: reduce){
       .bg video{ display:none; }
@@ -595,7 +658,6 @@
     }
   </style>
 
-  <!-- Early theme init: avoids flash -->
   <script>
     (function() {
       const stored = localStorage.getItem("theme");
@@ -623,17 +685,15 @@
         <span class="dot" aria-hidden="true"></span>
         <div>
           <b>Sebastian Rojas-Ordoñez</b>
-          <small>Robotics & Control • Digital Twins • Edge AI</small>
+          <small>AI & Robotics Researcher</small>
         </div>
       </div>
 
-      <!-- (3) nav links track active section -->
       <div class="nav-links" aria-label="Sections">
         <a href="#about" data-spy="about">About</a>
-        <a href="#projects" data-spy="projects">Projects</a>
+        <a href="#experience" data-spy="experience">Experience</a>
         <a href="#publications" data-spy="publications">Publications</a>
-        <a href="#stack" data-spy="stack">Tech</a>
-        <a href="#links" data-spy="links">Links</a>
+        <a href="#projects" data-spy="projects">Projects</a>
       </div>
 
       <div class="nav-right">
@@ -641,39 +701,35 @@
           <svg id="themeIcon" viewBox="0 0 24 24" aria-hidden="true"></svg>
           <span id="themeLabel">Theme</span>
         </button>
-
-        <a class="btn primary" href="https://maiegypt.my.canva.site/sebastian-rojas-ordonez" target="_blank" rel="noopener">Enter Portfolio</a>
+        <a class="btn primary" href="mailto:sebastian.rojas@ehu.eus" target="_blank" rel="noopener">Contact Me</a>
       </div>
     </div>
 
     <!-- HERO -->
     <section class="hero reveal" id="about" aria-label="Hero">
       <div class="panel left">
-        <div class="kicker"><span class="pulse" aria-hidden="true"></span> Available for research & engineering roles</div>
+        <div class="kicker"><span class="pulse" aria-hidden="true"></span> Ph.D. Researcher at IKERLAN</div>
 
         <h1>Sebastian<br>Rojas-Ordoñez</h1>
+        <span class="h1-sub">AI & Robotics Researcher | PhD Researcher in Control, Automation & Robotics</span>
 
         <p class="sub">
-          Robotics & Control Engineer focused on Digital Twins (FMI/Modelica), ROS 2 systems, and Edge AI (ONNX/Jetson),
-          with a strong focus on robust localization and safety-aware autonomy.
+          Specializing in Embedded Systems, Digital Twins, ROS 2, FMI & Edge AI. My work focuses on model-based engineering and interoperable simulation/execution workflows using open standards.
         </p>
 
         <div class="typing" aria-label="Typing line">
-          <span>Currently building:</span>
+          <span>Currently working with:</span>
           <code id="typed"></code>
           <span class="cursor" aria-hidden="true"></span>
         </div>
 
         <div class="tech-wall" id="stack" aria-label="Technology stack">
           <a class="logo" href="#projects" title="ROS 2"><img src="assets/logos/ros2.svg" alt="ROS 2 logo" loading="lazy"><span>ROS 2</span></a>
-          <a class="logo" href="#projects" title="NVIDIA / Jetson"><img src="assets/logos/nvidia.svg" alt="NVIDIA logo" loading="lazy"><span>Jetson</span></a>
+          <a class="logo" href="#projects" title="NVIDIA / Jetson"><img src="assets/logos/nvidia.svg" alt="NVIDIA logo" loading="lazy"><span>Jetson / Edge AI</span></a>
           <a class="logo" href="#projects" title="ONNX"><img src="assets/logos/onnx.svg" alt="ONNX logo" loading="lazy"><span>ONNX</span></a>
-          <a class="logo" href="#projects" title="Python"><img src="assets/logos/python.svg" alt="Python logo" loading="lazy"><span>Python</span></a>
-          <a class="logo" href="#projects" title="C++"><img src="assets/logos/cpp.svg" alt="C++ logo" loading="lazy"><span>C++</span></a>
+          <a class="logo" href="#projects" title="Python"><img src="assets/logos/python.svg" alt="Python logo" loading="lazy"><span>Python / C++</span></a>
+          <a class="logo" href="#projects" title="Digital Twins"><span>FMI / Modelica</span></a>
           <a class="logo" href="#projects" title="Linux"><img src="assets/logos/linux.svg" alt="Linux logo" loading="lazy"><span>Linux</span></a>
-          <a class="logo" href="#projects" title="Docker"><img src="assets/logos/docker.svg" alt="Docker logo" loading="lazy"><span>Docker</span></a>
-          <a class="logo" href="#projects" title="Gazebo"><img src="assets/logos/gazebo.svg" alt="Gazebo logo" loading="lazy"><span>Gazebo</span></a>
-          <a class="logo" href="#projects" title="SolidWorks"><img src="assets/logos/solidworks.svg" alt="SolidWorks logo" loading="lazy"><span>SolidWorks</span></a>
         </div>
 
         <div class="external reveal" id="links" aria-label="External profiles">
@@ -701,11 +757,6 @@
             <svg viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V24h-4V8zM8 8h3.8v2.2h.05c.53-1 1.82-2.2 3.75-2.2 4.01 0 4.75 2.64 4.75 6.07V24h-4v-8.4c0-2-.04-4.57-2.78-4.57-2.78 0-3.2 2.17-3.2 4.42V24H8V8z"/></svg>
             <span>LinkedIn</span>
           </a>
-
-          <a class="ext" href="https://independent.academia.edu/Sebastian_RojasOrdoñez" target="_blank" rel="me noopener">
-            <svg viewBox="0 0 24 24"><path d="M12 2 2 22h3l2.2-4.6h9.6L19 22h3L12 2zm-3.3 12.6L12 7.8l3.3 6.8H8.7z"/></svg>
-            <span>Academia</span>
-          </a>
         </div>
       </div>
 
@@ -714,43 +765,74 @@
           <img src="assets/profile.jpg" alt="Portrait of Sebastian Rojas-Ordoñez">
         </div>
         <div class="stats" aria-label="Highlights">
-          <div class="stat"><b>Digital Twins</b><span>FMI/Modelica • co-simulation • interoperability</span></div>
-          <div class="stat"><b>Edge AI</b><span>ONNX pipelines • low latency on embedded</span></div>
-          <div class="stat"><b>Autonomy</b><span>Localization + safety-aware control layers</span></div>
+          <div class="stat">
+            <span class="stat-val">3<span>+</span></span>
+            <b>Years Experience</b>
+            <span class="stat-desc">in Robotics & Embedded Systems</span>
+          </div>
+          <div class="stat">
+            <span class="stat-val">M.Sc.</span>
+            <b>Mechatronics Engineering</b>
+            <span class="stat-desc">Karlsruhe Univ. of Applied Sciences</span>
+          </div>
+          <div class="stat">
+            <span class="stat-val">2</span>
+            <b>Journal Papers</b>
+            <span class="stat-desc">Published / In-review</span>
+          </div>
+          <div class="stat">
+            <span class="stat-val">C1</span>
+            <b>Advanced English</b>
+            <span class="stat-desc">EF SET Certificate</span>
+          </div>
         </div>
       </aside>
     </section>
 
-    <!-- FEATURED PROJECTS -->
-    <section class="panel section reveal" id="projects" aria-label="Featured projects">
+    <!-- EXPERIENCE & EDUCATION -->
+    <section class="panel section reveal" id="experience" aria-label="Experience and Education">
       <div class="section-head">
         <div>
-          <h2>Featured Projects</h2>
-          <p>Shortlist for recruiters — details in Canva / GitHub.</p>
+          <h2>Experience & Education</h2>
+          <p>Academic background and industrial research path.</p>
         </div>
-        <a class="btn primary" href="https://maiegypt.my.canva.site/sebastian-rojas-ordonez" target="_blank" rel="noopener">See portfolio</a>
       </div>
-
-      <div class="grid3">
-        <div class="card">
-          <b>Digital Twin Autonomy Stack</b>
-          <p>Bridging FMI/Modelica simulation with ROS 2 deployment and safety-aware policies.</p>
-          <div class="pillrow">
-            <span class="pill">FMI</span><span class="pill">ROS 2</span><span class="pill">Co-sim</span>
+      <div class="grid2">
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="time-role">PhD Researcher</div>
+            <div class="time-org">IKERLAN S.COOP · Donostia-San Sebastian</div>
+            <div class="time-date">Aug 2024 – Present</div>
+            <div class="time-desc">
+              Focuses on robotics, embedded systems, and open interoperability standards for industrial cyber-physical systems. Contributing to R&D projects like Elkartek AUTOTRUST and SENDOA, developing proof-of-concept architectures and scientific publications.
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="time-role">Research Intern (Master Thesis)</div>
+            <div class="time-org">IKERLAN S.COOP</div>
+            <div class="time-date">Feb 2024 – Jul 2024</div>
+            <div class="time-desc">
+              Master thesis research on IKSAFECOLAB: A safety and collaborative robotic system architecture for industrial research.
+            </div>
           </div>
         </div>
-        <div class="card">
-          <b>Edge AI Perception (ONNX)</b>
-          <p>Low-latency inference pipelines optimized for Jetson-class hardware integrated in ROS 2 nodes.</p>
-          <div class="pillrow">
-            <span class="pill">ONNX</span><span class="pill">Jetson</span><span class="pill">CV</span>
+        
+        <div class="timeline">
+          <div class="timeline-item edu">
+            <div class="time-role">PhD in Control, Automation & Robotics</div>
+            <div class="time-org">Universidad del País Vasco (UPV/EHU)</div>
+            <div class="time-date">Jan 2025 – Present</div>
+            <div class="time-desc">
+              Research focusing on advanced control architectures, digital twins, and AI edge inference for autonomous systems.
+            </div>
           </div>
-        </div>
-        <div class="card">
-          <b>Robust Localization Pipeline</b>
-          <p>VIO/LIO/SLAM robustness strategies with system-level arbitration (not estimator hacking).</p>
-          <div class="pillrow">
-            <span class="pill">VIO</span><span class="pill">LIO</span><span class="pill">SLAM</span>
+          <div class="timeline-item edu">
+            <div class="time-role">M.Sc. Mechatronics, Robotics & Automation</div>
+            <div class="time-org">Karlsruhe University of Applied Sciences</div>
+            <div class="time-date">Feb 2024 – Sep 2024</div>
+            <div class="time-desc">
+              Erasmus Mundus Master's (EU4M). Specialized in automation engineering, system integration, and advanced robotics control.
+            </div>
           </div>
         </div>
       </div>
@@ -760,37 +842,100 @@
     <section class="panel section reveal" id="publications" aria-label="Publications">
       <div class="section-head">
         <div>
-          <h2>Publications & Profiles</h2>
-          <p>Verified identity & research footprint.</p>
+          <h2>Selected Publications</h2>
+          <p>Research contributions in peer-reviewed journals and conferences.</p>
         </div>
       </div>
+      <div class="grid2">
+        <div class="card">
+          <div class="card-top">
+            <div class="card-title">Cognitive Digital Twins for Autonomous Robotics</div>
+          </div>
+          <div class="card-subtitle">In Preparation for: Autonomous Robots (Springer) — Q1 Journal</div>
+          <p>Systematic review of 121 studies establishing a unified framework for integrating Cognitive Digital Twins in autonomous robotic systems, focusing on robust localization, navigation, and manipulation architectures.</p>
+          <div class="pillrow">
+            <span class="pill badge-amber">In Preparation</span>
+            <span class="pill">Robotics</span>
+            <span class="pill">Digital Twins</span>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-top">
+            <div class="card-title">Plug-and-Play LLM Knowledge Extraction for Robot Navigation</div>
+          </div>
+          <div class="card-subtitle">Machine Learning and Knowledge Extraction — Feb 2026</div>
+          <p>A fine-tuning-free edge framework leveraging Large Language Models (LLMs) deployed on resource-constrained embedded systems (NVIDIA Jetson) to enhance autonomous robot navigation using zero-shot prompt engineering.</p>
+          <div class="pillrow">
+            <span class="pill">Published</span>
+            <span class="pill">Edge AI</span>
+            <span class="pill">LLMs</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <div class="card-title">Natural-Language Relay Control for a SISO Thermal Plant</div>
+          </div>
+          <div class="card-subtitle">Applied Sciences — Dec 2025</div>
+          <p>A proof-of-concept architecture with validation against a conventional hysteresis controller, demonstrating the viability of LLM-based intelligent relay control in cyber-physical thermal systems.</p>
+          <div class="pillrow">
+            <span class="pill">Published</span>
+            <span class="pill">Control Systems</span>
+            <span class="pill">Automation</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED PROJECTS -->
+    <section class="panel section reveal" id="projects" aria-label="Featured projects">
+      <div class="section-head">
+        <div>
+          <h2>Technical Expertise & Projects</h2>
+          <p>Key areas of development and system architectures.</p>
+        </div>
+        <a class="btn" href="https://github.com/SeRoMechatronic" target="_blank" rel="noopener">View GitHub Profile ↗</a>
+      </div>
+
       <div class="grid3">
         <div class="card">
-          <b>Google Scholar</b>
-          <p>Publications, citations, and research footprint.</p>
+          <b>Digital Twin Autonomy Stack</b>
+          <p>Bridging FMI/Modelica simulation with ROS 2 deployment and safety-aware policies for industrial applications.</p>
+          <div class="pillrow">
+            <span class="pill">FMI/FMU</span><span class="pill">ROS 2</span><span class="pill">Co-sim</span>
+          </div>
         </div>
         <div class="card">
-          <b>ORCID</b>
-          <p>Persistent researcher identifier and record.</p>
+          <b>Edge AI Perception (ONNX)</b>
+          <p>Low-latency inference pipelines optimized for Jetson-class hardware, directly integrated as ROS 2 nodes.</p>
+          <div class="pillrow">
+            <span class="pill">ONNX</span><span class="pill">Jetson</span><span class="pill">Computer Vision</span>
+          </div>
         </div>
         <div class="card">
-          <b>GitHub</b>
-          <p>Open-source code, demos, and reproducible assets.</p>
+          <b>Robust Localization Pipeline</b>
+          <p>VIO/LIO/SLAM robustness strategies with system-level arbitration for highly dynamic and unstructured environments.</p>
+          <div class="pillrow">
+            <span class="pill">VIO</span><span class="pill">LIO</span><span class="pill">SLAM</span>
+          </div>
         </div>
       </div>
     </section>
 
     <div class="footer">
       <span>© <span id="y"></span> Sebastian Rojas-Ordoñez</span>
-      <span></span>
+      <div style="display: flex; gap: 16px;">
+        <a href="https://www.linkedin.com/in/sebastian-rojasordoñez/" target="_blank">LinkedIn</a>
+        <a href="https://github.com/SeRoMechatronic" target="_blank">GitHub</a>
+        <a href="https://scholar.google.com/citations?user=HSflBLwAAAAJ" target="_blank">Scholar</a>
+      </div>
     </div>
   </div>
 
   <script>
-    // Year
     document.getElementById("y").textContent = new Date().getFullYear();
 
-    // ===== Theme toggle (1) =====
     const sunIcon = `
       <path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12Zm0-16v2m0 16v2m10-10h-2M4 12H2m16.95 6.95-1.41-1.41M6.46 6.46 5.05 5.05m13.9 0-1.41 1.41M6.46 17.54 5.05 18.95" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
     `;
@@ -807,7 +952,7 @@
       root.setAttribute("data-theme", theme);
       localStorage.setItem("theme", theme);
       const isLight = theme === "light";
-      iconEl.innerHTML = isLight ? moonIcon : sunIcon; // show opposite action
+      iconEl.innerHTML = isLight ? moonIcon : sunIcon;
       labelEl.textContent = isLight ? "Light" : "Dark";
       toggleBtn.setAttribute("aria-label", isLight ? "Switch to dark mode" : "Switch to light mode");
       toggleBtn.title = isLight ? "Switch to dark mode" : "Switch to light mode";
@@ -819,12 +964,11 @@
       applyTheme(current === "dark" ? "light" : "dark");
     });
 
-    // ===== Typing effect (2) =====
     const phrases = [
-      "FMI/Modelica ↔ ROS 2 co-simulation pipelines",
-      "real-time edge AI inference with ONNX on Jetson",
+      "FMI/Modelica ↔ ROS 2 co-simulation",
+      "real-time AI inference with ONNX on Jetson",
       "robust localization stacks (VIO/LIO/SLAM)",
-      "safety-aware autonomy layers for mobile robots & UAVs"
+      "safety-aware autonomy for industrial robots"
     ];
     const typed = document.getElementById("typed");
     let p = 0, i = 0, dir = 1;
@@ -834,13 +978,12 @@
       i += dir;
       typed.textContent = text.slice(0, i);
 
-      if (i === text.length) { dir = -1; setTimeout(tick, 1100); return; }
-      if (i === 0) { dir = 1; p = (p + 1) % phrases.length; setTimeout(tick, 280); return; }
-      setTimeout(tick, dir === 1 ? 28 : 18);
+      if (i === text.length) { dir = -1; setTimeout(tick, 1500); return; }
+      if (i === 0) { dir = 1; p = (p + 1) % phrases.length; setTimeout(tick, 400); return; }
+      setTimeout(tick, dir === 1 ? 35 : 20);
     }
     tick();
 
-    // ===== Scroll reveal (2) =====
     const revealEls = Array.from(document.querySelectorAll(".reveal"));
     const revealObserver = new IntersectionObserver((entries) => {
       for (const e of entries){
@@ -852,7 +995,6 @@
     }, { root: null, threshold: 0.12 });
     revealEls.forEach(el => revealObserver.observe(el));
 
-    // ===== (3) Active nav state while scrolling =====
     const navLinks = Array.from(document.querySelectorAll('.nav-links a[data-spy]'));
     const sections = navLinks
       .map(a => document.getElementById(a.dataset.spy))
@@ -862,11 +1004,9 @@
       navLinks.forEach(a => a.classList.toggle('is-active', a.dataset.spy === id));
     }
 
-    // Default
     setActive('about');
 
     const spyObserver = new IntersectionObserver((entries) => {
-      // choose the most visible section
       const visible = entries
         .filter(e => e.isIntersecting)
         .sort((a,b) => (b.intersectionRatio - a.intersectionRatio))[0];
@@ -880,12 +1020,9 @@
 
     sections.forEach(s => spyObserver.observe(s));
 
-    // When clicking a nav link, set active immediately (nice UX)
     navLinks.forEach(a => {
       a.addEventListener('click', () => setActive(a.dataset.spy));
     });
   </script>
 </body>
 </html>
-
-
