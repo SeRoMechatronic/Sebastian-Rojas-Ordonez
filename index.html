@@ -5,480 +5,743 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
 
   <title>Sebastian Rojas-Ordoñez | AI & Robotics Researcher</title>
-  <meta name="description" content="PhD Researcher focused on Digital Twins, ROS 2, Edge AI, robust autonomy, localization, and embedded systems." />
+  <meta name="description" content="AI & Robotics Researcher | PhD Researcher in Control, Automation & Robotics | Embedded Systems, Digital Twins, ROS 2, FMI & Edge AI" />
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Using Lora for elegant academic headings and Inter for clean body text -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --bg-primary: #ffffff;
-      --bg-secondary: #f8fafc;
-      --text-primary: #0f172a;
-      --text-secondary: #475569;
-      --accent: #1d4ed8; /* Deep authoritative blue */
-      --border: #e2e8f0;
+    /* =========================
+       THEME TOKENS (Dark/Cyber Glassmorphism)
+       ========================= */
+    :root{
+      --text: rgba(255,255,255,.93);
+      --muted: rgba(255,255,255,.72);
+      --muted2: rgba(255,255,255,.56);
+
+      --border: rgba(255,255,255,.14);
+      --border2: rgba(255,255,255,.10);
+
+      --accent: rgba(140,255,223,.95);
+      --accent2: rgba(82,124,255,.90);
+      --accent3: rgba(255,185,0,.95); /* Amber for academic highlights */
+
+      --shadow: 0 40px 140px rgba(0,0,0,.78);
+      --r: 22px;
+
+      --bg-base: #000;
+      --nav-bg: rgba(8,10,16,.55);
+      --panel-bg-top: rgba(255,255,255,.08);
+      --panel-bg-bot: rgba(255,255,255,.03);
+
+      --video-opacity: .16;
+      --grid-opacity: .09;
+      --scan-opacity: .04;
+      --overlay-top: rgba(0,0,0,.92);
+      --overlay-mid: rgba(0,0,0,.52);
+      --overlay-bot: rgba(0,0,0,.94);
+
+      --link-chip: rgba(255,255,255,.03);
+      --link-chip-hover: rgba(255,255,255,.08);
+
+      --card-bg: rgba(255,255,255,.03);
+      --card-hover: rgba(255,255,255,.06);
+
+      --glow: 0 18px 70px rgba(140,255,223,.14);
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      color: var(--text-primary);
-      background-color: var(--bg-primary);
-      line-height: 1.7;
-    }
-
-    h1, h2, h3 {
-      font-family: 'Lora', serif;
-      color: var(--text-primary);
-      margin-top: 0;
-    }
-
-    a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
-    a:hover { color: #1e3a8a; text-decoration: underline; }
-
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    /* --- Header / Nav --- */
-    header {
-      padding: 32px 0;
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg-base);
+      overflow-x:hidden;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid var(--border);
-      background: var(--bg-primary);
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      flex-direction: column;
     }
-    .logo {
-      font-family: 'Lora', serif;
+    h1, h2, h3, .space-font {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    a{ color:inherit; text-decoration:none; }
+    
+    .container{ 
+      max-width: 1100px; 
+      margin: 0 auto; 
+      padding: 22px 18px 92px; 
+      width: 100%;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* =========================
+       DYNAMIC BACKGROUND
+       ========================= */
+    .bg{ position:fixed; inset:0; z-index:-10; overflow:hidden; background: var(--bg-base); }
+    .bg video{
+      width:100%; height:100%;
+      object-fit:cover;
+      opacity: var(--video-opacity);
+      filter: saturate(1.12) contrast(1.10);
+      transform: scale(1.03);
+    }
+    .overlay{
+      position:fixed; inset:0; z-index:-9; pointer-events:none;
+      background:
+        radial-gradient(1200px 720px at 16% 10%, rgba(140,255,223,.18), transparent 62%),
+        radial-gradient(1000px 680px at 84% 26%, rgba(82,124,255,.18), transparent 62%),
+        linear-gradient(180deg, var(--overlay-top) 0%, var(--overlay-mid) 55%, var(--overlay-bot) 100%);
+    }
+    .grid{
+      position:fixed; inset:0; z-index:-8; pointer-events:none;
+      background:
+        linear-gradient(to right, rgba(255,255,255,.18) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,.18) 1px, transparent 1px);
+      background-size: 56px 56px;
+      opacity: var(--grid-opacity);
+      mask-image: radial-gradient(900px 520px at 50% 24%, rgba(0,0,0,1), transparent 70%);
+      -webkit-mask-image: radial-gradient(900px 520px at 50% 24%, rgba(0,0,0,1), transparent 70%);
+      mix-blend-mode: overlay;
+    }
+    .scanlines{
+      position:fixed; inset:0; z-index:-7; pointer-events:none;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(255,255,255,.18),
+        rgba(255,255,255,.18) 1px,
+        transparent 1px,
+        transparent 6px
+      );
+      opacity: var(--scan-opacity);
+      mix-blend-mode: overlay;
+    }
+
+    /* =========================
+       NAVBAR (TAB CONTROLS)
+       ========================= */
+    .nav{
+      position: sticky;
+      top: 16px;
+      z-index: 50;
+      border: 1px solid var(--border);
+      background: var(--nav-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-radius: 18px;
+      box-shadow: 0 22px 70px rgba(0,0,0,.22);
+      padding: 12px 14px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 14px;
+      margin-bottom: 26px;
+    }
+    .brand{ display:flex; align-items:center; gap:12px; min-width: 250px; }
+    .dot{
+      width: 12px;
+      height:12px;
+      border-radius:999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 0 7px rgba(140,255,223,.12), 0 0 46px rgba(140,255,223,.22);
+    }
+    .brand b{ font-weight: 700; letter-spacing:.2px; line-height:1.1; font-family: 'Space Grotesk', sans-serif;}
+
+    .nav-links{
+      display:flex;
+      gap: 10px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:center;
+    }
+    .nav-links button{
+      padding: 10px 16px;
+      border: 1px solid var(--border2);
+      background: var(--link-chip);
+      border-radius: 12px;
+      color: var(--text);
+      font-size: 13.5px;
+      font-weight: 500;
+      font-family: inherit;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease, box-shadow .15s ease;
+      position: relative;
+      cursor: pointer;
+    }
+    .nav-links button:hover{
+      background: var(--link-chip-hover);
+      transform: translateY(-1px);
+      border-color: rgba(140,255,223,.22);
+    }
+
+    /* Active Tab Style */
+    .nav-links button.active{
+      border-color: rgba(140,255,223,.55);
+      background: linear-gradient(135deg, rgba(140,255,223,.18), rgba(82,124,255,.10));
+      box-shadow: 0 16px 60px rgba(140,255,223,.10);
+      color: #fff;
+    }
+    .nav-links button.active::after{
+      content:"";
+      position:absolute;
+      left: 10px;
+      right: 10px;
+      bottom: -6px;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(140,255,223,.85), rgba(82,124,255,.75));
+      opacity: .9;
+    }
+
+    .nav-right{ display:flex; align-items:center; gap: 10px; }
+    .btn{
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--link-chip);
+      font-weight: 600;
+      font-size: 13px;
+      white-space: nowrap;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease, box-shadow .15s ease;
+      cursor:pointer;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      background: var(--link-chip-hover);
+      border-color: rgba(140,255,223,.22);
+      box-shadow: 0 16px 55px rgba(0,0,0,.16);
+    }
+
+    /* =========================
+       TABS LOGIC (SPA)
+       ========================= */
+    .tab-content {
+      display: none;
+      animation: fadeUp 0.4s ease forwards;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* =========================
+       PANELS / GLASSMORPHISM
+       ========================= */
+    .panel{
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, var(--panel-bg-top), var(--panel-bg-bot));
+      border-radius: var(--r);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      overflow:hidden;
+      position:relative;
+    }
+    .panel::before{
+      content:"";
+      position:absolute;
+      inset:-1px;
+      background:
+        radial-gradient(520px 260px at 10% 10%, rgba(140,255,223,.18), transparent 60%),
+        radial-gradient(520px 260px at 88% 30%, rgba(82,124,255,.14), transparent 62%);
+      opacity:.75;
+      pointer-events:none;
+    }
+    .panel > *{ position:relative; z-index:1; }
+
+    /* --- TAB: HOME --- */
+    .hero{
+      display:grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 16px;
+      align-items: stretch;
+    }
+    .left{ padding: 40px; }
+    .right{ padding: 18px; display:flex; flex-direction:column; gap: 12px; }
+
+    h1{
+      margin: 0 0 10px;
+      font-size: 58px;
+      line-height: 1.05;
+      letter-spacing: -1.5px;
+      font-weight: 700;
+    }
+    .h1-sub {
       font-size: 20px;
       font-weight: 600;
-      color: var(--text-primary);
-      text-decoration: none;
-    }
-    .logo:hover { text-decoration: none; }
-    
-    nav { display: flex; gap: 24px; }
-    nav a {
-      color: var(--text-secondary);
-      font-size: 14px;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      text-decoration: none;
-    }
-    nav a:hover, nav a.active { color: var(--accent); text-decoration: none; }
-
-    /* --- Hero Section --- */
-    .hero {
-      padding: 80px 0;
-      display: flex;
-      align-items: center;
-      gap: 60px;
-    }
-    .hero-content { flex: 1; }
-    .hero-image {
-      width: 280px;
-      height: 280px;
-      flex-shrink: 0;
-    }
-    .hero-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 50%; /* Classic academic circular portrait */
-      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-    }
-    .hero h1 {
-      font-size: 48px;
-      font-weight: 600;
-      margin-bottom: 8px;
-      line-height: 1.2;
-    }
-    .hero h2 {
-      font-family: 'Inter', sans-serif;
-      font-size: 18px;
-      font-weight: 500;
       color: var(--accent);
-      margin-bottom: 24px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+      display: block;
+      letter-spacing: -0.5px;
+      line-height: 1.3;
     }
-    .hero p {
-      font-size: 16px;
-      color: var(--text-secondary);
-      margin-bottom: 32px;
-      max-width: 600px;
+    .sub{
+      margin: 0 0 24px 0;
+      font-size: 15.5px;
+      line-height: 1.6;
+      color: var(--muted);
+      font-weight: 500;
     }
-    
-    .social-links {
-      display: flex;
-      gap: 16px;
-    }
-    .social-links a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: var(--bg-secondary);
-      color: var(--text-secondary);
-      transition: all 0.2s;
-    }
-    .social-links a:hover {
-      background: var(--accent);
-      color: white;
-    }
-    .social-links svg { width: 20px; height: 20px; fill: currentColor; }
 
-    /* --- Sections General --- */
-    section {
-      padding: 80px 0;
-      border-bottom: 1px solid var(--border);
+    .tech-wall{
+      margin-top: 24px;
+      border: 1px solid var(--border2);
+      border-radius: 18px;
+      background: rgba(0,0,0,.06);
+      padding: 14px;
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+      align-items:center;
     }
-    section:last-child { border-bottom: none; }
-    
-    .section-title {
-      font-size: 32px;
-      margin-bottom: 40px;
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border2);
+      background: rgba(0,0,0,.10);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+    .logo img{ width: 18px; height: 18px; object-fit: contain; filter: saturate(.90) brightness(.98); }
+    .logo span{ font-size: 12.5px; color: var(--text); font-weight: 600; }
+
+    .external{
+      margin-top: 14px;
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+      align-items:center;
+    }
+    .ext{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid var(--border2);
+      background: rgba(0,0,0,.08);
+      transition: background .15s ease, transform .15s ease, border-color .15s ease;
+      font-size: 13px;
+    }
+    .ext:hover{
+      background: rgba(0,0,0,.12);
+      transform: translateY(-1px);
+      border-color: rgba(140,255,223,.22);
+    }
+    .ext svg{ width:18px; height:18px; fill: currentColor; opacity:.9; }
+    .ext span{ font-weight: 600; }
+
+    .portrait{
+      border-radius: 22px;
+      border: 1px solid var(--border);
+      overflow:hidden;
+      background: rgba(0,0,0,.06);
+      aspect-ratio: 4 / 3.5;
+    }
+    .portrait img{ width:100%; height:100%; object-fit:cover; transform: scale(1.02); object-position: center top; }
+
+    .stats{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 10px;
+      flex: 1;
+    }
+    .stat{
       position: relative;
+      border: 1px solid var(--border2);
+      background: var(--card-bg);
+      border-radius: 18px;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .stat-val {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--text);
+      display: block;
+      margin-bottom: 2px;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .stat-val span { color: var(--accent); }
+    .stat b{ display:block; font-size: 14px; font-weight: 600;}
+    .stat span.stat-desc{ display:block; color: var(--muted2); font-size: 12.5px; margin-top: 4px; line-height:1.3; }
+
+    /* --- SHARED TABS STYLING --- */
+    .tab-header {
+      padding: 32px 40px 16px;
+      border-bottom: 1px solid var(--border2);
+    }
+    .tab-header h2 {
+      margin: 0;
+      font-size: 32px;
+    }
+    .tab-header p {
+      margin: 8px 0 0 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+    .tab-body {
+      padding: 32px 40px;
     }
 
-    /* --- Experience & Education --- */
+    /* --- TAB: EXPERIENCE --- */
     .timeline {
-      margin-left: 16px;
-      border-left: 2px solid var(--border);
-      padding-left: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
     }
     .timeline-item {
       position: relative;
-      margin-bottom: 48px;
+      padding-left: 32px;
+      border-left: 1px solid rgba(255,255,255,0.15);
     }
-    .timeline-item:last-child { margin-bottom: 0; }
     .timeline-item::before {
       content: '';
       position: absolute;
-      left: -39px; /* 32px padding + 7px to center on 2px border */
+      left: -6px;
       top: 6px;
-      width: 12px;
-      height: 12px;
+      width: 11px;
+      height: 11px;
       border-radius: 50%;
-      background: var(--bg-primary);
-      border: 2px solid var(--accent);
+      background: var(--accent);
+      box-shadow: 0 0 15px rgba(140,255,223,.5);
     }
-    .timeline-date {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--accent);
-      margin-bottom: 4px;
+    .timeline-item.edu::before {
+      background: var(--accent2);
+      box-shadow: 0 0 15px rgba(82,124,255,.5);
     }
-    .timeline-title {
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--text-primary);
-      margin: 0 0 4px 0;
-    }
-    .timeline-org {
-      font-size: 15px;
-      font-weight: 500;
-      color: var(--text-secondary);
-      margin: 0 0 12px 0;
-      font-style: italic;
-    }
-    .timeline-desc {
-      font-size: 15px;
-      color: var(--text-secondary);
-      margin: 0;
-    }
+    .time-role { font-size: 20px; font-weight: 600; font-family: 'Space Grotesk', sans-serif; color: var(--text);}
+    .time-org { font-size: 15px; color: var(--accent); font-weight: 600; margin-top: 4px;}
+    .time-date { font-size: 13.5px; color: var(--muted2); margin-top: 4px;}
+    .time-desc { font-size: 14.5px; color: var(--muted); margin-top: 12px; line-height: 1.6; }
 
-    /* --- Publications --- */
-    .publication {
+    /* --- TAB: PUBLICATIONS --- */
+    .pub-list {
       display: flex;
-      gap: 24px;
-      margin-bottom: 40px;
+      flex-direction: column;
+      gap: 20px;
     }
-    .publication:last-child { margin-bottom: 0; }
-    
-    .pub-year {
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--text-secondary);
-      min-width: 60px;
+    .card {
+      border: 1px solid var(--border2);
+      background: var(--card-bg);
+      border-radius: 18px;
+      padding: 24px;
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
     }
-    .pub-content { flex: 1; }
-    .pub-title {
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--text-primary);
-      margin: 0 0 8px 0;
-      line-height: 1.4;
+    .card:hover {
+      background: var(--card-hover);
+      border-color: rgba(140,255,223,.22);
+      transform: translateY(-2px);
     }
-    .pub-authors {
-      font-size: 15px;
-      color: var(--text-secondary);
-      margin: 0 0 4px 0;
-    }
-    .pub-journal {
-      font-size: 15px;
-      font-style: italic;
-      color: var(--text-secondary);
-      margin: 0 0 12px 0;
-    }
-    .pub-tags {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-    .tag {
+    .card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+    .card-title { font-size: 18px; font-weight: 600; line-height: 1.3; font-family: 'Space Grotesk', sans-serif;}
+    .card-subtitle { font-size: 14px; color: var(--accent); margin-bottom: 12px; font-weight: 600;}
+    .card p { margin:0; color: var(--muted); font-size: 14.5px; line-height:1.6; }
+
+    .pillrow{ margin-top: 16px; display:flex; flex-wrap:wrap; gap: 8px; }
+    .pill{
       font-size: 12px;
-      font-weight: 500;
       padding: 4px 10px;
-      border-radius: 4px;
-      background: var(--bg-secondary);
-      color: var(--text-secondary);
-      border: 1px solid var(--border);
+      border-radius: 6px;
+      border: 1px solid var(--border2);
+      background: rgba(0,0,0,.2);
+      color: var(--muted);
+      font-weight: 500;
     }
-    .tag.highlight {
-      background: #eff6ff;
-      color: var(--accent);
-      border-color: #bfdbfe;
+    .badge-amber {
+      border-color: rgba(255,185,0,.3);
+      color: rgba(255,185,0,.9);
+      background: rgba(255,185,0,.1);
     }
 
-    /* --- Projects --- */
+    /* --- TAB: PROJECTS --- */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 32px;
-    }
-    .project-card {
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 24px;
-      background: var(--bg-primary);
-      transition: box-shadow 0.2s, transform 0.2s;
-    }
-    .project-card:hover {
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-      transform: translateY(-2px);
-    }
-    .project-title {
-      font-size: 18px;
-      font-weight: 600;
-      margin: 0 0 12px 0;
-      color: var(--text-primary);
-    }
-    .project-desc {
-      font-size: 15px;
-      color: var(--text-secondary);
-      margin: 0 0 16px 0;
+      gap: 20px;
     }
 
-    /* --- Footer --- */
-    footer {
-      padding: 40px 0;
-      text-align: center;
-      color: var(--text-secondary);
-      font-size: 14px;
-    }
-
-    @media (max-width: 768px) {
-      .hero {
-        flex-direction: column-reverse;
-        text-align: center;
-        padding: 40px 0;
-        gap: 32px;
-      }
-      .hero-image { width: 200px; height: 200px; }
-      .social-links { justify-content: center; }
-      header { flex-direction: column; gap: 16px; padding: 20px 0; }
-      nav { flex-wrap: wrap; justify-content: center; gap: 16px; }
+    /* --- RESPONSIVE --- */
+    @media (max-width: 900px){
+      .hero{ grid-template-columns: 1fr; }
+      .left { padding: 24px; }
+      .nav { flex-direction: column; padding: 16px; }
+      .nav-links { margin-top: 12px; }
       .projects-grid { grid-template-columns: 1fr; }
-      .publication { flex-direction: column; gap: 8px; }
+      .tab-header, .tab-body { padding: 24px; }
     }
   </style>
 </head>
 <body>
+  
+  <!-- Dynamic Background (Runs continuously) -->
+  <div class="bg" aria-hidden="true">
+    <video autoplay muted loop playsinline preload="metadata" poster="assets/poster.jpg">
+      <source src="assets/hero.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="overlay" aria-hidden="true"></div>
+  <div class="grid" aria-hidden="true"></div>
+  <div class="scanlines" aria-hidden="true"></div>
 
-  <header>
-    <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
-      <a href="#" class="logo">S. Rojas-Ordoñez</a>
-      <nav>
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#publications">Publications</a>
-        <a href="#projects">Projects</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="container">
+  <div class="container">
     
-    <!-- HERO -->
-    <section id="about" class="hero">
-      <div class="hero-content">
-        <h1>Sebastian Rojas-Ordoñez</h1>
-        <h2>AI & Robotics Researcher | PhD Researcher</h2>
-        <p>
-          Specializing in Embedded Systems, Digital Twins, ROS 2, FMI & Edge AI. My work at IKERLAN and the University of the Basque Country (UPV/EHU) focuses on model-based engineering and interoperable simulation/execution workflows using open standards to bridge the gap between academic theory and industrial robotics.
-        </p>
-        <div class="social-links">
-          <a href="mailto:sebastian.rojas@ehu.eus" title="Email">
-            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          </a>
-          <a href="https://scholar.google.com/citations?user=HSflBLwAAAAJ&hl=es&authuser=2" target="_blank" title="Google Scholar">
-            <svg viewBox="0 0 24 24"><path d="M12 3 1 8l11 5 9-4.09V16h2V8L12 3zm-6.5 8.27V14c0 2.21 2.91 4 6.5 4s6.5-1.79 6.5-4v-2.73L12 14l-6.5-2.73z"/></svg>
-          </a>
-          <a href="https://github.com/SeRoMechatronic" target="_blank" title="GitHub">
-            <svg viewBox="0 0 24 24"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.4c.58.1.8-.25.8-.56v-2c-3.26.71-3.95-1.4-3.95-1.4-.54-1.38-1.32-1.75-1.32-1.75-1.08-.74.08-.73.08-.73 1.2.08 1.83 1.23 1.83 1.23 1.06 1.82 2.78 1.3 3.46 1 .1-.77.42-1.3.76-1.6-2.6-.3-5.34-1.3-5.34-5.8 0-1.28.46-2.33 1.22-3.15-.12-.3-.53-1.52.12-3.17 0 0 1-.32 3.27 1.2a11.3 11.3 0 0 1 5.95 0c2.27-1.52 3.27-1.2 3.27-1.2.65 1.65.24 2.87.12 3.17.76.82 1.22 1.87 1.22 3.15 0 4.51-2.74 5.5-5.35 5.79.43.37.82 1.1.82 2.22v3.3c0 .31.21.66.81.55A11.5 11.5 0 0 0 12 .5z"/></svg>
-          </a>
-          <a href="https://www.linkedin.com/in/sebastian-rojasordoñez/" target="_blank" title="LinkedIn">
-            <svg viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V24h-4V8zM8 8h3.8v2.2h.05c.53-1 1.82-2.2 3.75-2.2 4.01 0 4.75 2.64 4.75 6.07V24h-4v-8.4c0-2-.04-4.57-2.78-4.57-2.78 0-3.2 2.17-3.2 4.42V24H8V8z"/></svg>
-          </a>
-        </div>
-      </div>
-      <div class="hero-image">
-        <img src="assets/profile.jpg" alt="Sebastian Rojas-Ordoñez">
-      </div>
-    </section>
-
-    <!-- EXPERIENCE & EDUCATION -->
-    <section id="experience">
-      <h2 class="section-title">Experience & Education</h2>
-      <div class="timeline">
-        
-        <div class="timeline-item">
-          <div class="timeline-date">Jan 2025 – Present</div>
-          <h3 class="timeline-title">PhD in Control, Automation & Robotics</h3>
-          <p class="timeline-org">Universidad del País Vasco (UPV/EHU) · Basque Country, Spain</p>
-          <p class="timeline-desc">Research focusing on advanced control architectures, digital twins, and AI edge inference for autonomous systems.</p>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-date">Aug 2024 – Present</div>
-          <h3 class="timeline-title">PhD Researcher</h3>
-          <p class="timeline-org">IKERLAN S.COOP · Donostia-San Sebastian</p>
-          <p class="timeline-desc">Focusing on robotics, embedded systems, and open interoperability standards for industrial cyber-physical systems. Contributing to R&D projects like Elkartek AUTOTRUST and SENDOA.</p>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-date">Feb 2024 – Sep 2024</div>
-          <h3 class="timeline-title">M.Sc. Mechatronics, Robotics & Automation</h3>
-          <p class="timeline-org">Karlsruhe University of Applied Sciences · Germany</p>
-          <p class="timeline-desc">Erasmus Mundus Master's (EU4M). Specialized in automation engineering, system integration, and advanced robotics control. Conducted Master Thesis at IKERLAN on IKSAFECOLAB.</p>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- PUBLICATIONS -->
-    <section id="publications">
-      <h2 class="section-title">Selected Publications</h2>
-      
-      <div class="publication">
-        <div class="pub-year">2026</div>
-        <div class="pub-content">
-          <h3 class="pub-title">Plug-and-Play LLM Knowledge Extraction for Robot Navigation</h3>
-          <p class="pub-authors">S. Rojas-Ordoñez, et al.</p>
-          <p class="pub-journal">Machine Learning and Knowledge Extraction</p>
-          <div class="pub-tags">
-            <span class="tag highlight">Published</span>
-            <span class="tag">Edge AI</span>
-            <span class="tag">LLMs</span>
-            <span class="tag">Jetson</span>
-          </div>
-        </div>
+    <!-- Tabbed Navigation -->
+    <div class="nav">
+      <div class="brand">
+        <span class="dot"></span>
+        <b>Sebastian Rojas-Ordoñez</b>
       </div>
 
-      <div class="publication">
-        <div class="pub-year">2025</div>
-        <div class="pub-content">
-          <h3 class="pub-title">Natural-Language Relay Control for a SISO Thermal Plant</h3>
-          <p class="pub-authors">S. Rojas-Ordoñez, et al.</p>
-          <p class="pub-journal">Applied Sciences</p>
-          <div class="pub-tags">
-            <span class="tag highlight">Published</span>
-            <span class="tag">Control Systems</span>
-            <span class="tag">Automation</span>
-          </div>
-        </div>
+      <div class="nav-links">
+        <button class="tab-btn active" data-tab="home">Home</button>
+        <button class="tab-btn" data-tab="experience">Experience</button>
+        <button class="tab-btn" data-tab="publications">Publications</button>
+        <button class="tab-btn" data-tab="projects">Projects</button>
       </div>
 
-      <div class="publication">
-        <div class="pub-year">2024</div>
-        <div class="pub-content">
-          <h3 class="pub-title">Cognitive Digital Twins for Autonomous Robotics</h3>
-          <p class="pub-authors">S. Rojas-Ordoñez, et al.</p>
-          <p class="pub-journal">In Preparation for: Autonomous Robots (Springer) — Q1 Journal</p>
-          <div class="pub-tags">
-            <span class="tag">In Preparation</span>
-            <span class="tag">Robotics</span>
-            <span class="tag">Digital Twins</span>
-            <span class="tag">Systematic Review</span>
-          </div>
-        </div>
+      <div class="nav-right">
+        <a class="btn" href="mailto:sebastian.rojas@ehu.eus">Contact Me</a>
       </div>
-
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects">
-      <h2 class="section-title">Technical Expertise & Projects</h2>
-      <div class="projects-grid">
-        
-        <div class="project-card">
-          <h3 class="project-title">Digital Twin Autonomy Stack</h3>
-          <p class="project-desc">Bridging FMI/Modelica simulation with ROS 2 deployment and safety-aware policies for industrial applications. Enables seamless co-simulation and testing.</p>
-          <div class="pub-tags">
-            <span class="tag">FMI/FMU</span>
-            <span class="tag">ROS 2</span>
-            <span class="tag">Modelica</span>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <h3 class="project-title">Edge AI Perception</h3>
-          <p class="project-desc">Low-latency inference pipelines utilizing ONNX, optimized for Jetson-class hardware and directly integrated as robust ROS 2 nodes for field robotics.</p>
-          <div class="pub-tags">
-            <span class="tag">ONNX</span>
-            <span class="tag">Jetson</span>
-            <span class="tag">Computer Vision</span>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <h3 class="project-title">Robust Localization Pipeline</h3>
-          <p class="project-desc">VIO/LIO/SLAM robustness strategies featuring system-level arbitration designed to maintain reliable odometry in highly dynamic and unstructured environments.</p>
-          <div class="pub-tags">
-            <span class="tag">VIO</span>
-            <span class="tag">LIO</span>
-            <span class="tag">SLAM</span>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    <div class="container">
-      <p>© <span id="y"></span> Sebastian Rojas-Ordoñez. All rights reserved.</p>
     </div>
-  </footer>
+
+    <!-- TABS CONTAINER -->
+    <div class="panel">
+      
+      <!-- ==================== HOME TAB ==================== -->
+      <div id="home" class="tab-content active">
+        <div class="hero">
+          <div class="left">
+            <h1>Sebastian<br>Rojas-Ordoñez</h1>
+            <span class="h1-sub">AI & Robotics Researcher | PhD Researcher in Control, Automation & Robotics</span>
+            <p class="sub">Embedded Systems, Digital Twins, ROS 2, FMI & Edge AI</p>
+
+            <div class="tech-wall">
+              <div class="logo"><img src="assets/logos/ros2.svg" alt="ROS 2"><span>ROS 2</span></div>
+              <div class="logo"><img src="assets/logos/nvidia.svg" alt="Jetson"><span>Jetson</span></div>
+              <div class="logo"><img src="assets/logos/onnx.svg" alt="ONNX"><span>ONNX</span></div>
+              <div class="logo"><img src="assets/logos/python.svg" alt="Python"><span>Python / C++</span></div>
+              <div class="logo"><span>FMI / Modelica</span></div>
+              <div class="logo"><img src="assets/logos/linux.svg" alt="Linux"><span>Linux</span></div>
+            </div>
+
+            <div class="external">
+              <a class="ext" href="https://scholar.google.com/citations?user=HSflBLwAAAAJ&hl=es&authuser=2" target="_blank">
+                <svg viewBox="0 0 24 24"><path d="M12 3 1 8l11 5 9-4.09V16h2V8L12 3zm-6.5 8.27V14c0 2.21 2.91 4 6.5 4s6.5-1.79 6.5-4v-2.73L12 14l-6.5-2.73z"/></svg>
+                <span>Scholar</span>
+              </a>
+              <a class="ext" href="https://orcid.org/0009-0000-5142-1284" target="_blank">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8.2 16.2V9.2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="8.2" cy="7.3" r="1" fill="currentColor"/><path d="M11.1 9.2h3.1a3 3 0 0 1 0 6h-3.1V9.2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+                <span>ORCID</span>
+              </a>
+              <a class="ext" href="https://github.com/SeRoMechatronic" target="_blank">
+                <svg viewBox="0 0 24 24"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.4c.58.1.8-.25.8-.56v-2c-3.26.71-3.95-1.4-3.95-1.4-.54-1.38-1.32-1.75-1.32-1.75-1.08-.74.08-.73.08-.73 1.2.08 1.83 1.23 1.83 1.23 1.06 1.82 2.78 1.3 3.46 1 .1-.77.42-1.3.76-1.6-2.6-.3-5.34-1.3-5.34-5.8 0-1.28.46-2.33 1.22-3.15-.12-.3-.53-1.52.12-3.17 0 0 1-.32 3.27 1.2a11.3 11.3 0 0 1 5.95 0c2.27-1.52 3.27-1.2 3.27-1.2.65 1.65.24 2.87.12 3.17.76.82 1.22 1.87 1.22 3.15 0 4.51-2.74 5.5-5.35 5.79.43.37.82 1.1.82 2.22v3.3c0 .31.21.66.81.55A11.5 11.5 0 0 0 12 .5z"/></svg>
+                <span>GitHub</span>
+              </a>
+              <a class="ext" href="https://www.linkedin.com/in/sebastian-rojasordoñez/" target="_blank">
+                <svg viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V24h-4V8zM8 8h3.8v2.2h.05c.53-1 1.82-2.2 3.75-2.2 4.01 0 4.75 2.64 4.75 6.07V24h-4v-8.4c0-2-.04-4.57-2.78-4.57-2.78 0-3.2 2.17-3.2 4.42V24H8V8z"/></svg>
+                <span>LinkedIn</span>
+              </a>
+            </div>
+          </div>
+
+          <aside class="right">
+            <div class="portrait">
+              <img src="assets/profile.jpg" alt="Sebastian Rojas-Ordoñez">
+            </div>
+            <div class="stats">
+              <div class="stat">
+                <span class="stat-val">3<span>+</span></span>
+                <b>Years Exp.</b>
+                <span class="stat-desc">Robotics & AI</span>
+              </div>
+              <div class="stat">
+                <span class="stat-val">M.Sc.</span>
+                <b>Mechatronics</b>
+                <span class="stat-desc">Karlsruhe Univ.</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <!-- ==================== EXPERIENCE TAB ==================== -->
+      <div id="experience" class="tab-content">
+        <div class="tab-header">
+          <h2>Experience & Education</h2>
+          <p>Academic background and industrial research path.</p>
+        </div>
+        <div class="tab-body">
+          <div class="timeline">
+            <!-- Academic -->
+            <div class="timeline-item edu">
+              <div class="time-role">PhD in Control, Automation & Robotics</div>
+              <div class="time-org">Universidad del País Vasco (UPV/EHU)</div>
+              <div class="time-date">Jan 2025 – Present</div>
+              <div class="time-desc">Research focusing on advanced control architectures, digital twins, and AI edge inference for autonomous systems.</div>
+            </div>
+            <!-- Industrial -->
+            <div class="timeline-item">
+              <div class="time-role">PhD Researcher</div>
+              <div class="time-org">IKERLAN S.COOP · Donostia-San Sebastian</div>
+              <div class="time-date">Aug 2024 – Present</div>
+              <div class="time-desc">Focuses on robotics, embedded systems, and open interoperability standards for industrial cyber-physical systems. Contributing to R&D projects like Elkartek AUTOTRUST and SENDOA.</div>
+            </div>
+            <!-- Academic -->
+            <div class="timeline-item edu">
+              <div class="time-role">M.Sc. Mechatronics, Robotics & Automation</div>
+              <div class="time-org">Karlsruhe University of Applied Sciences</div>
+              <div class="time-date">Feb 2024 – Sep 2024</div>
+              <div class="time-desc">Erasmus Mundus Master's (EU4M). Specialized in automation engineering, system integration, and advanced robotics control.</div>
+            </div>
+            <!-- Industrial -->
+            <div class="timeline-item">
+              <div class="time-role">Research Intern (Master Thesis)</div>
+              <div class="time-org">IKERLAN S.COOP</div>
+              <div class="time-date">Feb 2024 – Jul 2024</div>
+              <div class="time-desc">Master thesis research on IKSAFECOLAB: A safety and collaborative robotic system architecture for industrial research.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================== PUBLICATIONS TAB ==================== -->
+      <div id="publications" class="tab-content">
+        <div class="tab-header">
+          <h2>Selected Publications</h2>
+          <p>Research contributions in peer-reviewed journals and conferences.</p>
+        </div>
+        <div class="tab-body pub-list">
+          
+          <div class="card">
+            <div class="card-top">
+              <div class="card-title">Cognitive Digital Twins for Autonomous Robotics</div>
+            </div>
+            <div class="card-subtitle">In Preparation for: Autonomous Robots (Springer) — Q1 Journal</div>
+            <p>Systematic review of 121 studies establishing a unified framework for integrating Cognitive Digital Twins in autonomous robotic systems, focusing on robust localization, navigation, and manipulation architectures.</p>
+            <div class="pillrow">
+              <span class="pill badge-amber">In Preparation</span>
+              <span class="pill">Robotics</span>
+              <span class="pill">Digital Twins</span>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-top">
+              <div class="card-title">Plug-and-Play LLM Knowledge Extraction for Robot Navigation</div>
+            </div>
+            <div class="card-subtitle">Machine Learning and Knowledge Extraction — Feb 2026</div>
+            <p>A fine-tuning-free edge framework leveraging Large Language Models (LLMs) deployed on resource-constrained embedded systems (NVIDIA Jetson) to enhance autonomous robot navigation using zero-shot prompt engineering.</p>
+            <div class="pillrow">
+              <span class="pill">Published</span>
+              <span class="pill">Edge AI</span>
+              <span class="pill">LLMs</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-top">
+              <div class="card-title">Natural-Language Relay Control for a SISO Thermal Plant</div>
+            </div>
+            <div class="card-subtitle">Applied Sciences — Dec 2025</div>
+            <p>A proof-of-concept architecture with validation against a conventional hysteresis controller, demonstrating the viability of LLM-based intelligent relay control in cyber-physical thermal systems.</p>
+            <div class="pillrow">
+              <span class="pill">Published</span>
+              <span class="pill">Control Systems</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ==================== PROJECTS TAB ==================== -->
+      <div id="projects" class="tab-content">
+        <div class="tab-header">
+          <h2>Technical Expertise & Projects</h2>
+          <p>Key areas of development and system architectures.</p>
+        </div>
+        <div class="tab-body projects-grid">
+          
+          <div class="card">
+            <div class="card-title" style="margin-bottom:8px">Digital Twin Autonomy Stack</div>
+            <p>Bridging FMI/Modelica simulation with ROS 2 deployment and safety-aware policies for industrial applications.</p>
+            <div class="pillrow">
+              <span class="pill">FMI/FMU</span><span class="pill">ROS 2</span><span class="pill">Co-sim</span>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-title" style="margin-bottom:8px">Edge AI Perception (ONNX)</div>
+            <p>Low-latency inference pipelines optimized for Jetson-class hardware, directly integrated as ROS 2 nodes.</p>
+            <div class="pillrow">
+              <span class="pill">ONNX</span><span class="pill">Jetson</span><span class="pill">Vision</span>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-title" style="margin-bottom:8px">Robust Localization Pipeline</div>
+            <p>VIO/LIO/SLAM robustness strategies with system-level arbitration for highly dynamic environments.</p>
+            <div class="pillrow">
+              <span class="pill">VIO</span><span class="pill">LIO</span><span class="pill">SLAM</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div> <!-- End Panel -->
+  </div>
 
   <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
+    // Tab Navigation Logic
+    const buttons = document.querySelectorAll('.tab-btn');
+    const contents = document.querySelectorAll('.tab-content');
+
+    function switchTab(tabId) {
+      // Update buttons
+      buttons.forEach(btn => {
+        if(btn.dataset.tab === tabId) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+      // Update content
+      contents.forEach(content => {
+        if(content.id === tabId) {
+          content.classList.add('active');
+        } else {
+          content.classList.remove('active');
+        }
+      });
+      // Update URL hash without jumping
+      history.pushState(null, null, '#' + tabId);
+    }
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        switchTab(btn.dataset.tab);
+      });
+    });
+
+    // Handle initial hash load
+    window.addEventListener('DOMContentLoaded', () => {
+      const hash = window.location.hash.substring(1);
+      if (hash && document.getElementById(hash)) {
+        switchTab(hash);
+      }
+    });
   </script>
 </body>
 </html>
