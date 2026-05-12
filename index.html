@@ -3,745 +3,1009 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sebastian Rojas-Ordoñez · AI &amp; Robotics Researcher</title>
+  <meta name="description" content="PhD Researcher at IKERLAN &amp; UPV/EHU specializing in Digital Twins, Edge AI, ROS 2, and autonomous robotic systems." />
+  <meta name="author" content="Sebastian Rojas-Ordoñez" />
+  <meta property="og:title" content="Sebastian Rojas-Ordoñez · AI &amp; Robotics Researcher" />
+  <meta property="og:description" content="PhD Researcher · Digital Twins · Edge AI · ROS 2 · Autonomous Systems" />
+  <meta property="og:type" content="website" />
 
-  <title>Sebastian Rojas-Ordoñez | AI & Robotics Researcher</title>
-  <meta name="description" content="AI & Robotics Researcher | PhD Researcher in Control, Automation & Robotics | Embedded Systems, Digital Twins, ROS 2, FMI & Edge AI" />
-  
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%235affd8'/><text x='50' y='68' font-family='system-ui,sans-serif' font-weight='700' font-size='44' fill='%23000' text-anchor='middle'>SR</text></svg>">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
-    /* =========================
-       THEME TOKENS (Dark/Cyber Glassmorphism)
-       ========================= */
-    :root{
-      --text: rgba(255,255,255,.93);
-      --muted: rgba(255,255,255,.72);
-      --muted2: rgba(255,255,255,.56);
+    /* ── TOKENS ──────────────────────────────────────────────── */
+    :root {
+      --text:    rgba(255,255,255,.94);
+      --muted:   rgba(255,255,255,.68);
+      --muted2:  rgba(255,255,255,.46);
 
-      --border: rgba(255,255,255,.14);
-      --border2: rgba(255,255,255,.10);
+      --accent:  #5affd8;
+      --accent2: #6b8aff;
+      --accent3: #ffb800;
+      --accent4: #ff7eb3;
 
-      --accent: rgba(140,255,223,.95);
-      --accent2: rgba(82,124,255,.90);
-      --accent3: rgba(255,185,0,.95); /* Amber for academic highlights */
+      --border:  rgba(255,255,255,.13);
+      --border2: rgba(255,255,255,.08);
 
-      --shadow: 0 40px 140px rgba(0,0,0,.78);
+      --glass:      rgba(255,255,255,.045);
+      --glass-h:    rgba(255,255,255,.08);
+      --glass-card: rgba(255,255,255,.035);
+
+      --nav-bg:  rgba(6,8,14,.60);
+      --bg-base: #020408;
       --r: 22px;
-
-      --bg-base: #000;
-      --nav-bg: rgba(8,10,16,.55);
-      --panel-bg-top: rgba(255,255,255,.08);
-      --panel-bg-bot: rgba(255,255,255,.03);
-
-      --video-opacity: .16;
-      --grid-opacity: .09;
-      --scan-opacity: .04;
-      --overlay-top: rgba(0,0,0,.92);
-      --overlay-mid: rgba(0,0,0,.52);
-      --overlay-bot: rgba(0,0,0,.94);
-
-      --link-chip: rgba(255,255,255,.03);
-      --link-chip-hover: rgba(255,255,255,.08);
-
-      --card-bg: rgba(255,255,255,.03);
-      --card-hover: rgba(255,255,255,.06);
-
-      --glow: 0 18px 70px rgba(140,255,223,.14);
+      --shadow: 0 48px 160px rgba(0,0,0,.85);
     }
 
-    *{ box-sizing:border-box; }
-    html,body{ height:100%; }
-    body{
-      margin:0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, sans-serif;
       color: var(--text);
       background: var(--bg-base);
-      overflow-x:hidden;
+      overflow-x: hidden;
       display: flex;
       flex-direction: column;
+      -webkit-font-smoothing: antialiased;
     }
-    h1, h2, h3, .space-font {
-      font-family: 'Space Grotesk', sans-serif;
-    }
-    a{ color:inherit; text-decoration:none; }
-    
-    .container{ 
-      max-width: 1100px; 
-      margin: 0 auto; 
-      padding: 22px 18px 92px; 
+    h1,h2,h3,.sg { font-family: 'Space Grotesk', sans-serif; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    a { color: inherit; text-decoration: none; }
+    p { margin: 0; }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 22px 18px 100px;
       width: 100%;
       flex: 1;
       display: flex;
       flex-direction: column;
     }
 
-    /* =========================
-       DYNAMIC BACKGROUND
-       ========================= */
-    .bg{ position:fixed; inset:0; z-index:-10; overflow:hidden; background: var(--bg-base); }
-    .bg video{
-      width:100%; height:100%;
-      object-fit:cover;
-      opacity: var(--video-opacity);
-      filter: saturate(1.12) contrast(1.10);
-      transform: scale(1.03);
+    /* ── BACKGROUND ──────────────────────────────────────────── */
+    .bg { position: fixed; inset: 0; z-index: -10; background: var(--bg-base); overflow: hidden; }
+    .bg video {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: .14;
+      filter: saturate(1.15) contrast(1.08);
+      transform: scale(1.04);
     }
-    .overlay{
-      position:fixed; inset:0; z-index:-9; pointer-events:none;
+    .overlay {
+      position: fixed; inset: 0; z-index: -9; pointer-events: none;
       background:
-        radial-gradient(1200px 720px at 16% 10%, rgba(140,255,223,.18), transparent 62%),
-        radial-gradient(1000px 680px at 84% 26%, rgba(82,124,255,.18), transparent 62%),
-        linear-gradient(180deg, var(--overlay-top) 0%, var(--overlay-mid) 55%, var(--overlay-bot) 100%);
+        radial-gradient(1400px 800px at 14% 8%,  rgba(90,255,216,.15), transparent 60%),
+        radial-gradient(1000px 700px at 86% 22%, rgba(107,138,255,.16), transparent 60%),
+        radial-gradient(800px  500px at 50% 90%, rgba(107,138,255,.08), transparent 60%),
+        linear-gradient(180deg, rgba(0,0,0,.94) 0%, rgba(0,0,0,.50) 50%, rgba(0,0,0,.95) 100%);
     }
-    .grid{
-      position:fixed; inset:0; z-index:-8; pointer-events:none;
+    .grid {
+      position: fixed; inset: 0; z-index: -8; pointer-events: none;
       background:
-        linear-gradient(to right, rgba(255,255,255,.18) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255,255,255,.18) 1px, transparent 1px);
-      background-size: 56px 56px;
-      opacity: var(--grid-opacity);
-      mask-image: radial-gradient(900px 520px at 50% 24%, rgba(0,0,0,1), transparent 70%);
-      -webkit-mask-image: radial-gradient(900px 520px at 50% 24%, rgba(0,0,0,1), transparent 70%);
-      mix-blend-mode: overlay;
+        linear-gradient(to right,  rgba(255,255,255,.22) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,.22) 1px, transparent 1px);
+      background-size: 58px 58px;
+      opacity: .07;
+      mask-image: radial-gradient(900px 480px at 50% 20%, black, transparent 70%);
+      -webkit-mask-image: radial-gradient(900px 480px at 50% 20%, black, transparent 70%);
     }
-    .scanlines{
-      position:fixed; inset:0; z-index:-7; pointer-events:none;
-      background: repeating-linear-gradient(
-        to bottom,
-        rgba(255,255,255,.18),
-        rgba(255,255,255,.18) 1px,
-        transparent 1px,
-        transparent 6px
-      );
-      opacity: var(--scan-opacity);
-      mix-blend-mode: overlay;
+    .scanlines {
+      position: fixed; inset: 0; z-index: -7; pointer-events: none;
+      background: repeating-linear-gradient(to bottom,
+        rgba(255,255,255,.14), rgba(255,255,255,.14) 1px,
+        transparent 1px, transparent 6px);
+      opacity: .033;
     }
 
-    /* =========================
-       NAVBAR (TAB CONTROLS)
-       ========================= */
-    .nav{
-      position: sticky;
-      top: 16px;
-      z-index: 50;
+    /* ── NAVBAR ──────────────────────────────────────────────── */
+    .nav {
+      position: sticky; top: 16px; z-index: 50;
       border: 1px solid var(--border);
       background: var(--nav-bg);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-radius: 18px;
-      box-shadow: 0 22px 70px rgba(0,0,0,.22);
-      padding: 12px 14px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 14px;
-      margin-bottom: 26px;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 20px;
+      box-shadow: 0 24px 80px rgba(0,0,0,.28);
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 24px;
     }
-    .brand{ display:flex; align-items:center; gap:12px; min-width: 250px; }
-    .dot{
-      width: 12px;
-      height:12px;
-      border-radius:999px;
+    .brand { display: flex; align-items: center; gap: 11px; min-width: 0; flex-shrink: 0; }
+    .dot {
+      width: 11px; height: 11px;
+      border-radius: 50%;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 0 0 7px rgba(140,255,223,.12), 0 0 46px rgba(140,255,223,.22);
+      box-shadow: 0 0 0 6px rgba(90,255,216,.10), 0 0 42px rgba(90,255,216,.28);
+      flex-shrink: 0;
+      animation: pulse 3s ease-in-out infinite;
     }
-    .brand b{ font-weight: 700; letter-spacing:.2px; line-height:1.1; font-family: 'Space Grotesk', sans-serif;}
+    @keyframes pulse {
+      0%,100% { box-shadow: 0 0 0 6px rgba(90,255,216,.10), 0 0 42px rgba(90,255,216,.28); }
+      50%      { box-shadow: 0 0 0 9px rgba(90,255,216,.06), 0 0 60px rgba(90,255,216,.40); }
+    }
+    .brand-text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 14.5px; white-space: nowrap; letter-spacing: .1px; }
+    .brand-role { font-size: 11px; color: var(--muted2); font-weight: 500; margin-top: 1px; white-space: nowrap; }
 
-    .nav-links{
-      display:flex;
-      gap: 10px;
-      flex-wrap:wrap;
-      align-items:center;
-      justify-content:center;
-    }
-    .nav-links button{
-      padding: 10px 16px;
-      border: 1px solid var(--border2);
-      background: var(--link-chip);
+    .nav-links { display: flex; gap: 4px; flex-wrap: wrap; align-items: center; justify-content: center; }
+    .tab-btn {
+      padding: 8px 15px;
+      border: 1px solid transparent;
+      background: transparent;
       border-radius: 12px;
-      color: var(--text);
-      font-size: 13.5px;
+      color: var(--muted);
+      font-size: 13px;
       font-weight: 500;
       font-family: inherit;
-      transition: transform .15s ease, background .15s ease, border-color .15s ease, box-shadow .15s ease;
-      position: relative;
       cursor: pointer;
-    }
-    .nav-links button:hover{
-      background: var(--link-chip-hover);
-      transform: translateY(-1px);
-      border-color: rgba(140,255,223,.22);
-    }
-
-    /* Active Tab Style */
-    .nav-links button.active{
-      border-color: rgba(140,255,223,.55);
-      background: linear-gradient(135deg, rgba(140,255,223,.18), rgba(82,124,255,.10));
-      box-shadow: 0 16px 60px rgba(140,255,223,.10);
-      color: #fff;
-    }
-    .nav-links button.active::after{
-      content:"";
-      position:absolute;
-      left: 10px;
-      right: 10px;
-      bottom: -6px;
-      height: 2px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, rgba(140,255,223,.85), rgba(82,124,255,.75));
-      opacity: .9;
-    }
-
-    .nav-right{ display:flex; align-items:center; gap: 10px; }
-    .btn{
-      padding: 10px 14px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: var(--link-chip);
-      font-weight: 600;
-      font-size: 13px;
+      transition: all .15s ease;
       white-space: nowrap;
-      transition: transform .15s ease, background .15s ease, border-color .15s ease, box-shadow .15s ease;
-      cursor:pointer;
+    }
+    .tab-btn:hover { color: var(--text); background: var(--glass); border-color: var(--border2); }
+    .tab-btn.active {
+      background: linear-gradient(135deg, rgba(90,255,216,.15), rgba(107,138,255,.10));
+      border-color: rgba(90,255,216,.45);
+      color: #fff;
+      box-shadow: 0 0 32px rgba(90,255,216,.08);
+    }
+    .tab-btn.active::after {
+      content: ""; display: block; position: absolute;
+      left: 10px; right: 10px; bottom: -5px;
+      height: 2px; border-radius: 99px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+    }
+    .tab-btn { position: relative; }
+
+    .nav-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+    .btn-contact {
+      padding: 9px 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(90,255,216,.35);
+      background: linear-gradient(135deg, rgba(90,255,216,.12), rgba(107,138,255,.08));
+      font-weight: 600;
+      font-size: 12.5px;
+      white-space: nowrap;
+      cursor: pointer;
       font-family: 'Space Grotesk', sans-serif;
+      color: var(--accent);
+      transition: all .18s ease;
     }
-    .btn:hover{
+    .btn-contact:hover {
+      background: linear-gradient(135deg, rgba(90,255,216,.22), rgba(107,138,255,.14));
       transform: translateY(-1px);
-      background: var(--link-chip-hover);
-      border-color: rgba(140,255,223,.22);
-      box-shadow: 0 16px 55px rgba(0,0,0,.16);
+      box-shadow: 0 12px 40px rgba(90,255,216,.12);
     }
 
-    /* =========================
-       TABS LOGIC (SPA)
-       ========================= */
-    .tab-content {
-      display: none;
-      animation: fadeUp 0.4s ease forwards;
-    }
-    .tab-content.active {
-      display: block;
-    }
+    /* ── TABS ────────────────────────────────────────────────── */
+    .tab-content { display: none; animation: fadeUp .38s cubic-bezier(.22,1,.36,1) forwards; }
+    .tab-content.active { display: block; }
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(12px); }
-      to { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* =========================
-       PANELS / GLASSMORPHISM
-       ========================= */
-    .panel{
+    /* ── PANEL / GLASS ───────────────────────────────────────── */
+    .panel {
       border: 1px solid var(--border);
-      background: linear-gradient(180deg, var(--panel-bg-top), var(--panel-bg-bot));
+      background: linear-gradient(180deg, rgba(255,255,255,.065) 0%, rgba(255,255,255,.025) 100%);
       border-radius: var(--r);
       box-shadow: var(--shadow);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      overflow:hidden;
-      position:relative;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      overflow: hidden;
+      position: relative;
     }
-    .panel::before{
-      content:"";
-      position:absolute;
-      inset:-1px;
+    .panel::before {
+      content: ""; position: absolute; inset: -1px; pointer-events: none;
       background:
-        radial-gradient(520px 260px at 10% 10%, rgba(140,255,223,.18), transparent 60%),
-        radial-gradient(520px 260px at 88% 30%, rgba(82,124,255,.14), transparent 62%);
-      opacity:.75;
-      pointer-events:none;
+        radial-gradient(600px 300px at 8% 10%,  rgba(90,255,216,.16), transparent 55%),
+        radial-gradient(600px 300px at 90% 28%, rgba(107,138,255,.12), transparent 55%);
+      opacity: .8;
+      border-radius: var(--r);
     }
-    .panel > *{ position:relative; z-index:1; }
+    .panel > * { position: relative; z-index: 1; }
 
-    /* --- TAB: HOME --- */
-    .hero{
-      display:grid;
-      grid-template-columns: 1.25fr 0.75fr;
-      gap: 16px;
-      align-items: stretch;
+    /* ── TAB HEADERS ─────────────────────────────────────────── */
+    .tab-header { padding: 36px 44px 20px; border-bottom: 1px solid var(--border2); }
+    .tab-header h2 { margin: 0 0 6px; font-size: 34px; letter-spacing: -.5px; }
+    .tab-header p  { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.5; }
+    .tab-header .tag-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+    .tab-body { padding: 36px 44px; }
+
+    /* ── HOME: HERO ──────────────────────────────────────────── */
+    .hero { display: grid; grid-template-columns: 1.3fr .7fr; gap: 20px; align-items: stretch; }
+    .hero-left  { padding: 44px; display: flex; flex-direction: column; }
+    .hero-right { padding: 18px; display: flex; flex-direction: column; gap: 14px; }
+
+    .affil-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+    .affil-chip {
+      font-size: 11px; font-weight: 600; font-family: 'Space Grotesk', sans-serif;
+      padding: 4px 10px; border-radius: 6px; letter-spacing: .3px; text-transform: uppercase;
     }
-    .left{ padding: 40px; }
-    .right{ padding: 18px; display:flex; flex-direction:column; gap: 12px; }
+    .affil-ikerlan { background: rgba(90,255,216,.10); border: 1px solid rgba(90,255,216,.28); color: var(--accent); }
+    .affil-upv     { background: rgba(107,138,255,.10); border: 1px solid rgba(107,138,255,.28); color: var(--accent2); }
+    .affil-eu4m    { background: rgba(255,184,0,.08);   border: 1px solid rgba(255,184,0,.25);   color: var(--accent3); }
 
-    h1{
-      margin: 0 0 10px;
-      font-size: 58px;
-      line-height: 1.05;
-      letter-spacing: -1.5px;
+    h1 {
+      margin: 0 0 8px;
+      font-size: 54px;
+      line-height: 1.04;
+      letter-spacing: -2px;
       font-weight: 700;
     }
-    .h1-sub {
-      font-size: 20px;
-      font-weight: 600;
-      color: var(--accent);
-      margin-bottom: 6px;
-      display: block;
-      letter-spacing: -0.5px;
-      line-height: 1.3;
+    .h1-role {
+      font-size: 17px; font-weight: 600; color: var(--accent);
+      display: block; margin-bottom: 20px; letter-spacing: -.2px; line-height: 1.4;
     }
-    .sub{
-      margin: 0 0 24px 0;
-      font-size: 15.5px;
-      line-height: 1.6;
-      color: var(--muted);
-      font-weight: 500;
+    .bio {
+      font-size: 15px; line-height: 1.72; color: var(--muted);
+      font-weight: 400; margin-bottom: 28px; max-width: 520px;
     }
 
-    .tech-wall{
-      margin-top: 24px;
+    /* research areas */
+    .research-areas { margin-bottom: 28px; }
+    .research-areas-label { font-size: 11px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted2); margin-bottom: 10px; }
+    .area-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+    .area {
+      display: flex; align-items: center; gap: 7px;
+      padding: 7px 12px; border-radius: 10px;
       border: 1px solid var(--border2);
-      border-radius: 18px;
-      background: rgba(0,0,0,.06);
-      padding: 14px;
-      display:flex;
-      flex-wrap:wrap;
-      gap: 12px;
-      align-items:center;
+      background: var(--glass-card);
+      font-size: 13px; font-weight: 500; color: var(--muted);
+      transition: all .18s ease;
     }
-    .logo{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      padding: 10px 12px;
-      border-radius: 999px;
-      border: 1px solid var(--border2);
-      background: rgba(0,0,0,.10);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      transition: transform .15s ease, background .15s ease, border-color .15s ease;
-    }
-    .logo img{ width: 18px; height: 18px; object-fit: contain; filter: saturate(.90) brightness(.98); }
-    .logo span{ font-size: 12.5px; color: var(--text); font-weight: 600; }
+    .area:hover { color: var(--text); border-color: rgba(90,255,216,.22); background: var(--glass); }
+    .area-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+    .c1 { background: var(--accent); box-shadow: 0 0 8px rgba(90,255,216,.5); }
+    .c2 { background: var(--accent2); box-shadow: 0 0 8px rgba(107,138,255,.5); }
+    .c3 { background: var(--accent3); box-shadow: 0 0 8px rgba(255,184,0,.5); }
+    .c4 { background: var(--accent4); box-shadow: 0 0 8px rgba(255,126,179,.5); }
 
-    .external{
-      margin-top: 14px;
-      display:flex;
-      flex-wrap:wrap;
-      gap: 10px;
-      align-items:center;
-    }
-    .ext{
-      display:inline-flex;
-      align-items:center;
-      gap: 8px;
-      padding: 10px 12px;
-      border-radius: 14px;
+    /* tech logos */
+    .tech-wall {
       border: 1px solid var(--border2);
+      border-radius: 16px;
       background: rgba(0,0,0,.08);
-      transition: background .15s ease, transform .15s ease, border-color .15s ease;
-      font-size: 13px;
+      padding: 14px;
+      display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+      margin-bottom: 20px;
     }
-    .ext:hover{
-      background: rgba(0,0,0,.12);
-      transform: translateY(-1px);
-      border-color: rgba(140,255,223,.22);
+    .logo {
+      display: flex; align-items: center; gap: 8px;
+      padding: 8px 12px; border-radius: 99px;
+      border: 1px solid var(--border2); background: rgba(0,0,0,.12);
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+      transition: all .18s ease; cursor: default;
     }
-    .ext svg{ width:18px; height:18px; fill: currentColor; opacity:.9; }
-    .ext span{ font-weight: 600; }
+    .logo:hover { border-color: rgba(90,255,216,.25); background: rgba(90,255,216,.05); transform: translateY(-1px); }
+    .logo img { width: 17px; height: 17px; object-fit: contain; }
+    .logo span { font-size: 12px; color: var(--text); font-weight: 600; }
 
-    .portrait{
-      border-radius: 22px;
-      border: 1px solid var(--border);
-      overflow:hidden;
-      background: rgba(0,0,0,.06);
-      aspect-ratio: 4 / 3.5;
+    /* external links */
+    .external { display: flex; flex-wrap: wrap; gap: 8px; }
+    .ext {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 9px 13px; border-radius: 12px;
+      border: 1px solid var(--border2); background: rgba(0,0,0,.10);
+      font-size: 13px; font-weight: 600;
+      transition: all .18s ease;
     }
-    .portrait img{ width:100%; height:100%; object-fit:cover; transform: scale(1.02); object-position: center top; }
+    .ext:hover { background: rgba(0,0,0,.16); transform: translateY(-1px); border-color: rgba(90,255,216,.22); }
+    .ext svg { width: 17px; height: 17px; fill: currentColor; opacity: .85; }
 
-    .stats{
-      display:grid;
-      grid-template-columns: repeat(2, minmax(0,1fr));
-      gap: 10px;
-      flex: 1;
+    /* profile photo */
+    .portrait {
+      border-radius: 20px; border: 1px solid var(--border);
+      overflow: hidden; background: rgba(0,0,0,.08);
+      aspect-ratio: 4 / 3.6;
+      box-shadow: 0 28px 80px rgba(0,0,0,.5);
     }
-    .stat{
+    .portrait img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.02); object-position: center top; }
+
+    /* stats */
+    .stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; flex: 1; }
+    .stat {
+      border: 1px solid var(--border2); background: var(--glass-card);
+      border-radius: 18px; padding: 16px 18px;
+      display: flex; flex-direction: column; justify-content: center;
+      transition: all .18s ease;
+    }
+    .stat:hover { background: var(--glass); border-color: rgba(90,255,216,.18); }
+    .stat-val { font-size: 28px; font-weight: 700; font-family: 'Space Grotesk', sans-serif; display: block; margin-bottom: 3px; }
+    .stat-val .acc  { color: var(--accent); }
+    .stat-val .acc2 { color: var(--accent2); }
+    .stat-val .acc3 { color: var(--accent3); }
+    .stat-label { font-size: 13.5px; font-weight: 600; color: var(--text); display: block; }
+    .stat-desc  { font-size: 11.5px; color: var(--muted2); margin-top: 3px; display: block; line-height: 1.3; }
+
+    /* ── EXPERIENCE TAB ──────────────────────────────────────── */
+    .timeline { display: flex; flex-direction: column; gap: 0; }
+    .tl-item {
       position: relative;
-      border: 1px solid var(--border2);
-      background: var(--card-bg);
-      border-radius: 18px;
-      padding: 14px 16px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      padding: 0 0 36px 36px;
+      border-left: 1px solid rgba(255,255,255,.12);
     }
-    .stat-val {
-      font-size: 26px;
-      font-weight: 700;
-      color: var(--text);
-      display: block;
-      margin-bottom: 2px;
-      font-family: 'Space Grotesk', sans-serif;
-    }
-    .stat-val span { color: var(--accent); }
-    .stat b{ display:block; font-size: 14px; font-weight: 600;}
-    .stat span.stat-desc{ display:block; color: var(--muted2); font-size: 12.5px; margin-top: 4px; line-height:1.3; }
-
-    /* --- SHARED TABS STYLING --- */
-    .tab-header {
-      padding: 32px 40px 16px;
-      border-bottom: 1px solid var(--border2);
-    }
-    .tab-header h2 {
-      margin: 0;
-      font-size: 32px;
-    }
-    .tab-header p {
-      margin: 8px 0 0 0;
-      color: var(--muted);
-      font-size: 15px;
-    }
-    .tab-body {
-      padding: 32px 40px;
-    }
-
-    /* --- TAB: EXPERIENCE --- */
-    .timeline {
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
-    }
-    .timeline-item {
-      position: relative;
-      padding-left: 32px;
-      border-left: 1px solid rgba(255,255,255,0.15);
-    }
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -6px;
-      top: 6px;
-      width: 11px;
-      height: 11px;
-      border-radius: 50%;
+    .tl-item:last-child { padding-bottom: 0; border-left-color: transparent; }
+    .tl-dot {
+      position: absolute; left: -7px; top: 5px;
+      width: 13px; height: 13px; border-radius: 50%;
       background: var(--accent);
-      box-shadow: 0 0 15px rgba(140,255,223,.5);
+      box-shadow: 0 0 0 4px rgba(2,4,8,1), 0 0 18px rgba(90,255,216,.5);
     }
-    .timeline-item.edu::before {
-      background: var(--accent2);
-      box-shadow: 0 0 15px rgba(82,124,255,.5);
-    }
-    .time-role { font-size: 20px; font-weight: 600; font-family: 'Space Grotesk', sans-serif; color: var(--text);}
-    .time-org { font-size: 15px; color: var(--accent); font-weight: 600; margin-top: 4px;}
-    .time-date { font-size: 13.5px; color: var(--muted2); margin-top: 4px;}
-    .time-desc { font-size: 14.5px; color: var(--muted); margin-top: 12px; line-height: 1.6; }
+    .tl-dot.edu { background: var(--accent2); box-shadow: 0 0 0 4px rgba(2,4,8,1), 0 0 18px rgba(107,138,255,.5); }
+    .tl-dot.prog { background: var(--accent3); box-shadow: 0 0 0 4px rgba(2,4,8,1), 0 0 18px rgba(255,184,0,.4); }
 
-    /* --- TAB: PUBLICATIONS --- */
-    .pub-list {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-    .card {
+    .tl-type { font-size: 10.5px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
+    .tl-type.res  { color: rgba(90,255,216,.7); }
+    .tl-type.edu  { color: rgba(107,138,255,.7); }
+    .tl-type.prog { color: rgba(255,184,0,.7); }
+
+    .tl-role { font-size: 19px; font-weight: 600; font-family: 'Space Grotesk', sans-serif; color: var(--text); }
+    .tl-org  { font-size: 14.5px; color: var(--accent); font-weight: 600; margin-top: 3px; }
+    .tl-date { font-size: 12.5px; color: var(--muted2); margin-top: 4px; font-family: 'JetBrains Mono', monospace; }
+    .tl-desc { font-size: 14px; color: var(--muted); margin-top: 12px; line-height: 1.68; }
+    .tl-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+
+    /* ── PUBLICATIONS ────────────────────────────────────────── */
+    .pub-list { display: flex; flex-direction: column; gap: 18px; }
+    .pub-card {
       border: 1px solid var(--border2);
-      background: var(--card-bg);
+      background: var(--glass-card);
       border-radius: 18px;
-      padding: 24px;
-      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+      padding: 26px 28px;
+      transition: all .2s ease;
+      position: relative;
+      overflow: hidden;
     }
-    .card:hover {
-      background: var(--card-hover);
-      border-color: rgba(140,255,223,.22);
-      transform: translateY(-2px);
+    .pub-card::before {
+      content: ""; position: absolute; left: 0; top: 0; bottom: 0;
+      width: 3px; border-radius: 3px 0 0 3px;
     }
-    .card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
-    .card-title { font-size: 18px; font-weight: 600; line-height: 1.3; font-family: 'Space Grotesk', sans-serif;}
-    .card-subtitle { font-size: 14px; color: var(--accent); margin-bottom: 12px; font-weight: 600;}
-    .card p { margin:0; color: var(--muted); font-size: 14.5px; line-height:1.6; }
+    .pub-card.pub-published::before { background: linear-gradient(180deg, var(--accent), var(--accent2)); }
+    .pub-card.pub-prep::before     { background: linear-gradient(180deg, var(--accent3), rgba(255,184,0,.3)); }
+    .pub-card:hover { background: var(--glass-h); transform: translateY(-2px); box-shadow: 0 20px 60px rgba(0,0,0,.3); }
 
-    .pillrow{ margin-top: 16px; display:flex; flex-wrap:wrap; gap: 8px; }
-    .pill{
-      font-size: 12px;
-      padding: 4px 10px;
-      border-radius: 6px;
+    .pub-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 8px; }
+    .pub-title { font-size: 17.5px; font-weight: 700; line-height: 1.35; font-family: 'Space Grotesk', sans-serif; flex: 1; }
+    .pub-status {
+      font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 6px;
+      letter-spacing: .5px; text-transform: uppercase; white-space: nowrap; flex-shrink: 0;
+    }
+    .pub-status.published { background: rgba(90,255,216,.12); border: 1px solid rgba(90,255,216,.3); color: var(--accent); }
+    .pub-status.prep      { background: rgba(255,184,0,.10);   border: 1px solid rgba(255,184,0,.3);  color: var(--accent3); }
+
+    .pub-venue { font-size: 13.5px; color: var(--accent2); font-weight: 600; margin-bottom: 12px; }
+    .pub-venue .date { color: var(--muted2); font-weight: 400; font-family: 'JetBrains Mono', monospace; font-size: 12px; margin-left: 8px; }
+    .pub-abstract { font-size: 14px; color: var(--muted); line-height: 1.68; margin-bottom: 16px; }
+    .pub-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+
+    .pub-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 7px 14px; border-radius: 9px;
+      border: 1px solid var(--border2); background: var(--glass-card);
+      font-size: 12.5px; font-weight: 600; color: var(--muted);
+      transition: all .16s ease;
+    }
+    .pub-link:hover { background: var(--glass); border-color: rgba(90,255,216,.25); color: var(--accent); }
+    .pub-link svg { width: 14px; height: 14px; fill: currentColor; }
+
+    /* ── PROJECTS ────────────────────────────────────────────── */
+    .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .proj-card {
       border: 1px solid var(--border2);
-      background: rgba(0,0,0,.2);
-      color: var(--muted);
-      font-weight: 500;
+      background: var(--glass-card);
+      border-radius: 18px;
+      padding: 26px 24px;
+      display: flex; flex-direction: column;
+      transition: all .2s ease;
     }
-    .badge-amber {
-      border-color: rgba(255,185,0,.3);
-      color: rgba(255,185,0,.9);
-      background: rgba(255,185,0,.1);
+    .proj-card:hover { background: var(--glass-h); transform: translateY(-2px); border-color: rgba(90,255,216,.18); box-shadow: 0 20px 60px rgba(0,0,0,.25); }
+    .proj-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+    .proj-title { font-size: 16.5px; font-weight: 700; font-family: 'Space Grotesk', sans-serif; line-height: 1.3; }
+    .proj-status {
+      font-size: 10px; font-weight: 700; padding: 3px 9px; border-radius: 6px;
+      letter-spacing: .4px; text-transform: uppercase; flex-shrink: 0; margin-left: 10px;
     }
+    .proj-status.active { background: rgba(90,255,216,.12); border: 1px solid rgba(90,255,216,.28); color: var(--accent); }
+    .proj-status.funded { background: rgba(255,184,0,.10);   border: 1px solid rgba(255,184,0,.28); color: var(--accent3); }
+    .proj-status.research { background: rgba(107,138,255,.10); border: 1px solid rgba(107,138,255,.28); color: var(--accent2); }
 
-    /* --- TAB: PROJECTS --- */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
+    .proj-desc { font-size: 13.5px; color: var(--muted); line-height: 1.65; flex: 1; margin-bottom: 16px; }
 
-    /* --- RESPONSIVE --- */
-    @media (max-width: 900px){
-      .hero{ grid-template-columns: 1fr; }
-      .left { padding: 24px; }
-      .nav { flex-direction: column; padding: 16px; }
-      .nav-links { margin-top: 12px; }
-      .projects-grid { grid-template-columns: 1fr; }
+    /* ── CONTACT ─────────────────────────────────────────────── */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .contact-card {
+      border: 1px solid var(--border2);
+      background: var(--glass-card);
+      border-radius: 18px;
+      padding: 28px;
+      transition: all .2s ease;
+    }
+    .contact-card:hover { background: var(--glass); }
+    .contact-card.full { grid-column: 1 / -1; }
+    .contact-card-label { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted2); margin-bottom: 10px; }
+    .contact-value { font-size: 17px; font-weight: 600; font-family: 'Space Grotesk', sans-serif; }
+    .contact-desc { font-size: 13.5px; color: var(--muted); margin-top: 6px; line-height: 1.5; }
+    .contact-social { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+    .c-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 16px; border-radius: 12px;
+      border: 1px solid var(--border2); background: var(--glass-card);
+      font-size: 13.5px; font-weight: 600;
+      transition: all .18s ease;
+    }
+    .c-link:hover { background: var(--glass); border-color: rgba(90,255,216,.22); transform: translateY(-1px); }
+    .c-link svg { width: 18px; height: 18px; fill: currentColor; }
+
+    .copy-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 7px 14px; border-radius: 9px;
+      border: 1px solid rgba(90,255,216,.3); background: rgba(90,255,216,.08);
+      color: var(--accent); font-size: 12.5px; font-weight: 600;
+      cursor: pointer; font-family: inherit;
+      transition: all .16s ease; margin-top: 10px;
+    }
+    .copy-btn:hover { background: rgba(90,255,216,.16); }
+    .copy-btn svg { width: 14px; height: 14px; fill: currentColor; }
+
+    /* ── SHARED PILLS ────────────────────────────────────────── */
+    .pillrow { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+    .pill {
+      font-size: 11.5px; padding: 4px 10px; border-radius: 6px;
+      border: 1px solid var(--border2); background: rgba(0,0,0,.18);
+      color: var(--muted); font-weight: 500;
+    }
+    .pill.p-cyan   { border-color: rgba(90,255,216,.25);  color: rgba(90,255,216,.85);  background: rgba(90,255,216,.07); }
+    .pill.p-blue   { border-color: rgba(107,138,255,.25); color: rgba(107,138,255,.85); background: rgba(107,138,255,.07); }
+    .pill.p-amber  { border-color: rgba(255,184,0,.25);   color: rgba(255,184,0,.85);   background: rgba(255,184,0,.07); }
+    .pill.p-pink   { border-color: rgba(255,126,179,.25); color: rgba(255,126,179,.85); background: rgba(255,126,179,.07); }
+
+    /* ── REVEAL ANIMATION ────────────────────────────────────── */
+    .reveal {
+      opacity: 0; transform: translateY(20px);
+      transition: opacity .55s ease, transform .55s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ──────────────────────────────────────────── */
+    @media (max-width: 960px) {
+      .hero           { grid-template-columns: 1fr; }
+      .hero-left      { padding: 28px; }
+      .hero-right     { padding: 16px; order: -1; }
+      .portrait       { max-height: 280px; aspect-ratio: auto; }
+      .stats          { grid-template-columns: repeat(4, 1fr); }
+      .nav            { flex-wrap: wrap; padding: 14px; }
+      .nav-links      { order: 3; width: 100%; justify-content: center; }
       .tab-header, .tab-body { padding: 24px; }
+      .projects-grid  { grid-template-columns: 1fr; }
+      .contact-grid   { grid-template-columns: 1fr; }
+      h1              { font-size: 42px; }
+    }
+    @media (max-width: 600px) {
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      h1 { font-size: 36px; }
+      .tab-header h2 { font-size: 26px; }
     }
   </style>
 </head>
 <body>
-  
-  <!-- Dynamic Background (Runs continuously) -->
+
   <div class="bg" aria-hidden="true">
     <video autoplay muted loop playsinline preload="metadata" poster="assets/poster.jpg">
       <source src="assets/hero.mp4" type="video/mp4">
     </video>
   </div>
-  <div class="overlay" aria-hidden="true"></div>
-  <div class="grid" aria-hidden="true"></div>
+  <div class="overlay"  aria-hidden="true"></div>
+  <div class="grid"     aria-hidden="true"></div>
   <div class="scanlines" aria-hidden="true"></div>
 
   <div class="container">
-    
-    <!-- Tabbed Navigation -->
-    <div class="nav">
+
+    <!-- ── NAVBAR ─────────────────────────────────────────────── -->
+    <nav class="nav" role="navigation" aria-label="Main navigation">
       <div class="brand">
-        <span class="dot"></span>
-        <b>Sebastian Rojas-Ordoñez</b>
+        <span class="dot" aria-hidden="true"></span>
+        <div>
+          <div class="brand-text">Sebastian Rojas-Ordoñez</div>
+          <div class="brand-role">PhD Researcher · AI &amp; Robotics</div>
+        </div>
       </div>
 
-      <div class="nav-links">
-        <button class="tab-btn active" data-tab="home">Home</button>
-        <button class="tab-btn" data-tab="experience">Experience</button>
-        <button class="tab-btn" data-tab="publications">Publications</button>
-        <button class="tab-btn" data-tab="projects">Projects</button>
+      <div class="nav-links" role="tablist">
+        <button class="tab-btn active" data-tab="home"         role="tab" aria-selected="true"  aria-controls="home">Home</button>
+        <button class="tab-btn"        data-tab="experience"   role="tab" aria-selected="false" aria-controls="experience">Experience</button>
+        <button class="tab-btn"        data-tab="publications" role="tab" aria-selected="false" aria-controls="publications">Publications</button>
+        <button class="tab-btn"        data-tab="projects"     role="tab" aria-selected="false" aria-controls="projects">Projects</button>
+        <button class="tab-btn"        data-tab="contact"      role="tab" aria-selected="false" aria-controls="contact">Contact</button>
       </div>
 
       <div class="nav-right">
-        <a class="btn" href="mailto:sebastian.rojas@ehu.eus">Contact Me</a>
+        <a class="btn-contact" href="mailto:sebastian.rojas@ehu.eus">Get in Touch</a>
       </div>
-    </div>
+    </nav>
 
-    <!-- TABS CONTAINER -->
-    <div class="panel">
-      
-      <!-- ==================== HOME TAB ==================== -->
-      <div id="home" class="tab-content active">
+    <!-- ── PANEL ──────────────────────────────────────────────── -->
+    <main class="panel">
+
+      <!-- ════════════ HOME ════════════ -->
+      <div id="home" class="tab-content active" role="tabpanel">
         <div class="hero">
-          <div class="left">
+
+          <div class="hero-left">
+            <div class="affil-row">
+              <span class="affil-chip affil-ikerlan">IKERLAN S.COOP</span>
+              <span class="affil-chip affil-upv">UPV / EHU</span>
+              <span class="affil-chip affil-eu4m">EU4M Alumnus</span>
+            </div>
+
             <h1>Sebastian<br>Rojas-Ordoñez</h1>
-            <span class="h1-sub">AI & Robotics Researcher | PhD Researcher in Control, Automation & Robotics</span>
-            <p class="sub">Embedded Systems, Digital Twins, ROS 2, FMI & Edge AI</p>
+            <span class="h1-role">PhD Researcher in Control, Automation &amp; Robotics</span>
+
+            <p class="bio">
+              I develop architectures that bridge the gap between high-fidelity simulation and real-world robotic deployment — combining open interoperability standards (FMI/Modelica) with trustworthy edge AI inference and ROS 2-based autonomous systems. My research targets safety-critical industrial cyber-physical systems at IKERLAN and UPV/EHU.
+            </p>
+
+            <div class="research-areas">
+              <div class="research-areas-label">Research Focus</div>
+              <div class="area-grid">
+                <div class="area"><span class="area-dot c1"></span>Digital Twins &amp; Co-Simulation</div>
+                <div class="area"><span class="area-dot c2"></span>Edge AI &amp; Embedded LLMs</div>
+                <div class="area"><span class="area-dot c1"></span>ROS 2 System Architecture</div>
+                <div class="area"><span class="area-dot c3"></span>Robot Navigation (SLAM / VIO)</div>
+                <div class="area"><span class="area-dot c2"></span>FMI / FMU Open Standards</div>
+                <div class="area"><span class="area-dot c4"></span>LLM-Augmented Control</div>
+              </div>
+            </div>
 
             <div class="tech-wall">
-              <div class="logo"><img src="assets/logos/ros2.svg" alt="ROS 2"><span>ROS 2</span></div>
-              <div class="logo"><img src="assets/logos/nvidia.svg" alt="Jetson"><span>Jetson</span></div>
-              <div class="logo"><img src="assets/logos/onnx.svg" alt="ONNX"><span>ONNX</span></div>
-              <div class="logo"><img src="assets/logos/python.svg" alt="Python"><span>Python / C++</span></div>
-              <div class="logo"><span>FMI / Modelica</span></div>
-              <div class="logo"><img src="assets/logos/linux.svg" alt="Linux"><span>Linux</span></div>
+              <div class="logo"><img src="assets/logos/ros2.svg"      alt="ROS 2"><span>ROS 2</span></div>
+              <div class="logo"><img src="assets/logos/nvidia.svg"    alt="NVIDIA Jetson"><span>Jetson</span></div>
+              <div class="logo"><img src="assets/logos/onnx.svg"      alt="ONNX"><span>ONNX</span></div>
+              <div class="logo"><img src="assets/logos/python.svg"    alt="Python"><span>Python</span></div>
+              <div class="logo"><img src="assets/logos/cpp.svg"       alt="C++"><span>C++</span></div>
+              <div class="logo"><img src="assets/logos/linux.svg"     alt="Linux"><span>Linux</span></div>
+              <div class="logo"><img src="assets/logos/docker.svg"    alt="Docker"><span>Docker</span></div>
+              <div class="logo"><img src="assets/logos/gazebo.svg"    alt="Gazebo"><span>Gazebo</span></div>
+              <div class="logo"><span class="mono" style="font-size:11px">FMI / Modelica</span></div>
             </div>
 
             <div class="external">
-              <a class="ext" href="https://scholar.google.com/citations?user=HSflBLwAAAAJ&hl=es&authuser=2" target="_blank">
+              <a class="ext" href="https://scholar.google.com/citations?user=HSflBLwAAAAJ&hl=es&authuser=2" target="_blank" rel="noopener" aria-label="Google Scholar">
                 <svg viewBox="0 0 24 24"><path d="M12 3 1 8l11 5 9-4.09V16h2V8L12 3zm-6.5 8.27V14c0 2.21 2.91 4 6.5 4s6.5-1.79 6.5-4v-2.73L12 14l-6.5-2.73z"/></svg>
                 <span>Scholar</span>
               </a>
-              <a class="ext" href="https://orcid.org/0009-0000-5142-1284" target="_blank">
+              <a class="ext" href="https://orcid.org/0009-0000-5142-1284" target="_blank" rel="noopener" aria-label="ORCID">
                 <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8.2 16.2V9.2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="8.2" cy="7.3" r="1" fill="currentColor"/><path d="M11.1 9.2h3.1a3 3 0 0 1 0 6h-3.1V9.2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
                 <span>ORCID</span>
               </a>
-              <a class="ext" href="https://github.com/SeRoMechatronic" target="_blank">
+              <a class="ext" href="https://github.com/SeRoMechatronic" target="_blank" rel="noopener" aria-label="GitHub">
                 <svg viewBox="0 0 24 24"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.4c.58.1.8-.25.8-.56v-2c-3.26.71-3.95-1.4-3.95-1.4-.54-1.38-1.32-1.75-1.32-1.75-1.08-.74.08-.73.08-.73 1.2.08 1.83 1.23 1.83 1.23 1.06 1.82 2.78 1.3 3.46 1 .1-.77.42-1.3.76-1.6-2.6-.3-5.34-1.3-5.34-5.8 0-1.28.46-2.33 1.22-3.15-.12-.3-.53-1.52.12-3.17 0 0 1-.32 3.27 1.2a11.3 11.3 0 0 1 5.95 0c2.27-1.52 3.27-1.2 3.27-1.2.65 1.65.24 2.87.12 3.17.76.82 1.22 1.87 1.22 3.15 0 4.51-2.74 5.5-5.35 5.79.43.37.82 1.1.82 2.22v3.3c0 .31.21.66.81.55A11.5 11.5 0 0 0 12 .5z"/></svg>
                 <span>GitHub</span>
               </a>
-              <a class="ext" href="https://www.linkedin.com/in/sebastian-rojasordoñez/" target="_blank">
+              <a class="ext" href="https://www.linkedin.com/in/sebastian-rojasordoñez/" target="_blank" rel="noopener" aria-label="LinkedIn">
                 <svg viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V24h-4V8zM8 8h3.8v2.2h.05c.53-1 1.82-2.2 3.75-2.2 4.01 0 4.75 2.64 4.75 6.07V24h-4v-8.4c0-2-.04-4.57-2.78-4.57-2.78 0-3.2 2.17-3.2 4.42V24H8V8z"/></svg>
                 <span>LinkedIn</span>
               </a>
             </div>
           </div>
 
-          <aside class="right">
+          <aside class="hero-right">
             <div class="portrait">
-              <img src="assets/profile.jpg" alt="Sebastian Rojas-Ordoñez">
+              <img src="assets/profile.jpg" alt="Sebastian Rojas-Ordoñez — profile photo" loading="eager">
             </div>
             <div class="stats">
               <div class="stat">
-                <span class="stat-val">3<span>+</span></span>
-                <b>Years Exp.</b>
-                <span class="stat-desc">Robotics & AI</span>
+                <span class="stat-val"><span class="js-count" data-to="3">0</span><span class="acc">+</span></span>
+                <span class="stat-label">Years Research</span>
+                <span class="stat-desc">Robotics &amp; AI</span>
               </div>
               <div class="stat">
-                <span class="stat-val">M.Sc.</span>
-                <b>Mechatronics</b>
-                <span class="stat-desc">Karlsruhe Univ.</span>
+                <span class="stat-val"><span class="js-count" data-to="2">0</span><span class="acc2"></span></span>
+                <span class="stat-label">Publications</span>
+                <span class="stat-desc">Peer-reviewed</span>
+              </div>
+              <div class="stat">
+                <span class="stat-val"><span class="js-count" data-to="2">0</span><span class="acc3"></span></span>
+                <span class="stat-label">R&amp;D Grants</span>
+                <span class="stat-desc">AUTOTRUST · SENDOA</span>
+              </div>
+              <div class="stat">
+                <span class="stat-val" style="font-size:20px">M.Sc.</span>
+                <span class="stat-label">Mechatronics</span>
+                <span class="stat-desc">EU4M · Karlsruhe</span>
               </div>
             </div>
           </aside>
+
         </div>
       </div>
 
-      <!-- ==================== EXPERIENCE TAB ==================== -->
-      <div id="experience" class="tab-content">
+      <!-- ════════════ EXPERIENCE ════════════ -->
+      <div id="experience" class="tab-content" role="tabpanel">
         <div class="tab-header">
-          <h2>Experience & Education</h2>
-          <p>Academic background and industrial research path.</p>
+          <h2>Experience &amp; Education</h2>
+          <p>Academic trajectory and industrial research path across Europe.</p>
         </div>
         <div class="tab-body">
           <div class="timeline">
-            <!-- Academic -->
-            <div class="timeline-item edu">
-              <div class="time-role">PhD in Control, Automation & Robotics</div>
-              <div class="time-org">Universidad del País Vasco (UPV/EHU)</div>
-              <div class="time-date">Jan 2025 – Present</div>
-              <div class="time-desc">Research focusing on advanced control architectures, digital twins, and AI edge inference for autonomous systems.</div>
+
+            <div class="tl-item reveal">
+              <div class="tl-dot"></div>
+              <div class="tl-type res">Research</div>
+              <div class="tl-role">PhD in Control, Automation &amp; Robotics</div>
+              <div class="tl-org">Universidad del País Vasco (UPV/EHU) · Bilbao, Spain</div>
+              <div class="tl-date">Jan 2025 — Present</div>
+              <div class="tl-desc">Research on advanced control architectures, cognitive digital twins, and trustworthy AI edge inference for autonomous systems. Conducted under the doctoral program in Automation, Electronics &amp; Computer Engineering.</div>
+              <div class="tl-tags">
+                <span class="pill p-cyan">Digital Twins</span>
+                <span class="pill p-cyan">Edge AI</span>
+                <span class="pill p-blue">Control Theory</span>
+                <span class="pill p-blue">Autonomous Systems</span>
+              </div>
             </div>
-            <!-- Industrial -->
-            <div class="timeline-item">
-              <div class="time-role">PhD Researcher</div>
-              <div class="time-org">IKERLAN S.COOP · Donostia-San Sebastian</div>
-              <div class="time-date">Aug 2024 – Present</div>
-              <div class="time-desc">Focuses on robotics, embedded systems, and open interoperability standards for industrial cyber-physical systems. Contributing to R&D projects like Elkartek AUTOTRUST and SENDOA.</div>
+
+            <div class="tl-item reveal">
+              <div class="tl-dot"></div>
+              <div class="tl-type res">Research</div>
+              <div class="tl-role">PhD Researcher</div>
+              <div class="tl-org">IKERLAN S.COOP · Donostia-San Sebastián, Spain</div>
+              <div class="tl-date">Aug 2024 — Present</div>
+              <div class="tl-desc">Full-time industrial research in robotics, embedded systems, and open interoperability standards for industrial cyber-physical systems. Contributing to the Elkartek-funded projects <strong>AUTOTRUST</strong> and <strong>SENDOA</strong>. Developing FMI/FMU-based digital twin frameworks and edge-AI inference pipelines for autonomous robotic platforms.</div>
+              <div class="tl-tags">
+                <span class="pill p-cyan">ROS 2</span>
+                <span class="pill p-cyan">FMI / FMU</span>
+                <span class="pill p-blue">ONNX</span>
+                <span class="pill p-blue">NVIDIA Jetson</span>
+                <span class="pill p-amber">Elkartek AUTOTRUST</span>
+                <span class="pill p-amber">SENDOA</span>
+              </div>
             </div>
-            <!-- Academic -->
-            <div class="timeline-item edu">
-              <div class="time-role">M.Sc. Mechatronics, Robotics & Automation</div>
-              <div class="time-org">Karlsruhe University of Applied Sciences</div>
-              <div class="time-date">Feb 2024 – Sep 2024</div>
-              <div class="time-desc">Erasmus Mundus Master's (EU4M). Specialized in automation engineering, system integration, and advanced robotics control.</div>
+
+            <div class="tl-item reveal">
+              <div class="tl-dot edu"></div>
+              <div class="tl-type edu">Education</div>
+              <div class="tl-role">M.Sc. Mechatronics, Robotics &amp; Automation (Final Exchange)</div>
+              <div class="tl-org">Karlsruhe University of Applied Sciences · Karlsruhe, Germany</div>
+              <div class="tl-date">Feb 2024 — Sep 2024</div>
+              <div class="tl-desc">Final exchange semester of the Erasmus Mundus EU4M Joint Master's Programme, hosted at Hochschule Karlsruhe. Advanced coursework in automation engineering, system integration, and robotic control theory. Joint degree awarded upon completion of the EU4M programme.</div>
+              <div class="tl-tags">
+                <span class="pill p-blue">Erasmus Mundus</span>
+                <span class="pill p-blue">EU4M</span>
+                <span class="pill">Automation Engineering</span>
+                <span class="pill">Robotics Control</span>
+              </div>
             </div>
-            <!-- Industrial -->
-            <div class="timeline-item">
-              <div class="time-role">Research Intern (Master Thesis)</div>
-              <div class="time-org">IKERLAN S.COOP</div>
-              <div class="time-date">Feb 2024 – Jul 2024</div>
-              <div class="time-desc">Master thesis research on IKSAFECOLAB: A safety and collaborative robotic system architecture for industrial research.</div>
+
+            <div class="tl-item reveal">
+              <div class="tl-dot"></div>
+              <div class="tl-type res">Research Internship</div>
+              <div class="tl-role">Master Thesis Researcher</div>
+              <div class="tl-org">IKERLAN S.COOP · Donostia-San Sebastián, Spain</div>
+              <div class="tl-date">Feb 2024 — Jul 2024</div>
+              <div class="tl-desc">Master thesis on <em>IKSAFECOLAB</em>: a safety-aware collaborative robotic system architecture for industrial research environments. Designed and validated multi-robot coordination strategies integrating safety standards with ROS 2-based middleware.</div>
+              <div class="tl-tags">
+                <span class="pill p-cyan">ROS 2</span>
+                <span class="pill p-blue">Collaborative Robotics</span>
+                <span class="pill p-pink">Safety Systems</span>
+                <span class="pill">System Architecture</span>
+              </div>
             </div>
+
           </div>
         </div>
       </div>
 
-      <!-- ==================== PUBLICATIONS TAB ==================== -->
-      <div id="publications" class="tab-content">
+      <!-- ════════════ PUBLICATIONS ════════════ -->
+      <div id="publications" class="tab-content" role="tabpanel">
         <div class="tab-header">
           <h2>Selected Publications</h2>
-          <p>Research contributions in peer-reviewed journals and conferences.</p>
+          <p>Peer-reviewed contributions in robotics, edge AI, and intelligent control systems.</p>
+          <div class="tag-row">
+            <span class="pill p-cyan">2 Published</span>
+            <span class="pill p-amber">1 In Preparation</span>
+          </div>
         </div>
         <div class="tab-body pub-list">
-          
-          <div class="card">
-            <div class="card-top">
-              <div class="card-title">Cognitive Digital Twins for Autonomous Robotics</div>
+
+          <div class="pub-card pub-prep reveal">
+            <div class="pub-top">
+              <div class="pub-title">Cognitive Digital Twins for Autonomous Robotics: A Systematic Review</div>
+              <span class="pub-status prep">In Preparation</span>
             </div>
-            <div class="card-subtitle">In Preparation for: Autonomous Robots (Springer) — Q1 Journal</div>
-            <p>Systematic review of 121 studies establishing a unified framework for integrating Cognitive Digital Twins in autonomous robotic systems, focusing on robust localization, navigation, and manipulation architectures.</p>
-            <div class="pillrow">
-              <span class="pill badge-amber">In Preparation</span>
-              <span class="pill">Robotics</span>
-              <span class="pill">Digital Twins</span>
+            <div class="pub-venue">
+              Autonomous Robots — Springer <span class="date">· Q1 Journal · 2025</span>
             </div>
-          </div>
-          
-          <div class="card">
-            <div class="card-top">
-              <div class="card-title">Plug-and-Play LLM Knowledge Extraction for Robot Navigation</div>
-            </div>
-            <div class="card-subtitle">Machine Learning and Knowledge Extraction — Feb 2026</div>
-            <p>A fine-tuning-free edge framework leveraging Large Language Models (LLMs) deployed on resource-constrained embedded systems (NVIDIA Jetson) to enhance autonomous robot navigation using zero-shot prompt engineering.</p>
-            <div class="pillrow">
-              <span class="pill">Published</span>
-              <span class="pill">Edge AI</span>
-              <span class="pill">LLMs</span>
+            <p class="pub-abstract">
+              A systematic review of 121 studies establishing a unified framework for integrating Cognitive Digital Twins in autonomous robotic systems. The survey synthesizes state-of-the-art approaches across robust localization, navigation, and manipulation architectures, identifying open challenges and research gaps toward truly autonomous, self-aware robotic agents.
+            </p>
+            <div class="pub-footer">
+              <div class="pillrow" style="margin:0">
+                <span class="pill p-cyan">Digital Twins</span>
+                <span class="pill p-blue">Autonomous Robotics</span>
+                <span class="pill p-blue">Systematic Review</span>
+                <span class="pill">Navigation</span>
+              </div>
+              <a class="pub-link" href="https://scholar.google.com/citations?user=HSflBLwAAAAJ" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24"><path d="M12 3 1 8l11 5 9-4.09V16h2V8L12 3zm-6.5 8.27V14c0 2.21 2.91 4 6.5 4s6.5-1.79 6.5-4v-2.73L12 14l-6.5-2.73z"/></svg>
+                Google Scholar
+              </a>
             </div>
           </div>
 
-          <div class="card">
-            <div class="card-top">
-              <div class="card-title">Natural-Language Relay Control for a SISO Thermal Plant</div>
+          <div class="pub-card pub-published reveal">
+            <div class="pub-top">
+              <div class="pub-title">Plug-and-Play LLM Knowledge Extraction for Robot Navigation</div>
+              <span class="pub-status published">Published</span>
             </div>
-            <div class="card-subtitle">Applied Sciences — Dec 2025</div>
-            <p>A proof-of-concept architecture with validation against a conventional hysteresis controller, demonstrating the viability of LLM-based intelligent relay control in cyber-physical thermal systems.</p>
-            <div class="pillrow">
-              <span class="pill">Published</span>
-              <span class="pill">Control Systems</span>
+            <div class="pub-venue">
+              Machine Learning and Knowledge Extraction (MDPI MAKE) <span class="date">· Feb 2026</span>
+            </div>
+            <p class="pub-abstract">
+              A fine-tuning-free edge framework leveraging Large Language Models deployed on resource-constrained embedded hardware (NVIDIA Jetson) to enhance autonomous robot navigation through zero-shot prompt engineering. Demonstrates real-time LLM inference at the edge without cloud dependency, opening a practical path for knowledge-augmented robotic systems in unstructured environments.
+            </p>
+            <div class="pub-footer">
+              <div class="pillrow" style="margin:0">
+                <span class="pill p-cyan">Edge AI</span>
+                <span class="pill p-cyan">LLMs</span>
+                <span class="pill p-blue">Robot Navigation</span>
+                <span class="pill p-blue">NVIDIA Jetson</span>
+                <span class="pill">Zero-Shot</span>
+              </div>
+              <a class="pub-link" href="https://scholar.google.com/citations?user=HSflBLwAAAAJ" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24"><path d="M12 3 1 8l11 5 9-4.09V16h2V8L12 3zm-6.5 8.27V14c0 2.21 2.91 4 6.5 4s6.5-1.79 6.5-4v-2.73L12 14l-6.5-2.73z"/></svg>
+                Google Scholar
+              </a>
+            </div>
+          </div>
+
+          <div class="pub-card pub-published reveal">
+            <div class="pub-top">
+              <div class="pub-title">Natural-Language Relay Control for a SISO Thermal Plant</div>
+              <span class="pub-status published">Published</span>
+            </div>
+            <div class="pub-venue">
+              Applied Sciences (MDPI) <span class="date">· Dec 2025</span>
+            </div>
+            <p class="pub-abstract">
+              A proof-of-concept architecture coupling a Large Language Model to an industrial relay controller for a single-input single-output thermal plant. Validated against a conventional hysteresis controller, the approach demonstrates LLM-based intelligent relay control as a viable paradigm in cyber-physical systems, with natural-language setpoint specification and explainable control decisions.
+            </p>
+            <div class="pub-footer">
+              <div class="pillrow" style="margin:0">
+                <span class="pill p-cyan">LLM Control</span>
+                <span class="pill p-blue">Cyber-Physical Systems</span>
+                <span class="pill p-amber">Control Theory</span>
+                <span class="pill">Thermal Systems</span>
+              </div>
+              <a class="pub-link" href="https://scholar.google.com/citations?user=HSflBLwAAAAJ" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24"><path d="M12 3 1 8l11 5 9-4.09V16h2V8L12 3zm-6.5 8.27V14c0 2.21 2.91 4 6.5 4s6.5-1.79 6.5-4v-2.73L12 14l-6.5-2.73z"/></svg>
+                Google Scholar
+              </a>
             </div>
           </div>
 
         </div>
       </div>
 
-      <!-- ==================== PROJECTS TAB ==================== -->
-      <div id="projects" class="tab-content">
+      <!-- ════════════ PROJECTS ════════════ -->
+      <div id="projects" class="tab-content" role="tabpanel">
         <div class="tab-header">
-          <h2>Technical Expertise & Projects</h2>
-          <p>Key areas of development and system architectures.</p>
+          <h2>Technical Projects &amp; Research</h2>
+          <p>Key system architectures, R&amp;D initiatives, and applied research contributions.</p>
         </div>
         <div class="tab-body projects-grid">
-          
-          <div class="card">
-            <div class="card-title" style="margin-bottom:8px">Digital Twin Autonomy Stack</div>
-            <p>Bridging FMI/Modelica simulation with ROS 2 deployment and safety-aware policies for industrial applications.</p>
+
+          <div class="proj-card reveal">
+            <div class="proj-top">
+              <div class="proj-title">Digital Twin Autonomy Stack</div>
+              <span class="proj-status funded">Funded R&amp;D</span>
+            </div>
+            <p class="proj-desc">
+              End-to-end architecture bridging FMI/FMU co-simulation (Modelica-based) with ROS 2 runtime deployment and safety-aware autonomy policies. Enables hardware-in-the-loop validation and seamless model-to-reality transfer for industrial robotic cells. Developed under the Elkartek AUTOTRUST and SENDOA programmes.
+            </p>
             <div class="pillrow">
-              <span class="pill">FMI/FMU</span><span class="pill">ROS 2</span><span class="pill">Co-sim</span>
+              <span class="pill p-cyan">FMI / FMU</span>
+              <span class="pill p-cyan">ROS 2</span>
+              <span class="pill p-blue">Modelica</span>
+              <span class="pill p-blue">Co-Simulation</span>
+              <span class="pill">HIL</span>
             </div>
           </div>
-          
-          <div class="card">
-            <div class="card-title" style="margin-bottom:8px">Edge AI Perception (ONNX)</div>
-            <p>Low-latency inference pipelines optimized for Jetson-class hardware, directly integrated as ROS 2 nodes.</p>
+
+          <div class="proj-card reveal">
+            <div class="proj-top">
+              <div class="proj-title">Edge AI Perception Pipeline (ONNX)</div>
+              <span class="proj-status active">Active</span>
+            </div>
+            <p class="proj-desc">
+              Low-latency inference pipelines for visual perception tasks, optimized for Jetson-class embedded hardware via ONNX Runtime and TensorRT. Integrates natively as ROS 2 composable nodes, achieving sub-10 ms inference on object detection and depth estimation tasks while maintaining a fully offline, deterministic execution profile.
+            </p>
             <div class="pillrow">
-              <span class="pill">ONNX</span><span class="pill">Jetson</span><span class="pill">Vision</span>
+              <span class="pill p-cyan">ONNX Runtime</span>
+              <span class="pill p-cyan">NVIDIA Jetson</span>
+              <span class="pill p-blue">TensorRT</span>
+              <span class="pill p-blue">ROS 2</span>
+              <span class="pill">Computer Vision</span>
             </div>
           </div>
-          
-          <div class="card">
-            <div class="card-title" style="margin-bottom:8px">Robust Localization Pipeline</div>
-            <p>VIO/LIO/SLAM robustness strategies with system-level arbitration for highly dynamic environments.</p>
+
+          <div class="proj-card reveal">
+            <div class="proj-top">
+              <div class="proj-title">Robust Localization Pipeline</div>
+              <span class="proj-status research">Research</span>
+            </div>
+            <p class="proj-desc">
+              Arbitrated multi-modal localization stack combining Visual-Inertial Odometry (VIO), LiDAR-Inertial Odometry (LIO), and SLAM for resilience in GPS-denied, dynamically cluttered environments. Features a system-level arbitration module that selects and fuses sources based on environmental context and sensor health metrics.
+            </p>
             <div class="pillrow">
-              <span class="pill">VIO</span><span class="pill">LIO</span><span class="pill">SLAM</span>
+              <span class="pill p-cyan">VIO</span>
+              <span class="pill p-cyan">LIO</span>
+              <span class="pill p-blue">SLAM</span>
+              <span class="pill p-blue">Sensor Fusion</span>
+              <span class="pill">Nav2</span>
+            </div>
+          </div>
+
+          <div class="proj-card reveal">
+            <div class="proj-top">
+              <div class="proj-title">LLM-Augmented Industrial Control</div>
+              <span class="proj-status active">Active</span>
+            </div>
+            <p class="proj-desc">
+              Framework for embedding Large Language Models into classical industrial control loops, enabling natural-language setpoint specification, interpretable control decisions, and runtime diagnostics. Validated on thermal and relay-controlled plants; currently being extended toward multi-variable process control in safety-critical cyber-physical systems.
+            </p>
+            <div class="pillrow">
+              <span class="pill p-cyan">LLMs</span>
+              <span class="pill p-cyan">Control Systems</span>
+              <span class="pill p-blue">CPS</span>
+              <span class="pill p-amber">Explainable AI</span>
+              <span class="pill">Python</span>
             </div>
           </div>
 
         </div>
       </div>
 
-    </div> <!-- End Panel -->
+      <!-- ════════════ CONTACT ════════════ -->
+      <div id="contact" class="tab-content" role="tabpanel">
+        <div class="tab-header">
+          <h2>Contact</h2>
+          <p>Open to research collaborations, academic exchanges, and industry R&amp;D partnerships.</p>
+        </div>
+        <div class="tab-body">
+          <div class="contact-grid">
+
+            <div class="contact-card reveal">
+              <div class="contact-card-label">Primary Email</div>
+              <div class="contact-value">sebastian.rojas@ehu.eus</div>
+              <div class="contact-desc">Academic address at UPV/EHU. Best for research inquiries.</div>
+              <button class="copy-btn" id="copy-btn" onclick="copyEmail()">
+                <svg viewBox="0 0 24 24"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z"/></svg>
+                <span id="copy-label">Copy address</span>
+              </button>
+            </div>
+
+            <div class="contact-card reveal">
+              <div class="contact-card-label">Location</div>
+              <div class="contact-value">Donostia-San Sebastián</div>
+              <div class="contact-desc">Basque Country, Spain — IKERLAN S.COOP Research Centre &amp; UPV/EHU doctoral programme.</div>
+            </div>
+
+            <div class="contact-card full reveal">
+              <div class="contact-card-label">Online Profiles</div>
+              <div class="contact-social">
+                <a class="c-link" href="https://scholar.google.com/citations?user=HSflBLwAAAAJ&hl=es&authuser=2" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24"><path d="M12 3 1 8l11 5 9-4.09V16h2V8L12 3zm-6.5 8.27V14c0 2.21 2.91 4 6.5 4s6.5-1.79 6.5-4v-2.73L12 14l-6.5-2.73z"/></svg>
+                  Google Scholar
+                </a>
+                <a class="c-link" href="https://orcid.org/0009-0000-5142-1284" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8.2 16.2V9.2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="8.2" cy="7.3" r="1" fill="currentColor"/><path d="M11.1 9.2h3.1a3 3 0 0 1 0 6h-3.1V9.2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+                  ORCID
+                </a>
+                <a class="c-link" href="https://github.com/SeRoMechatronic" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.4c.58.1.8-.25.8-.56v-2c-3.26.71-3.95-1.4-3.95-1.4-.54-1.38-1.32-1.75-1.32-1.75-1.08-.74.08-.73.08-.73 1.2.08 1.83 1.23 1.83 1.23 1.06 1.82 2.78 1.3 3.46 1 .1-.77.42-1.3.76-1.6-2.6-.3-5.34-1.3-5.34-5.8 0-1.28.46-2.33 1.22-3.15-.12-.3-.53-1.52.12-3.17 0 0 1-.32 3.27 1.2a11.3 11.3 0 0 1 5.95 0c2.27-1.52 3.27-1.2 3.27-1.2.65 1.65.24 2.87.12 3.17.76.82 1.22 1.87 1.22 3.15 0 4.51-2.74 5.5-5.35 5.79.43.37.82 1.1.82 2.22v3.3c0 .31.21.66.81.55A11.5 11.5 0 0 0 12 .5z"/></svg>
+                  GitHub
+                </a>
+                <a class="c-link" href="https://www.linkedin.com/in/sebastian-rojasordoñez/" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V24h-4V8zM8 8h3.8v2.2h.05c.53-1 1.82-2.2 3.75-2.2 4.01 0 4.75 2.64 4.75 6.07V24h-4v-8.4c0-2-.04-4.57-2.78-4.57-2.78 0-3.2 2.17-3.2 4.42V24H8V8z"/></svg>
+                  LinkedIn
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </main>
   </div>
 
   <script>
-    // Tab Navigation Logic
-    const buttons = document.querySelectorAll('.tab-btn');
+    /* ── TAB NAVIGATION ──────────────────────────────────────── */
+    const buttons  = document.querySelectorAll('.tab-btn');
     const contents = document.querySelectorAll('.tab-content');
 
-    function switchTab(tabId) {
-      // Update buttons
-      buttons.forEach(btn => {
-        if(btn.dataset.tab === tabId) {
-          btn.classList.add('active');
-        } else {
-          btn.classList.remove('active');
-        }
+    function switchTab(id) {
+      buttons.forEach(b => {
+        const on = b.dataset.tab === id;
+        b.classList.toggle('active', on);
+        b.setAttribute('aria-selected', on);
       });
-      // Update content
-      contents.forEach(content => {
-        if(content.id === tabId) {
-          content.classList.add('active');
-        } else {
-          content.classList.remove('active');
-        }
-      });
-      // Update URL hash without jumping
-      history.pushState(null, null, '#' + tabId);
+      contents.forEach(c => c.classList.toggle('active', c.id === id));
+      history.pushState(null, '', '#' + id);
+      triggerReveal();
     }
 
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        switchTab(btn.dataset.tab);
-      });
-    });
+    buttons.forEach(b => b.addEventListener('click', () => switchTab(b.dataset.tab)));
 
-    // Handle initial hash load
-    window.addEventListener('DOMContentLoaded', () => {
-      const hash = window.location.hash.substring(1);
-      if (hash && document.getElementById(hash)) {
-        switchTab(hash);
+    // Keyboard: digits 1-5 switch tabs
+    const tabIds = ['home','experience','publications','projects','contact'];
+    document.addEventListener('keydown', e => {
+      const n = parseInt(e.key);
+      if (n >= 1 && n <= tabIds.length && !e.ctrlKey && !e.metaKey && !e.altKey) {
+        const tag = document.activeElement.tagName;
+        if (tag !== 'INPUT' && tag !== 'TEXTAREA') switchTab(tabIds[n - 1]);
       }
     });
+
+    // Hash load
+    window.addEventListener('DOMContentLoaded', () => {
+      const h = window.location.hash.slice(1);
+      if (h && document.getElementById(h)) switchTab(h);
+      initCounters();
+      triggerReveal();
+    });
+
+    /* ── STAT COUNTERS ───────────────────────────────────────── */
+    function animateCount(el) {
+      const target = parseInt(el.dataset.to, 10);
+      const dur = 900;
+      const start = performance.now();
+      function step(now) {
+        const p = Math.min((now - start) / dur, 1);
+        const ease = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(ease * target);
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    function initCounters() {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting && !e.target.dataset.done) {
+            e.target.dataset.done = '1';
+            animateCount(e.target);
+          }
+        });
+      }, { threshold: .5 });
+      document.querySelectorAll('.js-count').forEach(el => observer.observe(el));
+    }
+
+    /* ── SCROLL REVEAL ───────────────────────────────────────── */
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
+    }, { threshold: .12, rootMargin: '0px 0px -30px 0px' });
+
+    function triggerReveal() {
+      document.querySelectorAll('.reveal:not(.visible)').forEach(el => revealObserver.observe(el));
+    }
+
+    /* ── COPY EMAIL ──────────────────────────────────────────── */
+    function copyEmail() {
+      navigator.clipboard.writeText('sebastian.rojas@ehu.eus').then(() => {
+        const lbl = document.getElementById('copy-label');
+        lbl.textContent = 'Copied!';
+        setTimeout(() => lbl.textContent = 'Copy address', 2000);
+      });
+    }
   </script>
 </body>
 </html>
