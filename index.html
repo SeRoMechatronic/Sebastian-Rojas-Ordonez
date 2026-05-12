@@ -188,15 +188,24 @@
     .sc-s { font-size: 11px; color: var(--muted2); margin-top: 2px; }
 
     .tools-row { margin-top: 52px; padding-top: 44px; border-top: 1px solid var(--border); }
-    .tools-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
-    .tl {
-      display: flex; align-items: center; gap: 7px;
-      padding: 7px 13px; border-radius: 8px;
-      border: 1px solid var(--border); font-size: 13px; font-weight: 600;
-      color: var(--muted); transition: all .14s;
+    .tc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 16px; }
+    .tc-card {
+      text-align: center; padding: 20px 12px 16px;
+      border-radius: var(--r); border: 1px solid var(--border);
+      background: var(--bg-alt);
+      transition: box-shadow .18s, border-color .18s;
     }
-    .tl:hover { border-color: var(--border2); color: var(--text); }
-    .tl img { width: 15px; height: 15px; object-fit: contain; }
+    .tc-card:hover { box-shadow: var(--sh-md); border-color: var(--border2); background: var(--bg); }
+    .tc-logo { width: 42px; height: 42px; object-fit: contain; display: block; margin: 0 auto 10px; }
+    .tc-abbr {
+      width: 42px; height: 42px; border-radius: 9px; margin: 0 auto 10px;
+      background: linear-gradient(135deg, var(--teal-l), var(--blue-l));
+      border: 1px solid var(--border2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px; font-weight: 800; letter-spacing: .3px;
+      color: var(--teal-d); font-family: 'Space Grotesk', sans-serif;
+    }
+    .tc-name { font-size: 12.5px; font-weight: 600; color: var(--muted); line-height: 1.35; }
 
     /* ════════════════════════════════════════════════
        RESEARCH TAB
@@ -435,6 +444,7 @@
     @media (max-width: 900px) {
       .hero      { grid-template-columns: 1fr; gap: 40px; }
       .del-grid  { grid-template-columns: 1fr; }
+      .tc-grid   { grid-template-columns: repeat(3, 1fr); }
       .skills-canva { grid-template-columns: 1fr 1fr; }
       .ti        { grid-template-columns: 1fr; gap: 4px; }
       .ti-left   { display: flex; align-items: center; gap: 8px; padding: 0; }
@@ -447,6 +457,7 @@
     @media (max-width: 600px) {
       h1 { font-size: 36px; letter-spacing: -1.5px; }
       .nav-cta { display: none; }
+      .tc-grid   { grid-template-columns: repeat(2, 1fr); }
       .skills-canva { grid-template-columns: 1fr; }
       .prof-grid { grid-template-columns: 1fr; }
       .home-pg, .pg { padding: 40px 0 60px; }
@@ -556,19 +567,55 @@
 
 <div class="tools-row">
   <div class="eyebrow" style="margin:0 0 16px">Core Toolchain</div>
-  <div class="tools-grid">
-    <span class="tl"><img src="assets/logos/ros2.svg" alt="">ROS 2</span>
-    <span class="tl"><img src="assets/logos/nvidia.svg" alt="">NVIDIA Jetson</span>
-    <span class="tl"><img src="assets/logos/onnx.svg" alt="">ONNX Runtime</span>
-    <span class="tl"><img src="assets/logos/python.svg" alt="">Python</span>
-    <span class="tl"><img src="assets/logos/cpp.svg" alt="">C++</span>
-    <span class="tl"><img src="assets/logos/linux.svg" alt="">Linux</span>
-    <span class="tl"><img src="assets/logos/docker.svg" alt="">Docker</span>
-    <span class="tl"><img src="assets/logos/gazebo.svg" alt="">Gazebo</span>
-    <span class="tl"><img src="assets/logos/solidworks.svg" alt="">SolidWorks</span>
-    <span class="tl">FMI / Modelica</span>
-    <span class="tl">MATLAB / Simulink</span>
-    <span class="tl">LabVIEW</span>
+  <div class="tc-grid">
+    <div class="tc-card rv">
+      <img src="assets/logos/ros2.svg" alt="ROS 2" class="tc-logo">
+      <div class="tc-name">ROS 2</div>
+    </div>
+    <div class="tc-card rv">
+      <img src="assets/logos/nvidia.svg" alt="NVIDIA Jetson" class="tc-logo">
+      <div class="tc-name">NVIDIA Jetson</div>
+    </div>
+    <div class="tc-card rv">
+      <img src="assets/logos/onnx.svg" alt="ONNX Runtime" class="tc-logo">
+      <div class="tc-name">ONNX Runtime</div>
+    </div>
+    <div class="tc-card rv">
+      <img src="assets/logos/python.svg" alt="Python" class="tc-logo">
+      <div class="tc-name">Python</div>
+    </div>
+    <div class="tc-card rv">
+      <img src="assets/logos/cpp.svg" alt="C++" class="tc-logo">
+      <div class="tc-name">C++</div>
+    </div>
+    <div class="tc-card rv">
+      <img src="assets/logos/linux.svg" alt="Linux" class="tc-logo">
+      <div class="tc-name">Linux</div>
+    </div>
+    <div class="tc-card rv">
+      <img src="assets/logos/docker.svg" alt="Docker" class="tc-logo">
+      <div class="tc-name">Docker</div>
+    </div>
+    <div class="tc-card rv">
+      <img src="assets/logos/gazebo.svg" alt="Gazebo" class="tc-logo">
+      <div class="tc-name">Gazebo</div>
+    </div>
+    <div class="tc-card rv">
+      <img src="assets/logos/solidworks.svg" alt="SolidWorks" class="tc-logo">
+      <div class="tc-name">SolidWorks</div>
+    </div>
+    <div class="tc-card rv">
+      <div class="tc-abbr">FMI</div>
+      <div class="tc-name">FMI / Modelica</div>
+    </div>
+    <div class="tc-card rv">
+      <div class="tc-abbr">MTL</div>
+      <div class="tc-name">MATLAB / Simulink</div>
+    </div>
+    <div class="tc-card rv">
+      <div class="tc-abbr">LV</div>
+      <div class="tc-name">LabVIEW</div>
+    </div>
   </div>
 </div>
 </div>
