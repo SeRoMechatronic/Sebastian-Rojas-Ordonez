@@ -280,16 +280,20 @@
     .kv-v strong { color: var(--text); }
 
     /* skills */
-    .skill-domain { margin-bottom: 28px; }
-    .sd-name {
-      font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 10px;
-      display: flex; align-items: center; gap: 10px;
+    .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .skill-domain {
+      padding: 20px 22px; border-radius: var(--r);
+      border: 1px solid var(--border); background: var(--bg-alt);
+      border-top: 3px solid var(--teal);
     }
-    .sd-name::after { content: ""; flex: 1; height: 1px; background: var(--border); }
+    .skill-domain.s-blue  { border-top-color: var(--blue); }
+    .skill-domain.s-amber { border-top-color: var(--amber); }
+    .skill-domain.s-pink  { border-top-color: var(--pink); }
+    .sd-name { font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 12px; text-transform: uppercase; letter-spacing: .5px; }
     .sd-chips { display: flex; flex-wrap: wrap; gap: 8px; }
     .sk {
       padding: 6px 13px; border-radius: 7px;
-      border: 1px solid var(--border); background: var(--bg-alt);
+      border: 1px solid var(--border); background: var(--bg);
       font-size: 13px; font-weight: 500; color: var(--muted);
       display: flex; align-items: center; gap: 7px;
     }
@@ -298,6 +302,16 @@
     /* ════════════════════════════════════════════════
        BACKGROUND TAB
     ════════════════════════════════════════════════ */
+    .jo-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 52px; }
+    .jo-card { padding: 22px 24px; border-radius: var(--r); border: 1px solid var(--border); background: var(--bg-alt); border-left: 3px solid var(--teal); }
+    .jo-card.jc-blue  { border-left-color: var(--blue); }
+    .jo-card.jc-amber { border-left-color: var(--amber); }
+    .jo-card.jc-pink  { border-left-color: var(--pink); }
+    .jo-phase { font-size: 14px; font-weight: 800; font-family: 'Space Grotesk', sans-serif; margin-bottom: 3px; }
+    .jo-years { font-size: 11px; font-family: 'JetBrains Mono', monospace; color: var(--muted2); margin-bottom: 12px; }
+    .jo-list { margin: 0; padding: 0 0 0 15px; display: flex; flex-direction: column; gap: 5px; }
+    .jo-list li { font-size: 12.5px; color: var(--muted); line-height: 1.5; }
+
     .tl-wrap { display: flex; flex-direction: column; margin-bottom: 52px; }
     .ti { display: grid; grid-template-columns: 150px 1fr; gap: 0 28px; padding-bottom: 32px; }
     .ti:last-child { padding-bottom: 0; }
@@ -398,21 +412,24 @@
 
     /* ── RESPONSIVE ────────────────────────────────────────── */
     @media (max-width: 900px) {
-      .hero    { grid-template-columns: 1fr; gap: 40px; }
-      .del-grid { grid-template-columns: 1fr; }
-      .ri-grid { grid-template-columns: 1fr 1fr; }
-      .ti      { grid-template-columns: 1fr; gap: 4px; }
-      .ti-left { display: flex; align-items: center; gap: 8px; padding: 0; }
-      .ti-right { border-left: none; padding-left: 0; border-top: 2px solid var(--border); padding-top: 12px; margin-top: 6px; }
+      .hero      { grid-template-columns: 1fr; gap: 40px; }
+      .del-grid  { grid-template-columns: 1fr; }
+      .ri-grid   { grid-template-columns: 1fr 1fr; }
+      .jo-grid   { grid-template-columns: 1fr 1fr; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .ti        { grid-template-columns: 1fr; gap: 4px; }
+      .ti-left   { display: flex; align-items: center; gap: 8px; padding: 0; }
+      .ti-right  { border-left: none; padding-left: 0; border-top: 2px solid var(--border); padding-top: 12px; margin-top: 6px; }
       .ti-right::before { display: none; }
-      .ct-grid { grid-template-columns: 1fr; }
+      .ct-grid   { grid-template-columns: 1fr; }
       .prof-grid { grid-template-columns: 1fr 1fr; }
-      .lang-g  { grid-template-columns: 1fr 1fr; }
+      .lang-g    { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 600px) {
       h1 { font-size: 36px; letter-spacing: -1.5px; }
       .nav-cta { display: none; }
-      .ri-grid { grid-template-columns: 1fr; }
+      .ri-grid   { grid-template-columns: 1fr; }
+      .jo-grid   { grid-template-columns: 1fr; }
       .prof-grid { grid-template-columns: 1fr; }
       .home-pg, .pg { padding: 40px 0 60px; }
     }
@@ -506,9 +523,9 @@
         <div class="sc-s">Journals + conference</div>
       </div>
       <div class="sc">
-        <div class="sc-n">3<span class="u">+</span></div>
-        <div class="sc-l">R&amp;D Projects</div>
-        <div class="sc-s">Elkartek-funded</div>
+        <div class="sc-n">8<span class="u">+</span></div>
+        <div class="sc-l">Engineering Projects</div>
+        <div class="sc-s">Research &amp; academic</div>
       </div>
       <div class="sc">
         <div class="sc-n">4</div>
@@ -710,7 +727,7 @@
 <div class="wrap pg">
   <div class="ph">
     <h2>Engineering</h2>
-    <p>Systems designed, built, and delivered — from embedded AI pipelines to collaborative robotic platforms.</p>
+    <p>Systems designed, built, and delivered — from funded R&amp;D platforms to academic mechatronic projects.</p>
   </div>
 
   <div class="eyebrow">Systems &amp; Deliverables</div>
@@ -780,11 +797,75 @@
       </div>
     </div>
 
+    <div class="del rv">
+      <div class="del-top">
+        <div class="del-title">3-DoF Tic-Tac-Toe Robot Arm</div>
+        <span class="del-badge db-active">Best in Program</span>
+      </div>
+      <div class="del-kv">
+        <div class="kv"><div class="kv-k">Problem</div><div class="kv-v">Design and build a complete 3-DoF robotic arm capable of playing tic-tac-toe, within a €150 budget and 4-month timeline.</div></div>
+        <div class="kv"><div class="kv-k">Solution</div><div class="kv-v">Hybrid CNC-machined aluminum + 3D-printed PLA structure, DC motors with absolute encoders, computer vision via endoscopic camera, and <strong>MATLAB/Simulink/Simscape</strong> model-based control with PID tuning and inverse kinematics algorithms.</div></div>
+        <div class="kv"><div class="kv-k">Outcome</div><div class="kv-v">Faculty award: <strong>"Best project to have passed through the master's degree"</strong> — for technical results and team dynamics. Robot demonstrated publicly at a local school. Team of 6, Universidad de Oviedo, 2023.</div></div>
+      </div>
+      <div class="tags">
+        <span class="tag tc">MATLAB/Simulink</span><span class="tag tc">Simscape</span>
+        <span class="tag tb">Inverse Kinematics</span><span class="tag">Computer Vision</span><span class="tag">3D Printing</span>
+      </div>
+    </div>
+
+    <div class="del rv">
+      <div class="del-top">
+        <div class="del-title">3D-Printed Three-Finger Gripper</div>
+        <span class="del-badge db-thesis">Academic</span>
+      </div>
+      <div class="del-kv">
+        <div class="kv"><div class="kv-k">Problem</div><div class="kv-v">Design a functional multi-finger gripper using only additive manufacturing and off-the-shelf components.</div></div>
+        <div class="kv"><div class="kv-k">Solution</div><div class="kv-v">Crank-rod mechanism activating three fingers via a servomotor-driven rotating plate. <strong>SolidWorks</strong> CAD with topology analysis for weight reduction, fully 3D-printed PLA structure with commercial fasteners.</div></div>
+        <div class="kv"><div class="kv-k">Outcome</div><div class="kv-v">Functional prototype validating <strong>low-cost additive manufacturing</strong> for mechatronic end-effectors. Documented with full technical report covering design rationale, assembly, and testing.</div></div>
+      </div>
+      <div class="tags">
+        <span class="tag tc">SolidWorks</span><span class="tag">3D Printing</span>
+        <span class="tag tb">Mechanism Design</span><span class="tag">Servo Actuation</span>
+      </div>
+    </div>
+
+    <div class="del rv">
+      <div class="del-top">
+        <div class="del-title">Biomechanical Simulation of Bicycle Pedalling</div>
+        <span class="del-badge db-thesis">Academic</span>
+      </div>
+      <div class="del-kv">
+        <div class="kv"><div class="kv-k">Problem</div><div class="kv-v">Quantify how saddle height and crank dimensions affect joint loading, pedalling efficiency, and injury risk in cyclists.</div></div>
+        <div class="kv"><div class="kv-k">Solution</div><div class="kv-v">Five-bar linkage biomechanical model of the pedalling mechanism implemented in <strong>MATLAB</strong> for kinematic animation and full dynamic simulation, sweeping saddle and crank parameters across the ergonomic design space.</div></div>
+        <div class="kv"><div class="kv-k">Outcome</div><div class="kv-v">Identified saddle-crank configurations minimising peak joint torque and maximising power transfer — with direct applications in <strong>sports performance and rehabilitation engineering</strong>.</div></div>
+      </div>
+      <div class="tags">
+        <span class="tag tc">MATLAB</span><span class="tag tb">Biomechanics</span>
+        <span class="tag">Kinematics &amp; Dynamics</span><span class="tag">Ergonomics</span>
+      </div>
+    </div>
+
+    <div class="del rv">
+      <div class="del-top">
+        <div class="del-title">Control Board — Feedback TRAINING Unit</div>
+        <span class="del-badge db-funded">Embedded Systems</span>
+      </div>
+      <div class="del-kv">
+        <div class="kv"><div class="kv-k">Problem</div><div class="kv-v">Implement precision position and speed control for a Feedback training apparatus with multiple configurable PID modes.</div></div>
+        <div class="kv"><div class="kv-k">Solution</div><div class="kv-v">Custom PCB integrating microcontroller, signal amplification, and Feedback equipment interface. <strong>C-language firmware</strong> with several pre-configured discrete PID regulators for different operational modes, programmed via PICkit.</div></div>
+        <div class="kv"><div class="kv-k">Outcome</div><div class="kv-v">Fully validated on the training unit — end-to-end embedded work from <strong>hardware schematic design</strong> through firmware tuning to real-world closed-loop performance testing.</div></div>
+      </div>
+      <div class="tags">
+        <span class="tag tc">C Programming</span><span class="tag tc">PID Control</span>
+        <span class="tag tb">Microcontroller</span><span class="tag">PCB Design</span>
+      </div>
+    </div>
+
   </div>
 
   <!-- Technical Skills -->
-  <div class="skills-section">
-    <div class="eyebrow">Technical Skills</div>
+  <div class="eyebrow">Technical Skills</div>
+  <div class="skills-grid">
 
     <div class="skill-domain rv">
       <div class="sd-name">Robotics &amp; Autonomous Systems</div>
@@ -798,7 +879,7 @@
       </div>
     </div>
 
-    <div class="skill-domain rv">
+    <div class="skill-domain s-blue rv">
       <div class="sd-name">Model-Based Engineering &amp; Co-Simulation</div>
       <div class="sd-chips">
         <span class="sk">FMI / FMU</span>
@@ -821,7 +902,7 @@
       </div>
     </div>
 
-    <div class="skill-domain rv">
+    <div class="skill-domain s-amber rv">
       <div class="sd-name">Programming &amp; Infrastructure</div>
       <div class="sd-chips">
         <span class="sk"><img src="assets/logos/python.svg" alt="">Python</span>
@@ -833,7 +914,7 @@
       </div>
     </div>
 
-    <div class="skill-domain rv">
+    <div class="skill-domain s-pink rv">
       <div class="sd-name">Mechanical &amp; Electronic Design</div>
       <div class="sd-chips">
         <span class="sk"><img src="assets/logos/solidworks.svg" alt="">SolidWorks</span>
@@ -853,6 +934,47 @@
   <div class="ph">
     <h2>Background</h2>
     <p>Academic formation, professional trajectory, and distinctions.</p>
+  </div>
+
+  <!-- Journey Overview -->
+  <div class="jo-grid">
+    <div class="jo-card rv">
+      <div class="jo-phase">Foundation</div>
+      <div class="jo-years">2014 – 2022</div>
+      <ul class="jo-list">
+        <li>B.Sc. Mechatronic Engineering — Popayán, Colombia</li>
+        <li>M.Sc. in Artificial Intelligence — UNIR</li>
+        <li>Speaker at XV SEMATRON, University of São Paulo</li>
+        <li>Software IP registration — greenhouse monitoring system</li>
+      </ul>
+    </div>
+    <div class="jo-card jc-blue rv">
+      <div class="jo-phase">Erasmus Mundus</div>
+      <div class="jo-years">2022 – 2024</div>
+      <ul class="jo-list">
+        <li>EU-funded M.Sc. Mechatronics across Spain, Egypt &amp; Germany</li>
+        <li>3 universities on 3 continents within 18 months</li>
+        <li>Master's thesis at IKERLAN — autonomous mobile-manipulation demonstrator</li>
+      </ul>
+    </div>
+    <div class="jo-card jc-amber rv">
+      <div class="jo-phase">Industry R&amp;D</div>
+      <div class="jo-years">2024 – Present</div>
+      <ul class="jo-list">
+        <li>Research Engineer — IKERLAN S.COOP, Basque Country</li>
+        <li>FMI co-simulation for Elkartek AUTOTRUST &amp; SENDOA</li>
+        <li>Published at 16th International Modelica &amp; FMI Conference</li>
+      </ul>
+    </div>
+    <div class="jo-card jc-pink rv">
+      <div class="jo-phase">Doctoral Research</div>
+      <div class="jo-years">2024 – Present</div>
+      <ul class="jo-list">
+        <li>PhD in Control Engineering, Automation &amp; Robotics — UPV/EHU</li>
+        <li>Cognitive digital twins, edge AI &amp; trustworthy autonomous systems</li>
+        <li>3 peer-reviewed publications; 1 more in preparation</li>
+      </ul>
+    </div>
   </div>
 
   <!-- Professional Experience -->
