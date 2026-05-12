@@ -611,17 +611,17 @@
                 <span class="stat-desc">Mechatronics + AI</span>
               </div>
               <div class="stat">
-                <span class="stat-val"><span class="js-count" data-to="2">0</span><span class="acc2"></span></span>
+                <span class="stat-val">2</span>
                 <span class="stat-label">Publications</span>
                 <span class="stat-desc">Peer-reviewed</span>
               </div>
               <div class="stat">
-                <span class="stat-val"><span class="js-count" data-to="3">0</span><span class="acc3">+</span></span>
+                <span class="stat-val">3<span class="acc3">+</span></span>
                 <span class="stat-label">R&amp;D Projects</span>
                 <span class="stat-desc">AUTOTRUST · SENDOA</span>
               </div>
               <div class="stat">
-                <span class="stat-val"><span class="js-count" data-to="4">0</span><span class="acc"></span></span>
+                <span class="stat-val">4</span>
                 <span class="stat-label">Languages</span>
                 <span class="stat-desc">ES · EN · PT · DE</span>
               </div>
@@ -1152,33 +1152,9 @@
     window.addEventListener('DOMContentLoaded', () => {
       const h = window.location.hash.slice(1);
       if (h && document.getElementById(h)) switchTab(h);
-      initCounters();
       triggerReveal();
     });
 
-    /* ── STAT COUNTERS ───────────────────────────────────────── */
-    function animateCount(el) {
-      const target = parseInt(el.dataset.to, 10);
-      const start  = performance.now();
-      const dur    = 900;
-      (function step(now) {
-        const p = Math.min((now - start) / dur, 1);
-        el.textContent = Math.round((1 - Math.pow(1 - p, 3)) * target);
-        if (p < 1) requestAnimationFrame(step);
-      })(start);
-    }
-
-    function initCounters() {
-      const obs = new IntersectionObserver(entries => {
-        entries.forEach(e => {
-          if (e.isIntersecting && !e.target.dataset.done) {
-            e.target.dataset.done = '1';
-            animateCount(e.target);
-          }
-        });
-      }, { threshold: .5 });
-      document.querySelectorAll('.js-count').forEach(el => obs.observe(el));
-    }
 
     /* ── SCROLL REVEAL ───────────────────────────────────────── */
     const revealObs = new IntersectionObserver(entries => {
