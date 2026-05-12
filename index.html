@@ -243,13 +243,6 @@
     .doi-link svg { width: 12px; height: 12px; fill: currentColor; }
 
     .research-int { margin-top: 48px; }
-    .ri-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 16px; }
-    .ri-card {
-      padding: 18px 20px; border-radius: var(--r);
-      border: 1px solid var(--border); background: var(--bg-alt);
-    }
-    .ri-title { font-size: 14px; font-weight: 700; margin-bottom: 5px; }
-    .ri-desc  { font-size: 13px; color: var(--muted); line-height: 1.55; }
 
     /* ════════════════════════════════════════════════
        ENGINEERING TAB
@@ -289,54 +282,55 @@
     /* ════════════════════════════════════════════════
        BACKGROUND TAB
     ════════════════════════════════════════════════ */
-    .jr-stage-wrap { overflow-x: auto; }
-    .jr-stage {
+    .jst-outer { overflow-x: auto; margin-bottom: 52px; }
+    .jst {
       display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      grid-template-rows: 120px 48px 120px;
-      min-width: 700px; margin-bottom: 52px;
+      grid-template-columns: repeat(6, minmax(130px, 1fr));
+      grid-template-rows: auto 60px auto;
+      min-width: 720px;
     }
-    .jr-road {
+    .jst-bar {
       grid-row: 2; grid-column: 1 / -1;
-      background: #64748b; border-radius: 8px;
-      position: relative; overflow: hidden;
+      position: relative;
+      display: flex; align-items: center; justify-content: space-around;
     }
-    .jr-road::after {
-      content: ""; position: absolute; top: 50%; left: 0; right: 0; height: 3px;
+    .jst-bar::before {
+      content: ""; position: absolute; top: 50%; height: 2px;
+      left: calc(100% / 12); right: calc(100% / 12);
       transform: translateY(-50%);
-      background: repeating-linear-gradient(90deg, rgba(255,255,255,.8) 0, rgba(255,255,255,.8) 22px, transparent 22px, transparent 36px);
+      background: linear-gradient(90deg, var(--teal) 0%, var(--blue) 100%);
     }
-    .jr-pin {
-      grid-row: 2; align-self: center; justify-self: center; z-index: 3;
-      width: 40px; height: 40px; border-radius: 50%;
-      background: var(--bg); border: 2.5px solid var(--teal);
+    .jst-node {
+      width: 44px; height: 44px; border-radius: 50%;
+      position: relative; z-index: 2;
       display: flex; align-items: center; justify-content: center;
-      font-size: 19px; box-shadow: 0 2px 10px rgba(0,0,0,.15);
+      font-family: 'Space Grotesk', sans-serif; font-weight: 800; font-size: 13px; color: #fff;
+      background: linear-gradient(135deg, var(--teal), var(--blue));
+      box-shadow: 0 3px 16px rgba(13,148,136,.3);
     }
-    .jr-card-a {
-      grid-row: 1; align-self: end; justify-self: center;
-      text-align: center; width: 155px; padding: 10px 12px 14px;
-      background: var(--bg); border: 1px solid var(--border);
-      border-radius: 8px; box-shadow: var(--sh); position: relative;
+    .jst-up {
+      grid-row: 1; align-self: end;
+      text-align: center; padding: 0 6px;
     }
-    .jr-card-a::after {
-      content: ""; position: absolute; bottom: -8px; left: 50%;
-      transform: translateX(-50%); width: 1px; height: 8px; background: var(--border2);
+    .jst-up::after {
+      content: ""; display: block;
+      width: 1px; height: 16px;
+      background: var(--border2); margin: 10px auto 0;
     }
-    .jr-card-b {
-      grid-row: 3; align-self: start; justify-self: center;
-      text-align: center; width: 155px; padding: 14px 12px 10px;
-      background: var(--bg); border: 1px solid var(--border);
-      border-radius: 8px; box-shadow: var(--sh); position: relative;
+    .jst-dn {
+      grid-row: 3; align-self: start;
+      text-align: center; padding: 0 6px;
     }
-    .jr-card-b::before {
-      content: ""; position: absolute; top: -8px; left: 50%;
-      transform: translateX(-50%); width: 1px; height: 8px; background: var(--border2);
+    .jst-dn::before {
+      content: ""; display: block;
+      width: 1px; height: 16px;
+      background: var(--border2); margin: 0 auto 10px;
     }
-    .jr-city  { font-size: 11.5px; font-weight: 700; margin-bottom: 3px; }
-    .jr-org   { font-size: 11px; font-weight: 600; color: var(--teal-d); margin-bottom: 2px; }
-    .jr-yr    { font-size: 10.5px; font-family: 'JetBrains Mono', monospace; color: var(--muted2); font-weight: 600; margin-bottom: 3px; }
-    .jr-desc  { font-size: 10.5px; color: var(--blue); line-height: 1.45; }
+    .jst-flag { font-size: 24px; margin-bottom: 6px; }
+    .jst-loc  { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .8px; color: var(--muted2); margin-bottom: 4px; }
+    .jst-inst { font-size: 13px; font-weight: 700; font-family: 'Space Grotesk', sans-serif; color: var(--text); margin-bottom: 3px; }
+    .jst-yr   { font-size: 10px; font-family: 'JetBrains Mono', monospace; color: var(--muted2); margin-bottom: 5px; }
+    .jst-deg  { font-size: 11.5px; color: var(--muted); line-height: 1.45; }
 
     .tl-wrap { display: flex; flex-direction: column; margin-bottom: 52px; }
     .ti { display: grid; grid-template-columns: 150px 1fr; gap: 0 28px; padding-bottom: 32px; }
@@ -440,7 +434,6 @@
     @media (max-width: 900px) {
       .hero      { grid-template-columns: 1fr; gap: 40px; }
       .del-grid  { grid-template-columns: 1fr; }
-      .ri-grid   { grid-template-columns: 1fr 1fr; }
       .skills-canva { grid-template-columns: 1fr 1fr; }
       .ti        { grid-template-columns: 1fr; gap: 4px; }
       .ti-left   { display: flex; align-items: center; gap: 8px; padding: 0; }
@@ -453,7 +446,6 @@
     @media (max-width: 600px) {
       h1 { font-size: 36px; letter-spacing: -1.5px; }
       .nav-cta { display: none; }
-      .ri-grid   { grid-template-columns: 1fr; }
       .skills-canva { grid-template-columns: 1fr; }
       .prof-grid { grid-template-columns: 1fr; }
       .home-pg, .pg { padding: 40px 0 60px; }
@@ -717,31 +709,62 @@
   <!-- Research Interests -->
   <div class="research-int">
     <div class="eyebrow">Research Interests</div>
-    <div class="ri-grid">
-      <div class="ri-card rv">
-        <div class="ri-title">Digital Twins &amp; Co-Simulation</div>
-        <div class="ri-desc">FMI/FMU-based architectures linking physical simulation with AI models for industrial cyber-physical system validation.</div>
+    <div class="skills-canva">
+
+      <div class="sc-col rv">
+        <div class="sc-icon">🔗</div>
+        <div class="sc-title">Digital Twins &amp; Co-Simulation</div>
+        <div class="sc-item">FMI / FMU architectures</div>
+        <div class="sc-item">AI + physical model integration</div>
+        <div class="sc-item">Industrial CPS validation</div>
+        <div class="sc-item">Distributed simulation</div>
       </div>
-      <div class="ri-card rv">
-        <div class="ri-title">Edge AI &amp; Embedded LLMs</div>
-        <div class="ri-desc">Deploying large language models and neural networks on resource-constrained hardware (NVIDIA Jetson) without cloud dependency.</div>
+
+      <div class="sc-col rv">
+        <div class="sc-icon">⚡</div>
+        <div class="sc-title">Edge AI &amp; Embedded LLMs</div>
+        <div class="sc-item">NVIDIA Jetson deployment</div>
+        <div class="sc-item">Offline · cloud-independent</div>
+        <div class="sc-item">ONNX · TensorRT inference</div>
+        <div class="sc-item">Zero-shot LLMs</div>
       </div>
-      <div class="ri-card rv">
-        <div class="ri-title">Autonomous Robot Navigation</div>
-        <div class="ri-desc">Robust multi-modal localization (VIO/LIO/SLAM) and knowledge-augmented navigation for GPS-denied and dynamic environments.</div>
+
+      <div class="sc-col rv">
+        <div class="sc-icon">🗺️</div>
+        <div class="sc-title">Autonomous Navigation</div>
+        <div class="sc-item">VIO · LIO · SLAM</div>
+        <div class="sc-item">Knowledge-augmented nav</div>
+        <div class="sc-item">GPS-denied environments</div>
+        <div class="sc-item">Dynamic scene understanding</div>
       </div>
-      <div class="ri-card rv">
-        <div class="ri-title">LLM-Augmented Control</div>
-        <div class="ri-desc">Embedding LLMs into classical control loops for natural-language setpoint specification and explainable control decisions.</div>
+
+      <div class="sc-col rv">
+        <div class="sc-icon">💬</div>
+        <div class="sc-title">LLM-Augmented Control</div>
+        <div class="sc-item">LLMs in control loops</div>
+        <div class="sc-item">Natural-language setpoints</div>
+        <div class="sc-item">Explainable decisions</div>
+        <div class="sc-item">Cyber-physical systems</div>
       </div>
-      <div class="ri-card rv">
-        <div class="ri-title">Open Interoperability Standards</div>
-        <div class="ri-desc">FMI, Modelica, and vendor-neutral integration across MATLAB/Simulink, OpenModelica, and LabVIEW for distributed simulation.</div>
+
+      <div class="sc-col rv">
+        <div class="sc-icon">🔌</div>
+        <div class="sc-title">Open Interoperability</div>
+        <div class="sc-item">FMI · Modelica standards</div>
+        <div class="sc-item">MATLAB/Simulink · OpenModelica</div>
+        <div class="sc-item">Vendor-neutral frameworks</div>
+        <div class="sc-item">Multi-tool co-simulation</div>
       </div>
-      <div class="ri-card rv">
-        <div class="ri-title">ROS 2 System Architecture</div>
-        <div class="ri-desc">Safety-aware and composable ROS 2 node architectures for real-time autonomous systems in industrial environments.</div>
+
+      <div class="sc-col rv">
+        <div class="sc-icon">🤖</div>
+        <div class="sc-title">ROS 2 Architecture</div>
+        <div class="sc-item">Composable node design</div>
+        <div class="sc-item">Safety-aware systems</div>
+        <div class="sc-item">Real-time industrial apps</div>
+        <div class="sc-item">Human-robot interaction</div>
       </div>
+
     </div>
   </div>
 </div>
@@ -962,63 +985,65 @@
   </div>
 
   <!-- Journey Overview -->
-  <div class="jr-stage-wrap">
-    <div class="jr-stage">
-      <div class="jr-road"></div>
+  <div class="jst-outer">
+    <div class="jst">
 
-      <!-- Stop 1: Popayán, Colombia — ABOVE -->
-      <div class="jr-card-a rv" style="grid-column:1">
-        <div class="jr-city">Popayán, Colombia</div>
-        <div class="jr-org">Unicomfacauca</div>
-        <div class="jr-yr">2014 – 2019</div>
-        <div class="jr-desc">B.Sc. Mechatronic Engineering · Outstanding Graduate</div>
-      </div>
-      <div class="jr-pin" style="grid-column:1">🇨🇴</div>
-
-      <!-- Stop 2: Colombia / UNIR — BELOW -->
-      <div class="jr-pin" style="grid-column:2">🇨🇴</div>
-      <div class="jr-card-b rv" style="grid-column:2">
-        <div class="jr-city">Colombia (Online)</div>
-        <div class="jr-org">UNIR</div>
-        <div class="jr-yr">2020 – 2022</div>
-        <div class="jr-desc">M.Sc. in Artificial Intelligence</div>
+      <!-- Progress bar with numbered nodes -->
+      <div class="jst-bar">
+        <div class="jst-node">01</div>
+        <div class="jst-node">02</div>
+        <div class="jst-node">03</div>
+        <div class="jst-node">04</div>
+        <div class="jst-node">05</div>
+        <div class="jst-node">06</div>
       </div>
 
-      <!-- Stop 3: Asturias, Spain — ABOVE -->
-      <div class="jr-card-a rv" style="grid-column:3">
-        <div class="jr-city">Asturias, Spain</div>
-        <div class="jr-org">Universidad de Oviedo</div>
-        <div class="jr-yr">2022 – 2023</div>
-        <div class="jr-desc">EU4M · Erasmus Mundus Scholarship</div>
+      <!-- Above the bar: stops 1, 3, 5 -->
+      <div class="jst-up rv" style="grid-column:1">
+        <div class="jst-flag">🇨🇴</div>
+        <div class="jst-loc">Popayán, Colombia</div>
+        <div class="jst-inst">Unicomfacauca</div>
+        <div class="jst-yr">2014 – 2019</div>
+        <div class="jst-deg">B.Sc. Mechatronic Engineering<br>Outstanding Graduate</div>
       </div>
-      <div class="jr-pin" style="grid-column:3">🇪🇸</div>
+      <div class="jst-up rv" style="grid-column:3">
+        <div class="jst-flag">🇪🇸</div>
+        <div class="jst-loc">Asturias, Spain</div>
+        <div class="jst-inst">Universidad de Oviedo</div>
+        <div class="jst-yr">2022 – 2023</div>
+        <div class="jst-deg">EU4M · Erasmus Mundus<br>Automation &amp; Mechatronics</div>
+      </div>
+      <div class="jst-up rv" style="grid-column:5">
+        <div class="jst-flag">🇩🇪</div>
+        <div class="jst-loc">Karlsruhe, Germany</div>
+        <div class="jst-inst">Hochschule Karlsruhe</div>
+        <div class="jst-yr">Feb – Jul 2024</div>
+        <div class="jst-deg">EU4M · Micro &amp; Nano Technology<br>Robotics &amp; Automotive</div>
+      </div>
 
-      <!-- Stop 4: Giza, Egypt — BELOW -->
-      <div class="jr-pin" style="grid-column:4">🇪🇬</div>
-      <div class="jr-card-b rv" style="grid-column:4">
-        <div class="jr-city">Giza, Egypt</div>
-        <div class="jr-org">Nile University</div>
-        <div class="jr-yr">Sep 2023 – Jan 2024</div>
-        <div class="jr-desc">EU4M · Control Systems · Automation</div>
+      <!-- Below the bar: stops 2, 4, 6 -->
+      <div class="jst-dn rv" style="grid-column:2">
+        <div class="jst-flag">🇨🇴</div>
+        <div class="jst-loc">Colombia (Online)</div>
+        <div class="jst-inst">UNIR</div>
+        <div class="jst-yr">2020 – 2022</div>
+        <div class="jst-deg">M.Sc. Artificial Intelligence<br>Deep Learning &amp; Computer Vision</div>
+      </div>
+      <div class="jst-dn rv" style="grid-column:4">
+        <div class="jst-flag">🇪🇬</div>
+        <div class="jst-loc">Giza, Egypt</div>
+        <div class="jst-inst">Nile University</div>
+        <div class="jst-yr">Sep 2023 – Jan 2024</div>
+        <div class="jst-deg">EU4M · Control Systems<br>Factory &amp; Process Automation</div>
+      </div>
+      <div class="jst-dn rv" style="grid-column:6">
+        <div class="jst-flag">🇪🇸</div>
+        <div class="jst-loc">Arrasate, Spain</div>
+        <div class="jst-inst">IKERLAN · UPV/EHU</div>
+        <div class="jst-yr">2024 – Present</div>
+        <div class="jst-deg">Research Engineer · PhD<br>FMI · ROS 2 · Edge AI</div>
       </div>
 
-      <!-- Stop 5: Karlsruhe, Germany — ABOVE -->
-      <div class="jr-card-a rv" style="grid-column:5">
-        <div class="jr-city">Karlsruhe, Germany</div>
-        <div class="jr-org">Hochschule Karlsruhe</div>
-        <div class="jr-yr">Feb – Jul 2024</div>
-        <div class="jr-desc">EU4M · Micro &amp; Nano Technology · Robotics</div>
-      </div>
-      <div class="jr-pin" style="grid-column:5">🇩🇪</div>
-
-      <!-- Stop 6: Arrasate, Spain — BELOW -->
-      <div class="jr-pin" style="grid-column:6">🇪🇸</div>
-      <div class="jr-card-b rv" style="grid-column:6">
-        <div class="jr-city">Arrasate, Spain</div>
-        <div class="jr-org">IKERLAN · UPV/EHU</div>
-        <div class="jr-yr">2024 – Present</div>
-        <div class="jr-desc">Research Engineer · PhD Researcher</div>
-      </div>
     </div>
   </div>
 
