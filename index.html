@@ -280,37 +280,63 @@
     .kv-v strong { color: var(--text); }
 
     /* skills */
-    .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .skill-domain {
-      padding: 20px 22px; border-radius: var(--r);
-      border: 1px solid var(--border); background: var(--bg-alt);
-      border-top: 3px solid var(--teal);
-    }
-    .skill-domain.s-blue  { border-top-color: var(--blue); }
-    .skill-domain.s-amber { border-top-color: var(--amber); }
-    .skill-domain.s-pink  { border-top-color: var(--pink); }
-    .sd-name { font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 12px; text-transform: uppercase; letter-spacing: .5px; }
-    .sd-chips { display: flex; flex-wrap: wrap; gap: 8px; }
-    .sk {
-      padding: 6px 13px; border-radius: 7px;
-      border: 1px solid var(--border); background: var(--bg);
-      font-size: 13px; font-weight: 500; color: var(--muted);
-      display: flex; align-items: center; gap: 7px;
-    }
-    .sk img { width: 14px; height: 14px; object-fit: contain; }
+    .skills-canva { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px 28px; }
+    .sc-col { text-align: center; }
+    .sc-icon { font-size: 44px; line-height: 1; margin-bottom: 10px; }
+    .sc-title { font-size: 15px; font-weight: 700; font-family: 'Space Grotesk', sans-serif; margin-bottom: 12px; color: var(--text); }
+    .sc-item { font-size: 13px; color: var(--muted); line-height: 1.8; }
 
     /* ════════════════════════════════════════════════
        BACKGROUND TAB
     ════════════════════════════════════════════════ */
-    .jo-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 52px; }
-    .jo-card { padding: 22px 24px; border-radius: var(--r); border: 1px solid var(--border); background: var(--bg-alt); border-left: 3px solid var(--teal); }
-    .jo-card.jc-blue  { border-left-color: var(--blue); }
-    .jo-card.jc-amber { border-left-color: var(--amber); }
-    .jo-card.jc-pink  { border-left-color: var(--pink); }
-    .jo-phase { font-size: 14px; font-weight: 800; font-family: 'Space Grotesk', sans-serif; margin-bottom: 3px; }
-    .jo-years { font-size: 11px; font-family: 'JetBrains Mono', monospace; color: var(--muted2); margin-bottom: 12px; }
-    .jo-list { margin: 0; padding: 0 0 0 15px; display: flex; flex-direction: column; gap: 5px; }
-    .jo-list li { font-size: 12.5px; color: var(--muted); line-height: 1.5; }
+    .jr-stage-wrap { overflow-x: auto; }
+    .jr-stage {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: 120px 48px 120px;
+      min-width: 700px; margin-bottom: 52px;
+    }
+    .jr-road {
+      grid-row: 2; grid-column: 1 / -1;
+      background: #64748b; border-radius: 8px;
+      position: relative; overflow: hidden;
+    }
+    .jr-road::after {
+      content: ""; position: absolute; top: 50%; left: 0; right: 0; height: 3px;
+      transform: translateY(-50%);
+      background: repeating-linear-gradient(90deg, rgba(255,255,255,.8) 0, rgba(255,255,255,.8) 22px, transparent 22px, transparent 36px);
+    }
+    .jr-pin {
+      grid-row: 2; align-self: center; justify-self: center; z-index: 3;
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--bg); border: 2.5px solid var(--teal);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 19px; box-shadow: 0 2px 10px rgba(0,0,0,.15);
+    }
+    .jr-card-a {
+      grid-row: 1; align-self: end; justify-self: center;
+      text-align: center; width: 155px; padding: 10px 12px 14px;
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 8px; box-shadow: var(--sh); position: relative;
+    }
+    .jr-card-a::after {
+      content: ""; position: absolute; bottom: -8px; left: 50%;
+      transform: translateX(-50%); width: 1px; height: 8px; background: var(--border2);
+    }
+    .jr-card-b {
+      grid-row: 3; align-self: start; justify-self: center;
+      text-align: center; width: 155px; padding: 14px 12px 10px;
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 8px; box-shadow: var(--sh); position: relative;
+    }
+    .jr-card-b::before {
+      content: ""; position: absolute; top: -8px; left: 50%;
+      transform: translateX(-50%); width: 1px; height: 8px; background: var(--border2);
+    }
+    .jr-city  { font-size: 11.5px; font-weight: 700; margin-bottom: 3px; }
+    .jr-org   { font-size: 11px; font-weight: 600; color: var(--teal-d); margin-bottom: 2px; }
+    .jr-yr    { font-size: 10.5px; font-family: 'JetBrains Mono', monospace; color: var(--muted2); font-weight: 600; margin-bottom: 3px; }
+    .jr-desc  { font-size: 10.5px; color: var(--blue); line-height: 1.45; }
 
     .tl-wrap { display: flex; flex-direction: column; margin-bottom: 52px; }
     .ti { display: grid; grid-template-columns: 150px 1fr; gap: 0 28px; padding-bottom: 32px; }
@@ -415,8 +441,7 @@
       .hero      { grid-template-columns: 1fr; gap: 40px; }
       .del-grid  { grid-template-columns: 1fr; }
       .ri-grid   { grid-template-columns: 1fr 1fr; }
-      .jo-grid   { grid-template-columns: 1fr 1fr; }
-      .skills-grid { grid-template-columns: 1fr; }
+      .skills-canva { grid-template-columns: 1fr 1fr; }
       .ti        { grid-template-columns: 1fr; gap: 4px; }
       .ti-left   { display: flex; align-items: center; gap: 8px; padding: 0; }
       .ti-right  { border-left: none; padding-left: 0; border-top: 2px solid var(--border); padding-top: 12px; margin-top: 6px; }
@@ -429,7 +454,7 @@
       h1 { font-size: 36px; letter-spacing: -1.5px; }
       .nav-cta { display: none; }
       .ri-grid   { grid-template-columns: 1fr; }
-      .jo-grid   { grid-template-columns: 1fr; }
+      .skills-canva { grid-template-columns: 1fr; }
       .prof-grid { grid-template-columns: 1fr; }
       .home-pg, .pg { padding: 40px 0 60px; }
     }
@@ -865,63 +890,63 @@
 
   <!-- Technical Skills -->
   <div class="eyebrow">Technical Skills</div>
-  <div class="skills-grid">
+  <div class="skills-canva">
 
-    <div class="skill-domain rv">
-      <div class="sd-name">Robotics &amp; Autonomous Systems</div>
-      <div class="sd-chips">
-        <span class="sk"><img src="assets/logos/ros2.svg" alt="">ROS 2</span>
-        <span class="sk"><img src="assets/logos/gazebo.svg" alt="">Gazebo</span>
-        <span class="sk">Isaac Sim</span>
-        <span class="sk">Navigation Stack</span>
-        <span class="sk">OpenCV</span>
-        <span class="sk">SLAM · VIO · LIO</span>
-      </div>
+    <div class="sc-col rv">
+      <div class="sc-icon">🤖</div>
+      <div class="sc-title">Robotics &amp; Autonomy</div>
+      <div class="sc-item">ROS 2</div>
+      <div class="sc-item">Gazebo · Isaac Sim</div>
+      <div class="sc-item">Navigation Stack</div>
+      <div class="sc-item">OpenCV</div>
+      <div class="sc-item">SLAM · VIO · LIO</div>
     </div>
 
-    <div class="skill-domain s-blue rv">
-      <div class="sd-name">Model-Based Engineering &amp; Co-Simulation</div>
-      <div class="sd-chips">
-        <span class="sk">FMI / FMU</span>
-        <span class="sk">Modelica</span>
-        <span class="sk">OpenModelica</span>
-        <span class="sk">MATLAB / Simulink</span>
-        <span class="sk">Simscape</span>
-        <span class="sk">LabVIEW</span>
-      </div>
+    <div class="sc-col rv">
+      <div class="sc-icon">⚙️</div>
+      <div class="sc-title">Model-Based Engineering</div>
+      <div class="sc-item">FMI / FMU</div>
+      <div class="sc-item">Modelica · OpenModelica</div>
+      <div class="sc-item">MATLAB / Simulink</div>
+      <div class="sc-item">Simscape</div>
+      <div class="sc-item">LabVIEW</div>
     </div>
 
-    <div class="skill-domain rv">
-      <div class="sd-name">Edge AI &amp; Machine Learning</div>
-      <div class="sd-chips">
-        <span class="sk"><img src="assets/logos/onnx.svg" alt="">ONNX Runtime</span>
-        <span class="sk"><img src="assets/logos/nvidia.svg" alt="">TensorRT</span>
-        <span class="sk">LLM Integration</span>
-        <span class="sk">Deep Learning</span>
-        <span class="sk">Computer Vision</span>
-      </div>
+    <div class="sc-col rv">
+      <div class="sc-icon">🧠</div>
+      <div class="sc-title">Edge AI &amp; Machine Learning</div>
+      <div class="sc-item">ONNX Runtime · TensorRT</div>
+      <div class="sc-item">LLM Integration</div>
+      <div class="sc-item">Deep Learning</div>
+      <div class="sc-item">Computer Vision</div>
     </div>
 
-    <div class="skill-domain s-amber rv">
-      <div class="sd-name">Programming &amp; Infrastructure</div>
-      <div class="sd-chips">
-        <span class="sk"><img src="assets/logos/python.svg" alt="">Python</span>
-        <span class="sk"><img src="assets/logos/cpp.svg" alt="">C++</span>
-        <span class="sk">C · MATLAB · PLC · Arduino</span>
-        <span class="sk"><img src="assets/logos/docker.svg" alt="">Docker</span>
-        <span class="sk"><img src="assets/logos/linux.svg" alt="">Linux</span>
-        <span class="sk">Git</span>
-      </div>
+    <div class="sc-col rv">
+      <div class="sc-icon">💻</div>
+      <div class="sc-title">Programming</div>
+      <div class="sc-item">Python · C++</div>
+      <div class="sc-item">C · MATLAB</div>
+      <div class="sc-item">PLC · Arduino</div>
+      <div class="sc-item">Docker · Linux · Git</div>
     </div>
 
-    <div class="skill-domain s-pink rv">
-      <div class="sd-name">Mechanical &amp; Electronic Design</div>
-      <div class="sd-chips">
-        <span class="sk"><img src="assets/logos/solidworks.svg" alt="">SolidWorks</span>
-        <span class="sk">ANSYS · Abaqus</span>
-        <span class="sk">AutoCAD</span>
-        <span class="sk">Proteus · EasyEDA</span>
-      </div>
+    <div class="sc-col rv">
+      <div class="sc-icon">📐</div>
+      <div class="sc-title">Mechanical &amp; Electronic Design</div>
+      <div class="sc-item">SolidWorks</div>
+      <div class="sc-item">ANSYS · Abaqus</div>
+      <div class="sc-item">AutoCAD</div>
+      <div class="sc-item">Proteus · EasyEDA</div>
+    </div>
+
+    <div class="sc-col rv">
+      <div class="sc-icon">🌍</div>
+      <div class="sc-title">Languages &amp; Soft Skills</div>
+      <div class="sc-item">Spanish (Native)</div>
+      <div class="sc-item">English (C1)</div>
+      <div class="sc-item">Portuguese (B1)</div>
+      <div class="sc-item">German (A2)</div>
+      <div class="sc-item">Agile · Scientific Writing</div>
     </div>
 
   </div>
@@ -937,43 +962,63 @@
   </div>
 
   <!-- Journey Overview -->
-  <div class="jo-grid">
-    <div class="jo-card rv">
-      <div class="jo-phase">Foundation</div>
-      <div class="jo-years">2014 – 2022</div>
-      <ul class="jo-list">
-        <li>B.Sc. Mechatronic Engineering — Popayán, Colombia</li>
-        <li>M.Sc. in Artificial Intelligence — UNIR</li>
-        <li>Speaker at XV SEMATRON, University of São Paulo</li>
-        <li>Software IP registration — greenhouse monitoring system</li>
-      </ul>
-    </div>
-    <div class="jo-card jc-blue rv">
-      <div class="jo-phase">Erasmus Mundus</div>
-      <div class="jo-years">2022 – 2024</div>
-      <ul class="jo-list">
-        <li>EU-funded M.Sc. Mechatronics across Spain, Egypt &amp; Germany</li>
-        <li>3 universities on 3 continents within 18 months</li>
-        <li>Master's thesis at IKERLAN — autonomous mobile-manipulation demonstrator</li>
-      </ul>
-    </div>
-    <div class="jo-card jc-amber rv">
-      <div class="jo-phase">Industry R&amp;D</div>
-      <div class="jo-years">2024 – Present</div>
-      <ul class="jo-list">
-        <li>Research Engineer — IKERLAN S.COOP, Basque Country</li>
-        <li>FMI co-simulation for Elkartek AUTOTRUST &amp; SENDOA</li>
-        <li>Published at 16th International Modelica &amp; FMI Conference</li>
-      </ul>
-    </div>
-    <div class="jo-card jc-pink rv">
-      <div class="jo-phase">Doctoral Research</div>
-      <div class="jo-years">2024 – Present</div>
-      <ul class="jo-list">
-        <li>PhD in Control Engineering, Automation &amp; Robotics — UPV/EHU</li>
-        <li>Cognitive digital twins, edge AI &amp; trustworthy autonomous systems</li>
-        <li>3 peer-reviewed publications; 1 more in preparation</li>
-      </ul>
+  <div class="jr-stage-wrap">
+    <div class="jr-stage">
+      <div class="jr-road"></div>
+
+      <!-- Stop 1: Popayán, Colombia — ABOVE -->
+      <div class="jr-card-a rv" style="grid-column:1">
+        <div class="jr-city">Popayán, Colombia</div>
+        <div class="jr-org">Unicomfacauca</div>
+        <div class="jr-yr">2014 – 2019</div>
+        <div class="jr-desc">B.Sc. Mechatronic Engineering · Outstanding Graduate</div>
+      </div>
+      <div class="jr-pin" style="grid-column:1">🇨🇴</div>
+
+      <!-- Stop 2: Colombia / UNIR — BELOW -->
+      <div class="jr-pin" style="grid-column:2">🇨🇴</div>
+      <div class="jr-card-b rv" style="grid-column:2">
+        <div class="jr-city">Colombia (Online)</div>
+        <div class="jr-org">UNIR</div>
+        <div class="jr-yr">2020 – 2022</div>
+        <div class="jr-desc">M.Sc. in Artificial Intelligence</div>
+      </div>
+
+      <!-- Stop 3: Asturias, Spain — ABOVE -->
+      <div class="jr-card-a rv" style="grid-column:3">
+        <div class="jr-city">Asturias, Spain</div>
+        <div class="jr-org">Universidad de Oviedo</div>
+        <div class="jr-yr">2022 – 2023</div>
+        <div class="jr-desc">EU4M · Erasmus Mundus Scholarship</div>
+      </div>
+      <div class="jr-pin" style="grid-column:3">🇪🇸</div>
+
+      <!-- Stop 4: Giza, Egypt — BELOW -->
+      <div class="jr-pin" style="grid-column:4">🇪🇬</div>
+      <div class="jr-card-b rv" style="grid-column:4">
+        <div class="jr-city">Giza, Egypt</div>
+        <div class="jr-org">Nile University</div>
+        <div class="jr-yr">Sep 2023 – Jan 2024</div>
+        <div class="jr-desc">EU4M · Control Systems · Automation</div>
+      </div>
+
+      <!-- Stop 5: Karlsruhe, Germany — ABOVE -->
+      <div class="jr-card-a rv" style="grid-column:5">
+        <div class="jr-city">Karlsruhe, Germany</div>
+        <div class="jr-org">Hochschule Karlsruhe</div>
+        <div class="jr-yr">Feb – Jul 2024</div>
+        <div class="jr-desc">EU4M · Micro &amp; Nano Technology · Robotics</div>
+      </div>
+      <div class="jr-pin" style="grid-column:5">🇩🇪</div>
+
+      <!-- Stop 6: Arrasate, Spain — BELOW -->
+      <div class="jr-pin" style="grid-column:6">🇪🇸</div>
+      <div class="jr-card-b rv" style="grid-column:6">
+        <div class="jr-city">Arrasate, Spain</div>
+        <div class="jr-org">IKERLAN · UPV/EHU</div>
+        <div class="jr-yr">2024 – Present</div>
+        <div class="jr-desc">Research Engineer · PhD Researcher</div>
+      </div>
     </div>
   </div>
 
