@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://xn--sebastianrojas-ordoez-ubc.com/sitemap.xml
