@@ -9,6 +9,57 @@
   <meta property="og:title" content="Sebastian Rojas-Ordoñez · Researcher &amp; Engineer" />
   <meta property="og:description" content="PhD Researcher · Mechatronic Engineer · FMI/ROS 2 · Edge AI · Digital Twins" />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://xn--sebastianrojas-ordoez-ubc.com/" />
+  <meta property="og:image" content="https://xn--sebastianrojas-ordoez-ubc.com/assets/profile.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Sebastian Rojas-Ordoñez · Researcher &amp; Engineer" />
+  <meta name="twitter:description" content="PhD Researcher · Mechatronic Engineer · FMI/ROS 2 · Edge AI · Digital Twins" />
+  <meta name="twitter:image" content="https://xn--sebastianrojas-ordoez-ubc.com/assets/profile.jpg" />
+  <link rel="canonical" href="https://xn--sebastianrojas-ordoez-ubc.com/" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0b1120" media="(prefers-color-scheme: dark)">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme') ||
+                (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
+    })();
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Jose Sebastian Rojas Ordoñez",
+    "alternateName": "Sebastian Rojas-Ordoñez",
+    "url": "https://xn--sebastianrojas-ordoez-ubc.com/",
+    "image": "https://xn--sebastianrojas-ordoez-ubc.com/assets/profile.jpg",
+    "jobTitle": "PhD Researcher & Mechatronic Engineer",
+    "email": "mailto:sebastianrojas.sero@gmail.com",
+    "worksFor": [
+      { "@type": "Organization", "name": "IKERLAN S.COOP" },
+      { "@type": "CollegeOrUniversity", "name": "Universidad del País Vasco (UPV/EHU)" }
+    ],
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "EU4M Erasmus Mundus Consortium" },
+      { "@type": "CollegeOrUniversity", "name": "Universidad Internacional de La Rioja (UNIR)" },
+      { "@type": "CollegeOrUniversity", "name": "Corporación Universitaria Comfacauca (Unicomfacauca)" }
+    ],
+    "knowsAbout": ["Digital Twins", "FMI Co-Simulation", "Edge AI", "ROS 2", "Autonomous Robotics", "LLM-Augmented Control", "Mechatronics"],
+    "knowsLanguage": ["es", "en", "pt", "de"],
+    "sameAs": [
+      "https://scholar.google.com/citations?user=HSflBLwAAAAJ",
+      "https://orcid.org/0009-0000-5142-1284",
+      "https://www.webofscience.com/wos/author/record/PWG-6826-2026",
+      "https://github.com/SeRoMechatronic",
+      "https://www.linkedin.com/in/sebastian-rojasordoñez/",
+      "https://independent.academia.edu/Sebastian_RojasOrdo%C3%B1ez"
+    ]
+  }
+  </script>
 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%230d9488'/><text x='50' y='68' font-family='system-ui,sans-serif' font-weight='700' font-size='44' fill='%23fff' text-anchor='middle'>SR</text></svg>">
 
@@ -46,12 +97,51 @@
       --sh: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
       --sh-md: 0 4px 16px rgba(0,0,0,.07), 0 1px 4px rgba(0,0,0,.04);
     }
+    html[data-theme="dark"] {
+      --bg:      #0b1120;
+      --bg-alt:  #0f172a;
+      --surface: #1e293b;
+      --text:    #e2e8f0;
+      --muted:   #94a3b8;
+      --muted2:  #64748b;
+      --border:  #1e293b;
+      --border2: #334155;
+      --teal:    #2dd4bf;
+      --teal-d:  #5eead4;
+      --teal-l:  #0b2e2a;
+      --teal-b:  #115e59;
+      --blue:    #60a5fa;
+      --blue-l:  #16233f;
+      --blue-b:  #1e40af;
+      --amber:   #fbbf24;
+      --amber-l: #2e1c05;
+      --amber-b: #92400e;
+      --pink:    #f472b6;
+      --pink-l:  #3b0a22;
+      --pink-b:  #9d174d;
+      --green:   #4ade80;
+      --green-l: #07270f;
+      --green-b: #166534;
+      --sh: 0 1px 3px rgba(0,0,0,.4), 0 1px 2px rgba(0,0,0,.3);
+      --sh-md: 0 4px 16px rgba(0,0,0,.45), 0 1px 4px rgba(0,0,0,.3);
+    }
     *, *::before, *::after { box-sizing: border-box; }
+    html { color-scheme: light; }
+    html[data-theme="dark"] { color-scheme: dark; }
     body {
       margin: 0; font-family: Inter, system-ui, sans-serif;
       color: var(--text); background: var(--bg);
       -webkit-font-smoothing: antialiased; line-height: 1.6;
     }
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--teal); outline-offset: 2px; border-radius: 4px;
+    }
+    .skip {
+      position: absolute; left: -9999px; top: 0; z-index: 100;
+      background: var(--teal); color: #fff; padding: 10px 18px;
+      border-radius: 0 0 10px 0; font-weight: 600; font-size: 14px;
+    }
+    .skip:focus { left: 0; }
     h1,h2,h3 { font-family: 'Space Grotesk', sans-serif; }
     a { color: inherit; text-decoration: none; }
     p { margin: 0; }
@@ -64,6 +154,7 @@
       backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border);
     }
+    html[data-theme="dark"] .nav { background: rgba(11,17,32,.88); }
     .nav-inner {
       max-width: 1100px; margin: 0 auto; padding: 0 24px;
       display: flex; align-items: center; justify-content: space-between;
@@ -100,6 +191,20 @@
       transition: background .14s; white-space: nowrap; flex-shrink: 0;
     }
     .nav-cta:hover { background: var(--teal-d); }
+    html[data-theme="dark"] .nav-cta { color: #042f2e; }
+
+    .theme-btn {
+      width: 34px; height: 34px; border-radius: 8px;
+      border: 1px solid var(--border); background: transparent;
+      color: var(--muted); cursor: pointer; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      transition: all .14s;
+    }
+    .theme-btn:hover { border-color: var(--teal); color: var(--teal-d); background: var(--teal-l); }
+    .theme-btn svg { width: 16px; height: 16px; fill: currentColor; }
+    .theme-btn .ic-sun { display: none; }
+    html[data-theme="dark"] .theme-btn .ic-sun  { display: block; }
+    html[data-theme="dark"] .theme-btn .ic-moon { display: none; }
 
     /* ── TABS ──────────────────────────────────────────────── */
     .tab-content { display: none; animation: fi .22s ease; }
@@ -197,6 +302,10 @@
     }
     .tc-card:hover { box-shadow: var(--sh-md); border-color: var(--border2); background: var(--bg); }
     .tc-logo { width: 42px; height: 42px; object-fit: contain; display: block; margin: 0 auto 10px; }
+    html[data-theme="dark"] .tc-logo {
+      background: #e2e8f0; border-radius: 9px; padding: 5px;
+      width: 44px; height: 44px;
+    }
     .tc-abbr {
       width: 42px; height: 42px; border-radius: 9px; margin: 0 auto 10px;
       background: linear-gradient(135deg, var(--teal-l), var(--blue-l));
@@ -440,6 +549,19 @@
     .lc-b { height: 3px; border-radius: 99px; background: var(--border); margin-top: 8px; overflow: hidden; }
     .lc-f { height: 100%; border-radius: 99px; background: linear-gradient(90deg, var(--teal), var(--blue)); }
 
+    /* ── FOOTER ────────────────────────────────────────────── */
+    .site-footer {
+      border-top: 1px solid var(--border); background: var(--bg-alt);
+    }
+    .ft-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 10px 24px; padding-top: 26px; padding-bottom: 26px;
+    }
+    .ft-c { font-size: 12.5px; color: var(--muted2); }
+    .ft-links { display: flex; gap: 16px; }
+    .ft-links a { font-size: 12.5px; font-weight: 600; color: var(--muted); transition: color .14s; }
+    .ft-links a:hover { color: var(--teal-d); }
+
     /* ── RESPONSIVE ────────────────────────────────────────── */
     @media (max-width: 900px) {
       .hero      { grid-template-columns: 1fr; gap: 40px; }
@@ -457,14 +579,41 @@
     @media (max-width: 600px) {
       h1 { font-size: 36px; letter-spacing: -1.5px; }
       .nav-cta { display: none; }
+      .nav-inner { padding: 0 14px; gap: 8px; }
+      .brand-name, .brand-sub { display: none; }
+      .nav-tabs {
+        overflow-x: auto; -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .nav-tabs::-webkit-scrollbar { display: none; }
+      .tab-btn { white-space: nowrap; }
       .tc-grid   { grid-template-columns: repeat(2, 1fr); }
       .skills-canva { grid-template-columns: 1fr; }
       .prof-grid { grid-template-columns: 1fr; }
       .home-pg, .pg { padding: 40px 0 60px; }
+      .ft-inner { flex-direction: column; align-items: flex-start; }
+    }
+
+    /* ── REDUCED MOTION ────────────────────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      .rv { opacity: 1; transform: none; transition: none; }
+      .tab-content { animation: none; }
+    }
+
+    /* ── PRINT ─────────────────────────────────────────────── */
+    @media print {
+      .nav, .skip, .copy-btn, .site-footer { display: none !important; }
+      .tab-content { display: block !important; }
+      .rv { opacity: 1 !important; transform: none !important; }
+      .home-pg, .pg { padding: 24px 0; }
+      .pub, .del, .ct-card, .aw { break-inside: avoid; }
+      body { background: #fff; }
     }
   </style>
 </head>
 <body>
+
+<a class="skip" href="#main">Skip to content</a>
 
 <!-- ── NAVBAR ─────────────────────────────────────────────── -->
 <header class="nav">
@@ -483,11 +632,15 @@
       <button class="tab-btn"        data-tab="background"  role="tab" aria-selected="false">Background</button>
       <button class="tab-btn"        data-tab="contact"     role="tab" aria-selected="false">Contact</button>
     </nav>
+    <button id="theme-toggle" class="theme-btn" type="button" aria-label="Toggle dark mode">
+      <svg class="ic-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.3 2a9.9 9.9 0 0 0-1.6.14 8.5 8.5 0 0 1 1.1 11.96 8.5 8.5 0 0 1-9.66 2.4A10 10 0 1 0 12.3 2z"/></svg>
+      <svg class="ic-sun" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0-5h0a1 1 0 0 1 1 1v2a1 1 0 0 1-2 0V3a1 1 0 0 1 1-1zm0 18a1 1 0 0 1 1 1v2a1 1 0 0 1-2 0v-2a1 1 0 0 1 1-1zM3 11h2a1 1 0 0 1 0 2H3a1 1 0 0 1 0-2zm16 0h2a1 1 0 0 1 0 2h-2a1 1 0 0 1 0-2zM5.64 4.22l1.42 1.42a1 1 0 0 1-1.42 1.42L4.22 5.64a1 1 0 0 1 1.42-1.42zm12.72 12.72 1.42 1.42a1 1 0 0 1-1.42 1.42l-1.42-1.42a1 1 0 0 1 1.42-1.42zm1.42-12.72a1 1 0 0 1 0 1.42l-1.42 1.42a1 1 0 0 1-1.42-1.42l1.42-1.42a1 1 0 0 1 1.42 0zM7.06 16.94a1 1 0 0 1 0 1.42l-1.42 1.42a1 1 0 0 1-1.42-1.42l1.42-1.42a1 1 0 0 1 1.42 0z"/></svg>
+    </button>
     <a class="nav-cta" href="mailto:sebastianrojas.sero@gmail.com">Get in Touch</a>
   </div>
 </header>
 
-<main>
+<main id="main">
 
 <!-- ════════════════ HOME ════════════════ -->
 <div id="home" class="tab-content active" role="tabpanel">
@@ -1290,16 +1443,30 @@
     <div class="ct-card rv">
       <div class="ct-lbl">Primary Email</div>
       <div class="ct-val">sebastianrojas.sero@gmail.com</div>
-      <div class="ct-sub">Academic address at UPV/EHU. Best for research and collaboration inquiries.</div>
-      <button class="copy-btn" onclick="copyEmail()">
+      <div class="ct-sub">Personal address — fastest response. Best for industry and general inquiries.</div>
+      <button class="copy-btn" onclick="copyEmail('sebastianrojas.sero@gmail.com', this)">
         <svg viewBox="0 0 24 24"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z"/></svg>
-        <span id="copy-lbl">Copy address</span>
+        <span>Copy address</span>
+      </button>
+    </div>
+    <div class="ct-card rv">
+      <div class="ct-lbl">Academic Email</div>
+      <div class="ct-val">sebastian.rojas@eu4m.eu</div>
+      <div class="ct-sub">Academic address. Best for research collaborations and publication inquiries.</div>
+      <button class="copy-btn" onclick="copyEmail('sebastian.rojas@eu4m.eu', this)">
+        <svg viewBox="0 0 24 24"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z"/></svg>
+        <span>Copy address</span>
       </button>
     </div>
     <div class="ct-card rv">
       <div class="ct-lbl">Location</div>
       <div class="ct-val">Arrasate, Euskadi</div>
       <div class="ct-sub">Basque Country, Spain. Open to on-site, hybrid, or relocation for the right opportunity.</div>
+    </div>
+    <div class="ct-card rv">
+      <div class="ct-lbl">Open To</div>
+      <div class="ct-val">Research &amp; Industry R&amp;D</div>
+      <div class="ct-sub">Research collaborations, industrial R&amp;D partnerships, and engineering roles in robotics, digital twins, and edge AI.</div>
     </div>
 
     <div class="ct-card full rv">
@@ -1347,6 +1514,18 @@
 
 </main>
 
+<footer class="site-footer">
+  <div class="wrap ft-inner">
+    <div class="ft-c">© 2026 Sebastian Rojas-Ordoñez · PhD Researcher &amp; Mechatronic Engineer · Arrasate, Spain</div>
+    <div class="ft-links">
+      <a href="https://scholar.google.com/citations?user=HSflBLwAAAAJ&hl=es" target="_blank" rel="noopener">Scholar</a>
+      <a href="https://orcid.org/0009-0000-5142-1284" target="_blank" rel="noopener">ORCID</a>
+      <a href="https://github.com/SeRoMechatronic" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/sebastian-rojasordoñez/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
 <script>
   /* ── TABS ──────────────────────────────────────────────── */
   const btns   = document.querySelectorAll('.tab-btn');
@@ -1385,13 +1564,20 @@
   });
 
   /* ── COPY ──────────────────────────────────────────────── */
-  function copyEmail() {
-    navigator.clipboard.writeText('sebastianrojas.sero@gmail.com').then(() => {
-      const l = document.getElementById('copy-lbl');
+  function copyEmail(addr, btn) {
+    navigator.clipboard.writeText(addr).then(() => {
+      const l = btn.querySelector('span');
       l.textContent = 'Copied!';
       setTimeout(() => l.textContent = 'Copy address', 2200);
     });
   }
+
+  /* ── THEME ─────────────────────────────────────────────── */
+  document.getElementById('theme-toggle').addEventListener('click', () => {
+    const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+  });
 </script>
 </body>
 </html>
