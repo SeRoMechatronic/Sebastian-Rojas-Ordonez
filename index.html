@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Sebastian Rojas-Ordoñez · Researcher &amp; Engineer</title>
-  <meta name="description" content="PhD Researcher at IKERLAN &amp; UPV/EHU and Mechatronic Engineer. FMI co-simulation, Edge AI, ROS 2. Open to industry R&amp;D at Siemens, ABB, DLR and similar." />
+  <title>Sebastian Rojas-Ordoñez · Robotics, FMI &amp; Embedded AI</title>
+  <meta name="description" content="PhD researcher and robotics systems engineer building open, reproducible workflows from FMI 3.0 and simulation to ROS 2 robots, edge AI, OpenUSD and embedded hardware." />
   <meta name="author" content="Jose Sebastian Rojas Ordoñez" />
-  <meta property="og:title" content="Sebastian Rojas-Ordoñez · Researcher &amp; Engineer" />
-  <meta property="og:description" content="PhD Researcher · Mechatronic Engineer · FMI/ROS 2 · Edge AI · Digital Twins" />
+  <meta property="og:title" content="Sebastian Rojas-Ordoñez · Robotics, FMI &amp; Embedded AI" />
+  <meta property="og:description" content="FMI 3.0 · ROS 2 · Embedded AI · OpenUSD · Reproducible sim-to-real systems" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://xn--sebastianrojas-ordoez-ubc.com/" />
   <meta property="og:image" content="https://xn--sebastianrojas-ordoez-ubc.com/assets/profile.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Sebastian Rojas-Ordoñez · Researcher &amp; Engineer" />
-  <meta name="twitter:description" content="PhD Researcher · Mechatronic Engineer · FMI/ROS 2 · Edge AI · Digital Twins" />
+  <meta name="twitter:title" content="Sebastian Rojas-Ordoñez · Robotics, FMI &amp; Embedded AI" />
+  <meta name="twitter:description" content="FMI 3.0 · ROS 2 · Embedded AI · OpenUSD · Reproducible sim-to-real systems" />
   <meta name="twitter:image" content="https://xn--sebastianrojas-ordoez-ubc.com/assets/profile.jpg" />
   <link rel="canonical" href="https://xn--sebastianrojas-ordoez-ubc.com/" />
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
@@ -37,7 +37,7 @@
     "alternateName": "Sebastian Rojas-Ordoñez",
     "url": "https://xn--sebastianrojas-ordoez-ubc.com/",
     "image": "https://xn--sebastianrojas-ordoez-ubc.com/assets/profile.jpg",
-    "jobTitle": "PhD Researcher & Mechatronic Engineer",
+    "jobTitle": "Research Engineer and PhD Researcher",
     "email": "mailto:sebastianrojas.sero@gmail.com",
     "worksFor": [
       { "@type": "Organization", "name": "IKERLAN S.COOP" },
@@ -48,7 +48,7 @@
       { "@type": "CollegeOrUniversity", "name": "Universidad Internacional de La Rioja (UNIR)" },
       { "@type": "CollegeOrUniversity", "name": "Corporación Universitaria Comfacauca (Unicomfacauca)" }
     ],
-    "knowsAbout": ["Digital Twins", "FMI Co-Simulation", "Edge AI", "ROS 2", "Autonomous Robotics", "LLM-Augmented Control", "Mechatronics"],
+    "knowsAbout": ["Digital Twins", "FMI 2.0 and 3.0", "Modelica", "Co-Simulation", "Scheduled Execution", "Edge AI", "ROS 2", "Autonomous Robotics", "OpenUSD", "Isaac Sim", "MuJoCo", "Embedded Systems"],
     "knowsLanguage": ["es", "en", "pt", "de"],
     "sameAs": [
       "https://scholar.google.com/citations?user=HSflBLwAAAAJ",
@@ -213,7 +213,7 @@
 
     /* ── LAYOUT HELPERS ────────────────────────────────────── */
     .wrap   { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
-    .pg     { padding: 52px 0 80px; }
+    .pg     { padding-top: 52px; padding-bottom: 80px; }
     .ph     { margin-bottom: 36px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
     .ph h2  { margin: 0 0 6px; font-size: 28px; letter-spacing: -.4px; }
     .ph p   { color: var(--muted); font-size: 15px; }
@@ -246,7 +246,7 @@
     /* ════════════════════════════════════════════════
        HOME
     ════════════════════════════════════════════════ */
-    .home-pg { padding: 60px 0 80px; }
+    .home-pg { padding-top: 60px; padding-bottom: 80px; }
     .hero { display: grid; grid-template-columns: 1fr 280px; gap: 60px; align-items: start; }
 
     .chips { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 24px; }
@@ -390,6 +390,18 @@
     .kv-v { color: var(--muted); line-height: 1.55; }
     .kv-v strong { color: var(--text); }
     .del-links { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .program-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 48px; }
+    .program {
+      padding: 20px; border-radius: var(--r); border: 1px solid var(--border);
+      background: var(--bg-alt); display: flex; flex-direction: column; gap: 12px;
+    }
+    .program-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+    .program-code { color: var(--teal-d); font: 500 10.5px/1.4 'JetBrains Mono', monospace; }
+    .program h3 { margin: 0; font-size: 16px; line-height: 1.3; }
+    .program-meta { margin-top: auto; display: grid; gap: 6px; }
+    .program-row { display: flex; justify-content: space-between; gap: 12px; padding-top: 7px; border-top: 1px solid var(--border); font-size: 11.5px; color: var(--muted2); }
+    .program-row strong { color: var(--muted); font-weight: 600; text-align: right; }
 
     /* skills */
     .skills-canva { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px 28px; }
@@ -566,6 +578,7 @@
     @media (max-width: 900px) {
       .hero      { grid-template-columns: 1fr; gap: 40px; }
       .del-grid  { grid-template-columns: 1fr; }
+      .program-grid { grid-template-columns: 1fr; }
       .tc-grid   { grid-template-columns: repeat(3, 1fr); }
       .skills-canva { grid-template-columns: 1fr 1fr; }
       .ti        { grid-template-columns: 1fr; gap: 4px; }
@@ -590,7 +603,7 @@
       .tc-grid   { grid-template-columns: repeat(2, 1fr); }
       .skills-canva { grid-template-columns: 1fr; }
       .prof-grid { grid-template-columns: 1fr; }
-      .home-pg, .pg { padding: 40px 0 60px; }
+      .home-pg, .pg { padding-top: 40px; padding-bottom: 60px; }
       .ft-inner { flex-direction: column; align-items: flex-start; }
     }
 
@@ -605,8 +618,8 @@
       .nav, .skip, .copy-btn, .site-footer { display: none !important; }
       .tab-content { display: block !important; }
       .rv { opacity: 1 !important; transform: none !important; }
-      .home-pg, .pg { padding: 24px 0; }
-      .pub, .del, .ct-card, .aw { break-inside: avoid; }
+      .home-pg, .pg { padding-top: 24px; padding-bottom: 24px; }
+      .pub, .del, .program, .ct-card, .aw { break-inside: avoid; }
       body { background: #fff; }
     }
   </style>
@@ -622,7 +635,7 @@
       <div class="av">SR</div>
       <div>
         <div class="brand-name">Sebastian Rojas-Ordoñez</div>
-        <div class="brand-sub">Researcher &amp; Engineer · AI &amp; Robotics</div>
+        <div class="brand-sub">Robotics · FMI · Embedded AI</div>
       </div>
     </div>
     <nav role="tablist" class="nav-tabs">
@@ -654,13 +667,13 @@
     </div>
 
     <h1>Sebastian<br>Rojas-Ordoñez</h1>
-    <span class="h1-role">PhD Researcher &amp; Mechatronic Engineer</span>
+    <span class="h1-role">Research Engineer &amp; PhD Researcher</span>
 
     <p class="bio">
-      I research and build systems at the boundary between simulation and reality — designing FMI/FMU co-simulation architectures validated in high-fidelity environments, then deploying them as real-time ROS 2-based autonomous systems. At IKERLAN and UPV/EHU, my work directly addresses industrial reliability challenges in cyber-physical systems.
+      I research and build systems at the boundary between simulation and reality — from FMI 3.0, Modelica and co-simulation to deterministic ROS 2 autonomy, OpenUSD digital scenes and execution on physical robots and low-cost microcontrollers.
     </p>
     <p class="bio">
-      Alongside my research, I bring hands-on engineering depth: embedded AI inference on edge hardware, model-based design with MATLAB/Simulink and Modelica, and full robotic system integration from sensing to actuation. I hold dual master's degrees in Mechatronics (Erasmus Mundus EU4M) and Artificial Intelligence.
+      At IKERLAN and UPV/EHU, I develop reproducible cyber-physical workflows with explicit timing, validation and fallback behaviour. I hold dual master's degrees in Mechatronics (Erasmus Mundus EU4M) and Artificial Intelligence, and I am first author of five peer-reviewed publications.
     </p>
 
     <div class="divider"></div>
@@ -700,9 +713,9 @@
         <div class="sc-s">Mechatronics + AI</div>
       </div>
       <div class="sc">
-        <div class="sc-n">3</div>
+        <div class="sc-n">5</div>
         <div class="sc-l">Publications</div>
-        <div class="sc-s">Journals + conference</div>
+        <div class="sc-s">First-author · peer-reviewed</div>
       </div>
       <div class="sc">
         <div class="sc-n">8<span class="u">+</span></div>
@@ -779,47 +792,74 @@
 <div class="wrap pg">
   <div class="ph">
     <h2>Research</h2>
-    <p>Published contributions in model-based engineering, edge AI, and intelligent control systems.</p>
+    <p>Five first-author, peer-reviewed contributions across open interoperability, embedded execution, edge AI, robotics and intelligent control.</p>
     <div class="ph-meta">
-      <span class="tag tg">2 Journal Articles</span>
+      <span class="tag tg">4 Journal Articles</span>
       <span class="tag tb">1 Conference Paper</span>
-      <span class="tag ta">1 In Preparation</span>
+      <span class="tag tc">First Author on All Five</span>
     </div>
   </div>
 
   <div class="pub-list">
 
-    <!-- Paper 1: In Prep -->
+    <!-- Paper 1: FMI-centric framework -->
     <div class="pub rv">
-      <div class="pub-stripe" style="background:var(--amber)"></div>
+      <div class="pub-stripe" style="background:var(--teal)"></div>
       <div class="pub-body">
         <div class="pub-top">
-          <div class="pub-title">Cognitive Digital Twins for Autonomous Robotics: A Systematic Review</div>
-          <span class="pub-badge pb-prep">In Preparation</span>
+          <div class="pub-title">An FMI-centric open-source and interoperable framework for AI-driven robotic systems</div>
+          <span class="pub-badge pb-pub">Published</span>
         </div>
         <div class="pub-meta">
-          <span class="pub-journal">Autonomous Robots — Springer</span>
+          <span class="pub-journal">Mathematical and Computer Modelling of Dynamical Systems</span>
           <span class="pub-dot"></span>
-          <span class="pub-year">2025</span>
-          <span class="pub-dot"></span>
-          <span class="pub-impact">Q1 · IF 3.7</span>
+          <span class="pub-year">2026</span>
         </div>
-        <p class="pub-summary">Systematic review of 121 studies establishing a unified conceptual framework for Cognitive Digital Twins in autonomous robotic systems. Synthesizes approaches across robust localization, navigation, and manipulation, identifying open challenges toward self-aware robotic agents.</p>
+        <p class="pub-summary">Open model-based methodology integrating OpenModelica FMUs, ONNX components, ROS 2 and Gazebo with explicit orchestration and reusable artifacts across simulation and physical deployment.</p>
         <div class="pub-footer">
           <div class="tags">
-            <span class="tag tc">Digital Twins</span>
-            <span class="tag tb">Autonomous Robotics</span>
-            <span class="tag tb">Systematic Review</span>
+            <span class="tag tc">FMI / FMU</span>
+            <span class="tag tb">ROS 2</span>
+            <span class="tag tc">ONNX</span>
+            <span class="tag">Open Standards</span>
           </div>
-          <a class="doi-link" href="https://scholar.google.com/citations?user=HSflBLwAAAAJ" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24"><path d="M12 3 1 8l11 5 9-4.09V16h2V8L12 3zm-6.5 8.27V14c0 2.21 2.91 4 6.5 4s6.5-1.79 6.5-4v-2.73L12 14l-6.5-2.73z"/></svg>
-            Scholar
+          <a class="doi-link" href="https://doi.org/10.1080/13873954.2026.2707718" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9l-6-6zm-1 1.5L18.5 10H13V4.5zM6 19V5h5v7h7v7H6z"/></svg>
+            DOI: 10.1080/13873954.2026.2707718
           </a>
         </div>
       </div>
     </div>
 
-    <!-- Paper 2: MAKE journal -->
+    <!-- Paper 2: Embedded execution review -->
+    <div class="pub rv">
+      <div class="pub-stripe" style="background:var(--teal)"></div>
+      <div class="pub-body">
+        <div class="pub-top">
+          <div class="pub-title">Bridging the Embedded Execution Gap: A Review of the Functional Mock-up Interface for Actuator-Centric Execution Workflows in Industrial Embedded Systems</div>
+          <span class="pub-badge pb-pub">Published</span>
+        </div>
+        <div class="pub-meta">
+          <span class="pub-journal">Archives of Computational Methods in Engineering</span>
+          <span class="pub-dot"></span>
+          <span class="pub-year">2026</span>
+        </div>
+        <p class="pub-summary">Review of FMI-based execution pathways for actuator-centric embedded systems, identifying portability, real-time and deployment gaps between desktop modelling environments and constrained hardware.</p>
+        <div class="pub-footer">
+          <div class="tags">
+            <span class="tag tc">FMI 2.0 / 3.0</span>
+            <span class="tag ta">Embedded Systems</span>
+            <span class="tag tb">Model-Based Engineering</span>
+          </div>
+          <a class="doi-link" href="https://doi.org/10.1007/s11831-026-10715-3" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9l-6-6zm-1 1.5L18.5 10H13V4.5zM6 19V5h5v7h7v7H6z"/></svg>
+            DOI: 10.1007/s11831-026-10715-3
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Paper 3: MAKE journal -->
     <div class="pub rv">
       <div class="pub-stripe" style="background:var(--teal)"></div>
       <div class="pub-body">
@@ -848,7 +888,7 @@
       </div>
     </div>
 
-    <!-- Paper 3: Applied Sciences -->
+    <!-- Paper 4: Applied Sciences -->
     <div class="pub rv">
       <div class="pub-stripe" style="background:var(--teal)"></div>
       <div class="pub-body">
@@ -876,7 +916,7 @@
       </div>
     </div>
 
-    <!-- Paper 4: Modelica Conference -->
+    <!-- Paper 5: Modelica Conference -->
     <div class="pub rv">
       <div class="pub-stripe" style="background:var(--blue)"></div>
       <div class="pub-body">
@@ -976,11 +1016,69 @@
 <div class="wrap pg">
   <div class="ph">
     <h2>Engineering</h2>
-    <p>Systems designed, built, and delivered — from funded R&amp;D platforms to academic mechatronic projects.</p>
+    <p>Systems designed, built and validated across simulation, Linux hosts, physical robots and resource-constrained hardware.</p>
+  </div>
+
+  <div class="eyebrow">Funded Research Programmes</div>
+  <div class="program-grid">
+    <article class="program rv">
+      <div class="program-top"><span class="program-code">3GV.ELK.0599.2024</span><span class="del-badge db-thesis">Completed</span></div>
+      <h3>ELKARTEK AUTOTRUST 2024</h3>
+      <div class="program-meta"><div class="program-row"><span>Role</span><strong>Investigator</strong></div><div class="program-row"><span>Period</span><strong>01 Jan — 31 Dec 2024</strong></div><div class="program-row"><span>Type</span><strong>Research</strong></div></div>
+    </article>
+    <article class="program rv">
+      <div class="program-top"><span class="program-code">3GV.ELK.0654.2025</span><span class="del-badge db-thesis">Completed</span></div>
+      <h3>ELKARTEK SENDOA 2025</h3>
+      <div class="program-meta"><div class="program-row"><span>Role</span><strong>Investigator</strong></div><div class="program-row"><span>Period</span><strong>01 Mar — 31 Dec 2025</strong></div><div class="program-row"><span>Type</span><strong>Research</strong></div></div>
+    </article>
+    <article class="program rv">
+      <div class="program-top"><span class="program-code">3GV.ELK.0654.2026</span><span class="del-badge db-active">Active</span></div>
+      <h3>ELKARTEK SENDOA 2026</h3>
+      <div class="program-meta"><div class="program-row"><span>Role</span><strong>Investigator</strong></div><div class="program-row"><span>Period</span><strong>01 Jan — 31 Dec 2026</strong></div><div class="program-row"><span>Type</span><strong>Research</strong></div></div>
+    </article>
   </div>
 
   <div class="eyebrow">Systems &amp; Deliverables</div>
   <div class="del-grid">
+
+    <div class="del rv">
+      <div class="del-top">
+        <div class="del-title">Unified FMI Execution — Host to MCU</div>
+        <span class="del-badge db-active">Validated</span>
+      </div>
+      <div class="del-kv">
+        <div class="kv"><div class="kv-k">Problem</div><div class="kv-v">FMI workflows rarely provide a transparent, low-cost path from desktop simulation to constrained embedded targets.</div></div>
+        <div class="kv"><div class="kv-k">Solution</div><div class="kv-v">Shared FMU-derived C execution core with portable platform layers and HALs for <strong>x64, ESP32-C6, STM32F411 and RP2350/Pico 2W</strong>.</div></div>
+        <div class="kv"><div class="kv-k">Outcome</div><div class="kv-v"><strong>80/80 bit-exact automated tests and 8/8 validation scenarios</strong>, plus a seven-stage benchmark from basic I/O to cascaded position control.</div></div>
+      </div>
+      <div class="tags"><span class="tag tc">FMI 2.0 / 3.0</span><span class="tag tb">C</span><span class="tag ta">ESP32 · STM32 · RP2350</span><span class="tag">GCC / Ninja</span></div>
+    </div>
+
+    <div class="del rv">
+      <div class="del-top">
+        <div class="del-title">openSeRo MBD &amp; Rust Co-Simulation</div>
+        <span class="del-badge db-active">Validated</span>
+      </div>
+      <div class="del-kv">
+        <div class="kv"><div class="kv-k">Problem</div><div class="kv-v">Open model-based tools need complete FMI 3.0 workflows and a reproducible bridge from graphical design to hardware execution.</div></div>
+        <div class="kv"><div class="kv-k">Solution</div><div class="kv-v">Added FMI 3.0 import/export, combined <strong>ME + CS + Scheduled Execution</strong> packaging, MuJoCo/XIL workflows and a Rust orchestrator with custom bindings.</div></div>
+        <div class="kv"><div class="kv-k">Outcome</div><div class="kv-v"><strong>248+ blocks across 20 categories, 257+ automated tests</strong> and seven demonstrations carried through to Pico 2W hardware.</div></div>
+      </div>
+      <div class="tags"><span class="tag tc">FMI 3.0</span><span class="tag tb">Rust</span><span class="tag tp">MuJoCo</span><span class="tag">MIL / SIL / PIL / HIL</span></div>
+    </div>
+
+    <div class="del rv">
+      <div class="del-top">
+        <div class="del-title">Robot-Generated Geometric-Semantic USD Scene</div>
+        <span class="del-badge db-thesis">Physical Validation</span>
+      </div>
+      <div class="del-kv">
+        <div class="kv"><div class="kv-k">Problem</div><div class="kv-v">Simulation-ready digital scenes require consistent multisensor capture, calibration, reconstruction and semantic placement.</div></div>
+        <div class="kv"><div class="kv-k">Solution</div><div class="kv-v">ROS 2 pipeline combining <strong>2D/3D LiDAR and RGB-D</strong> data with capture QA, self-calibration, reconstruction, object identification and USD export for Isaac Sim.</div></div>
+        <div class="kv"><div class="kv-k">Outcome</div><div class="kv-v"><strong>16/16 acquisition points</strong>; cross-sensor discrepancy reduced from 7.54 to 2.77 cm. Results cover one physically tested room; broader generalization remains future work.</div></div>
+      </div>
+      <div class="tags"><span class="tag tc">ROS 2</span><span class="tag tb">OpenUSD / Isaac Sim</span><span class="tag tp">LiDAR</span><span class="tag">RGB-D</span></div>
+    </div>
 
     <div class="del rv">
       <div class="del-top">
@@ -990,7 +1088,7 @@
       <div class="del-kv">
         <div class="kv"><div class="kv-k">Problem</div><div class="kv-v">Validating industrial CPS requires costly and time-consuming physical prototyping.</div></div>
         <div class="kv"><div class="kv-k">Solution</div><div class="kv-v">FMI/FMU co-simulation environment connecting <strong>MATLAB/Simulink, OpenModelica, and LabVIEW</strong> in a vendor-neutral distributed architecture with cloud integration.</div></div>
-        <div class="kv"><div class="kv-k">Outcome</div><div class="kv-v">Active in Elkartek <strong>AUTOTRUST</strong> and <strong>SENDOA</strong> R&amp;D programs at IKERLAN. Published at the 16th International Modelica &amp; FMI Conference.</div></div>
+        <div class="kv"><div class="kv-k">Outcome</div><div class="kv-v">Developed within ELKARTEK <strong>AUTOTRUST 2024</strong> and <strong>SENDOA 2025–2026</strong> at IKERLAN. Published at the 16th International Modelica &amp; FMI Conference.</div></div>
       </div>
       <div class="tags">
         <span class="tag tc">FMI / FMU</span><span class="tag tc">OpenModelica</span>
@@ -1022,7 +1120,7 @@
       <div class="del-kv">
         <div class="kv"><div class="kv-k">Problem</div><div class="kv-v">Autonomous robots need AI-augmented decision-making without cloud connectivity or expensive hardware.</div></div>
         <div class="kv"><div class="kv-k">Solution</div><div class="kv-v">ONNX-optimized neural networks + zero-shot LLMs deployed on <strong>NVIDIA Jetson</strong> as ROS 2 composable nodes, fully offline.</div></div>
-        <div class="kv"><div class="kv-k">Outcome</div><div class="kv-v"><strong>Sub-10 ms inference latency</strong> for perception tasks. Validated in two peer-reviewed publications (MDPI MAKE 2026, Applied Sciences 2025).</div></div>
+        <div class="kv"><div class="kv-k">Outcome</div><div class="kv-v">Preserved a deterministic <strong>50 Hz control loop with a sub-5 ms fallback path</strong>; final position error improved from 0.246 m to 0.159 m and trajectory efficiency from 0.821 to 0.901.</div></div>
       </div>
       <div class="tags">
         <span class="tag tc">ONNX Runtime</span><span class="tag tc">LLMs</span>
@@ -1282,11 +1380,26 @@
       <div class="ti-right">
         <div class="ti-role">Research Engineer — Embedded Electronic Systems</div>
         <div class="ti-org">IKERLAN S.COOP · Arrasate, Euskadi, Spain</div>
-        <div class="ti-desc">Develops FMI-based co-simulation environments and distributed architectures for industrial CPS validation. Active contributor to Elkartek-funded projects AUTOTRUST and SENDOA.</div>
+        <div class="ti-desc">Develops robotics and cyber-physical workflows spanning FMI/FMU interoperability, distributed co-simulation, edge computing and physical validation. Investigator in ELKARTEK AUTOTRUST 2024 and SENDOA 2025–2026.</div>
         <div class="ti-pills">
           <span class="tag tc">FMI / FMU</span><span class="tag tc">ROS 2</span>
           <span class="tag tb">MATLAB/Simulink</span><span class="tag tb">OpenModelica</span>
           <span class="tag ta">AUTOTRUST · SENDOA</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ti rv">
+      <div class="ti-left">
+        <div class="ti-date">May 2026<br>Jul 2026</div>
+        <span class="ti-badge bb-res">Research Visit</span>
+      </div>
+      <div class="ti-right">
+        <div class="ti-role">Visiting PhD Researcher — GreenLSI Group</div>
+        <div class="ti-org">Universidad Politécnica de Madrid · Madrid, Spain</div>
+        <div class="ti-desc">Developed portable FMI runtimes, multi-platform HALs and toolchains, Rust orchestration, embedded deployment and automated numerical-equivalence testing across Linux and three MCU families.</div>
+        <div class="ti-pills">
+          <span class="tag tc">FMI 3.0</span><span class="tag tb">Rust</span><span class="tag ta">ESP32 · STM32 · RP2350</span><span class="tag">Bit-exact Validation</span>
         </div>
       </div>
     </div>
@@ -1516,7 +1629,7 @@
 
 <footer class="site-footer">
   <div class="wrap ft-inner">
-    <div class="ft-c">© 2026 Sebastian Rojas-Ordoñez · PhD Researcher &amp; Mechatronic Engineer · Arrasate, Spain</div>
+    <div class="ft-c">© 2026 Sebastian Rojas-Ordoñez · Research Engineer &amp; PhD Researcher · Arrasate, Spain</div>
     <div class="ft-links">
       <a href="https://scholar.google.com/citations?user=HSflBLwAAAAJ&hl=es" target="_blank" rel="noopener">Scholar</a>
       <a href="https://orcid.org/0009-0000-5142-1284" target="_blank" rel="noopener">ORCID</a>
@@ -1581,3 +1694,4 @@
 </script>
 </body>
 </html>
+
