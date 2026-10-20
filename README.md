@@ -1,29 +1,33 @@
 # sebastianrojas-ordoñez.com
 
-Personal website of **Sebastian Rojas-Ordoñez** — PhD Researcher (IKERLAN · UPV/EHU) and Mechatronic Engineer.
+Personal research and engineering portfolio of **Sebastian Rojas-Ordoñez** — Research Engineer at IKERLAN and PhD Researcher at UPV/EHU.
 
-Single-page static site (no build step) hosted on GitHub Pages with a custom domain.
+The site is a buildless, single-page experience hosted on GitHub Pages with a custom domain.
+
+## Experience
+
+- Narrative, scroll-based portfolio with three visual flagship case studies
+- Verified research record: five first-author, peer-reviewed publications
+- Current ELKARTEK research participation and engineering archive
+- Responsive light/dark design with accessible motion preferences
+- Scroll-aware navigation, mobile menu, copy-to-clipboard and subtle pointer interactions
+- Downloadable CV, structured data, Open Graph and Twitter metadata
 
 ## Structure
 
-- `index.html` — the whole site: styles, markup, and scripts in one file
-- `assets/` — profile photo, hero media, and tool logos
-- `404.html`, `robots.txt`, `sitemap.xml` — GitHub Pages / SEO support
-- `CNAME` — custom domain (punycode for `sebastianrojas-ordoñez.com`)
+- `index.html` — complete site: styles, semantic markup and progressive enhancement
+- `assets/profile-1200.jpg` — web-optimised portrait used on the page
+- `assets/Sebastian_Rojas_Ordonez_CV.pdf` — downloadable CV
+- `assets/logos/` — locally served toolchain marks
+- `404.html`, `robots.txt`, `sitemap.xml` — GitHub Pages and SEO support
+- `CNAME` — custom domain configuration
 
-## Development
+## Local preview
 
-No tooling required. To preview locally:
+No build step or dependencies are required.
 
 ```bash
-python3 -m http.server 8000
-# open http://localhost:8000
+python -m http.server 8000
 ```
 
-## Features
-
-- Tabbed sections: Home · Research · Engineering · Background · Contact
-- Light/dark theme with system-preference detection and persistence
-- JSON-LD structured data (schema.org Person) and Open Graph / Twitter cards
-- Responsive layout, keyboard navigation (keys 1–5), reduced-motion support
-- Print-friendly: printing renders all sections as a CV-style document
+Then open `http://localhost:8000`.
