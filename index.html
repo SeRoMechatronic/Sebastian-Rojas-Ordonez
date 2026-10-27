@@ -1,152 +1,990 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Sebastian Rojas-Ordoñez · Robotics, FMI &amp; Embedded AI</title>
-  <meta name="description" content="Research engineer and PhD researcher building open, reproducible systems from FMI 3.0 and simulation to ROS 2 robots, edge AI and embedded hardware.">
-  <meta name="author" content="Jose Sebastian Rojas Ordoñez">
-  <meta name="theme-color" content="#091512">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%2361efda'/%3E%3Ctext x='32' y='39' text-anchor='middle' font-family='Arial' font-size='22' font-weight='700' fill='%2306211c'%3ESR%3C/text%3E%3C/svg%3E">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://xn--sebastianrojas-ordoez-ubc.com/">
-  <meta property="og:title" content="Sebastian Rojas-Ordoñez · From simulation to reality">
-  <meta property="og:description" content="FMI 3.0 · ROS 2 · Embedded AI · OpenUSD · Reproducible sim-to-real systems">
-  <meta property="og:image" content="https://xn--sebastianrojas-ordoez-ubc.com/assets/profile-1200.jpg">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Sebastian Rojas-Ordoñez · From simulation to reality">
-  <meta name="twitter:description" content="Research engineer building trustworthy systems across simulation, robots and microcontrollers.">
-  <meta name="twitter:image" content="https://xn--sebastianrojas-ordoez-ubc.com/assets/profile-1200.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Sebastian Rojas-Ordoñez · Robotics Systems Engineer &amp; PhD Researcher</title>
+  <meta name="description" content="Robotics systems engineer and PhD researcher at IKERLAN and UPV/EHU. I build reproducible sim-to-real systems: FMI 3.0 digital twins, deterministic ROS 2 autonomy, edge AI and embedded execution on real hardware.">
+  <meta name="author" content="Jose Sebastian Rojas-Ordoñez">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f6f3ed" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#07120f" media="(prefers-color-scheme: dark)">
   <link rel="canonical" href="https://xn--sebastianrojas-ordoez-ubc.com/">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/icon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <meta property="og:type" content="profile">
+  <meta property="og:site_name" content="Sebastian Rojas-Ordoñez">
+  <meta property="og:url" content="https://xn--sebastianrojas-ordoez-ubc.com/">
+  <meta property="og:title" content="Sebastian Rojas-Ordoñez · Robotics Systems Engineer &amp; PhD Researcher">
+  <meta property="og:description" content="I make simulation survive contact with reality: FMI 3.0, ROS 2, edge AI and embedded systems, validated on real hardware.">
+  <meta property="og:image" content="https://xn--sebastianrojas-ordoez-ubc.com/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Sebastian Rojas-Ordoñez, Robotics Systems Engineer and PhD Researcher">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:locale:alternate" content="es_ES">
+  <meta property="profile:first_name" content="Sebastian">
+  <meta property="profile:last_name" content="Rojas-Ordoñez">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sebastian Rojas-Ordoñez · Robotics Systems Engineer &amp; PhD Researcher">
+  <meta name="twitter:description" content="FMI 3.0 · ROS 2 · Edge AI · Embedded systems · Reproducible sim-to-real validation.">
+  <meta name="twitter:image" content="https://xn--sebastianrojas-ordoez-ubc.com/assets/img/og-image.jpg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ProfilePage",
+        "@id": "https://xn--sebastianrojas-ordoez-ubc.com/#profile",
+        "url": "https://xn--sebastianrojas-ordoez-ubc.com/",
+        "name": "Sebastian Rojas-Ordoñez · Robotics Systems Engineer & PhD Researcher",
+        "inLanguage": ["en", "es"],
+        "dateModified": "2026-10-23",
+        "mainEntity": { "@id": "https://xn--sebastianrojas-ordoez-ubc.com/#person" }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://xn--sebastianrojas-ordoez-ubc.com/#person",
+        "name": "Sebastian Rojas-Ordoñez",
+        "alternateName": "Jose Sebastian Rojas-Ordoñez",
+        "givenName": "Jose Sebastian",
+        "familyName": "Rojas-Ordoñez",
+        "url": "https://xn--sebastianrojas-ordoez-ubc.com/",
+        "image": "https://xn--sebastianrojas-ordoez-ubc.com/assets/img/profile-960.jpg",
+        "email": "mailto:sebastianrojas.sero@gmail.com",
+        "jobTitle": "Research Engineer and PhD Researcher",
+        "description": "Robotics systems engineer and PhD researcher working on autonomous agents, embedded AI, sim-to-real validation and model-based engineering.",
+        "worksFor": { "@type": "Organization", "name": "IKERLAN Technology Research Centre", "url": "https://www.ikerlan.es" },
+        "affiliation": { "@type": "CollegeOrUniversity", "name": "University of the Basque Country (UPV/EHU)" },
+        "alumniOf": [
+          { "@type": "CollegeOrUniversity", "name": "Universidad de Oviedo" },
+          { "@type": "CollegeOrUniversity", "name": "Nile University" },
+          { "@type": "CollegeOrUniversity", "name": "Hochschule Karlsruhe" },
+          { "@type": "CollegeOrUniversity", "name": "Universidad Internacional de La Rioja (UNIR)" },
+          { "@type": "CollegeOrUniversity", "name": "Unicomfacauca University Corporation" }
+        ],
+        "address": { "@type": "PostalAddress", "addressLocality": "Arrasate", "addressRegion": "Basque Country", "addressCountry": "ES" },
+        "knowsLanguage": ["es", "en", "pt", "de"],
+        "knowsAbout": ["Robotics", "ROS 2", "Functional Mock-up Interface (FMI)", "Modelica", "Digital twins", "Co-simulation", "Edge AI", "Large language models", "Embedded systems", "Rust", "C", "OpenUSD", "Isaac Sim", "MuJoCo", "Sim-to-real validation"],
+        "award": ["Erasmus Mundus Scholarship (EACEA, European Union)", "Outstanding Graduate, Mechatronic Engineering (Unicomfacauca)"],
+        "sameAs": [
+          "https://orcid.org/0009-0000-5142-1284",
+          "https://scholar.google.com/citations?user=HSflBLwAAAAJ",
+          "https://www.webofscience.com/wos/author/record/PWG-6826-2026",
+          "https://github.com/SeRoMechatronic",
+          "https://www.linkedin.com/in/sebastian-rojasordo%C3%B1ez/"
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <script>
+    // Applied before first paint: saved theme, and hide content briefly if Spanish will be swapped in.
+    (function (root) {
+      root.classList.add('js');
+      try {
+        var theme = localStorage.getItem('theme');
+        if (theme === 'light' || theme === 'dark') root.setAttribute('data-theme', theme);
+        var param = new URLSearchParams(location.search).get('lang');
+        var lang = param === 'es' || param === 'en' ? param : localStorage.getItem('lang');
+        if (lang === 'es') root.classList.add('lang-pending');
+      } catch (e) {}
+    })(document.documentElement);
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=Manrope:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
-  <link rel="preload" href="assets/profile-1200.jpg" as="image">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Jose Sebastian Rojas Ordoñez","alternateName":"Sebastian Rojas-Ordoñez","url":"https://xn--sebastianrojas-ordoez-ubc.com/","image":"https://xn--sebastianrojas-ordoez-ubc.com/assets/profile-1200.jpg","jobTitle":"Research Engineer and PhD Researcher","email":"mailto:sebastianrojas.sero@gmail.com","worksFor":[{"@type":"Organization","name":"IKERLAN S.COOP"},{"@type":"CollegeOrUniversity","name":"University of the Basque Country (UPV/EHU)"}],"knowsAbout":["FMI 3.0","Modelica","ROS 2","Edge AI","OpenUSD","Embedded Systems","Digital Twins","Autonomous Robotics"],"sameAs":["https://orcid.org/0009-0000-5142-1284","https://scholar.google.com/citations?user=HSflBLwAAAAJ","https://github.com/SeRoMechatronic","https://www.linkedin.com/in/sebastian-rojasordoñez/"]}</script>
-  <style>
-    :root{--bg:#f4f0e8;--bg2:#e9e3d8;--ink:#13211e;--muted:#5f6c68;--surface:rgba(255,255,255,.74);--solid:#fffdfa;--line:rgba(19,33,30,.13);--teal:#087f74;--teal2:#0fc7b4;--coral:#ee674e;--amber:#e9a83f;--blue:#4d73e6;--green:#3aa675;--shadow:0 28px 90px rgba(33,49,44,.13);--display:'Space Grotesk',sans-serif;--body:'Manrope',sans-serif;--mono:'DM Mono',monospace}
-    html[data-theme="dark"]{--bg:#091512;--bg2:#0d1c18;--ink:#edf6f1;--muted:#9baca6;--surface:rgba(18,37,32,.74);--solid:#10241e;--line:rgba(219,241,232,.12);--teal:#45dbc7;--teal2:#61efda;--coral:#ff8065;--amber:#f4bb59;--blue:#7e9dff;--green:#6dd9a4;--shadow:0 34px 100px rgba(0,0,0,.35)}
-    *,*::before,*::after{box-sizing:border-box}html{scroll-behavior:smooth;color-scheme:light;overflow-x:clip}html[data-theme="dark"]{color-scheme:dark}body{margin:0;min-width:320px;background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:clip}body::before{content:"";position:fixed;inset:0;z-index:-3;pointer-events:none;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:70px 70px;mask-image:linear-gradient(to bottom,rgba(0,0,0,.35),transparent 85%);opacity:.27}a{color:inherit;text-decoration:none}button{font:inherit}img{max-width:100%;display:block}h1,h2,h3,p{margin-top:0}.wrap{width:min(1180px,calc(100% - 48px));margin-inline:auto}.skip{position:fixed;left:16px;top:-80px;z-index:200;background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:12px}.skip:focus{top:12px}:focus-visible{outline:3px solid var(--amber);outline-offset:4px}
-    .ambient{position:fixed;border-radius:50%;filter:blur(90px);opacity:.19;pointer-events:none;z-index:-2;animation:drift 14s ease-in-out infinite alternate}.ambient.one{width:540px;height:540px;background:var(--coral);right:-180px;top:-190px}.ambient.two{width:440px;height:440px;background:var(--teal);left:-170px;top:38%;animation-delay:-7s}@keyframes drift{to{transform:translate3d(35px,45px,0) scale(1.08)}}
-    .nav{position:fixed;z-index:100;top:12px;left:50%;transform:translateX(-50%);width:min(1180px,calc(100% - 28px));height:72px;border:1px solid var(--line);border-radius:22px;background:color-mix(in srgb,var(--bg) 78%,transparent);backdrop-filter:blur(22px) saturate(140%);box-shadow:0 14px 45px rgba(0,0,0,.08)}.nav-in{height:100%;padding:0 16px 0 13px;display:flex;align-items:center;gap:22px}.brand{display:flex;align-items:center;gap:11px;margin-right:auto;min-width:max-content}.brand-mark{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;color:#06211c;font:800 13px var(--display);background:linear-gradient(135deg,var(--teal2),#93ffe9);box-shadow:0 10px 24px rgba(15,199,180,.25);transform:rotate(-4deg)}.brand-text strong{display:block;font:700 13px var(--display);line-height:1.2}.brand-text span{font:500 9px var(--mono);letter-spacing:.05em;color:var(--muted)}.nav-links{display:flex;gap:4px}.nav-link{padding:8px 11px;border-radius:10px;color:var(--muted);font-size:12px;font-weight:700;transition:.2s}.nav-link:hover,.nav-link.active{color:var(--ink);background:var(--surface)}.nav-actions{display:flex;align-items:center;gap:8px}.icon-btn,.menu-btn{width:40px;height:40px;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--ink);display:grid;place-items:center;cursor:pointer}.icon-btn svg,.menu-btn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8}.menu-btn{display:none}.nav-contact{padding:10px 15px;border-radius:12px;background:var(--ink);color:var(--bg);font-size:12px;font-weight:800}
-    .hero{min-height:100svh;display:grid;align-items:center;padding:135px 0 78px;position:relative}.hero::after{content:"";position:absolute;width:560px;height:560px;right:-80px;top:90px;background:radial-gradient(circle,rgba(15,199,180,.18),transparent 66%);pointer-events:none;transform:translate3d(calc(var(--mx,0)*18px),calc(var(--my,0)*18px),0)}.hero-grid{display:grid;grid-template-columns:minmax(0,1.18fr) minmax(360px,.82fr);gap:76px;align-items:center}.status{display:inline-flex;align-items:center;gap:10px;padding:7px 12px 7px 8px;border:1px solid var(--line);background:var(--surface);border-radius:99px;color:var(--muted);font:500 11px var(--mono);margin-bottom:24px}.status-dot{width:10px;height:10px;border-radius:50%;background:var(--green);box-shadow:0 0 0 5px color-mix(in srgb,var(--green) 18%,transparent);animation:pulse 2s ease infinite}@keyframes pulse{50%{box-shadow:0 0 0 8px transparent}}.hero-name{font:700 clamp(16px,1.7vw,21px)/1.2 var(--display);margin:0 0 16px;color:var(--coral)}.hero h1{font:700 clamp(48px,6.7vw,88px)/.96 var(--display);letter-spacing:-.065em;max-width:820px;margin:0 0 24px;text-wrap:balance}.accent{background:linear-gradient(100deg,var(--teal),var(--teal2) 45%,var(--amber));-webkit-background-clip:text;background-clip:text;color:transparent}.hero-lead{font-size:clamp(16px,1.6vw,20px);line-height:1.72;color:var(--muted);max-width:720px;margin-bottom:30px}.hero-lead strong{color:var(--ink)}.hero-actions{display:flex;gap:12px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 17px;border-radius:14px;border:1px solid var(--line);font-size:13px;font-weight:800;transition:.2s;cursor:pointer}.btn:hover{transform:translateY(-3px)}.btn-primary{background:var(--coral);border-color:transparent;color:#fff;box-shadow:0 14px 30px color-mix(in srgb,var(--coral) 25%,transparent)}.btn-secondary{background:var(--surface);color:var(--ink)}.btn svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2}.micro-proof{display:flex;gap:18px;flex-wrap:wrap;margin-top:30px;color:var(--muted);font:500 10px var(--mono)}.micro-proof span{display:flex;align-items:center;gap:7px}.micro-proof span::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--teal)}
-    .portrait-stage{position:relative;max-width:440px;margin-left:auto;perspective:900px}.portrait-card{position:relative;aspect-ratio:4/5;border-radius:42px 42px 120px 42px;padding:9px;background:linear-gradient(145deg,var(--teal2),var(--amber) 48%,var(--coral));box-shadow:var(--shadow);transform-style:preserve-3d;transition:transform .18s ease-out}.portrait-card::before{content:"";position:absolute;inset:9px;border-radius:34px 34px 112px 34px;background:linear-gradient(to top,rgba(2,17,14,.72),transparent 46%);z-index:2;pointer-events:none}.portrait-card img{width:100%;height:100%;object-fit:cover;object-position:50% 55%;border-radius:34px 34px 112px 34px;filter:saturate(.93) contrast(1.02)}.portrait-caption{position:absolute;z-index:3;left:31px;bottom:25px;color:#fff}.portrait-caption strong{display:block;font:700 16px var(--display)}.portrait-caption span{font:500 10px var(--mono);opacity:.8}.float-chip{position:absolute;z-index:4;padding:10px 13px;border-radius:13px;border:1px solid rgba(255,255,255,.22);background:rgba(9,21,18,.78);backdrop-filter:blur(12px);color:#fff;font:500 10px var(--mono);box-shadow:0 16px 36px rgba(0,0,0,.22);animation:float 4s ease-in-out infinite}.chip-a{top:10%;left:-42px}.chip-b{top:44%;right:-50px;animation-delay:-1.4s}.chip-c{bottom:13%;left:-34px;animation-delay:-2.6s}@keyframes float{50%{transform:translateY(-9px)}}.orbit{position:absolute;inset:-28px;border:1px dashed color-mix(in srgb,var(--teal) 42%,transparent);border-radius:48% 52% 58% 42%;animation:spin 28s linear infinite;z-index:-1}@keyframes spin{to{transform:rotate(1turn)}}
-    .proof-strip{border-block:1px solid var(--line);background:var(--surface);overflow:hidden}.proof-track{display:flex;width:max-content;animation:marquee 28s linear infinite}.proof-item{display:flex;align-items:center;gap:14px;padding:17px 24px;color:var(--muted);font:500 11px var(--mono);letter-spacing:.04em}.proof-item::after{content:"✦";color:var(--coral);margin-left:10px}@keyframes marquee{to{transform:translateX(-50%)}}
-    section{padding:112px 0;scroll-margin-top:95px}.section-kicker{font:500 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--coral);margin-bottom:13px}.section-head{display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:end;margin-bottom:48px}.section-head h2,.story-intro h2{font:700 clamp(37px,5vw,64px)/1.02 var(--display);letter-spacing:-.045em;margin:0}.section-head p{color:var(--muted);font-size:15px;margin:0;max-width:480px;justify-self:end}.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s cubic-bezier(.2,.8,.2,1)}.reveal.visible{opacity:1;transform:none}
-    .case-list{display:grid;gap:26px}.case{display:grid;grid-template-columns:1fr 1fr;min-height:470px;border:1px solid var(--line);border-radius:32px;overflow:hidden;background:var(--surface);box-shadow:0 20px 70px rgba(0,0,0,.06)}.case:nth-child(even) .case-visual{order:2}.case-copy{padding:48px;display:flex;flex-direction:column;justify-content:center}.case-index{font:500 10px var(--mono);color:var(--coral);letter-spacing:.1em}.case-copy h3{font:700 clamp(25px,3vw,38px)/1.08 var(--display);letter-spacing:-.035em;margin:14px 0 17px}.case-copy>p{color:var(--muted);font-size:14px;margin-bottom:22px}.tags{display:flex;gap:7px;flex-wrap:wrap}.tag{padding:5px 9px;border:1px solid var(--line);border-radius:8px;font:500 9px var(--mono);color:var(--muted);background:color-mix(in srgb,var(--solid) 65%,transparent)}.case-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:27px 0}.metric{padding:13px;border:1px solid var(--line);border-radius:13px}.metric strong{display:block;font:700 20px var(--display);color:var(--teal)}.metric span{font:500 8.5px var(--mono);color:var(--muted)}
-    .case-visual{position:relative;min-height:420px;overflow:hidden;background:#071512}.case-visual::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(96,238,215,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(96,238,215,.08) 1px,transparent 1px);background-size:30px 30px;mask-image:linear-gradient(to bottom,black,transparent)}.viz-label{position:absolute;z-index:5;left:22px;top:20px;color:rgba(224,255,248,.62);font:500 9px var(--mono);letter-spacing:.1em;text-transform:uppercase}.viz-status{position:absolute;z-index:5;right:22px;top:18px;color:#071512;background:#62efd9;padding:5px 8px;border-radius:6px;font:500 8px var(--mono)}.pipeline{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:13px;padding:40px}.pipe-node{position:relative;z-index:2;width:91px;min-height:77px;border:1px solid rgba(112,241,220,.28);border-radius:16px;background:rgba(12,39,33,.88);color:#dffbf5;display:grid;place-items:center;text-align:center;padding:10px;font:500 9px var(--mono);box-shadow:0 15px 35px rgba(0,0,0,.3)}.pipe-node.core{width:105px;border-color:#ff8065;box-shadow:0 0 40px rgba(255,128,101,.18)}.pipe-line{height:1px;width:38px;background:linear-gradient(90deg,#62efd9,#ff8065);position:relative}.pipe-line::after{content:"";position:absolute;width:7px;height:7px;border-radius:50%;background:#fff;top:-3px;animation:flow 1.8s linear infinite}@keyframes flow{from{left:0}to{left:100%}}.mcu-stack{display:grid;gap:7px}.mcu{padding:6px 8px;border:1px solid rgba(112,241,220,.22);border-radius:7px;color:#b9d9d2;background:rgba(7,21,18,.75);font:500 7.5px var(--mono)}
-    .radar{position:absolute;width:330px;height:330px;border-radius:50%;border:1px solid rgba(98,239,217,.25);left:50%;top:50%;transform:translate(-50%,-50%);background:repeating-radial-gradient(circle,transparent 0 54px,rgba(98,239,217,.12) 55px 56px),conic-gradient(from 20deg,rgba(98,239,217,.28),transparent 15%,transparent)}.radar::after{content:"";position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,transparent 0 78%,rgba(98,239,217,.18) 91%,transparent);animation:spin 4s linear infinite}.robot-dot{position:absolute;left:51%;top:47%;z-index:3;width:28px;height:28px;border-radius:9px 9px 6px 6px;background:#ff8065;box-shadow:0 0 0 8px rgba(255,128,101,.12),0 0 30px rgba(255,128,101,.5)}.path-line{position:absolute;z-index:2;left:24%;bottom:22%;width:58%;height:45%;border:2px dashed rgba(126,157,255,.85);border-left:0;border-bottom:0;border-radius:0 90px 0 0;transform:rotate(-12deg)}.thought{position:absolute;z-index:4;right:10%;top:23%;max-width:130px;padding:10px;border:1px solid rgba(255,255,255,.18);border-radius:12px;background:rgba(14,31,27,.86);color:#dffbf5;font:500 8px/1.5 var(--mono)}.scene{position:absolute;inset:64px 35px 32px;perspective:500px}.floor{position:absolute;left:8%;right:8%;bottom:0;height:70%;transform:rotateX(62deg);transform-origin:bottom;background-image:linear-gradient(rgba(98,239,217,.2) 1px,transparent 1px),linear-gradient(90deg,rgba(98,239,217,.2) 1px,transparent 1px);background-size:30px 30px}.scan-wall{position:absolute;left:15%;top:17%;width:47%;height:50%;border:1px solid rgba(126,157,255,.45);background:linear-gradient(135deg,rgba(126,157,255,.15),transparent)}.points{position:absolute;inset:0;background-image:radial-gradient(#62efd9 1.2px,transparent 1.4px);background-size:21px 17px;mask-image:linear-gradient(125deg,transparent 8%,black 28%,black 72%,transparent 91%);animation:scan 3s ease-in-out infinite alternate}@keyframes scan{to{transform:translateX(12px);opacity:.62}}.scene-chip{position:absolute;z-index:4;right:10%;bottom:13%;padding:11px 13px;border-radius:11px;background:#ff8065;color:#fff;font:600 9px var(--mono)}
-    .research{background:linear-gradient(180deg,transparent,var(--bg2),transparent)}.research-top{display:grid;grid-template-columns:.75fr 1.25fr;gap:26px;margin-bottom:22px}.research-stat,.paper-feature,.paper,.program,.archive-item{border:1px solid var(--line);background:var(--surface)}.research-stat{border-radius:28px;padding:35px;display:flex;flex-direction:column;justify-content:space-between}.research-stat strong{font:700 clamp(80px,10vw,130px)/.8 var(--display);letter-spacing:-.07em;color:var(--teal)}.research-stat p{margin:34px 0 0;color:var(--muted)}.paper-feature{padding:35px;border-radius:28px;position:relative;overflow:hidden}.paper-feature::after{content:"↗";position:absolute;right:24px;top:14px;font:500 40px var(--display);color:var(--line)}.paper-year{font:500 10px var(--mono);color:var(--coral)}.paper-feature h3{font:700 clamp(23px,3vw,36px)/1.18 var(--display);letter-spacing:-.025em;margin:20px 0 13px}.journal{color:var(--blue);font-size:12px;font-weight:800}.paper-feature p,.paper p{color:var(--muted);font-size:13px;margin:20px 0 25px}.doi{display:inline-flex;font:500 9.5px var(--mono);color:var(--teal);border-bottom:1px solid currentColor;padding-bottom:3px}.paper-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.paper{padding:24px;border-radius:21px;transition:.25s}.paper:hover{transform:translateY(-6px);border-color:var(--teal)}.paper .paper-year{display:flex;justify-content:space-between}.paper h3{font:700 17px/1.3 var(--display);margin:17px 0 12px}.paper .journal{font-size:10px}.paper p{font-size:12px;margin:14px 0 19px}
-    .programs{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-bottom:75px}.program{position:relative;padding:25px;border-radius:21px;overflow:hidden}.program-code{font:500 9px var(--mono);color:var(--teal)}.program-state{float:right;padding:4px 7px;border-radius:6px;background:color-mix(in srgb,var(--green) 15%,transparent);color:var(--green);font:500 8px var(--mono)}.program h3{font:700 19px var(--display);margin:28px 0 19px}.program-row{display:flex;justify-content:space-between;padding-top:9px;margin-top:9px;border-top:1px solid var(--line);color:var(--muted);font-size:11px}.program-row strong{color:var(--ink);text-align:right}.archive-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:22px}.archive-head h3{font:700 28px var(--display);margin:0}.archive-head p{color:var(--muted);font-size:12px;margin:0}.archive{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.archive-item{border-radius:18px;overflow:hidden}.archive-item summary{list-style:none;cursor:pointer;padding:20px 22px;display:flex;align-items:center;gap:13px;font:700 14px var(--display)}.archive-item summary::-webkit-details-marker{display:none}.archive-item summary::before{content:"+";width:27px;height:27px;display:grid;place-items:center;border:1px solid var(--line);border-radius:9px;color:var(--coral);font:500 17px var(--mono)}.archive-item[open] summary::before{content:"−"}.archive-body{padding:0 22px 20px 62px;color:var(--muted);font-size:12px}.archive-body .tags{margin-top:12px}
-    .story-grid{display:grid;grid-template-columns:.78fr 1.22fr;gap:48px}.story-intro{position:sticky;top:112px;align-self:start}.story-intro p{color:var(--muted);font-size:14px;margin-top:22px}.story-facts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:25px}.fact{padding:15px;border:1px solid var(--line);border-radius:15px;background:var(--surface)}.fact strong{display:block;font:700 23px var(--display);color:var(--coral)}.fact span{font:500 8px var(--mono);color:var(--muted)}.timeline{position:relative}.timeline::before{content:"";position:absolute;left:12px;top:8px;bottom:8px;width:1px;background:linear-gradient(var(--teal),var(--coral),transparent)}.time-item{position:relative;padding:0 0 39px 46px}.time-item::before{content:"";position:absolute;left:6px;top:7px;width:13px;height:13px;border-radius:50%;background:var(--bg);border:3px solid var(--teal);box-shadow:0 0 0 5px color-mix(in srgb,var(--teal) 10%,transparent)}.time-date{font:500 9px var(--mono);color:var(--coral);margin-bottom:7px}.time-item h3{font:700 20px/1.25 var(--display);margin:0 0 4px}.time-org{color:var(--teal);font-size:12px;font-weight:800}.time-item p{color:var(--muted);font-size:12.5px;margin:10px 0 0}.time-item .tags{margin-top:12px}
-    .toolbelt{border-block:1px solid var(--line);padding:36px 0;background:var(--surface)}.tool-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:10px}.tool{min-height:88px;border:1px solid var(--line);border-radius:16px;background:color-mix(in srgb,var(--solid) 62%,transparent);display:grid;place-items:center;align-content:center;gap:8px;text-align:center;padding:11px;transition:.2s}.tool:hover{transform:translateY(-4px);border-color:var(--teal)}.tool img{width:29px;height:29px;object-fit:contain}.tool span{font:500 8px var(--mono);color:var(--muted)}.tool-abbr{font:700 15px var(--display);color:var(--teal)}
-    .contact{padding-bottom:55px}.contact-card{position:relative;overflow:hidden;border-radius:36px;background:linear-gradient(120deg,#ff8065,#ef674f 46%,#d84d67);color:#fff;padding:65px;box-shadow:0 34px 90px rgba(238,103,78,.25)}.contact-card::before{content:"";position:absolute;width:500px;height:500px;border:1px solid rgba(255,255,255,.18);border-radius:43% 57% 52% 48%;right:-160px;top:-220px;box-shadow:0 0 0 55px rgba(255,255,255,.035),0 0 0 110px rgba(255,255,255,.025);animation:spin 38s linear infinite}.contact-card .section-kicker{color:rgba(255,255,255,.72)}.contact-card h2{position:relative;font:700 clamp(42px,6vw,76px)/.98 var(--display);letter-spacing:-.055em;max-width:850px;margin:0 0 23px}.contact-card p{position:relative;max-width:610px;color:rgba(255,255,255,.78);margin-bottom:29px}.contact-actions{position:relative;display:flex;gap:10px;flex-wrap:wrap}.contact-actions .btn-primary{background:#fff;color:#b83f43;box-shadow:none}.contact-actions .btn-secondary{border-color:rgba(255,255,255,.25);background:rgba(255,255,255,.12);color:#fff}.contact-meta{position:relative;display:flex;gap:24px;flex-wrap:wrap;margin-top:45px;padding-top:22px;border-top:1px solid rgba(255,255,255,.2);font:500 9px var(--mono);color:rgba(255,255,255,.7)}footer{padding:25px 0 35px}.footer-in{display:flex;align-items:center;justify-content:space-between;gap:20px;color:var(--muted);font-size:11px}.socials{display:flex;gap:7px}.socials a{padding:7px 10px;border:1px solid var(--line);border-radius:9px;font:500 9px var(--mono)}
-    @media(max-width:980px){.nav-links{position:absolute;left:0;right:0;top:80px;padding:12px;border:1px solid var(--line);border-radius:18px;background:var(--bg);box-shadow:var(--shadow);display:none;flex-direction:column}.nav-links.open{display:flex}.nav-link{padding:11px 14px}.menu-btn{display:grid}.nav-contact{display:none}.hero-grid{grid-template-columns:1fr;gap:65px}.portrait-stage{margin:auto;width:min(440px,88vw)}.section-head,.research-top,.story-grid{grid-template-columns:1fr}.section-head p{justify-self:start}.story-intro{position:static}.case{grid-template-columns:1fr}.case:nth-child(even) .case-visual{order:0}.paper-grid,.programs{grid-template-columns:1fr}.tool-grid{grid-template-columns:repeat(4,1fr)}}
-    @media(max-width:640px){.wrap{width:min(100% - 32px,1180px)}.nav{top:8px;width:calc(100% - 16px);height:62px}.brand-text{display:none}.icon-btn,.menu-btn{width:36px;height:36px}.hero{padding:112px 0 65px}.hero h1{font-size:clamp(42px,13vw,62px)}.hero-lead{font-size:15px}.float-chip{font-size:8px;padding:8px}.chip-a{left:-9px}.chip-b{right:-12px}.chip-c{left:-6px}.portrait-card{border-radius:32px 32px 90px 32px}.portrait-card img,.portrait-card::before{border-radius:24px 24px 82px 24px}.proof-item{padding:14px 18px}section{padding:82px 0}.section-head{margin-bottom:32px}.section-head h2{font-size:39px}.case-copy{padding:30px 24px}.case-visual{min-height:325px}.case-metrics{grid-template-columns:1fr 1fr}.metric:last-child{grid-column:1/-1}.pipeline{gap:6px;padding:20px}.pipe-node{width:75px;font-size:7px}.pipe-node.core{width:83px}.pipe-line{width:16px}.radar{width:275px;height:275px}.paper-feature,.research-stat{padding:25px}.archive{grid-template-columns:1fr}.archive-head{display:block}.story-facts{grid-template-columns:1fr 1fr}.tool-grid{grid-template-columns:repeat(2,1fr)}.contact-card{padding:42px 25px;border-radius:27px}.footer-in{align-items:flex-start;flex-direction:column}.socials{flex-wrap:wrap}.programs{margin-bottom:55px}}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}.portrait-card{transform:none!important}}@media print{.nav,.ambient,.proof-strip,.toolbelt,.contact-actions{display:none!important}.hero{min-height:0;padding-top:30px}section{padding:35px 0}.reveal{opacity:1;transform:none}.case,.paper,.program,.time-item{break-inside:avoid}.case-visual{display:none}.case{display:block}.wrap{width:100%}body{background:#fff;color:#111}}
-  </style>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=Manrope:wght@400..800&amp;family=Source+Serif+4:opsz,wght@8..60,600..700&amp;family=Space+Grotesk:wght@500..700&amp;display=swap">
+  <link rel="preload" as="image" href="assets/img/profile-960.webp" imagesrcset="assets/img/profile-480.webp 480w, assets/img/profile-960.webp 960w" imagesizes="(max-width: 980px) 88vw, 440px" type="image/webp" fetchpriority="high">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <script src="assets/js/i18n.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a><div class="ambient one" aria-hidden="true"></div><div class="ambient two" aria-hidden="true"></div>
-  <header class="nav"><div class="nav-in"><a class="brand" href="#home" aria-label="Sebastian Rojas-Ordoñez — Home"><span class="brand-mark">SR</span><span class="brand-text"><strong>Sebastian Rojas-Ordoñez</strong><span>ROBOTICS · FMI · EMBEDDED AI</span></span></a><nav class="nav-links" id="nav-links" aria-label="Primary navigation"><a class="nav-link active" href="#home">Home</a><a class="nav-link" href="#work">Work</a><a class="nav-link" href="#research">Research</a><a class="nav-link" href="#engineering">Systems</a><a class="nav-link" href="#story">Story</a><a class="nav-link" href="#contact">Contact</a></nav><div class="nav-actions"><button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch colour theme"><svg viewBox="0 0 24 24"><path d="M12 3v2m0 14v2M3 12h2m14 0h2M5.6 5.6 7 7m10 10 1.4 1.4M18.4 5.6 17 7M7 17l-1.4 1.4M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z"/></svg></button><button class="menu-btn" id="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button><a class="nav-contact" href="mailto:sebastianrojas.sero@gmail.com">Let's talk ↗</a></div></div></header>
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-arrow-down" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
+    <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11m0 0 4.5-4.5M12 15l-4.5-4.5M5 20h14"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M5 15V6.5A2.5 2.5 0 0 1 7.5 4H15"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6 6 6M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7Z"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.1-7-11.2A7 7 0 0 1 19 9.8C19 14.9 12 21 12 21Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></symbol>
+    <symbol id="i-repo" viewBox="0 0 24 24"><path d="M5 4.5A1.5 1.5 0 0 1 6.5 3H19v15H6.5A1.5 1.5 0 0 0 5 19.5v-15Z"/><path d="M5 19.5A1.5 1.5 0 0 0 6.5 21H19M9 7h6"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 13 9 5 9-5"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 4.5 6v5.5c0 4.6 3.1 8.2 7.5 9.5 4.4-1.3 7.5-4.9 7.5-9.5V6L12 3Z"/><path d="m9 12 2.2 2.2L15.5 10"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20h16M7 16v-4M12 16V7M17 16v-7"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1 1"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1-1"/></symbol>
+    <symbol id="i-bot" viewBox="0 0 24 24"><rect x="5" y="8" width="14" height="11" rx="3"/><path d="M12 4v4M9.5 13h.01M14.5 13h.01M3 12.5v3M21 12.5v3"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="m11 3 1.8 4.7 4.7 1.8-4.7 1.8L11 16l-1.8-4.7L4.5 9.5l4.7-1.8L11 3Z"/><path d="m18.5 14.5.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8.8-2Z"/></symbol>
+    <symbol id="i-cube" viewBox="0 0 24 24"><path d="m12 2.8 8 4.6v9.2l-8 4.6-8-4.6V7.4l8-4.6Z"/><path d="m4 7.4 8 4.6 8-4.6M12 12v9.2"/></symbol>
+    <symbol id="i-cpu" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9.5 9.5h5v5h-5zM9 2.5V6M15 2.5V6M9 18v3.5M15 18v3.5M2.5 9H6M2.5 15H6M18 9h3.5M18 15h3.5"/></symbol>
+    <symbol id="i-flask" viewBox="0 0 24 24"><path d="M9 3h6M10 3v6.2L4.8 18a2 2 0 0 0 1.7 3h11a2 2 0 0 0 1.7-3L14 9.2V3"/><path d="M7.5 15h9"/></symbol>
+    <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z"/></symbol>
+    <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="9" r="5.5"/><path d="M8.5 13.5 7 21l5-2.6 5 2.6-1.5-7.5"/></symbol>
+    <symbol id="i-teach" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="m8 20 4-4 4 4M7 8.5h6M7 11.5h9"/></symbol>
+    <symbol id="i-terminal" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="m7 9 3 3-3 3M12.5 15H17"/></symbol>
+    <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2.5"/><path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7M3 12.5h18"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3Z"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-github" viewBox="0 0 16 16"><path fill="currentColor" stroke="none" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0h.01Z"/></symbol>
+    <symbol id="i-orcid" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0ZM7.37 4.38c.53 0 .95.43.95.95s-.42.95-.95.95a.95.95 0 0 1-.95-.95c0-.52.42-.95.95-.95Zm-.72 3.04h1.44v10.04H6.65V7.42Zm3.56 0h3.9c3.71 0 5.34 2.65 5.34 5.02 0 2.58-2.01 5.02-5.32 5.02h-3.92V7.42Zm1.44 1.3v7.45h2.3c3.27 0 4.02-2.49 4.02-3.73 0-2.01-1.28-3.72-4.1-3.72h-2.22Z"/></symbol>
+    <symbol id="i-scholar" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M5.24 13.77 0 9.5 12 0l12 9.5-5.24 4.27C17.55 11.25 14.98 9.5 12 9.5s-5.55 1.75-6.76 4.27ZM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14Z"/></symbol>
+  </svg>
+
+  <a class="skip-link" href="#main" data-i18n="a11y.skip">Skip to content</a>
+  <div class="scroll-progress" aria-hidden="true"><span id="scroll-progress"></span></div>
+  <div class="backdrop" aria-hidden="true"><span class="blob blob-a"></span><span class="blob blob-b"></span></div>
+
+  <header class="site-header" id="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="#top" aria-label="Sebastian Rojas-Ordoñez, back to top" data-i18n-attr="aria-label:nav.brandLabel">
+        <span class="brand-mark" aria-hidden="true">SR</span>
+        <span class="brand-text"><strong>Sebastian Rojas-Ordoñez</strong><span data-i18n="brand.tag">Robotics · FMI · Embedded AI</span></span>
+      </a>
+      <nav class="nav-links" id="nav-links" aria-label="Primary" data-i18n-attr="aria-label:nav.label">
+        <a href="#about" data-i18n="nav.about">About</a>
+        <a href="#work" data-i18n="nav.work">Work</a>
+        <a href="#experience" data-i18n="nav.experience">Experience</a>
+        <a href="#research" data-i18n="nav.research">Research</a>
+        <a href="#skills" data-i18n="nav.skills">Skills</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
+        <a class="nav-cv-mobile" href="assets/Sebastian_Rojas_Ordonez_CV.pdf" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg><span data-i18n="cta.downloadCv">Download CV</span></a>
+      </nav>
+      <div class="nav-tools">
+        <button class="lang-toggle" id="lang-toggle" type="button" aria-label="Cambiar idioma a español">
+          <span class="lang-opt" data-opt="en" aria-hidden="true">EN</span><span class="lang-opt" data-opt="es" aria-hidden="true">ES</span>
+        </button>
+        <button class="icon-btn theme-toggle" id="theme-toggle" type="button" aria-label="Switch colour theme">
+          <svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+          <svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+        </button>
+        <a class="btn btn-primary btn-sm nav-cv" href="assets/Sebastian_Rojas_Ordonez_CV.pdf" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg><span data-i18n="nav.cv">CV</span></a>
+        <button class="icon-btn menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+          <svg class="icon icon-menu" aria-hidden="true"><use href="#i-menu"/></svg>
+          <svg class="icon icon-close" aria-hidden="true"><use href="#i-close"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
   <main id="main">
-    <section class="hero" id="home"><div class="wrap hero-grid"><div class="hero-copy"><div class="status"><span class="status-dot"></span>Research Engineer at IKERLAN · PhD at UPV/EHU</div><p class="hero-name">Sebastian Rojas-Ordoñez</p><h1>I make simulation <span class="accent">survive contact</span> with reality.</h1><p class="hero-lead">I build trustworthy robotic systems from <strong>FMI 3.0 models and digital twins</strong> to deterministic ROS 2 autonomy, edge AI and execution on physical robots and low-cost microcontrollers.</p><div class="hero-actions"><a class="btn btn-primary" href="#work">Explore flagship work <svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></a><a class="btn btn-secondary" href="assets/Sebastian_Rojas_Ordonez_CV.pdf" download>Download CV <svg viewBox="0 0 24 24"><path d="M12 3v12m0 0 5-5m-5 5-5-5M5 21h14"/></svg></a></div><div class="micro-proof"><span>5 first-author papers</span><span>2 master's degrees</span><span>4 languages</span><span>Open to R&amp;D collaboration</span></div></div><div class="portrait-stage reveal"><div class="orbit" aria-hidden="true"></div><div class="portrait-card" id="portrait-card"><img src="assets/profile-1200.jpg" alt="Sebastian Rojas-Ordoñez, research engineer and PhD researcher" width="1200" height="1800"><div class="portrait-caption"><strong>Research engineer. System builder.</strong><span>ARRASATE, EUSKADI · 2026</span></div></div><span class="float-chip chip-a">FMI 3.0</span><span class="float-chip chip-b">ROS 2</span><span class="float-chip chip-c">EDGE → REALITY</span></div></div></section>
-    <div class="proof-strip" aria-label="Core technical areas"><div class="proof-track" aria-hidden="true"><span class="proof-item">FMI 2.0 / 3.0</span><span class="proof-item">ROS 2</span><span class="proof-item">Modelica</span><span class="proof-item">Embedded C</span><span class="proof-item">Rust</span><span class="proof-item">OpenUSD</span><span class="proof-item">ONNX</span><span class="proof-item">MuJoCo</span><span class="proof-item">FMI 2.0 / 3.0</span><span class="proof-item">ROS 2</span><span class="proof-item">Modelica</span><span class="proof-item">Embedded C</span><span class="proof-item">Rust</span><span class="proof-item">OpenUSD</span><span class="proof-item">ONNX</span><span class="proof-item">MuJoCo</span></div></div>
-    <section id="work">
+    <!-- ============================== HERO ============================== -->
+    <section class="hero" id="top" aria-labelledby="hero-name">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="availability"><span class="pulse" aria-hidden="true"></span><span data-i18n="hero.status">Open to new opportunities · Robotics · Embedded AI · Sim-to-real</span></p>
+          <h1 class="hero-name" id="hero-name">Sebastian <span class="nowrap">Rojas-Ordoñez</span></h1>
+          <p class="hero-role" data-i18n="hero.role">Robotics Systems Engineer · PhD Researcher</p>
+          <p class="hero-tagline" data-i18n="hero.tagline">I make simulation <span class="grad">survive contact</span> with reality.</p>
+          <p class="hero-lead" data-i18n="hero.lead">I build trustworthy robotic systems end to end — from <strong>FMI 3.0 models and digital twins</strong> to deterministic ROS 2 autonomy, edge AI on NVIDIA Jetson and bit-exact execution on low-cost microcontrollers.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#work"><span data-i18n="hero.ctaWork">See selected work</span><svg class="icon icon-move-down" aria-hidden="true"><use href="#i-arrow-down"/></svg></a>
+            <a class="btn btn-ghost" href="assets/Sebastian_Rojas_Ordonez_CV.pdf" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg><span data-i18n="cta.downloadCv">Download CV</span></a>
+          </div>
+          <ul class="profile-pills" aria-label="Profiles" data-i18n-attr="aria-label:hero.profiles">
+            <li><a href="https://www.linkedin.com/in/sebastian-rojasordo%C3%B1ez/" target="_blank" rel="me noopener"><svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn</a></li>
+            <li><a href="https://github.com/SeRoMechatronic" target="_blank" rel="me noopener"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>GitHub</a></li>
+            <li><a href="https://scholar.google.com/citations?user=HSflBLwAAAAJ&amp;hl=en" target="_blank" rel="me noopener"><svg class="icon" aria-hidden="true"><use href="#i-scholar"/></svg>Scholar</a></li>
+            <li><a href="https://orcid.org/0009-0000-5142-1284" target="_blank" rel="me noopener"><svg class="icon" aria-hidden="true"><use href="#i-orcid"/></svg>ORCID</a></li>
+            <li><a href="mailto:sebastianrojas.sero@gmail.com"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg><span data-i18n="hero.email">Email</span></a></li>
+          </ul>
+        </div>
+
+        <div class="hero-visual">
+          <div class="portrait-stage">
+            <span class="orbit" aria-hidden="true"></span>
+            <figure class="portrait" id="portrait">
+              <picture>
+                <source type="image/webp" srcset="assets/img/profile-480.webp 480w, assets/img/profile-960.webp 960w" sizes="(max-width: 980px) 88vw, 440px">
+                <img src="assets/img/profile-960.jpg" width="960" height="1440" alt="Portrait of Sebastian Rojas-Ordoñez" data-i18n-attr="alt:hero.portraitAlt" fetchpriority="high" decoding="async">
+              </picture>
+              <figcaption>
+                <strong data-i18n="hero.captionTitle">Research engineer · System builder</strong>
+                <span><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg><span data-i18n="hero.captionPlace">Arrasate, Basque Country · Spain</span></span>
+              </figcaption>
+            </figure>
+            <span class="float-chip chip-a" aria-hidden="true">FMI 3.0</span>
+            <span class="float-chip chip-b" aria-hidden="true">ROS 2</span>
+            <span class="float-chip chip-c" aria-hidden="true">Edge AI</span>
+            <span class="float-chip chip-d" aria-hidden="true">sim → real</span>
+          </div>
+        </div>
+      </div>
+
       <div class="wrap">
-        <div class="section-head reveal"><div><div class="section-kicker">Selected systems · 01—03</div><h2>From model to metal.</h2></div><p>Three projects that show the full arc of my work: open models, deterministic execution, physical validation and measurable outcomes.</p></div>
-        <div class="case-list">
-          <article class="case reveal">
-            <div class="case-copy"><span class="case-index">01 / PORTABLE EXECUTION</span><h3>One FMI execution core. Four radically different targets.</h3><p>A transparent path from desktop simulation to resource-constrained hardware, using shared FMU-derived C logic and portable platform layers instead of rewriting the controller for every target.</p><div class="case-metrics"><div class="metric"><strong>80/80</strong><span>BIT-EXACT TESTS</span></div><div class="metric"><strong>8/8</strong><span>VALIDATION SCENARIOS</span></div><div class="metric"><strong>4</strong><span>COMPUTE TARGETS</span></div></div><div class="tags"><span class="tag">FMI 2.0 / 3.0</span><span class="tag">x64</span><span class="tag">ESP32-C6</span><span class="tag">STM32F411</span><span class="tag">RP2350</span></div></div>
-            <div class="case-visual" role="img" aria-label="Animated diagram showing an FMU pipeline from a host computer to three microcontrollers"><span class="viz-label">Unified execution topology</span><span class="viz-status">VALIDATED</span><div class="pipeline"><div class="pipe-node">MODEL<br>HOST x64</div><span class="pipe-line"></span><div class="pipe-node core">FMU<br>EXECUTION<br>CORE</div><span class="pipe-line"></span><div class="mcu-stack"><span class="mcu">ESP32-C6</span><span class="mcu">STM32F411</span><span class="mcu">RP2350</span></div></div></div>
-          </article>
-          <article class="case reveal">
-            <div class="case-copy"><span class="case-index">02 / EDGE INTELLIGENCE</span><h3>Language-guided navigation without a cloud dependency.</h3><p>An offline, fine-tuning-free pipeline places LLM knowledge extraction on Jetson-class hardware while a deterministic control path preserves safe, real-time robot behaviour.</p><div class="case-metrics"><div class="metric"><strong>50 Hz</strong><span>CONTROL LOOP</span></div><div class="metric"><strong>&lt;5 ms</strong><span>SAFE FALLBACK</span></div><div class="metric"><strong>−35%</strong><span>TRACKING ERROR</span></div></div><div class="tags"><span class="tag">NVIDIA Jetson</span><span class="tag">ONNX</span><span class="tag">LLMs</span><span class="tag">ROS 2</span></div></div>
-            <div class="case-visual" role="img" aria-label="Animated radar-style representation of autonomous robot navigation"><span class="viz-label">Offline navigation scene</span><span class="viz-status">NO CLOUD</span><div class="radar"></div><div class="path-line"></div><div class="robot-dot"></div><div class="thought">LLM → semantic cue<br>Controller → safe motion</div></div>
-          </article>
-          <article class="case reveal">
-            <div class="case-copy"><span class="case-index">03 / PHYSICAL → DIGITAL</span><h3>A robot that builds its own simulation-ready scene.</h3><p>A ROS 2 pipeline combines 2D/3D LiDAR and RGB-D data to generate a geometric-semantic OpenUSD scene from a real room, with explicit acquisition and discrepancy checks.</p><div class="case-metrics"><div class="metric"><strong>16/16</strong><span>ACQUISITION POINTS</span></div><div class="metric"><strong>2.77 cm</strong><span>FINAL DISCREPANCY</span></div><div class="metric"><strong>63%</strong><span>ERROR REDUCTION</span></div></div><div class="tags"><span class="tag">OpenUSD</span><span class="tag">ROS 2</span><span class="tag">LiDAR</span><span class="tag">RGB-D</span></div></div>
-            <div class="case-visual" role="img" aria-label="Animated point-cloud representation of a robot-generated digital scene"><span class="viz-label">Geometric-semantic reconstruction</span><span class="viz-status">OPENUSD</span><div class="scene"><div class="floor"></div><div class="scan-wall"></div><div class="points"></div><span class="scene-chip">7.54 → 2.77 cm</span></div></div>
-          </article>
-        </div>
+        <ul class="hero-stats">
+          <li><strong data-count="5">5</strong><span data-i18n="stats.papers">first-author, peer-reviewed publications</span></li>
+          <li><strong data-count="80">80/80</strong><span data-i18n="stats.bitexact">bit-exact host-to-MCU automated tests</span></li>
+          <li><strong data-count="50">50 Hz</strong><span data-i18n="stats.loop">deterministic control loop with an on-device LLM</span></li>
+          <li><strong data-count="4">4</strong><span data-i18n="stats.languages">languages · ES · EN · PT · DE</span></li>
+        </ul>
       </div>
     </section>
 
-    <section class="research" id="research">
+    <div class="marquee" role="region" aria-label="Core technologies" data-i18n-attr="aria-label:marquee.label">
+      <div class="marquee-track">
+        <ul class="marquee-list">
+          <li>FMI 2.0 / 3.0</li><li>ROS 2</li><li>Modelica</li><li>C / C++</li><li>Rust</li><li>Python</li><li>PyTorch</li><li>ONNX</li><li>NVIDIA Jetson</li><li>Isaac Sim</li><li>OpenUSD</li><li>MuJoCo</li><li>Gazebo</li><li>ESP32 · STM32 · RP2350</li><li>Linux</li><li>Docker</li>
+        </ul>
+        <ul class="marquee-list" aria-hidden="true">
+          <li>FMI 2.0 / 3.0</li><li>ROS 2</li><li>Modelica</li><li>C / C++</li><li>Rust</li><li>Python</li><li>PyTorch</li><li>ONNX</li><li>NVIDIA Jetson</li><li>Isaac Sim</li><li>OpenUSD</li><li>MuJoCo</li><li>Gazebo</li><li>ESP32 · STM32 · RP2350</li><li>Linux</li><li>Docker</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ============================== 01 ABOUT ============================== -->
+    <section class="section about" id="about" aria-labelledby="about-title">
       <div class="wrap">
-        <div class="section-head reveal"><div><div class="section-kicker">Peer-reviewed research</div><h2>Evidence, not just prototypes.</h2></div><p>Five first-author contributions on interoperability, embedded execution, edge intelligence, robotics and intelligent control.</p></div>
-        <div class="research-top">
-          <div class="research-stat reveal"><strong>5</strong><p>peer-reviewed publications · four journal articles and one international conference paper.</p></div>
-          <article class="paper-feature reveal"><span class="paper-year">2026 · JOURNAL ARTICLE</span><h3>An FMI-centric open-source and interoperable framework for AI-driven robotic systems</h3><div class="journal">Mathematical and Computer Modelling of Dynamical Systems</div><p>Open methodology integrating OpenModelica FMUs, ONNX components, ROS 2 and Gazebo with explicit orchestration across simulation and physical deployment.</p><a class="doi" href="https://doi.org/10.1080/13873954.2026.2707718" target="_blank" rel="noopener">DOI 10.1080/13873954.2026.2707718 ↗</a></article>
+        <header class="section-head reveal">
+          <div>
+            <p class="kicker"><span class="kicker-num">01</span><span data-i18n="about.kicker">About</span></p>
+            <h2 id="about-title" data-i18n="about.title">Research that ships to hardware.</h2>
+          </div>
+        </header>
+
+        <div class="about-grid">
+          <div class="about-copy reveal">
+            <p class="lede" data-i18n="about.p1">I’m a robotics systems engineer and PhD researcher at <strong>IKERLAN</strong> and the <strong>University of the Basque Country (UPV/EHU)</strong>, working where models meet machines: autonomous agents, embedded AI, sim-to-real validation and model-based engineering.</p>
+            <p data-i18n="about.p2">I take systems from architecture and simulation to physical robots and constrained hardware — and then I measure them. Deterministic fallbacks, cross-platform validation and reproducible pipelines are not extras in my work; they are the method.</p>
+            <p data-i18n="about.p3">I’m looking for roles where research has to work on real hardware: <strong>robotics software and systems engineering, embedded and edge AI, simulation and digital twins, and sim-to-real validation</strong>.</p>
+          </div>
+
+          <aside class="facts card reveal" aria-labelledby="facts-title">
+            <h3 id="facts-title" data-i18n="facts.title">At a glance</h3>
+            <dl>
+              <div><dt data-i18n="facts.nowLabel">Now</dt><dd data-i18n="facts.now">Research Engineer at IKERLAN · PhD researcher at UPV/EHU</dd></div>
+              <div><dt data-i18n="facts.focusLabel">Focus</dt><dd data-i18n="facts.focus">Robotics systems · Edge AI · Sim-to-real · FMI &amp; Modelica</dd></div>
+              <div><dt data-i18n="facts.baseLabel">Based in</dt><dd data-i18n="facts.base">Arrasate, Basque Country, Spain</dd></div>
+              <div><dt data-i18n="facts.openLabel">Open to</dt><dd data-i18n="facts.open">Engineering and R&amp;D roles · relocation</dd></div>
+              <div><dt data-i18n="facts.langLabel">Languages</dt><dd data-i18n="facts.lang">Spanish (native) · English (C1) · Portuguese (B1) · German (A1–A2)</dd></div>
+              <div><dt data-i18n="facts.eduLabel">Education</dt><dd data-i18n="facts.edu">PhD in progress · Erasmus Mundus MSc in Mechatronics · MSc in AI</dd></div>
+            </dl>
+            <a class="btn btn-primary btn-block" href="assets/Sebastian_Rojas_Ordonez_CV.pdf" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg><span data-i18n="cta.downloadCv">Download CV</span></a>
+          </aside>
         </div>
-        <div class="paper-grid">
-          <article class="paper reveal"><span class="paper-year">2026 <b>JOURNAL</b></span><h3>Bridging the Embedded Execution Gap</h3><div class="journal">Archives of Computational Methods in Engineering</div><p>A review of FMI for actuator-centric execution workflows in industrial embedded systems.</p><a class="doi" href="https://doi.org/10.1007/s11831-026-10715-3" target="_blank" rel="noopener">VIEW DOI ↗</a></article>
-          <article class="paper reveal"><span class="paper-year">2026 <b>JOURNAL</b></span><h3>Plug-and-Play LLM Knowledge Extraction for Robot Navigation</h3><div class="journal">Machine Learning and Knowledge Extraction</div><p>Fine-tuning-free, offline LLM inference on Jetson-class hardware for autonomous navigation.</p><a class="doi" href="https://doi.org/10.3390/make8020049" target="_blank" rel="noopener">VIEW DOI ↗</a></article>
-          <article class="paper reveal"><span class="paper-year">2025 <b>JOURNAL</b></span><h3>Natural-Language Relay Control for a SISO Thermal Plant</h3><div class="journal">Applied Sciences</div><p>LLM-assisted relay control with natural-language setpoints and explainable decisions.</p><a class="doi" href="https://doi.org/10.3390/app152412986" target="_blank" rel="noopener">VIEW DOI ↗</a></article>
-          <article class="paper reveal"><span class="paper-year">2025 <b>CONFERENCE</b></span><h3>Integration of Physical and AI Models Using Open Standards</h3><div class="journal">16th International Modelica &amp; FMI Conference</div><p>Vendor-neutral co-simulation of physical models and AI inference components.</p><a class="doi" href="https://doi.org/10.3384/ECP218479" target="_blank" rel="noopener">VIEW DOI ↗</a></article>
-          <article class="paper reveal"><span class="paper-year">IDENTITY <b>VERIFIED</b></span><h3>Full publication record</h3><div class="journal">ORCID · Google Scholar · Web of Science</div><p>Persistent researcher identity and current academic profiles.</p><a class="doi" href="https://orcid.org/0009-0000-5142-1284" target="_blank" rel="noopener">OPEN ORCID ↗</a></article>
-          <article class="paper reveal"><span class="paper-year">OPEN <b>RESEARCH</b></span><h3>Models should travel farther than the tool that created them.</h3><div class="journal">Research principle</div><p>My work centres on reproducibility, explicit timing and deployment paths that can be inspected.</p><a class="doi" href="https://scholar.google.com/citations?user=HSflBLwAAAAJ&amp;hl=en" target="_blank" rel="noopener">GOOGLE SCHOLAR ↗</a></article>
-        </div>
+
+        <ul class="pillars">
+          <li class="pillar card spot reveal">
+            <span class="pillar-icon"><svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg></span>
+            <h3 data-i18n="pillar1.title">End-to-end ownership</h3>
+            <p data-i18n="pillar1.text">From Modelica/FMI models and ROS 2 architecture to firmware, drivers and deployment on robots and microcontrollers.</p>
+          </li>
+          <li class="pillar card spot reveal">
+            <span class="pillar-icon"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg></span>
+            <h3 data-i18n="pillar2.title">Safety by design</h3>
+            <p data-i18n="pillar2.text">AI proposes; deterministic logic decides. Bounded LLM suggestions sit behind a 50 Hz state machine with a sub-5 ms fallback.</p>
+          </li>
+          <li class="pillar card spot reveal">
+            <span class="pillar-icon"><svg class="icon" aria-hidden="true"><use href="#i-chart"/></svg></span>
+            <h3 data-i18n="pillar3.title">Evidence over demos</h3>
+            <p data-i18n="pillar3.text">Automated tests, bit-exact comparisons and published metrics — including the limits of each result.</p>
+          </li>
+          <li class="pillar card spot reveal">
+            <span class="pillar-icon"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg></span>
+            <h3 data-i18n="pillar4.title">Open standards</h3>
+            <p data-i18n="pillar4.text">FMI, OpenUSD, ROS 2 and ONNX keep models portable across tools, vendors and hardware.</p>
+          </li>
+        </ul>
       </div>
     </section>
 
-    <section id="engineering">
+    <!-- ============================== 02 WORK ============================== -->
+    <section class="section work" id="work" aria-labelledby="work-title">
       <div class="wrap">
-        <div class="section-head reveal"><div><div class="section-kicker">Funded research &amp; engineering archive</div><h2>Research with industrial context.</h2></div><p>Current participation is presented exactly as recorded: role, programme code and dates—without overstating funding provenance.</p></div>
-        <div class="programs">
-          <article class="program reveal"><span class="program-code">3GV.ELK.0599.2024</span><span class="program-state">COMPLETED</span><h3>ELKARTEK AUTOTRUST 2024</h3><div class="program-row"><span>Role</span><strong>Investigator</strong></div><div class="program-row"><span>Period</span><strong>01 Jan — 31 Dec 2024</strong></div><div class="program-row"><span>Type</span><strong>Research</strong></div></article>
-          <article class="program reveal"><span class="program-code">3GV.ELK.0654.2025</span><span class="program-state">COMPLETED</span><h3>ELKARTEK SENDOA 2025</h3><div class="program-row"><span>Role</span><strong>Investigator</strong></div><div class="program-row"><span>Period</span><strong>01 Mar — 31 Dec 2025</strong></div><div class="program-row"><span>Type</span><strong>Research</strong></div></article>
-          <article class="program reveal"><span class="program-code">3GV.ELK.0654.2026</span><span class="program-state">ACTIVE</span><h3>ELKARTEK SENDOA 2026</h3><div class="program-row"><span>Role</span><strong>Investigator</strong></div><div class="program-row"><span>Period</span><strong>01 Jan — 31 Dec 2026</strong></div><div class="program-row"><span>Type</span><strong>Research</strong></div></article>
-        </div>
-        <div class="archive-head reveal"><div><div class="section-kicker">More systems</div><h3>Engineering archive</h3></div><p>Open a project to see its engineering focus.</p></div>
-        <div class="archive">
-          <details class="archive-item reveal"><summary>openSeRo MBD &amp; Rust Co-Simulation</summary><div class="archive-body">Complete FMI 3.0 import/export and combined Model Exchange, Co-Simulation and Scheduled Execution workflows, MuJoCo/XIL integration and a Rust orchestrator.<div class="tags"><span class="tag">248+ blocks</span><span class="tag">257+ tests</span><span class="tag">7 Pico 2W demos</span></div></div></details>
-          <details class="archive-item reveal"><summary>IKSAFECOLAB Collaborative Mobile Robot</summary><div class="archive-body">First autonomous version of an industrial canteen demonstrator combining a mobile base, collaborative arm, safe HRI and autonomous dish collection.<div class="tags"><span class="tag">ROS 2</span><span class="tag">Mobile manipulation</span><span class="tag">Safety</span></div></div></details>
-          <details class="archive-item reveal"><summary>Digital Twin Validation Platform</summary><div class="archive-body">FMI/FMU co-simulation environment for repeatable testing of industrial cyber-physical systems across simulation and physical validation.<div class="tags"><span class="tag">FMI</span><span class="tag">Co-simulation</span><span class="tag">ELKARTEK</span></div></div></details>
-          <details class="archive-item reveal"><summary>5-DoF Bioinspired Prosthetic Hand</summary><div class="archive-body">Low-cost bioinspired simulation and mechanical concept supporting assistive-technology research for children with disabilities.<div class="tags"><span class="tag">Biomechanics</span><span class="tag">Assistive tech</span><span class="tag">Social impact</span></div></div></details>
-          <details class="archive-item reveal"><summary>3-DoF Tic-Tac-Toe Robot Arm</summary><div class="archive-body">CNC-machined aluminium and 3D-printed robot arm, recognised as the faculty's best programme project.<div class="tags"><span class="tag">Mechanism design</span><span class="tag">Fabrication</span><span class="tag">Award</span></div></div></details>
-          <details class="archive-item reveal"><summary>Three-Finger Additive Gripper</summary><div class="archive-body">Crank-rod mechanism with servo actuation, designed and validated as a complete 3D-printed mechatronic end-effector.<div class="tags"><span class="tag">SolidWorks</span><span class="tag">3D printing</span><span class="tag">Actuation</span></div></div></details>
-          <details class="archive-item reveal"><summary>Biomechanical Bicycle Simulation</summary><div class="archive-body">MATLAB five-bar model exploring saddle and crank parameters to reduce peak joint torque and improve power transfer.<div class="tags"><span class="tag">MATLAB</span><span class="tag">Dynamics</span><span class="tag">Ergonomics</span></div></div></details>
-          <details class="archive-item reveal"><summary>Embedded PID Control Board</summary><div class="archive-body">Custom PCB and C firmware providing configurable position and speed control for a Feedback training apparatus.<div class="tags"><span class="tag">C</span><span class="tag">PID</span><span class="tag">PCB</span></div></div></details>
+        <header class="section-head has-intro reveal">
+          <div>
+            <p class="kicker"><span class="kicker-num">02</span><span data-i18n="work.kicker">Selected work</span></p>
+            <h2 id="work-title" data-i18n="work.title">From model to metal.</h2>
+          </div>
+          <p data-i18n="work.intro">Three flagship systems that show the full arc of my work: open models, deterministic execution, physical validation and measured outcomes.</p>
+        </header>
+
+        <div class="cases">
+          <!-- Case 1 -->
+          <article class="case reveal" aria-labelledby="case1-title">
+            <div class="case-copy">
+              <p class="case-meta"><span class="case-index">01</span><span data-i18n="case1.area">Portable execution</span><span class="case-context" data-i18n="case1.context">Visiting researcher · UPM GreenLSI · 2026</span></p>
+              <h3 id="case1-title" data-i18n="case1.title">One FMI execution core. Four very different targets.</h3>
+              <p data-i18n="case1.summary">I built <strong>fmi-embedded</strong>, a unified framework that runs the same FMI 2.0/3.0-derived C model on an x64 host and on three low-cost microcontroller families — through a shared core and a thin, portable platform layer instead of rewriting the controller for every target.</p>
+              <ul class="case-points">
+                <li data-i18n="case1.p1">Portable HAL for ADC, GPIO, PWM and encoders, with GCC/Ninja toolchains and bare-metal POSIX stubs.</li>
+                <li data-i18n="case1.p2">Seven-stage control benchmark — from basic I/O to cascaded position control — with automated numerical-equivalence checks.</li>
+                <li data-i18n="case1.p3">Framework documentation contributed to GreenLSI’s open-source codebase.</li>
+              </ul>
+              <div class="metrics">
+                <div class="metric"><strong>80/80</strong><span data-i18n="case1.m1">bit-exact tests</span></div>
+                <div class="metric"><strong>8/8</strong><span data-i18n="case1.m2">validation scenarios</span></div>
+                <div class="metric"><strong>3</strong><span data-i18n="case1.m3">MCU families on real hardware</span></div>
+              </div>
+              <ul class="tags"><li>FMI 2.0 / 3.0</li><li>C</li><li>x64</li><li>ESP32-C6</li><li>STM32F411</li><li>RP2350</li></ul>
+              <div class="case-links">
+                <a class="link-pill" href="papers/2026-acme-bridging-the-embedded-execution-gap.pdf" target="_blank" rel="noopener" data-viewer data-title="Bridging the Embedded Execution Gap (ACME, 2026)"><svg class="icon" aria-hidden="true"><use href="#i-file"/></svg><span data-i18n="case1.link">Read the related FMI review (ACME 2026)</span></a>
+              </div>
+            </div>
+            <div class="case-visual viz-pipeline" role="img" aria-label="Diagram: one FMU execution core running on an x64 host and on ESP32-C6, STM32F411 and RP2350 microcontrollers with bit-exact results" data-i18n-attr="aria-label:case1.vizAria">
+              <span class="viz-label" data-i18n="case1.vizLabel">Unified execution topology</span>
+              <span class="viz-badge" data-i18n="case1.vizBadge">Validated</span>
+              <div class="pipe">
+                <div class="pipe-node"><b data-i18n="case1.vizModel">Model</b><small>Modelica · FMI</small></div>
+                <span class="pipe-wire"></span>
+                <div class="pipe-node pipe-core"><b data-i18n="case1.vizCore">FMU core</b><small data-i18n="case1.vizCoreSub">shared C</small></div>
+                <span class="pipe-wire"></span>
+                <ul class="pipe-targets">
+                  <li><b>x64</b><span data-i18n="case1.vizRef">reference</span></li>
+                  <li><b>ESP32-C6</b><span data-i18n="case1.vizExact">✓ bit-exact</span></li>
+                  <li><b>STM32F411</b><span data-i18n="case1.vizExact">✓ bit-exact</span></li>
+                  <li><b>RP2350</b><span data-i18n="case1.vizExact">✓ bit-exact</span></li>
+                </ul>
+              </div>
+              <p class="viz-foot"><span data-i18n="case1.vizFoot1">80/80 tests</span><span data-i18n="case1.vizFoot2">8/8 scenarios</span><span>Δ = 0</span></p>
+            </div>
+          </article>
+
+          <!-- Case 2 -->
+          <article class="case reveal" aria-labelledby="case2-title">
+            <div class="case-copy">
+              <p class="case-meta"><span class="case-index">02</span><span data-i18n="case2.area">Edge intelligence</span><span class="case-context">IKERLAN · UPV/EHU · MAKE 2026</span></p>
+              <h3 id="case2-title" data-i18n="case2.title">The LLM suggests. A deterministic controller decides.</h3>
+              <p data-i18n="case2.summary">A ROS 2 agentic navigation framework in which an asynchronous, fine-tuning-free LLM on a <strong>Jetson AGX Orin</strong> proposes bounded velocity refinements while a 50 Hz finite-state machine keeps control authority — validated in Gazebo and on a TurtleBot3 with a RealSense D435i, with no cloud dependency.</p>
+              <ul class="case-points">
+                <li data-i18n="case2.p1">Three ROS 2 nodes — FSM, LLM and validator/fusion — enforcing kinematic limits and a deterministic fallback.</li>
+                <li data-i18n="case2.p2">Profiled and benchmarked the on-device stack without increasing control-loop latency.</li>
+                <li data-i18n="case2.p3">Final position error cut from 0.246 m to 0.159 m; trajectory efficiency raised from 0.821 to 0.901.</li>
+              </ul>
+              <div class="metrics">
+                <div class="metric"><strong>50 Hz</strong><span data-i18n="case2.m1">control loop</span></div>
+                <div class="metric"><strong>&lt;5 ms</strong><span data-i18n="case2.m2">safe fallback</span></div>
+                <div class="metric"><strong>−35%</strong><span data-i18n="case2.m3">final position error</span></div>
+              </div>
+              <ul class="tags"><li>ROS 2</li><li>Jetson AGX Orin</li><li>LLM</li><li>TurtleBot3</li><li>RealSense D435i</li><li>Gazebo</li></ul>
+              <div class="case-links">
+                <a class="link-pill" href="https://doi.org/10.3390/make8020049" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-file"/></svg><span data-i18n="case2.link1">Paper (MAKE 2026)</span><svg class="icon icon-ext" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a>
+                <a class="link-pill" href="https://github.com/SeRoMechatronic/Plug-and-Play-LLM-Augmentation-for-FSM-Navigation-ROS-2" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg><span data-i18n="case2.link2">Code &amp; data</span><svg class="icon icon-ext" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a>
+              </div>
+            </div>
+            <div class="case-visual viz-radar" role="img" aria-label="Diagram: a robot navigating while an asynchronous LLM, a validator and a 50 Hz state machine share the decision, with the state machine keeping authority" data-i18n-attr="aria-label:case2.vizAria">
+              <span class="viz-label" data-i18n="case2.vizLabel">On-device navigation · offline</span>
+              <span class="viz-badge" data-i18n="case2.vizBadge">No cloud</span>
+              <div class="radar"><span class="radar-sweep"></span></div>
+              <div class="nav-stage">
+                <svg class="nav-route" viewBox="0 0 320 240"><path d="M 30 200 C 90 190, 110 120, 170 112 S 255 66, 292 40"/></svg>
+                <span class="robot"></span>
+              </div>
+              <ul class="node-stack">
+                <li><b>LLM</b><span data-i18n="case2.vizLlm">async · bounded suggestions</span></li>
+                <li><b data-i18n="case2.vizValidator">Validator</b><span data-i18n="case2.vizValidatorSub">kinematic limits</span></li>
+                <li class="is-core"><b>FSM</b><span data-i18n="case2.vizFsm">50 Hz · control authority</span></li>
+              </ul>
+              <p class="viz-foot"><span data-i18n="case2.vizFoot0">fallback &lt; 5 ms</span><span data-i18n="case2.vizFoot">0.246 → 0.159 m</span></p>
+            </div>
+          </article>
+
+          <!-- Case 3 -->
+          <article class="case reveal" aria-labelledby="case3-title">
+            <div class="case-copy">
+              <p class="case-meta"><span class="case-index">03</span><span data-i18n="case3.area">Physical → digital</span><span class="case-context">ROS 2 · OpenUSD · Isaac Sim</span></p>
+              <h3 id="case3-title" data-i18n="case3.title">A robot that builds its own simulation-ready scene.</h3>
+              <p data-i18n="case3.summary">A ROS 2 pipeline acquires 2D/3D LiDAR and RGB-D data, checks capture quality, self-calibrates its sensors, reconstructs geometry, identifies objects and exports a geometric-semantic <strong>OpenUSD</strong> scene ready for Isaac Sim.</p>
+              <ul class="case-points">
+                <li data-i18n="case3.p1">Explicit acquisition-quality and cross-sensor discrepancy checks at every stage.</li>
+                <li data-i18n="case3.p2">Cross-sensor discrepancy reduced from 7.54 cm to 2.77 cm.</li>
+                <li data-i18n="case3.p3">Validated in one physically tested room; broader generalisation is future work.</li>
+              </ul>
+              <div class="metrics">
+                <div class="metric"><strong>16/16</strong><span data-i18n="case3.m1">acquisition points</span></div>
+                <div class="metric"><strong data-i18n="case3.m2v">2.77 cm</strong><span data-i18n="case3.m2">final discrepancy</span></div>
+                <div class="metric"><strong>−63%</strong><span data-i18n="case3.m3">cross-sensor error</span></div>
+              </div>
+              <ul class="tags"><li>ROS 2</li><li>OpenUSD</li><li>Isaac Sim</li><li>LiDAR 2D/3D</li><li>RGB-D</li></ul>
+              <div class="case-links">
+                <a class="link-pill" href="https://github.com/SeRoMechatronic/sero_ovfmi" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg><span data-i18n="case3.link">Related demo: FMI 3.0 × OpenUSD</span><svg class="icon icon-ext" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a>
+              </div>
+            </div>
+            <div class="case-visual viz-scene" role="img" aria-label="Diagram: a point-cloud scan of a room being turned into a geometric-semantic OpenUSD scene" data-i18n-attr="aria-label:case3.vizAria">
+              <span class="viz-label" data-i18n="case3.vizLabel">Geometric-semantic reconstruction</span>
+              <span class="viz-badge">OpenUSD</span>
+              <div class="scene">
+                <div class="scene-floor"></div>
+                <div class="scene-wall"></div>
+                <div class="scene-box box-a"></div>
+                <div class="scene-box box-b"></div>
+                <div class="scene-points"></div>
+                <div class="scene-scan"></div>
+              </div>
+              <p class="viz-foot"><span data-i18n="case3.vizFoot1">16/16 points</span><span data-i18n="case3.vizFoot2">7.54 → 2.77 cm</span></p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section id="story">
-      <div class="wrap story-grid">
-        <div class="story-intro reveal"><div class="section-kicker">Background</div><h2>Built across disciplines—and countries.</h2><p>Mechatronics gave me the physical intuition. Artificial intelligence expanded the system boundary. Research taught me to make every result reproducible.</p><div class="story-facts"><div class="fact"><strong>4</strong><span>COUNTRIES STUDIED IN</span></div><div class="fact"><strong>2</strong><span>MASTER'S DEGREES</span></div><div class="fact"><strong>C1</strong><span>ENGLISH</span></div><div class="fact"><strong>2024—</strong><span>PHD RESEARCH</span></div></div></div>
-        <div class="timeline">
-          <article class="time-item reveal"><div class="time-date">AUG 2024 — PRESENT · ARRASATE</div><h3>Research Engineer — Embedded Electronic Systems</h3><div class="time-org">IKERLAN S.COOP</div><p>Robotics and cyber-physical workflows spanning FMI interoperability, distributed co-simulation, edge computing and physical validation.</p><div class="tags"><span class="tag">FMI / FMU</span><span class="tag">ROS 2</span><span class="tag">AUTOTRUST · SENDOA</span></div></article>
-          <article class="time-item reveal"><div class="time-date">MAY — JUL 2026 · MADRID</div><h3>Visiting PhD Researcher — GreenLSI</h3><div class="time-org">Universidad Politécnica de Madrid</div><p>Portable FMI runtimes, Rust orchestration and bit-exact validation across Linux, ESP32, STM32 and RP2350 targets.</p></article>
-          <article class="time-item reveal"><div class="time-date">SEP 2024 — PRESENT · EUSKADI</div><h3>PhD in Control, Automation &amp; Robotics</h3><div class="time-org">University of the Basque Country · UPV/EHU</div><p>Research on cognitive digital twins, advanced control and trustworthy edge intelligence for autonomous systems.</p></article>
-          <article class="time-item reveal"><div class="time-date">SEP 2022 — SEP 2024 · SPAIN · EGYPT · GERMANY</div><h3>Erasmus Mundus M.Sc. in Mechatronics</h3><div class="time-org">EU4M Consortium</div><p>Erasmus Mundus Scholarship recipient. Joint study at Universidad de Oviedo, Nile University and Hochschule Karlsruhe.</p></article>
-          <article class="time-item reveal"><div class="time-date">2020 — 2022</div><h3>M.Sc. in Artificial Intelligence</h3><div class="time-org">Universidad Internacional de La Rioja</div><p>Deep learning, computer vision, NLP and robotics; thesis on CNN architectures for diabetic-retinopathy classification.</p></article>
-          <article class="time-item reveal"><div class="time-date">2014 — 2019 · COLOMBIA</div><h3>B.Sc. in Mechatronic Engineering</h3><div class="time-org">Unicomfacauca · Outstanding Graduate</div><p>Mechanical design, electronics, control and industrial automation, with a thesis on multispectral crop analysis.</p></article>
+    <!-- ============================== 03 EXPERIENCE ============================== -->
+    <section class="section experience" id="experience" aria-labelledby="experience-title">
+      <div class="wrap">
+        <header class="section-head has-intro reveal">
+          <div>
+            <p class="kicker"><span class="kicker-num">03</span><span data-i18n="exp.kicker">Experience</span></p>
+            <h2 id="experience-title" data-i18n="exp.title">Industrial R&amp;D with academic depth.</h2>
+          </div>
+          <p data-i18n="exp.intro">Applied R&amp;D at IKERLAN, one of Spain’s leading technology research centres, combined with a PhD at UPV/EHU and a research stay at UPM.</p>
+        </header>
+
+        <div class="exp-layout">
+          <ol class="timeline">
+            <li class="job reveal">
+              <p class="job-date" data-i18n="job1.date">Aug 2024 — Present · Arrasate, Spain</p>
+              <h3 data-i18n="job1.role">Research Engineer &amp; PhD Researcher — Embedded Systems</h3>
+              <p class="job-org" data-i18n="job1.org">IKERLAN Technology Research Centre · UPV/EHU</p>
+              <ul class="job-points">
+                <li data-i18n="job1.p1">Develop robotics and cyber-physical workflows that combine distributed co-simulation, FMI/FMU interoperability, edge computing and physical deployment for industrial validation.</li>
+                <li data-i18n="job1.p2">Built a ROS 2 agentic navigation framework in which an on-device LLM proposes velocity refinements while a deterministic FSM keeps control authority (TurtleBot3, RealSense D435i, Jetson AGX Orin).</li>
+                <li data-i18n="job1.p3">Kept a deterministic 50 Hz control loop with a sub-5 ms fallback while cutting final position error from 0.246 m to 0.159 m.</li>
+                <li data-i18n="job1.p4">Investigator in the Basque ELKARTEK research programmes AUTOTRUST (2024) and SENDOA (2025–2026).</li>
+              </ul>
+              <ul class="tags"><li>FMI / FMU</li><li>ROS 2</li><li data-i18n="tag.cosim">Co-simulation</li><li>Edge AI</li><li>Modelica</li><li>MATLAB/Simulink</li></ul>
+            </li>
+            <li class="job reveal">
+              <p class="job-date" data-i18n="job2.date">May — Jul 2026 · Madrid, Spain</p>
+              <h3 data-i18n="job2.role">Visiting PhD Researcher — GreenLSI Group</h3>
+              <p class="job-org">Universidad Politécnica de Madrid (UPM)</p>
+              <ul class="job-points">
+                <li data-i18n="job2.p1">Developed the fmi-embedded framework: one FMI-derived C model running on an x64 host, ESP32-C6, STM32F411 and RP2350/Pico 2W.</li>
+                <li data-i18n="job2.p2">Demonstrated bit-exact host-to-MCU reproducibility in 80/80 automated tests and 8/8 validation scenarios.</li>
+                <li data-i18n="job2.p3">Extended openSeRo MBD with FMI 3.0 import/export and Scheduled Execution, MuJoCo/XIL integration and 257+ automated tests; built an FMI 3.0 co-simulation orchestrator in Rust.</li>
+              </ul>
+              <ul class="tags"><li>C</li><li>Rust</li><li>FMI 3.0</li><li>HAL</li><li>GCC/Ninja</li><li>MuJoCo</li></ul>
+            </li>
+            <li class="job reveal">
+              <p class="job-date" data-i18n="job3.date">Feb — Jul 2024 · Arrasate, Spain</p>
+              <h3 data-i18n="job3.role">Robotics Research Intern — IKSAFECOLAB</h3>
+              <p class="job-org" data-i18n="job3.org">IKERLAN Technology Research Centre</p>
+              <ul class="job-points">
+                <li data-i18n="job3.p1">Contributed to the first autonomous version of a mobile-manipulator demonstrator for canteen logistics, integrating a mobile base and a robotic arm.</li>
+                <li data-i18n="job3.p2">Defined an architecture that can be extended to future human–robot collaboration.</li>
+              </ul>
+              <ul class="tags"><li>ROS 2</li><li data-i18n="tag.mobileManip">Mobile manipulation</li><li>HRI</li></ul>
+            </li>
+          </ol>
+
+          <aside class="exp-side">
+            <div class="card side-card reveal">
+              <h3 class="side-title"><svg class="icon" aria-hidden="true"><use href="#i-flask"/></svg><span data-i18n="prog.title">Funded research programmes</span></h3>
+              <p class="side-note" data-i18n="prog.note">ELKARTEK is the Basque Government’s programme for collaborative research. I take part as investigator at IKERLAN.</p>
+              <ul class="programmes">
+                <li class="programme">
+                  <div class="programme-top"><span class="programme-code">3GV.ELK.0654.2026</span><span class="status status-active" data-i18n="prog.active">Active</span></div>
+                  <p class="programme-name">ELKARTEK SENDOA <span>2026</span></p>
+                  <p class="programme-meta"><span data-i18n="prog.role">Investigator</span> · <span data-i18n="prog.p2026">Jan – Dec 2026</span></p>
+                </li>
+                <li class="programme">
+                  <div class="programme-top"><span class="programme-code">3GV.ELK.0654.2025</span><span class="status" data-i18n="prog.done">Completed</span></div>
+                  <p class="programme-name">ELKARTEK SENDOA <span>2025</span></p>
+                  <p class="programme-meta"><span data-i18n="prog.role">Investigator</span> · <span data-i18n="prog.p2025">Mar – Dec 2025</span></p>
+                </li>
+                <li class="programme">
+                  <div class="programme-top"><span class="programme-code">3GV.ELK.0599.2024</span><span class="status" data-i18n="prog.done">Completed</span></div>
+                  <p class="programme-name">ELKARTEK AUTOTRUST <span>2024</span></p>
+                  <p class="programme-meta"><span data-i18n="prog.role">Investigator</span> · <span data-i18n="prog.p2024">Jan – Dec 2024</span></p>
+                </li>
+              </ul>
+            </div>
+            <div class="card side-card reveal">
+              <h3 class="side-title"><svg class="icon" aria-hidden="true"><use href="#i-briefcase"/></svg><span data-i18n="earlier.title">Earlier experience</span></h3>
+              <ul class="earlier">
+                <li><span class="earlier-date">2021 – 2022</span><strong data-i18n="earlier.r1">Instructor &amp; Robotics Team Director</strong><span>PIA Salesian Society</span></li>
+                <li><span class="earlier-date">2017 – 2018</span><strong data-i18n="earlier.r2">Research Engineer — Assistive Technology</strong><span data-i18n="earlier.o2">Teletón Children’s Rehabilitation Centre · Tamaulipas, Mexico</span></li>
+              </ul>
+            </div>
+          </aside>
         </div>
       </div>
     </section>
 
-    <div class="toolbelt" aria-label="Selected toolchain"><div class="wrap tool-grid"><div class="tool"><img src="assets/logos/ros2.svg" alt=""><span>ROS 2</span></div><div class="tool"><img src="assets/logos/nvidia.svg" alt=""><span>NVIDIA</span></div><div class="tool"><img src="assets/logos/onnx.svg" alt=""><span>ONNX</span></div><div class="tool"><img src="assets/logos/python.svg" alt=""><span>PYTHON</span></div><div class="tool"><img src="assets/logos/cpp.svg" alt=""><span>C / C++</span></div><div class="tool"><div class="tool-abbr">FMI</div><span>FMI 3.0</span></div><div class="tool"><div class="tool-abbr">Rs</div><span>RUST</span></div><div class="tool"><div class="tool-abbr">USD</div><span>OPENUSD</span></div></div></div>
+    <!-- ============================== 04 RESEARCH ============================== -->
+    <section class="section research" id="research" aria-labelledby="research-title">
+      <div class="wrap">
+        <header class="section-head has-intro reveal">
+          <div>
+            <p class="kicker"><span class="kicker-num">04</span><span data-i18n="research.kicker">Research</span></p>
+            <h2 id="research-title" data-i18n="research.title">Evidence, not just prototypes.</h2>
+          </div>
+          <p data-i18n="research.intro">Five first-author, peer-reviewed publications — four journal articles and one international conference paper — on interoperability, embedded execution, edge intelligence and language-guided control.</p>
+        </header>
 
-    <section class="contact" id="contact"><div class="wrap"><div class="contact-card reveal"><div class="section-kicker">The next system</div><h2>Have a hard problem between simulation and reality?</h2><p>I am open to research collaborations, industrial R&amp;D partnerships and engineering roles in robotics, digital twins, open interoperability and embedded AI.</p><div class="contact-actions"><a class="btn btn-primary" href="mailto:sebastianrojas.sero@gmail.com">Start a conversation ↗</a><button class="btn btn-secondary" type="button" id="copy-email">Copy email</button><a class="btn btn-secondary" href="assets/Sebastian_Rojas_Ordonez_CV.pdf" target="_blank">View CV</a></div><div class="contact-meta"><span>sebastianrojas.sero@gmail.com</span><span>Arrasate, Euskadi, Spain</span><span>ES · EN · PT · DE</span></div></div></div></section>
+        <div class="research-overview">
+          <div class="big-stat card reveal">
+            <strong>5</strong>
+            <span data-i18n="research.stat">first-author, peer-reviewed publications (2025–2026), all open access</span>
+          </div>
+          <div class="card overview-card reveal">
+            <p class="side-label" data-i18n="research.interests">Research interests</p>
+            <ul class="tags tags-lg" data-i18n="research.interestList"><li>Autonomous robotics</li><li>Embedded &amp; edge AI</li><li>Digital twins</li><li>Co-simulation</li><li>Open interoperability</li><li>Model-based engineering</li><li>LLM-augmented control</li></ul>
+          </div>
+          <div class="card overview-card reveal">
+            <p class="side-label" data-i18n="research.profiles">Researcher profiles</p>
+            <ul class="profile-list">
+              <li><a href="https://orcid.org/0009-0000-5142-1284" target="_blank" rel="me noopener"><svg class="icon" aria-hidden="true"><use href="#i-orcid"/></svg><span><b>ORCID</b><small>0009-0000-5142-1284</small></span><svg class="icon icon-ext" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a></li>
+              <li><a href="https://scholar.google.com/citations?user=HSflBLwAAAAJ&amp;hl=en" target="_blank" rel="me noopener"><svg class="icon" aria-hidden="true"><use href="#i-scholar"/></svg><span><b>Google Scholar</b><small data-i18n="research.scholarSub">Citations &amp; full list</small></span><svg class="icon icon-ext" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a></li>
+              <li><a href="https://www.webofscience.com/wos/author/record/PWG-6826-2026" target="_blank" rel="me noopener"><svg class="icon" aria-hidden="true"><use href="#i-chart"/></svg><span><b>Web of Science</b><small>ResearcherID PWG-6826-2026</small></span><svg class="icon icon-ext" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a></li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="papers-hint reveal" data-i18n="research.hint">All five papers are open access. Press <em>Read online</em> to open the full text here, or download the PDF.</p>
+
+        <ol class="papers">
+          <!-- Paper 1 · MCMDS 2026 -->
+          <li class="paper card reveal" id="paper-mcmds-2026">
+            <a class="paper-cover" href="papers/2026-mcmds-fmi-centric-framework.pdf" target="_blank" rel="noopener" data-viewer data-title="An FMI-centric open-source and interoperable framework for AI-driven robotic systems (MCMDS, 2026)" aria-label="Read online: An FMI-centric open-source and interoperable framework for AI-driven robotic systems" data-i18n-attr="aria-label:pub1.coverAria">
+              <img src="assets/papers/2026-mcmds-fmi-centric-framework.webp" width="620" height="935" alt="" loading="lazy" decoding="async">
+              <span class="cover-hint"><svg class="icon" aria-hidden="true"><use href="#i-eye"/></svg><span data-i18n="pub.readOnline">Read online</span></span>
+            </a>
+            <div class="paper-body">
+              <div class="paper-tags"><span class="ptag ptag-accent">MCMDS · Taylor &amp; Francis</span><span class="ptag" data-i18n="pub1.date">July 2026</span><span class="ptag" data-i18n="pub.journal">Journal article</span><span class="ptag" data-i18n="pub1.pages">30 pages</span></div>
+              <h3><a href="https://doi.org/10.1080/13873954.2026.2707718" target="_blank" rel="noopener">An FMI-centric open-source and interoperable framework for AI-driven robotic systems: a model-based methodology for integrating physical and AI models</a></h3>
+              <p class="paper-venue"><em>Mathematical and Computer Modelling of Dynamical Systems</em>, 32(1), 2707718</p>
+              <p class="paper-authors"><strong>S. Rojas-Ordoñez</strong>, M. Segura, J. Arboleda, E. Zulueta</p>
+              <div class="paper-abstract" id="abstract-1"><p data-i18n="pub1.abstract">The development of AI-driven cyber-physical robotic systems often depends on proprietary toolchains that limit flexibility and interoperability. This paper presents a modular, open-source, and FMI-centric methodology that integrates OpenModelica-generated Functional Mock-up Units (FMUs), ONNX-based perception pipelines, and ROS 2 middleware into a unified robotic workflow. Beyond software connectivity, the approach makes explicit how perception and control interact through supervisory logic, timing assumptions, and component encapsulation. The methodology is validated on a sign-following mobile robot against an industrial Simulink-based baseline. Both systems achieved 100% task success under nominal conditions. The Simulink baseline was slightly more path-efficient, whereas the FMI-based workflow exhibited substantially lower end-to-end latency. A controlled perception-dropout study further quantified degradation in efficiency, success rate, and latency. A qualitative TurtleBot3 deployment also supports portability beyond simulation. Overall, the results support open, standards-based robotic workflows that are transparent, portable, and reproducible.</p></div>
+              <button class="link-btn abstract-toggle" type="button" aria-expanded="false" aria-controls="abstract-1"><span class="when-closed" data-i18n="pub.readMore">Read more</span><span class="when-open" data-i18n="pub.readLess">Show less</span></button>
+              <ul class="keywords" aria-label="Keywords" data-i18n-attr="aria-label:pub.keywords" data-i18n="pub1.keywords"><li>FMI / FMU</li><li>OpenModelica</li><li>ONNX</li><li>ROS 2</li><li>End-to-end latency</li></ul>
+              <div class="paper-actions">
+                <a class="btn btn-primary btn-sm" href="papers/2026-mcmds-fmi-centric-framework.pdf" target="_blank" rel="noopener" data-viewer data-title="An FMI-centric open-source and interoperable framework for AI-driven robotic systems (MCMDS, 2026)"><svg class="icon" aria-hidden="true"><use href="#i-eye"/></svg><span data-i18n="pub.readOnline">Read online</span></a>
+                <a class="btn btn-outline btn-sm" href="papers/2026-mcmds-fmi-centric-framework.pdf" download="Rojas-Ordonez_2026_MCMDS_FMI-centric-framework.pdf"><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg><span data-i18n="pub.download">Download PDF</span><small>5.4 MB</small></a>
+                <a class="link-pill" href="https://doi.org/10.1080/13873954.2026.2707718" target="_blank" rel="noopener">DOI<svg class="icon icon-ext" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a>
+              </div>
+              <p class="paper-license" data-i18n="pub.license">Open access · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener license">CC BY 4.0</a> · © The Author(s)</p>
+            </div>
+          </li>
+
+          <!-- Paper 2 · ACME 2026 (hosted) -->
+          <li class="paper card reveal" id="paper-acme-2026">
+            <a class="paper-cover" href="papers/2026-acme-bridging-the-embedded-execution-gap.pdf" target="_blank" rel="noopener" data-viewer data-title="Bridging the Embedded Execution Gap (ACME, 2026)" aria-label="Read online: Bridging the Embedded Execution Gap" data-i18n-attr="aria-label:pub2.coverAria">
+              <img src="assets/papers/2026-acme-bridging-the-embedded-execution-gap.webp" width="620" height="824" alt="" loading="lazy" decoding="async">
+              <span class="cover-hint"><svg class="icon" aria-hidden="true"><use href="#i-eye"/></svg><span data-i18n="pub.readOnline">Read online</span></span>
+            </a>
+            <div class="paper-body">
+              <div class="paper-tags"><span class="ptag ptag-accent">ACME · Springer</span><span class="ptag" data-i18n="pub2.date">July 2026</span><span class="ptag" data-i18n="pub.review">Review article</span><span class="ptag" data-i18n="pub2.pages">44 pages</span></div>
+              <h3><a href="https://doi.org/10.1007/s11831-026-10715-3" target="_blank" rel="noopener">Bridging the Embedded Execution Gap: A Review of the Functional Mock-up Interface for Actuator-Centric Execution Workflows in Industrial Embedded Systems</a></h3>
+              <p class="paper-venue"><em>Archives of Computational Methods in Engineering</em></p>
+              <p class="paper-authors"><strong>S. Rojas-Ordoñez</strong>, M. Segura, I. Yarza, E. Zulueta</p>
+              <div class="paper-abstract" id="abstract-2"><p data-i18n="pub2.abstract">Industrial actuators integrate multi-domain physical dynamics with embedded control algorithms under strict timing constraints. Despite mature model-based design workflows, a persistent embedded execution gap separates validated high-fidelity simulation models from deterministic, resource-bounded execution on embedded industrial platforms. This review examines the Functional Mock-up Interface (FMI) as an interoperability enabler for actuator development workflows and argues that interoperability at the model-exchange level does not automatically translate into interoperability at the execution level. The review analyzes the evolution of FMI from version 2.0 to 3.0, systematizes actuator-relevant fidelity requirements (nonlinearities, compliance/resonance, timing effects), and evaluates representative approaches for integrating FMI into industrial and robotic toolchains. Two deployment trajectories are synthesized: (i) runtime-constrained FMU execution on edge/MCU-class platforms for prototyping, monitoring, and non-safety-critical functions; and (ii) analyzable code-generation paths such as Embedded FMI (eFMI) and GALEC, which target bounded memory and timing transparency for certification-oriented workflows. Although FMI 3.0 introduces improved timing semantics through clocks and Scheduled Execution, end-to-end feasibility remains limited by toolchain maturity, scheduler integration patterns, and the scarcity of complete quantitative evidence on jitter, WCET, and memory footprint under realistic load. The review identifies key challenges in determinism, fidelity management, certification alignment, and ecosystem-level conformance/validation, clarifying the technical barriers that must be addressed to fully bridge the gap between high-fidelity simulation and embedded actuator deployment.</p></div>
+              <button class="link-btn abstract-toggle" type="button" aria-expanded="false" aria-controls="abstract-2"><span class="when-closed" data-i18n="pub.readMore">Read more</span><span class="when-open" data-i18n="pub.readLess">Show less</span></button>
+              <ul class="keywords" aria-label="Keywords" data-i18n-attr="aria-label:pub.keywords" data-i18n="pub2.keywords"><li>FMI 2.0 / 3.0</li><li>eFMI · GALEC</li><li>Scheduled Execution</li><li>WCET &amp; jitter</li><li>Industrial actuators</li></ul>
+              <div class="paper-actions">
+                <a class="btn btn-primary btn-sm" href="papers/2026-acme-bridging-the-embedded-execution-gap.pdf" target="_blank" rel="noopener" data-viewer data-title="Bridging the Embedded Execution Gap (ACME, 2026)"><svg class="icon" aria-hidden="true"><use href="#i-eye"/></svg><span data-i18n="pub.readOnline">Read online</span></a>
+                <a class="btn btn-outline btn-sm" href="papers/2026-acme-bridging-the-embedded-execution-gap.pdf" download="Rojas-Ordonez_2026_ACME_Bridging-the-embedded-execution-gap.pdf"><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg><span data-i18n="pub.download">Download PDF</span><small>4.8 MB</small></a>
+                <a class="link-pill" href="https://doi.org/10.1007/s11831-026-10715-3" target="_blank" rel="noopener">DOI<svg class="icon icon-ext" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a>
+              </div>
+              <p class="paper-license" data-i18n="pub.license">Open access · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener license">CC BY 4.0</a> · © The Author(s)</p>
+            </div>
+          </li>
+
+          <!-- Paper 3 · MAKE 2026 -->
+          <li class="paper card reveal" id="paper-make-2026">
+            <a class="paper-cover" href="papers/2026-make-plug-and-play-llm-navigation.pdf" target="_blank" rel="noopener" data-viewer data-title="Plug-and-Play LLM Knowledge Extraction for Robot Navigation (MAKE, 2026)" aria-label="Read online: Plug-and-Play LLM Knowledge Extraction for Robot Navigation" data-i18n-attr="aria-label:pub3.coverAria">
+              <img src="assets/papers/2026-make-plug-and-play-llm-navigation.webp" width="620" height="878" alt="" loading="lazy" decoding="async">
+              <span class="cover-hint"><svg class="icon" aria-hidden="true"><use href="#i-eye"/></svg><span data-i18n="pub.readOnline">Read online</span></span>
+            </a>
+            <div class="paper-body">
+              <div class="paper-tags"><span class="ptag ptag-accent">MAKE · MDPI</span><span class="ptag" data-i18n="pub3.date">February 2026</span><span class="ptag" data-i18n="pub.journal">Journal article</span><span class="ptag" data-i18n="pub3.pages">23 pages</span></div>
+              <h3><a href="https://doi.org/10.3390/make8020049" target="_blank" rel="noopener">Plug-and-Play LLM Knowledge Extraction for Robot Navigation: A Fine-Tuning-Free Edge Framework</a></h3>
+              <p class="paper-venue"><em>Machine Learning and Knowledge Extraction</em>, 8(2), 49</p>
+              <p class="paper-authors"><strong>S. Rojas-Ordoñez</strong>, M. Segura, I. Yarza, V. Mendoza, E. Zulueta</p>
+              <div class="paper-abstract" id="abstract-3"><p data-i18n="pub3.abstract">Large Language Models are increasingly used for high-level robotic reasoning, yet their latency and stochasticity complicate their direct use in low-level control. Moreover, extracting actionable navigation cues from multimodal context incurs inference costs that are challenging for embedded platforms. We present a plug-and-play framework that augments a finite-state machine with asynchronous velocity suggestions generated by a Large Language Model, using an off-the-shelf DistilGPT-2 model running on-device on a Jetson AGX Orin. The system extracts task-relevant cues from the current context and integrates them only if they satisfy deadline, schema, and kinematic validation, thereby preserving a deterministic 50 Hz control loop with a &lt;5 ms fallback path. We compare multiple Large Language Models for embedded robot control and quantify trade-offs among model size, inference time, and output validity. To assess whether the Large Language Models add value beyond signal processing, we include an ablation against a standard smoothing baseline; the results indicate that the Large Language Models contribute anticipatory, context-dependent adjustments that are not captured by filtering alone. Experiments in Gazebo and on a real TurtleBot3 reduce the final position error from 0.246 m to 0.159 m and improve trajectory efficiency from 0.821 to 0.901 without increasing control-loop latency. Approximately 80% of the Large Language Models’ outputs pass validation and are applied. Overall, the framework reduces developer effort by enabling behavioral changes at the prompt level while maintaining interpretable, robust edge-based navigation.</p></div>
+              <button class="link-btn abstract-toggle" type="button" aria-expanded="false" aria-controls="abstract-3"><span class="when-closed" data-i18n="pub.readMore">Read more</span><span class="when-open" data-i18n="pub.readLess">Show less</span></button>
+              <ul class="keywords" aria-label="Keywords" data-i18n-attr="aria-label:pub.keywords" data-i18n="pub3.keywords"><li>Large language models</li><li>Robot navigation</li><li>Edge AI · Jetson AGX Orin</li><li>Finite-state machine</li><li>TurtleBot3</li></ul>
+              <div class="paper-actions">
+                <a class="btn btn-primary btn-sm" href="papers/2026-make-plug-and-play-llm-navigation.pdf" target="_blank" rel="noopener" data-viewer data-title="Plug-and-Play LLM Knowledge Extraction for Robot Navigation (MAKE, 2026)"><svg class="icon" aria-hidden="true"><use href="#i-eye"/></svg><span data-i18n="pub.readOnline">Read online</span></a>
+                <a class="btn btn-outline btn-sm" href="papers/2026-make-plug-and-play-llm-navigation.pdf" download="Rojas-Ordonez_2026_MAKE_Plug-and-play-LLM-navigation.pdf"><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg><span data-i18n="pub.download">Download PDF</span><small>8.3 MB</small></a>
+                <a class="link-pill" href="https://github.com/SeRoMechatronic/Plug-and-Play-LLM-Augmentation-for-FSM-Navigation-ROS-2" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg><span data-i18n="pub.code">Code &amp; data</span><svg class="icon icon-ext" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a>
+                <a class="link-pill" href="https://doi.org/10.3390/make8020049" target="_blank" rel="noopener">DOI<svg class="icon icon-ext" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a>
+              </div>
+              <p class="paper-license" data-i18n="pub.license">Open access · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener license">CC BY 4.0</a> · © The Author(s)</p>
+            </div>
+          </li>
+
+          <!-- Paper 4 · Applied Sciences 2025 -->
+          <li class="paper card reveal" id="paper-applsci-2025">
+            <a class="paper-cover" href="papers/2025-applsci-natural-language-relay-control.pdf" target="_blank" rel="noopener" data-viewer data-title="Natural-Language Relay Control for a SISO Thermal Plant (Applied Sciences, 2025)" aria-label="Read online: Natural-Language Relay Control for a SISO Thermal Plant" data-i18n-attr="aria-label:pub4.coverAria">
+              <img src="assets/papers/2025-applsci-natural-language-relay-control.webp" width="620" height="878" alt="" loading="lazy" decoding="async">
+              <span class="cover-hint"><svg class="icon" aria-hidden="true"><use href="#i-eye"/></svg><span data-i18n="pub.readOnline">Read online</span></span>
+            </a>
+            <div class="paper-body">
+              <div class="paper-tags"><span class="ptag ptag-accent">Applied Sciences · MDPI</span><span class="ptag" data-i18n="pub4.date">December 2025</span><span class="ptag" data-i18n="pub.journal">Journal article</span><span class="ptag" data-i18n="pub4.pages">19 pages</span></div>
+              <h3><a href="https://doi.org/10.3390/app152412986" target="_blank" rel="noopener">Natural-Language Relay Control for a SISO Thermal Plant: A Proof-of-Concept with Validation Against a Conventional Hysteresis Controller</a></h3>
+              <p class="paper-venue"><em>Applied Sciences</em>, 15(24), 12986</p>
+              <p class="paper-authors"><strong>S. Rojas-Ordoñez</strong>, M. Segura, V. Mendoza, U. Fernandez, E. Zulueta</p>
+              <div class="paper-abstract" id="abstract-4"><p data-i18n="pub4.abstract">This paper presents a proof-of-concept for a natural-language-based closed-loop controller that regulates the temperature of a simple single-input single-output (SISO) thermal process. The key idea is to express a relay-with-hysteresis policy in plain English and let a local large language model (LLM) interpret sensor readings and output a binary actuation command at each sampling step. Beyond interface convenience, we demonstrate that natural language can serve as a valid medium for modeling physical reality and executing deterministic reasoning in control loops. We implement a compact plant model and compare two controllers: a conventional coded relay and an LLM-driven controller prompted with the same logic and constrained to a single-token output. The workflow integrates schema validation, retries, and a safe fallback, while a stepwise evaluator checks agreement with the baseline. In a long-horizon (1000-step) simulation, the language controller reproduces the hysteresis behavior with matching switching patterns. Furthermore, sensitivity and ablation studies demonstrate the system’s robustness to measurement noise and the LLM’s ability to correctly execute the hysteresis policy, thereby preserving the theoretical robustness inherent to this control law. This work demonstrates that, for slow thermal dynamics, natural-language policies can achieve comparable performance to classical relay systems while providing a transparent, human-readable interface and facilitating rapid iteration.</p></div>
+              <button class="link-btn abstract-toggle" type="button" aria-expanded="false" aria-controls="abstract-4"><span class="when-closed" data-i18n="pub.readMore">Read more</span><span class="when-open" data-i18n="pub.readLess">Show less</span></button>
+              <ul class="keywords" aria-label="Keywords" data-i18n-attr="aria-label:pub.keywords" data-i18n="pub4.keywords"><li>Natural-language control</li><li>Relay with hysteresis</li><li>Local LLM</li><li>SISO thermal plant</li><li>Safe fallback</li></ul>
+              <div class="paper-actions">
+                <a class="btn btn-primary btn-sm" href="papers/2025-applsci-natural-language-relay-control.pdf" target="_blank" rel="noopener" data-viewer data-title="Natural-Language Relay Control for a SISO Thermal Plant (Applied Sciences, 2025)"><svg class="icon" aria-hidden="true"><use href="#i-eye"/></svg><span data-i18n="pub.readOnline">Read online</span></a>
+                <a class="btn btn-outline btn-sm" href="papers/2025-applsci-natural-language-relay-control.pdf" download="Rojas-Ordonez_2025_ApplSci_Natural-language-relay-control.pdf"><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg><span data-i18n="pub.download">Download PDF</span><small>1.4 MB</small></a>
+                <a class="link-pill" href="https://doi.org/10.3390/app152412986" target="_blank" rel="noopener">DOI<svg class="icon icon-ext" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a>
+              </div>
+              <p class="paper-license" data-i18n="pub.license">Open access · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener license">CC BY 4.0</a> · © The Author(s)</p>
+            </div>
+          </li>
+
+          <!-- Paper 5 · Modelica & FMI Conference 2025 (hosted) -->
+          <li class="paper card reveal" id="paper-modelica-2025">
+            <a class="paper-cover" href="papers/2025-modelica-fmi-conference-open-standards.pdf" target="_blank" rel="noopener" data-viewer data-title="Integration of Physical and AI Models Using Open and Interoperable Standards (Modelica &amp; FMI Conference, 2025)" aria-label="Read online: Integration of Physical and AI Models Using Open and Interoperable Standards" data-i18n-attr="aria-label:pub5.coverAria">
+              <img src="assets/papers/2025-modelica-fmi-conference-open-standards.webp" width="620" height="878" alt="" loading="lazy" decoding="async">
+              <span class="cover-hint"><svg class="icon" aria-hidden="true"><use href="#i-eye"/></svg><span data-i18n="pub.readOnline">Read online</span></span>
+            </a>
+            <div class="paper-body">
+              <div class="paper-tags"><span class="ptag ptag-accent" data-i18n="pub5.venueTag">Modelica &amp; FMI Conference</span><span class="ptag" data-i18n="pub5.date">September 2025 · Lucerne</span><span class="ptag" data-i18n="pub.conference">Conference paper</span><span class="ptag" data-i18n="pub5.pages">10 pages</span></div>
+              <h3><a href="https://doi.org/10.3384/ecp218479" target="_blank" rel="noopener">Integration of Physical and AI Models Using Open and Interoperable Standards: A Model-Based Methodology for Autonomous Robot Development</a></h3>
+              <p class="paper-venue" data-i18n="pub5.venue"><em>Proceedings of the 16th International Modelica &amp; FMI Conference</em>, Lucerne, Switzerland</p>
+              <p class="paper-authors"><strong>S. Rojas-Ordoñez</strong>, M. Segura, E. Zulueta</p>
+              <div class="paper-abstract" id="abstract-5"><p data-i18n="pub5.abstract">The development of Cyber-Physical Systems, particularly in the field of autonomous mobile robotics, often relies on proprietary environments, which limit flexibility and interoperability. This paper proposes a modular and open-source methodology that enables the modeling and simulation of such systems using non-proprietary tools. The methodology integrates Functional Mock-up Interface standard for model exchange, Open Neural Network Exchange standard for Convolutional Neuronal Networks algorithms integration, ROS2 as robotic middleware, and Gazebo as the simulation environment. To validate the approach, we applied it in the development of a mobile robot that navigates autonomously by following traffic signals. This implementation demonstrates that these open technologies can be effectively combined, overcoming common integration barriers among proprietary tools. The proposed workflow provides a practical alternative to proprietary solutions and demonstrates the feasibility of integrating open standards for the development of autonomous robotic systems.</p></div>
+              <button class="link-btn abstract-toggle" type="button" aria-expanded="false" aria-controls="abstract-5"><span class="when-closed" data-i18n="pub.readMore">Read more</span><span class="when-open" data-i18n="pub.readLess">Show less</span></button>
+              <ul class="keywords" aria-label="Keywords" data-i18n-attr="aria-label:pub.keywords" data-i18n="pub5.keywords"><li>Autonomous robotic systems</li><li>FMI</li><li>ONNX</li><li>ROS 2</li><li>Gazebo</li></ul>
+              <div class="paper-actions">
+                <a class="btn btn-primary btn-sm" href="papers/2025-modelica-fmi-conference-open-standards.pdf" target="_blank" rel="noopener" data-viewer data-title="Integration of Physical and AI Models Using Open and Interoperable Standards (Modelica &amp; FMI Conference, 2025)"><svg class="icon" aria-hidden="true"><use href="#i-eye"/></svg><span data-i18n="pub.readOnline">Read online</span></a>
+                <a class="btn btn-outline btn-sm" href="papers/2025-modelica-fmi-conference-open-standards.pdf" download="Rojas-Ordonez_2025_Modelica-FMI-Conference_Open-standards-robotics.pdf"><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg><span data-i18n="pub.download">Download PDF</span><small>8.4 MB</small></a>
+                <a class="link-pill" href="https://doi.org/10.3384/ecp218479" target="_blank" rel="noopener">DOI<svg class="icon icon-ext" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a>
+              </div>
+              <p class="paper-license" data-i18n="pub.license">Open access · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener license">CC BY 4.0</a> · © The Author(s)</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============================== 05 OPEN SOURCE ============================== -->
+    <section class="section open-source" id="open-source" aria-labelledby="oss-title">
+      <div class="wrap">
+        <header class="section-head has-intro reveal">
+          <div>
+            <p class="kicker"><span class="kicker-num">05</span><span data-i18n="oss.kicker">Open source &amp; teaching</span></p>
+            <h2 id="oss-title" data-i18n="oss.title">Code you can run, not just read about.</h2>
+          </div>
+          <p data-i18n="oss.intro">Public repositories behind the claims — code, datasets, firmware and validation reports that anyone can inspect and reproduce.</p>
+        </header>
+
+        <ul class="repo-grid">
+          <li class="repo card spot reveal">
+            <div class="repo-top"><svg class="icon" aria-hidden="true"><use href="#i-repo"/></svg><span class="repo-kind" data-i18n="oss.r1.kind">Paper code · MAKE 2026</span></div>
+            <h3><a class="stretched" href="https://github.com/SeRoMechatronic/Plug-and-Play-LLM-Augmentation-for-FSM-Navigation-ROS-2" target="_blank" rel="noopener">Plug-and-Play LLM Augmentation for FSM Navigation</a></h3>
+            <p data-i18n="oss.r1.text">Three ROS 2 nodes (FSM, LLM and validator/fusion), per-trial CSV datasets and statistical analysis scripts for the 50 Hz navigation study.</p>
+            <ul class="tags"><li>ROS 2</li><li>LLM</li><li>Python</li><li data-i18n="tag.datasets">Datasets</li></ul>
+            <span class="repo-go" aria-hidden="true"><svg class="icon"><use href="#i-arrow-up-right"/></svg></span>
+          </li>
+          <li class="repo card spot reveal">
+            <div class="repo-top"><svg class="icon" aria-hidden="true"><use href="#i-repo"/></svg><span class="repo-kind">FMI 3.0 × OpenUSD</span></div>
+            <h3><a class="stretched" href="https://github.com/SeRoMechatronic/sero_ovfmi" target="_blank" rel="noopener">sero_ovfmi</a></h3>
+            <p data-i18n="oss.r2.text">openSeRo FMUs declared in OpenUSD and stepped through ovfmi, each step cross-checked against FMPy — plus a live Isaac Sim/PhysX wheel-control experiment.</p>
+            <ul class="tags"><li>FMI 3.0</li><li>OpenUSD</li><li>Isaac Sim</li><li>MIT</li></ul>
+            <span class="repo-go" aria-hidden="true"><svg class="icon"><use href="#i-arrow-up-right"/></svg></span>
+          </li>
+          <li class="repo card spot reveal">
+            <div class="repo-top"><svg class="icon" aria-hidden="true"><use href="#i-repo"/></svg><span class="repo-kind" data-i18n="oss.r3.kind">Desktop app · Rust</span></div>
+            <h3><a class="stretched" href="https://github.com/SeRoMechatronic/MathCore-SeRo-Studio" target="_blank" rel="noopener">MathCore SeRo-Studio</a></h3>
+            <p data-i18n="oss.r3.text">Flashes seven FMI 3.0 Scheduled-Execution control exercises to a Pico 2 W over USB and streams a live dashboard, with recorded hardware sessions for replay.</p>
+            <ul class="tags"><li>Rust</li><li>FMI 3.0 SE</li><li>RP2350</li><li>MIT</li></ul>
+            <span class="repo-go" aria-hidden="true"><svg class="icon"><use href="#i-arrow-up-right"/></svg></span>
+          </li>
+          <li class="repo card spot reveal">
+            <div class="repo-top"><svg class="icon" aria-hidden="true"><use href="#i-repo"/></svg><span class="repo-kind" data-i18n="oss.r4.kind">Contribution · rust-fmi</span></div>
+            <h3><a class="stretched" href="https://github.com/SeRoMechatronic/rust-fmi_SE" target="_blank" rel="noopener">rust-fmi_SE</a></h3>
+            <p data-i18n="oss.r4.text">FMI 3.0 Scheduled Execution implemented end to end in the rust-fmi exporter: partition activation, countdown clocks and safe FFI error handling, with example models and a guide.</p>
+            <ul class="tags"><li>Rust</li><li>FMI 3.0</li><li>FFI</li></ul>
+            <span class="repo-go" aria-hidden="true"><svg class="icon"><use href="#i-arrow-up-right"/></svg></span>
+          </li>
+          <li class="repo card spot reveal">
+            <div class="repo-top"><svg class="icon" aria-hidden="true"><use href="#i-teach"/></svg><span class="repo-kind" data-i18n="oss.r5.kind">Teaching · 2026</span></div>
+            <h3><a class="stretched" href="https://github.com/SeRoMechatronic/2026_eu4m-ai-workshop-student" target="_blank" rel="noopener" data-i18n="oss.r5.title">Applied AI with verification</a></h3>
+            <p data-i18n="oss.r5.text">Material for an 8-hour hands-on workshop for first-semester EU4M students (Universidad de Oviedo), built on a Prompt → Verify → Refine → Document protocol.</p>
+            <ul class="tags"><li>Python</li><li>Colab</li><li data-i18n="tag.teaching">Teaching</li></ul>
+            <span class="repo-go" aria-hidden="true"><svg class="icon"><use href="#i-arrow-up-right"/></svg></span>
+          </li>
+          <li class="repo card spot reveal">
+            <div class="repo-top"><svg class="icon" aria-hidden="true"><use href="#i-terminal"/></svg><span class="repo-kind" data-i18n="oss.r6.kind">Field note</span></div>
+            <h3><a class="stretched" href="https://github.com/SeRoMechatronic/Fix-for-Random-Internet-Loss-on-NVIDIA-Jetson-Ubuntu-snapd-" target="_blank" rel="noopener" data-i18n="oss.r6.title">Fixing random network loss on NVIDIA Jetson</a></h3>
+            <p data-i18n="oss.r6.text">Root cause and a reproducible fix for snapd-related connectivity drops on Jetson devices running Ubuntu.</p>
+            <ul class="tags"><li>Jetson</li><li>Linux</li><li>snapd</li></ul>
+            <span class="repo-go" aria-hidden="true"><svg class="icon"><use href="#i-arrow-up-right"/></svg></span>
+          </li>
+        </ul>
+        <p class="more-link reveal"><a class="link-arrow" href="https://github.com/SeRoMechatronic" target="_blank" rel="me noopener"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg><span data-i18n="oss.all">All repositories on GitHub</span><svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></p>
+      </div>
+    </section>
+
+    <!-- ============================== 06 SKILLS ============================== -->
+    <section class="section skills" id="skills" aria-labelledby="skills-title">
+      <div class="wrap">
+        <header class="section-head has-intro reveal">
+          <div>
+            <p class="kicker"><span class="kicker-num">06</span><span data-i18n="skills.kicker">Skills</span></p>
+            <h2 id="skills-title" data-i18n="skills.title">From equations to firmware.</h2>
+          </div>
+          <p data-i18n="skills.intro">A cross-layer toolchain for taking an idea from a mathematical model to a measured physical result.</p>
+        </header>
+
+        <ul class="skill-grid">
+          <li class="skill card spot reveal">
+            <h3><span class="skill-icon"><svg class="icon" aria-hidden="true"><use href="#i-bot"/></svg></span><span data-i18n="skills.g1">Robotics &amp; autonomy</span></h3>
+            <ul class="chips" data-i18n="skills.g1list"><li>ROS 2 Humble</li><li>Navigation</li><li>FSM-based autonomy</li><li>Perception pipelines</li><li>TurtleBot3</li><li>RealSense D435i</li><li>2D/3D LiDAR</li><li>Mobile manipulation</li><li>Sim-to-real</li></ul>
+          </li>
+          <li class="skill card spot reveal">
+            <h3><span class="skill-icon"><svg class="icon" aria-hidden="true"><use href="#i-spark"/></svg></span><span data-i18n="skills.g2">AI/ML &amp; agentic systems</span></h3>
+            <ul class="chips" data-i18n="skills.g2list"><li>PyTorch</li><li>ONNX</li><li>LLM &amp; transformer inference</li><li>Edge AI</li><li>CNN / YOLO perception</li><li>Asynchronous agent integration</li><li>Validation &amp; fallback policies</li></ul>
+          </li>
+          <li class="skill card spot reveal">
+            <h3><span class="skill-icon"><svg class="icon" aria-hidden="true"><use href="#i-cube"/></svg></span><span data-i18n="skills.g3">Simulation &amp; model-based engineering</span></h3>
+            <ul class="chips" data-i18n="skills.g3list"><li>FMI 2.0/3.0 (ME · CS · SE)</li><li>Modelica / OpenModelica</li><li>MATLAB / Simulink</li><li>Gazebo</li><li>Isaac Sim</li><li>MuJoCo</li><li>OpenUSD</li><li>MIL / SIL / PIL / HIL</li></ul>
+          </li>
+          <li class="skill card spot reveal">
+            <h3><span class="skill-icon"><svg class="icon" aria-hidden="true"><use href="#i-cpu"/></svg></span><span data-i18n="skills.g4">Systems &amp; embedded</span></h3>
+            <ul class="chips" data-i18n="skills.g4list"><li>C</li><li>C++</li><li>Rust</li><li>Python</li><li>Resource-constrained Linux</li><li>GCC / Ninja</li><li>ESP32-C6</li><li>STM32F411</li><li>RP2350 / Pico 2W</li><li>Jetson AGX Orin</li><li>Bare-metal HAL</li><li>UART / SWO</li></ul>
+          </li>
+          <li class="skill card spot reveal">
+            <h3><span class="skill-icon"><svg class="icon" aria-hidden="true"><use href="#i-chart"/></svg></span><span data-i18n="skills.g5">Engineering practice</span></h3>
+            <ul class="chips" data-i18n="skills.g5list"><li>Automated testing</li><li>Numerical-equivalence checks</li><li>Benchmarking &amp; profiling</li><li>Reproducible build pipelines</li><li>Docker</li><li>Git</li><li>Scientific writing</li></ul>
+          </li>
+          <li class="skill card spot reveal">
+            <h3><span class="skill-icon"><svg class="icon" aria-hidden="true"><use href="#i-gear"/></svg></span><span data-i18n="skills.g6">Mechatronic design</span></h3>
+            <ul class="chips" data-i18n="skills.g6list"><li>SolidWorks</li><li>3D printing</li><li>CNC machining</li><li>PCB design</li><li>PID control</li><li>MATLAB / Simscape</li></ul>
+          </li>
+        </ul>
+
+        <div class="skills-bottom">
+          <div class="toolbelt card reveal">
+            <p class="side-label" data-i18n="skills.toolbelt">Everyday toolbelt</p>
+            <ul class="logo-grid">
+              <li><span class="logo-tile"><img src="assets/logos/ros2.webp" alt="" width="340" height="72" loading="lazy" decoding="async"></span><span>ROS 2</span></li>
+              <li><span class="logo-tile"><img src="assets/logos/cpp.svg" alt="" width="40" height="40" loading="lazy" decoding="async"></span><span>C / C++</span></li>
+              <li><span class="logo-tile tile-text">Rs</span><span>Rust</span></li>
+              <li><span class="logo-tile"><img src="assets/logos/python.svg" alt="" width="40" height="40" loading="lazy" decoding="async"></span><span>Python</span></li>
+              <li><span class="logo-tile tile-text">FMI</span><span>FMI 3.0</span></li>
+              <li><span class="logo-tile"><img src="assets/logos/nvidia.svg" alt="" width="60" height="40" loading="lazy" decoding="async"></span><span>NVIDIA Jetson</span></li>
+              <li><span class="logo-tile"><img src="assets/logos/onnx.svg" alt="" width="60" height="40" loading="lazy" decoding="async"></span><span>ONNX</span></li>
+              <li><span class="logo-tile tile-text">USD</span><span>OpenUSD</span></li>
+              <li><span class="logo-tile"><img src="assets/logos/gazebo.svg" alt="" width="40" height="40" loading="lazy" decoding="async"></span><span>Gazebo</span></li>
+              <li><span class="logo-tile"><img src="assets/logos/linux.svg" alt="" width="40" height="40" loading="lazy" decoding="async"></span><span>Linux</span></li>
+              <li><span class="logo-tile"><img src="assets/logos/docker.svg" alt="" width="40" height="40" loading="lazy" decoding="async"></span><span>Docker</span></li>
+              <li><span class="logo-tile"><img src="assets/logos/solidworks.svg" alt="" width="40" height="40" loading="lazy" decoding="async"></span><span>SolidWorks</span></li>
+            </ul>
+          </div>
+          <div class="languages card reveal">
+            <p class="side-label" data-i18n="skills.languages">Languages</p>
+            <ul class="lang-bars">
+              <li><span data-i18n="lang.es">Spanish</span><b data-i18n="lang.native">Native</b><span class="bar" style="--level:1"></span></li>
+              <li><span data-i18n="lang.en">English</span><b>C1</b><span class="bar" style="--level:.83"></span></li>
+              <li><span data-i18n="lang.pt">Portuguese</span><b>B1</b><span class="bar" style="--level:.5"></span></li>
+              <li><span data-i18n="lang.de">German</span><b>A1–A2</b><span class="bar" style="--level:.25"></span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== 07 EDUCATION ============================== -->
+    <section class="section education" id="education" aria-labelledby="education-title">
+      <div class="wrap">
+        <header class="section-head has-intro reveal">
+          <div>
+            <p class="kicker"><span class="kicker-num">07</span><span data-i18n="edu.kicker">Education</span></p>
+            <h2 id="education-title" data-i18n="edu.title">Trained across disciplines — and countries.</h2>
+          </div>
+          <p data-i18n="edu.intro">Mechatronics gave me physical intuition, artificial intelligence widened the system boundary, and research taught me to make every result reproducible.</p>
+        </header>
+
+        <ol class="journey reveal" aria-label="Study and work locations" data-i18n-attr="aria-label:edu.journeyLabel">
+          <li><span class="journey-dot"></span><b>Popayán</b><span data-i18n="edu.j1">Colombia · 2014</span></li>
+          <li><span class="journey-dot"></span><b>Oviedo</b><span data-i18n="edu.j2">Spain · 2022</span></li>
+          <li><span class="journey-dot"></span><b>Giza</b><span data-i18n="edu.j3">Egypt · 2023</span></li>
+          <li><span class="journey-dot"></span><b>Karlsruhe</b><span data-i18n="edu.j4">Germany · 2024</span></li>
+          <li><span class="journey-dot is-now"></span><b>Arrasate</b><span data-i18n="edu.j5">Spain · 2024 →</span></li>
+        </ol>
+
+        <ul class="degree-grid">
+          <li class="degree card spot reveal">
+            <p class="degree-date" data-i18n="edu.d1.date">Sep 2024 — Present · Vitoria-Gasteiz, Spain</p>
+            <h3 data-i18n="edu.d1.title">PhD in Control Engineering, Automation and Robotics</h3>
+            <p class="degree-school" data-i18n="edu.d1.school">University of the Basque Country (UPV/EHU)</p>
+            <p data-i18n="edu.d1.text">Autonomous robotics, embedded and edge AI, digital twins and co-simulation, open interoperability and model-based engineering.</p>
+          </li>
+          <li class="degree card spot reveal">
+            <p class="degree-date" data-i18n="edu.d2.date">Sep 2022 — Sep 2024 · Spain · Egypt · Germany</p>
+            <h3 data-i18n="edu.d2.title">Erasmus Mundus MSc in Mechatronic Engineering (EU4M)</h3>
+            <p class="degree-school">Universidad de Oviedo · Nile University · Hochschule Karlsruhe</p>
+            <p data-i18n="edu.d2.text"><strong>Erasmus Mundus Scholarship</strong> (EACEA, European Union). Robotics, control, automation, automotive engineering and mechatronic systems.</p>
+          </li>
+          <li class="degree card spot reveal">
+            <p class="degree-date" data-i18n="edu.d3.date">Sep 2020 — Nov 2022 · Online</p>
+            <h3 data-i18n="edu.d3.title">MSc in Artificial Intelligence</h3>
+            <p class="degree-school">Universidad Internacional de La Rioja (UNIR)</p>
+            <p data-i18n="edu.d3.text">Thesis on CNN architectures for diabetic-retinopathy classification; deep learning, computer vision, NLP and robotics.</p>
+          </li>
+          <li class="degree card spot reveal">
+            <p class="degree-date" data-i18n="edu.d4.date">Feb 2014 — Dec 2019 · Popayán, Colombia</p>
+            <h3 data-i18n="edu.d4.title">BSc in Mechatronic Engineering</h3>
+            <p class="degree-school" data-i18n="edu.d4.school">Unicomfacauca University Corporation</p>
+            <p data-i18n="edu.d4.text"><strong>Outstanding Graduate.</strong> Thesis on multispectral-image-based assessment of crop water status.</p>
+          </li>
+        </ul>
+
+        <div class="honours card reveal">
+          <h3 class="side-title"><svg class="icon" aria-hidden="true"><use href="#i-award"/></svg><span data-i18n="honours.title">Honours &amp; recognition</span></h3>
+          <ul class="honour-list">
+            <li><span class="honour-year">2023</span><span data-i18n="honours.h1"><strong>Best project of the master’s programme</strong> — 3-DoF robot arm, Universidad de Oviedo</span></li>
+            <li><span class="honour-year">2022</span><span data-i18n="honours.h2"><strong>Erasmus Mundus Scholarship</strong> — EACEA, European Union</span></li>
+            <li><span class="honour-year">2019</span><span data-i18n="honours.h3"><strong>Outstanding Graduate</strong> — Mechatronic Engineering, Unicomfacauca</span></li>
+            <li><span class="honour-year">2019</span><span data-i18n="honours.h4"><strong>Speaker, XV SEMATRON</strong> — mechatronics research, University of São Paulo (São Carlos, Brazil)</span></li>
+            <li><span class="honour-year">2019</span><span data-i18n="honours.h5"><strong>Registered software</strong> — remote monitoring system for greenhouse crops</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== 08 ARCHIVE ============================== -->
+    <section class="section archive" id="projects" aria-labelledby="archive-title">
+      <div class="wrap">
+        <header class="section-head has-intro reveal">
+          <div>
+            <p class="kicker"><span class="kicker-num">08</span><span data-i18n="arch.kicker">More projects</span></p>
+            <h2 id="archive-title" data-i18n="arch.title">Engineering archive.</h2>
+          </div>
+          <p data-i18n="arch.intro">Earlier and complementary systems. Open any card for the engineering focus and, where available, the full technical report.</p>
+        </header>
+
+        <div class="archive-grid">
+          <details class="arch card reveal">
+            <summary><span class="arch-type" data-i18n="arch.t.platform">Research platform</span><span class="arch-title" data-i18n="arch.a1.title">openSeRo MBD &amp; Rust co-simulation</span><span class="arch-toggle" aria-hidden="true"></span></summary>
+            <div class="arch-body">
+              <p data-i18n="arch.a1.text">A model-based design environment extended with complete FMI 3.0 import/export, combined Model Exchange + Co-Simulation + Scheduled Execution packaging, MuJoCo/XIL workflows and a Rust co-simulation orchestrator with custom FMI bindings.</p>
+              <ul class="tags" data-i18n="arch.a1.tags"><li>248+ blocks · 20 categories</li><li>257+ automated tests</li><li>7 demos on Pico 2W</li></ul>
+              <div class="arch-links"><a class="link-pill" href="https://github.com/SeRoMechatronic/MathCore-SeRo-Studio" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg><span data-i18n="arch.a1.link">Public exercises: MathCore SeRo-Studio</span><svg class="icon icon-ext" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a></div>
+            </div>
+          </details>
+          <details class="arch card reveal">
+            <summary><span class="arch-type" data-i18n="arch.t.funded">Funded R&amp;D</span><span class="arch-title" data-i18n="arch.a2.title">Digital-twin validation platform</span><span class="arch-toggle" aria-hidden="true"></span></summary>
+            <div class="arch-body">
+              <p data-i18n="arch.a2.text">FMI/FMU co-simulation environment connecting MATLAB/Simulink, OpenModelica and LabVIEW in a vendor-neutral, distributed architecture for repeatable testing of industrial cyber-physical systems. Developed within ELKARTEK AUTOTRUST and SENDOA at IKERLAN.</p>
+              <ul class="tags"><li>FMI / FMU</li><li>OpenModelica</li><li>MATLAB/Simulink</li><li>LabVIEW</li></ul>
+              <div class="arch-links"><a class="link-pill" href="https://doi.org/10.3384/ecp218479" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-file"/></svg><span data-i18n="arch.a2.link">Modelica &amp; FMI Conference paper</span><svg class="icon icon-ext" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a></div>
+            </div>
+          </details>
+          <details class="arch card reveal">
+            <summary><span class="arch-type" data-i18n="arch.t.demonstrator">Industrial demonstrator</span><span class="arch-title" data-i18n="arch.a3.title">IKSAFECOLAB collaborative mobile robot</span><span class="arch-toggle" aria-hidden="true"></span></summary>
+            <div class="arch-body">
+              <p data-i18n="arch.a3.text">First autonomous version of an industrial canteen demonstrator: a mobile base and a collaborative arm with ROS 2 navigation, autonomous dish collection and a safety-aware architecture ready for human–robot collaboration.</p>
+              <ul class="tags" data-i18n="arch.a3.tags"><li>ROS 2</li><li>Mobile manipulation</li><li>Safety</li><li>Navigation</li></ul>
+            </div>
+          </details>
+          <details class="arch card reveal">
+            <summary><span class="arch-type" data-i18n="arch.t.award">Award-winning</span><span class="arch-title" data-i18n="arch.a4.title">3-DoF tic-tac-toe robot arm</span><span class="arch-toggle" aria-hidden="true"></span></summary>
+            <div class="arch-body">
+              <p data-i18n="arch.a4.text">A complete robot arm that plays tic-tac-toe, built by a team of six on a €150 budget in four months: CNC-machined aluminium and 3D-printed parts, DC motors with absolute encoders, camera-based vision, and model-based control in MATLAB/Simulink/Simscape with PID tuning and inverse kinematics. Named the best project of the master’s programme (Universidad de Oviedo, 2023).</p>
+              <ul class="tags" data-i18n="arch.a4.tags"><li>MATLAB/Simulink</li><li>Simscape</li><li>Inverse kinematics</li><li>Computer vision</li><li>CNC + 3D printing</li></ul>
+              <div class="arch-links">
+                <a class="link-pill" href="https://drive.google.com/file/d/1drl255U7zx69825bodRbl1kb6q0DuskL/view?usp=sharing" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-file"/></svg><span data-i18n="arch.a4.link1">Mechanical design report</span><svg class="icon icon-ext" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a>
+                <a class="link-pill" href="https://drive.google.com/file/d/1tqaXSOL978Wp7dp7u4vF43wwMu_BDiZy/view?usp=sharing" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-file"/></svg><span data-i18n="arch.a4.link2">Simulation report</span><svg class="icon icon-ext" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a>
+              </div>
+            </div>
+          </details>
+          <details class="arch card reveal">
+            <summary><span class="arch-type" data-i18n="arch.t.mech">Mechanism design</span><span class="arch-title" data-i18n="arch.a5.title">Three-finger 3D-printed gripper</span><span class="arch-toggle" aria-hidden="true"></span></summary>
+            <div class="arch-body">
+              <p data-i18n="arch.a5.text">A crank-rod mechanism drives three fingers from a single servo-actuated rotating plate. Designed in SolidWorks with topology analysis for weight reduction and built entirely from 3D-printed PLA and off-the-shelf fasteners.</p>
+              <ul class="tags" data-i18n="arch.a5.tags"><li>SolidWorks</li><li>3D printing</li><li>Mechanism design</li><li>Servo actuation</li></ul>
+              <div class="arch-links"><a class="link-pill" href="https://drive.google.com/file/d/174hzCTetSxuzxrFEdSQ4gJs2HXfDvEYf/view?usp=sharing" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-file"/></svg><span data-i18n="arch.a5.link">Design report</span><svg class="icon icon-ext" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a></div>
+            </div>
+          </details>
+          <details class="arch card reveal">
+            <summary><span class="arch-type" data-i18n="arch.t.embedded">Embedded systems</span><span class="arch-title" data-i18n="arch.a6.title">Embedded PID control board</span><span class="arch-toggle" aria-hidden="true"></span></summary>
+            <div class="arch-body">
+              <p data-i18n="arch.a6.text">Custom PCB with microcontroller, signal amplification and equipment interface, plus C firmware with several pre-configured discrete PID regulators for position and speed control of a Feedback training unit — validated end to end on the real apparatus.</p>
+              <ul class="tags" data-i18n="arch.a6.tags"><li>C</li><li>PID control</li><li>PCB design</li><li>Microcontrollers</li></ul>
+              <div class="arch-links"><a class="link-pill" href="https://drive.google.com/file/d/1dfIuy2fNXbuZchJFXThwlGYrGzunrZaP/view?usp=sharing" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-file"/></svg><span data-i18n="arch.a6.link">Technical report</span><svg class="icon icon-ext" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a></div>
+            </div>
+          </details>
+          <details class="arch card reveal">
+            <summary><span class="arch-type" data-i18n="arch.t.impact">Social impact</span><span class="arch-title" data-i18n="arch.a7.title">5-DoF bioinspired prosthetic hand</span><span class="arch-toggle" aria-hidden="true"></span></summary>
+            <div class="arch-body">
+              <p data-i18n="arch.a7.text">Low-cost, bioinspired simulation and mechanical design of a five-degree-of-freedom prosthetic hand for children, contributed to a Teletón rehabilitation programme in Tamaulipas, Mexico.</p>
+              <ul class="tags" data-i18n="arch.a7.tags"><li>Biomechanics</li><li>Assistive technology</li><li>SolidWorks</li></ul>
+            </div>
+          </details>
+          <details class="arch card reveal">
+            <summary><span class="arch-type" data-i18n="arch.t.sim">Simulation</span><span class="arch-title" data-i18n="arch.a8.title">Biomechanical bicycle simulation</span><span class="arch-toggle" aria-hidden="true"></span></summary>
+            <div class="arch-body">
+              <p data-i18n="arch.a8.text">A five-bar linkage model of pedalling in MATLAB, with kinematic animation and full dynamic simulation, sweeping saddle and crank parameters to minimise peak joint torque and maximise power transfer.</p>
+              <ul class="tags" data-i18n="arch.a8.tags"><li>MATLAB</li><li>Dynamics</li><li>Biomechanics</li><li>Ergonomics</li></ul>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== 09 CONTACT ============================== -->
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div class="wrap">
+        <div class="contact-card reveal">
+          <p class="kicker kicker-light"><span class="kicker-num">09</span><span data-i18n="contact.kicker">Contact</span></p>
+          <h2 id="contact-title" data-i18n="contact.title">Have a hard problem between simulation and reality?</h2>
+          <p class="contact-text" data-i18n="contact.text">I’m open to engineering roles, industrial R&amp;D partnerships and research collaborations in robotics, digital twins, embedded systems and edge AI. Email is the fastest way to reach me.</p>
+          <div class="contact-actions">
+            <a class="btn btn-light" href="mailto:sebastianrojas.sero@gmail.com"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg><span data-i18n="contact.email">Email me</span></a>
+            <button class="btn btn-glass copy-btn" id="copy-email" type="button" data-email="sebastianrojas.sero@gmail.com">
+              <svg class="icon icon-copy" aria-hidden="true"><use href="#i-copy"/></svg><svg class="icon icon-done" aria-hidden="true"><use href="#i-check"/></svg>
+              <span class="copy-label" data-i18n="contact.copy">Copy address</span><span class="copy-done" data-i18n="contact.copied">Copied to clipboard</span>
+            </button>
+            <a class="btn btn-glass" href="https://www.linkedin.com/in/sebastian-rojasordo%C3%B1ez/" target="_blank" rel="me noopener"><svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn</a>
+            <a class="btn btn-glass" href="assets/Sebastian_Rojas_Ordonez_CV.pdf" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-file"/></svg><span data-i18n="contact.cv">View CV (PDF)</span></a>
+          </div>
+          <p class="sr-only" id="copy-status" role="status" aria-live="polite"></p>
+          <ul class="contact-meta">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>sebastianrojas.sero@gmail.com</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg><span data-i18n="contact.place">Arrasate, Basque Country, Spain · open to relocation</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-globe"/></svg>ES · EN · PT · DE</li>
+          </ul>
+        </div>
+      </div>
+    </section>
   </main>
-  <footer><div class="wrap footer-in"><span>© <span id="year">2026</span> Sebastian Rojas-Ordoñez · Built around open systems and real hardware.</span><div class="socials"><a href="https://github.com/SeRoMechatronic" target="_blank" rel="noopener">GitHub</a><a href="https://orcid.org/0009-0000-5142-1284" target="_blank" rel="noopener">ORCID</a><a href="https://scholar.google.com/citations?user=HSflBLwAAAAJ&amp;hl=en" target="_blank" rel="noopener">Scholar</a><a href="https://www.linkedin.com/in/sebastian-rojasordoñez/" target="_blank" rel="noopener">LinkedIn</a></div></div></footer>
-  <script>
-    (()=>{
-      const root=document.documentElement,reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const saved=localStorage.getItem('theme');root.dataset.theme=saved||(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');
-      document.getElementById('theme-toggle').addEventListener('click',()=>{root.dataset.theme=root.dataset.theme==='dark'?'light':'dark';localStorage.setItem('theme',root.dataset.theme)});
-      const menu=document.getElementById('nav-links'),menuBtn=document.getElementById('menu-toggle');
-      menuBtn.addEventListener('click',()=>{const open=menu.classList.toggle('open');menuBtn.setAttribute('aria-expanded',String(open))});
-      menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('open');menuBtn.setAttribute('aria-expanded','false')}));
-      const reveals=document.querySelectorAll('.reveal');
-      if(reduce||!('IntersectionObserver'in window))reveals.forEach(el=>el.classList.add('visible'));else{const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.1,rootMargin:'0px 0px -40px'});reveals.forEach(el=>observer.observe(el))}
-      const links=[...document.querySelectorAll('.nav-link')],sections=links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
-      const active=()=>{let current=sections[0];sections.forEach(s=>{if(s.getBoundingClientRect().top<=150)current=s});links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+current.id))};addEventListener('scroll',active,{passive:true});active();
-      if(!reduce&&matchMedia('(pointer:fine)').matches){const hero=document.querySelector('.hero'),portrait=document.getElementById('portrait-card');hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect();hero.style.setProperty('--mx',((e.clientX-r.left)/r.width-.5).toFixed(2));hero.style.setProperty('--my',((e.clientY-r.top)/r.height-.5).toFixed(2))});portrait.addEventListener('pointermove',e=>{const r=portrait.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;portrait.style.transform=`rotateY(${x*7}deg) rotateX(${-y*7}deg) translateY(-4px)`});portrait.addEventListener('pointerleave',()=>portrait.style.transform='')}
-      document.getElementById('copy-email').addEventListener('click',async e=>{try{await navigator.clipboard.writeText('sebastianrojas.sero@gmail.com');e.currentTarget.textContent='Email copied ✓';setTimeout(()=>e.currentTarget.textContent='Copy email',1800)}catch{location.href='mailto:sebastianrojas.sero@gmail.com'}});
-      document.getElementById('year').textContent=new Date().getFullYear();
-    })();
-  </script>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <span class="brand-mark" aria-hidden="true">SR</span>
+        <p><span>© <span id="year">2026</span> Sebastian Rojas-Ordoñez</span><span data-i18n="footer.tagline">Built around open systems and real hardware.</span></p>
+      </div>
+      <ul class="footer-links">
+        <li><a href="https://github.com/SeRoMechatronic" target="_blank" rel="me noopener">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/sebastian-rojasordo%C3%B1ez/" target="_blank" rel="me noopener">LinkedIn</a></li>
+        <li><a href="https://scholar.google.com/citations?user=HSflBLwAAAAJ&amp;hl=en" target="_blank" rel="me noopener">Scholar</a></li>
+        <li><a href="https://orcid.org/0009-0000-5142-1284" target="_blank" rel="me noopener">ORCID</a></li>
+      </ul>
+      <p class="footer-meta"><span data-i18n="footer.updated">Last updated October 2026</span><a href="#top" class="to-top"><span data-i18n="footer.top">Back to top</span><svg class="icon" aria-hidden="true"><use href="#i-arrow-up"/></svg></a></p>
+    </div>
+  </footer>
+  <dialog class="viewer" id="pdf-viewer" aria-labelledby="viewer-title" tabindex="-1">
+    <div class="viewer-bar">
+      <p class="viewer-title" id="viewer-title"></p>
+      <div class="viewer-actions">
+        <a class="btn btn-ghost btn-sm" id="viewer-open" href="#" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"/></svg><span data-i18n="viewer.open">Open in new tab</span></a>
+        <a class="btn btn-ghost btn-sm" id="viewer-download" href="#" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg><span data-i18n="viewer.download">Download</span></a>
+        <button class="icon-btn" id="viewer-close" type="button" aria-label="Close viewer" data-i18n-attr="aria-label:viewer.close"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+      </div>
+    </div>
+    <iframe class="viewer-frame" id="viewer-frame" title="PDF document" data-i18n-attr="title:viewer.frameTitle" src="about:blank"></iframe>
+  </dialog>
 </body>
 </html>

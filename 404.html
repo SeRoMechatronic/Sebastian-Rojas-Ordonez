@@ -2,12 +2,44 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex">
+  <meta name="color-scheme" content="light dark">
   <title>Page not found · Sebastian Rojas-Ordoñez</title>
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <script>
+    (function (root) {
+      try {
+        var theme = localStorage.getItem('theme');
+        if (theme === 'light' || theme === 'dark') root.setAttribute('data-theme', theme);
+        if (localStorage.getItem('lang') === 'es') root.setAttribute('lang', 'es');
+      } catch (e) {}
+    })(document.documentElement);
+  </script>
   <style>
-    *{box-sizing:border-box}body{margin:0;min-height:100svh;display:grid;place-items:center;overflow:hidden;background:#091512;color:#edf6f1;font-family:system-ui,sans-serif}body::before{content:"";position:fixed;width:560px;height:560px;border-radius:50%;background:#ff8065;filter:blur(120px);opacity:.2;right:-180px;top:-180px}.box{position:relative;width:min(680px,calc(100% - 40px));padding:55px;border:1px solid rgba(237,246,241,.13);border-radius:34px;background:rgba(16,36,30,.72);backdrop-filter:blur(18px)}.code{font:700 clamp(80px,18vw,160px)/.8 ui-monospace,monospace;letter-spacing:-.08em;background:linear-gradient(110deg,#61efda,#f4bb59,#ff8065);background-clip:text;color:transparent}h1{font-size:clamp(28px,5vw,48px);letter-spacing:-.04em;margin:35px 0 12px}p{color:#9baca6;max-width:480px;margin:0 0 28px}a{display:inline-block;padding:12px 18px;border-radius:13px;background:#ff8065;color:#fff;text-decoration:none;font-weight:750}@media(max-width:520px){.box{padding:34px 25px}}
+    :root { --bg: #f6f3ed; --card: rgba(255, 255, 255, .72); --ink: #0f1f1b; --muted: #55635e; --line: rgba(15, 31, 27, .12); --btn: #03695f; --btn-ink: #fff; color-scheme: light; }
+    @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #07120f; --card: rgba(19, 39, 34, .72); --ink: #ebf4ef; --muted: #93a59f; --line: rgba(221, 243, 234, .12); --btn: #62f0db; --btn-ink: #04201b; color-scheme: dark; } }
+    :root[data-theme="dark"] { --bg: #07120f; --card: rgba(19, 39, 34, .72); --ink: #ebf4ef; --muted: #93a59f; --line: rgba(221, 243, 234, .12); --btn: #62f0db; --btn-ink: #04201b; color-scheme: dark; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100svh; display: grid; place-items: center; overflow: hidden; background: var(--bg); color: var(--ink); font: 16px/1.6 system-ui, -apple-system, 'Segoe UI', sans-serif; }
+    body::before, body::after { content: ""; position: fixed; z-index: -1; border-radius: 50%; filter: blur(110px); opacity: .22; }
+    body::before { width: 560px; height: 560px; right: -180px; top: -200px; background: #ef6a4f; }
+    body::after { width: 480px; height: 480px; left: -200px; bottom: -220px; background: #0fbfac; }
+    main { width: min(640px, 100% - 32px); padding: clamp(32px, 7vw, 56px); border: 1px solid var(--line); border-radius: 32px; background: var(--card); -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px); }
+    .code { font: 700 clamp(84px, 20vw, 156px)/.8 ui-monospace, 'Cascadia Mono', Menlo, monospace; letter-spacing: -.08em; background: linear-gradient(110deg, #0fbfac, #f0b048, #ef6a4f); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    h1 { margin: 34px 0 10px; font-size: clamp(26px, 5vw, 40px); line-height: 1.1; letter-spacing: -.035em; }
+    p { margin: 0 0 28px; color: var(--muted); max-width: 46ch; }
+    a { display: inline-flex; align-items: center; gap: 8px; padding: 13px 18px; border-radius: 13px; background: var(--btn); color: var(--btn-ink); font-weight: 800; text-decoration: none; }
+    a:focus-visible { outline: 3px solid #c77d0a; outline-offset: 3px; }
+    [lang="es"] .en, [lang="en"] .es { display: none; }
   </style>
 </head>
-<body><main class="box"><div class="code">404</div><h1>This route left the simulation.</h1><p>The page does not exist, but the systems, research and real-world results are still one click away.</p><a href="/">Return to the portfolio →</a></main></body>
+<body>
+  <main>
+    <div class="code" aria-hidden="true">404</div>
+    <h1><span class="en">This route left the simulation.</span><span class="es" lang="es">Esta ruta se salió de la simulación.</span></h1>
+    <p><span class="en">The page does not exist, but the systems, research and real-world results are one click away.</span><span class="es" lang="es">La página no existe, pero los sistemas, la investigación y los resultados reales están a un clic.</span></p>
+    <a href="/"><span class="en">Back to the portfolio →</span><span class="es" lang="es">Volver al portafolio →</span></a>
+  </main>
+</body>
 </html>
