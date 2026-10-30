@@ -12,16 +12,12 @@ window.SITE_I18N = {
       langSwitch: 'Cambiar idioma a español',
       themeToLight: 'Switch to light theme',
       themeToDark: 'Switch to dark theme',
-      menuOpen: 'Open menu',
-      menuClose: 'Close menu',
       copied: 'Email address copied to the clipboard'
     },
     es: {
       langSwitch: 'Switch language to English',
       themeToLight: 'Cambiar a tema claro',
       themeToDark: 'Cambiar a tema oscuro',
-      menuOpen: 'Abrir menú',
-      menuClose: 'Cerrar menú',
       copied: 'Dirección de correo copiada al portapapeles'
     }
   },
@@ -34,13 +30,12 @@ window.SITE_I18N = {
     /* Navigation */
     'a11y.skip': 'Saltar al contenido',
     'brand.tag': 'Robótica · FMI · IA embebida',
-    'nav.brandLabel': 'Sebastian Rojas-Ordoñez, volver arriba',
-    'nav.label': 'Principal',
-    'nav.about': 'Sobre mí',
-    'nav.work': 'Proyectos',
-    'nav.experience': 'Experiencia',
+    'nav.brandLabel': 'Sebastian Rojas-Ordoñez, inicio',
+    'nav.label': 'Secciones',
+    'nav.home': 'Inicio',
     'nav.research': 'Investigación',
-    'nav.skills': 'Habilidades',
+    'nav.engineering': 'Ingeniería',
+    'nav.background': 'Trayectoria',
     'nav.contact': 'Contacto',
     'nav.cv': 'CV',
     'cta.downloadCv': 'Descargar CV',
@@ -48,7 +43,7 @@ window.SITE_I18N = {
     /* Hero */
     'hero.status': 'Abierto a nuevas oportunidades · Robótica · IA embebida · Sim-to-real',
     'hero.role': 'Ingeniero de sistemas robóticos · Investigador doctoral',
-    'hero.tagline': 'Hago que la simulación <span class="grad">sobreviva al contacto</span> con la realidad.',
+    'hero.tagline': 'Hago que lo que funciona en simulación <span class="grad">funcione en la realidad</span>.',
     'hero.lead': 'Construyo sistemas robóticos fiables de principio a fin: desde <strong>modelos FMI 3.0 y gemelos digitales</strong> hasta autonomía ROS 2 determinista, IA en el borde sobre NVIDIA Jetson y ejecución bit a bit idéntica en microcontroladores de bajo coste.',
     'hero.ctaWork': 'Ver proyectos destacados',
     'hero.profiles': 'Perfiles',
@@ -90,9 +85,28 @@ window.SITE_I18N = {
     'pillar4.title': 'Estándares abiertos',
     'pillar4.text': 'FMI, OpenUSD, ROS 2 y ONNX mantienen los modelos portables entre herramientas, fabricantes y hardware.',
 
-    /* 02 Selected work */
-    'work.kicker': 'Proyectos destacados',
-    'work.title': 'Del modelo al metal.',
+    /* Home: explore the tabs */
+    'explore.kicker': 'Explora',
+    'explore.title': 'Tres formas de entrar.',
+    'explore.intro': 'Cada pestaña tiene su propio espacio: la investigación detrás de mi trabajo, los sistemas que construyo y el camino que me ha traído hasta aquí.',
+    'explore.r.title': 'Cinco artículos revisados por pares',
+    'explore.r.text': 'Portadas de las revistas, resúmenes y textos completos que puedes leer aquí, todos en acceso abierto.',
+    'explore.e.title': 'Sistemas que diseño, construyo y mido',
+    'explore.e.text': 'Tres sistemas insignia, las herramientas detrás de ellos, código abierto y un archivo de ingeniería.',
+    'explore.b.title': 'Experiencia, formación y reconocimientos',
+    'explore.b.text': 'I+D industrial en IKERLAN, un doctorado en la UPV/EHU y un máster Erasmus Mundus en tres países.',
+    'homecta.title': 'Construyamos robots que funcionen fuera del simulador.',
+    'homecta.text': 'Estoy abierto a puestos de ingeniería e I+D en robótica, IA embebida, gemelos digitales y validación sim-to-real.',
+    'homecta.contact': 'Hablemos',
+
+    /* Engineering tab */
+    'eng.kicker': 'Ingeniería',
+    'eng.s1': 'sistemas insignia',
+    'eng.s2': 'repositorios y docencia',
+    'eng.s3': 'proyectos archivados',
+    'eng.s4': 'herramientas de uso diario',
+    'work.kicker': 'Sistemas insignia',
+    'work.title': 'Del modelo al hardware real.',
     'work.intro': 'Tres sistemas insignia que muestran el arco completo de mi trabajo: modelos abiertos, ejecución determinista, validación física y resultados medidos.',
     'case1.area': 'Ejecución portable',
     'case1.context': 'Investigador visitante · UPM GreenLSI · 2026',
@@ -287,8 +301,10 @@ window.SITE_I18N = {
     'lang.de': 'Alemán',
 
     /* 07 Education */
+    'bg.kicker': 'Trayectoria',
     'edu.kicker': 'Formación',
     'edu.title': 'Formado entre disciplinas y países.',
+    'edu.h2': 'Titulaciones y reconocimientos.',
     'edu.intro': 'La mecatrónica me dio intuición física, la inteligencia artificial amplió los límites del sistema y la investigación me enseñó a hacer reproducible cada resultado.',
     'edu.journeyLabel': 'Lugares de estudio y trabajo',
     'edu.j1': 'Colombia · 2014',
@@ -368,6 +384,7 @@ window.SITE_I18N = {
     'contact.copied': 'Copiado al portapapeles',
     'contact.cv': 'Ver CV (PDF, en inglés)',
     'contact.place': 'Arrasate, País Vasco, España · abierto a reubicación',
+    'contact.pLinkedin': 'Perfil profesional',
     'footer.tagline': 'Construido en torno a sistemas abiertos y hardware real.',
     'footer.updated': 'Actualizado en octubre de 2026',
     'footer.top': 'Volver arriba',

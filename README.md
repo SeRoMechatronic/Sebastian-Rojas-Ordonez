@@ -4,14 +4,21 @@ Personal portfolio of **Sebastian Rojas-Ordoñez**, Robotics Systems Engineer an
 
 A buildless static site on GitHub Pages with a custom domain. English by default, with a one-click switch to Spanish and a light/dark theme switch.
 
-## What is on the page
+## Tabs
 
-- Hero with availability, role, CV download and profile links
-- About, with an at-a-glance card for recruiters
-- Three flagship case studies with animated diagrams, metrics and links to paper and code
-- Experience timeline, funded ELKARTEK programmes and earlier roles
-- Publications presented as cards: first-page cover, tags, authors, collapsible abstract, keywords, **Read online** (in-page PDF viewer for hosted papers), PDF download, DOI and licence
-- Open-source repositories and teaching, skills, education and honours, engineering archive, contact
+The page is split into five tabs. Each one has its own colours and style, in both light and dark themes:
+
+| Tab | URL | Content | Style |
+| --- | --- | --- | --- |
+| Home | `/` or `#home` | Hero, about, links to the other tabs, call to action | Brand teal |
+| Research | `#research` | Publications with journal covers, abstracts, in-page PDF viewer | Editorial: paper, serif type, gold |
+| Engineering | `#engineering` | Flagship systems, skills, open source, engineering archive | Blueprint: grid, square corners, blue |
+| Background | `#background` | Route between countries (flags), experience, education, honours, languages | Map: contour lines, terracotta route |
+| Contact | `#contact` | Email, CV and profiles | White on a warm gradient |
+
+The URL fragment picks the tab, so links such as `#research`, `#experience` or `#paper-acme-2026` open the right tab, and back/forward works. CSS does the switching (`:target`); `main.js` adds the animated transition (View Transitions), the sliding tab indicator, a page title per tab and keyboard focus. Without JavaScript every section is shown one after the other. On screens narrower than 860 px the tabs move to a bar at the bottom.
+
+The colours of each tab are design tokens in section 1b of `main.css` (`.p-research`, `.p-engineering`, `.p-background`, `.p-contact`).
 
 ## Structure
 

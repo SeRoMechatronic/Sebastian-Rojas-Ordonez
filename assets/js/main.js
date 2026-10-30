@@ -13,8 +13,6 @@
 
   const langToggle = $('lang-toggle');
   const themeToggle = $('theme-toggle');
-  const menuToggle = $('menu-toggle');
-  const navLinks = $('nav-links');
   const header = $('site-header');
 
   /* ---------- Language ---------- */
@@ -36,13 +34,13 @@
     if (dict) translated = true;
     if (translated) swapTexts(dict);
     root.lang = lang;
-    document.title = (dict && dict['meta.title']) || englishMeta.title;
     document.querySelector('meta[name="description"]').content = (dict && dict['meta.description']) || englishMeta.description;
     langToggle.setAttribute('aria-label', ui('langSwitch'));
     langToggle.setAttribute('title', ui('langSwitch'));
     langToggle.lang = lang === 'en' ? 'es' : 'en';
     updateThemeLabel();
-    updateMenuLabel();
+    updateTitle();
+    placeIndicator(); // tab labels change width with the language
     refreshAbstracts();
     root.classList.remove('lang-pending');
 
@@ -77,6 +75,8 @@
   /* ---------- Theme ---------- */
   const darkQuery = matchMedia('(prefers-color-scheme: dark)');
   const themeColours = { light: '#f6f3ed', dark: '#07120f' };
+  const themeMetas = [...document.querySelectorAll('meta[name="theme-color"]')];
+  const defaultMetaColours = themeMetas.map(meta => meta.getAttribute('content'));
   const currentTheme = () => root.dataset.theme || (darkQuery.matches ? 'dark' : 'light');
 
   function updateThemeLabel() {
@@ -85,9 +85,14 @@
     themeToggle.setAttribute('title', label);
   }
 
+  // The browser bar follows the open tab's background; Home keeps the theme colours.
   function syncThemeColour() {
-    if (!root.dataset.theme) return; // no explicit choice: the media-based <meta> tags already match
-    document.querySelectorAll('meta[name="theme-color"]').forEach(meta => meta.setAttribute('content', themeColours[root.dataset.theme]));
+    const viewBg = activeView ? getComputedStyle(activeView).backgroundColor : '';
+    const own = viewBg && viewBg !== 'transparent' && !/rgba\(.*,\s*0\)$/.test(viewBg) ? viewBg : null;
+    themeMetas.forEach((meta, i) => {
+      const colour = own || (root.dataset.theme ? themeColours[root.dataset.theme] : defaultMetaColours[i]);
+      meta.setAttribute('content', colour);
+    });
   }
 
   themeToggle.addEventListener('click', () => {
@@ -96,34 +101,10 @@
     syncThemeColour();
     updateThemeLabel();
   });
-  darkQuery.addEventListener('change', updateThemeLabel);
-  syncThemeColour();
+  darkQuery.addEventListener('change', () => { updateThemeLabel(); syncThemeColour(); });
 
-  /* ---------- Mobile menu ---------- */
-  const menuIsOpen = () => menuToggle.getAttribute('aria-expanded') === 'true';
-
-  function updateMenuLabel() {
-    menuToggle.setAttribute('aria-label', ui(menuIsOpen() ? 'menuClose' : 'menuOpen'));
-  }
-
-  function setMenu(open) {
-    navLinks.classList.toggle('is-open', open);
-    menuToggle.setAttribute('aria-expanded', String(open));
-    updateMenuLabel();
-  }
-
-  menuToggle.addEventListener('click', () => setMenu(!menuIsOpen()));
-  navLinks.addEventListener('click', event => { if (event.target.closest('a')) setMenu(false); });
-  document.addEventListener('click', event => { if (menuIsOpen() && !event.target.closest('.nav-shell')) setMenu(false); });
-  document.addEventListener('keydown', event => {
-    if (event.key === 'Escape' && menuIsOpen()) { setMenu(false); menuToggle.focus(); }
-  });
-
-  /* ---------- Scroll: progress bar, header state, active nav link ---------- */
+  /* ---------- Scroll: progress bar and header state ---------- */
   const progressBar = $('scroll-progress');
-  const navItems = [...navLinks.querySelectorAll('a[href^="#"]')]
-    .map(link => ({ link, section: document.querySelector(link.getAttribute('href')) }))
-    .filter(item => item.section);
   let scrollQueued = false;
 
   function onScroll() {
@@ -133,19 +114,137 @@
       const max = root.scrollHeight - innerHeight;
       progressBar.style.setProperty('--progress', max > 0 ? Math.min(1, scrollY / max).toFixed(4) : '0');
       header.classList.toggle('is-scrolled', scrollY > 8);
-      let active = null;
-      navItems.forEach(item => { if (item.section.getBoundingClientRect().top <= innerHeight * .35) active = item; });
-      if (innerHeight + scrollY >= root.scrollHeight - 4) active = navItems[navItems.length - 1];
-      navItems.forEach(item => {
-        item.link.classList.toggle('is-active', item === active);
-        if (item === active) item.link.setAttribute('aria-current', 'location');
-        else item.link.removeAttribute('aria-current');
-      });
       scrollQueued = false;
     });
   }
   addEventListener('scroll', onScroll, { passive: true });
-  addEventListener('resize', onScroll, { passive: true });
+
+  /* ---------- Tabs: one view at a time ----------
+     The URL fragment decides which view is shown (CSS :target does the swapping, so links, back/forward
+     and bookmarks work on their own). This adds the animation, the sliding pill, titles and focus. */
+  const views = [...document.querySelectorAll('.view')];
+  const tabLinks = [...document.querySelectorAll('[data-tab]')];
+  const tabsNav = $('tabs');
+  const indicator = $('tabs-indicator');
+  const tabsMode = views.length > 0 && typeof CSS !== 'undefined' && CSS.supports('selector(:has(*))');
+  let activeView = null;
+
+  // The view holding the fragment target; no fragment (or one outside the views) means Home.
+  function viewFor(hash) {
+    let target = null;
+    try { target = hash && hash.length > 1 ? $(decodeURIComponent(hash.slice(1))) : null; } catch { target = null; }
+    const view = target && target.closest('.view');
+    return { view: view || views[0], target: view && target !== view ? target : null };
+  }
+
+  function placeIndicator() {
+    if (!tabsNav || !indicator) return;
+    const link = tabsNav.querySelector('a.is-active');
+    if (!link || !tabsNav.offsetParent) return; // the bottom bar is used on small screens
+    indicator.style.setProperty('--ix', `${link.offsetLeft}px`);
+    indicator.style.setProperty('--iw', `${link.offsetWidth}px`);
+    if (!tabsNav.classList.contains('is-ready')) requestAnimationFrame(() => tabsNav.classList.add('is-ready'));
+  }
+
+  function updateTitle() {
+    const home = (lang === 'es' && I18N.es['meta.title']) || englishMeta.title;
+    const link = activeView && activeView !== views[0] && tabsNav && tabsNav.querySelector(`[data-tab="${activeView.id}"]`);
+    document.title = link ? `${link.textContent.trim()} · Sebastian Rojas-Ordoñez` : home;
+  }
+
+  function syncView() {
+    if (!tabsMode) return false;
+    const { view } = viewFor(location.hash);
+    const changed = view !== activeView;
+    activeView = view;
+    root.dataset.view = view.id;
+    tabLinks.forEach(link => {
+      const on = link.dataset.tab === view.id;
+      link.classList.toggle('is-active', on);
+      if (on) link.setAttribute('aria-current', 'page');
+      else link.removeAttribute('aria-current');
+    });
+    placeIndicator();
+    updateTitle();
+    syncThemeColour();
+    if (changed) { refreshAbstracts(); onScroll(); }
+    return changed;
+  }
+
+  function focusView(view) {
+    const heading = view.querySelector('h1, h2');
+    if (!heading) return;
+    if (!heading.hasAttribute('tabindex')) heading.setAttribute('tabindex', '-1');
+    heading.focus({ preventScroll: true });
+  }
+
+  function replay(view) {
+    view.classList.remove('is-entering');
+    void view.offsetWidth; // restart the CSS animation
+    view.classList.add('is-entering');
+  }
+
+  function goTo(hash, viaKeyboard) {
+    const { view, target } = viewFor(hash);
+    if (view === activeView) {
+      // Same tab: move within it (or back to its top when the tab is clicked again).
+      if (location.hash !== hash) location.hash = hash;
+      else scrollTo({ top: target ? target.getBoundingClientRect().top + scrollY - 92 : 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+      return;
+    }
+    const forward = views.indexOf(view) > views.indexOf(activeView);
+    const swap = () => {
+      root.style.scrollBehavior = 'auto';
+      location.hash = hash; // CSS swaps the view and the browser jumps to the target
+      if (!target) scrollTo(0, 0);
+      root.style.scrollBehavior = '';
+      syncView();
+      if (viaKeyboard) focusView(view); // keyboard users land on the new tab's heading
+    };
+    if (document.startViewTransition && !reduceMotion) {
+      root.dataset.vt = forward ? 'forward' : 'back';
+      const transition = document.startViewTransition(swap);
+      // The browser may skip the animation (e.g. the mobile toolbar resizes the viewport); the swap still happens.
+      transition.ready.catch(() => {});
+      transition.finished.finally(() => { delete root.dataset.vt; });
+    } else {
+      swap();
+      if (!reduceMotion) replay(view);
+    }
+  }
+
+  if (tabsMode) {
+    document.addEventListener('click', event => {
+      const link = event.target.closest('a[href^="#"]');
+      if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      const hash = link.getAttribute('href');
+      if (link.hasAttribute('data-to-top')) {
+        event.preventDefault();
+        scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+        return;
+      }
+      if (hash === '#main') { // skip link: go to the content of the open tab
+        event.preventDefault();
+        focusView(activeView);
+        activeView.scrollIntoView({ block: 'start' });
+        return;
+      }
+      let target = null;
+      try { target = hash.length > 1 ? $(decodeURIComponent(hash.slice(1))) : null; } catch { target = null; }
+      if (!target) return;
+      event.preventDefault();
+      goTo(hash, event.detail === 0);
+    });
+
+    // Back/forward and typed fragments: CSS has already swapped the view.
+    addEventListener('hashchange', () => {
+      if (root.dataset.vt) return;
+      const before = activeView;
+      if (syncView() && before && !reduceMotion) replay(activeView);
+    });
+    addEventListener('resize', placeIndicator, { passive: true });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(placeIndicator);
+  }
 
   /* ---------- Reveal on scroll (with a small stagger inside grids) ---------- */
   const reveals = [...document.querySelectorAll('.reveal')];
@@ -280,9 +379,11 @@
   /* ---------- Start ---------- */
   $('year').textContent = String(new Date().getFullYear());
 
+  syncView();
   const param = new URLSearchParams(location.search).get('lang');
   if (param === 'es' || param === 'en') store.set('lang', param);
   const initial = param === 'es' || param === 'en' ? param : store.get('lang') === 'es' ? 'es' : 'en';
   applyLanguage(initial, false);
+  syncThemeColour();
   onScroll();
 })();
